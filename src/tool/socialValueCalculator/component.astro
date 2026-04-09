@@ -165,86 +165,136 @@ const ICON_INFO = `<svg viewBox="0 0 24 24" fill="currentColor" width="16" heigh
 
 <script>
   import { calculateValue } from './logic';
+  import type { CalcResult } from './logic';
+
+  type Platform = 'tiktok' | 'instagram';
+
+  let platform: Platform = 'tiktok';
+  let labelViewsTiktok = '';
+  let labelViewsIg = '';
+  let rangeLabel = '';
+  let currencySymbol = '€';
+  let numberLocale = 'es-ES';
+
+  let btnTiktok: HTMLButtonElement | null = null;
+  let btnInstagram: HTMLButtonElement | null = null;
+  let inputFollowers: HTMLInputElement | null = null;
+  let inputAvgViews: HTMLInputElement | null = null;
+  let inputEngagement: HTMLInputElement | null = null;
+  let selectNiche: HTMLSelectElement | null = null;
+  let emptyState: HTMLElement | null = null;
+  let results: HTMLElement | null = null;
+  let priceEl: HTMLElement | null = null;
+  let rangeEl: HTMLElement | null = null;
+  let erEl: HTMLElement | null = null;
+  let cpmEl: HTMLElement | null = null;
+  let erBar: HTMLElement | null = null;
+  let cpmBar: HTMLElement | null = null;
+  let labelViewsText: HTMLElement | null = null;
+  let toggle: Element | null = null;
+
+  function applyTiktok() {
+    toggle?.classList.remove('svc-switch');
+    btnTiktok?.classList.add('svc-active');
+    btnInstagram?.classList.remove('svc-active');
+    if (labelViewsText) labelViewsText.textContent = labelViewsTiktok;
+  }
+
+  function applyInstagram() {
+    toggle?.classList.add('svc-switch');
+    btnInstagram?.classList.add('svc-active');
+    btnTiktok?.classList.remove('svc-active');
+    if (labelViewsText) labelViewsText.textContent = labelViewsIg;
+  }
+
+  function switchPlatform(p: Platform) {
+    platform = p;
+    if (p === 'tiktok') { applyTiktok(); } else { applyInstagram(); }
+  }
+
+  function fmt(n: number) {
+    return n.toLocaleString(numberLocale, { maximumFractionDigits: 0 });
+  }
+
+  function parseInputs() {
+    if (!inputFollowers || !inputAvgViews || !inputEngagement || !selectNiche) return null;
+    return {
+      followers: parseFloat(inputFollowers.value) || 0,
+      avgViews: parseFloat(inputAvgViews.value) || 0,
+      avgEngagement: parseFloat(inputEngagement.value) || 0,
+      niche: selectNiche.value,
+    };
+  }
+
+  function resolveEls() {
+    if (!emptyState || !results || !priceEl || !rangeEl || !erEl || !cpmEl) return null;
+    return { emptyState, results, priceEl, rangeEl, erEl, cpmEl };
+  }
+
+  function applyBars(result: CalcResult) {
+    if (erBar) erBar.style.width = `${Math.min(result.er * 8, 100)}%`;
+    if (cpmBar) cpmBar.style.width = `${Math.min(result.projectedCPM * 3, 100)}%`;
+  }
+
+  function renderResult(result: CalcResult | null) {
+    if (!result) return;
+    const els = resolveEls();
+    if (!els) return;
+    els.priceEl.textContent = `${fmt(result.tariff)} ${currencySymbol}`;
+    els.rangeEl.textContent = `${rangeLabel} ${fmt(result.lowRange)} ${currencySymbol} — ${fmt(result.highRange)} ${currencySymbol}`;
+    els.erEl.textContent = `${result.er.toFixed(1)}%`;
+    els.cpmEl.textContent = `${result.projectedCPM.toFixed(2)} ${currencySymbol}`;
+    applyBars(result);
+    els.emptyState.classList.add('svc-hidden');
+    els.results.classList.remove('svc-hidden');
+    els.results.classList.remove('svc-fadein');
+    void els.results.offsetWidth;
+    els.results.classList.add('svc-fadein');
+  }
+
+  function calculate() {
+    const inputs = parseInputs();
+    if (!inputs) return;
+    renderResult(calculateValue({ ...inputs, platform }));
+  }
+
+  function setupElements() {
+    btnTiktok = document.getElementById('svc-btn-tiktok') as HTMLButtonElement | null;
+    btnInstagram = document.getElementById('svc-btn-instagram') as HTMLButtonElement | null;
+    inputFollowers = document.getElementById('svc-followers') as HTMLInputElement | null;
+    inputAvgViews = document.getElementById('svc-avg-views') as HTMLInputElement | null;
+    inputEngagement = document.getElementById('svc-avg-engagement') as HTMLInputElement | null;
+    selectNiche = document.getElementById('svc-niche') as HTMLSelectElement | null;
+    emptyState = document.getElementById('svc-empty');
+    results = document.getElementById('svc-results');
+    priceEl = document.getElementById('svc-price');
+    rangeEl = document.getElementById('svc-range');
+    erEl = document.getElementById('svc-metric-er');
+    cpmEl = document.getElementById('svc-metric-cpm');
+    erBar = document.getElementById('svc-er-bar');
+    cpmBar = document.getElementById('svc-cpm-bar');
+    labelViewsText = document.getElementById('svc-label-views-text');
+    toggle = document.querySelector('.svc-toggle');
+  }
+
+  function setupData(root: HTMLElement) {
+    labelViewsTiktok = root.dataset.labelViewsTiktok || '';
+    labelViewsIg = root.dataset.labelViewsIg || '';
+    rangeLabel = root.dataset.rangeLabel || '';
+    currencySymbol = root.dataset.currencySymbol || '€';
+    numberLocale = root.dataset.numberLocale || 'es-ES';
+    const insightEl = document.getElementById('svc-insight-text');
+    if (insightEl) insightEl.textContent = root.dataset.insightText || '';
+  }
 
   function init() {
     const root = document.querySelector('.svc-root') as HTMLElement | null;
     if (!root) return;
-
-    const labelViewsTiktok = root.dataset.labelViewsTiktok ?? '';
-    const labelViewsIg = root.dataset.labelViewsIg ?? '';
-    const rangeLabel = root.dataset.rangeLabel ?? '';
-    const currencySymbol = root.dataset.currencySymbol ?? '€';
-    const numberLocale = root.dataset.numberLocale ?? 'es-ES';
-    const insightText = root.dataset.insightText ?? '';
-
-    const btnTiktok = document.getElementById('svc-btn-tiktok') as HTMLButtonElement | null;
-    const btnInstagram = document.getElementById('svc-btn-instagram') as HTMLButtonElement | null;
-    const inputFollowers = document.getElementById('svc-followers') as HTMLInputElement | null;
-    const inputAvgViews = document.getElementById('svc-avg-views') as HTMLInputElement | null;
-    const inputEngagement = document.getElementById('svc-avg-engagement') as HTMLInputElement | null;
-    const selectNiche = document.getElementById('svc-niche') as HTMLSelectElement | null;
-    const btnCalculate = document.getElementById('svc-btn-calculate') as HTMLButtonElement | null;
-    const emptyState = document.getElementById('svc-empty');
-    const results = document.getElementById('svc-results');
-    const priceEl = document.getElementById('svc-price');
-    const rangeEl = document.getElementById('svc-range');
-    const erEl = document.getElementById('svc-metric-er');
-    const cpmEl = document.getElementById('svc-metric-cpm');
-    const erBar = document.getElementById('svc-er-bar');
-    const cpmBar = document.getElementById('svc-cpm-bar');
-    const labelViewsText = document.getElementById('svc-label-views-text');
-    const insightEl = document.getElementById('svc-insight-text');
-    const toggle = document.querySelector('.svc-toggle');
-
-    if (insightEl) insightEl.textContent = insightText;
-
-    let platform: 'tiktok' | 'instagram' = 'tiktok';
-
-    function switchPlatform(p: 'tiktok' | 'instagram') {
-      platform = p;
-      if (p === 'tiktok') {
-        toggle?.classList.remove('svc-switch');
-        btnTiktok?.classList.add('svc-active');
-        btnInstagram?.classList.remove('svc-active');
-        if (labelViewsText) labelViewsText.textContent = labelViewsTiktok;
-      } else {
-        toggle?.classList.add('svc-switch');
-        btnInstagram?.classList.add('svc-active');
-        btnTiktok?.classList.remove('svc-active');
-        if (labelViewsText) labelViewsText.textContent = labelViewsIg;
-      }
-    }
-
-    function fmt(n: number) {
-      return n.toLocaleString(numberLocale, { maximumFractionDigits: 0 });
-    }
-
-    function calculate() {
-      if (!inputFollowers || !inputAvgViews || !inputEngagement || !selectNiche) return;
-      const followers = parseFloat(inputFollowers.value) || 0;
-      const avgViews = parseFloat(inputAvgViews.value) || 0;
-      const avgEngagement = parseFloat(inputEngagement.value) || 0;
-      const result = calculateValue({ followers, avgViews, avgEngagement, niche: selectNiche.value, platform });
-      if (!result || !emptyState || !results || !priceEl || !rangeEl || !erEl || !cpmEl) return;
-
-      priceEl.textContent = `${fmt(result.tariff)} ${currencySymbol}`;
-      rangeEl.textContent = `${rangeLabel} ${fmt(result.lowRange)} ${currencySymbol} — ${fmt(result.highRange)} ${currencySymbol}`;
-      erEl.textContent = `${result.er.toFixed(1)}%`;
-      cpmEl.textContent = `${result.projectedCPM.toFixed(2)} ${currencySymbol}`;
-
-      if (erBar) erBar.style.width = `${Math.min(result.er * 8, 100)}%`;
-      if (cpmBar) cpmBar.style.width = `${Math.min(result.projectedCPM * 3, 100)}%`;
-
-      emptyState.classList.add('svc-hidden');
-      results.classList.remove('svc-hidden');
-      results.classList.remove('svc-fadein');
-      void (results as HTMLElement).offsetWidth;
-      results.classList.add('svc-fadein');
-    }
-
+    setupData(root);
+    setupElements();
     btnTiktok?.addEventListener('click', () => switchPlatform('tiktok'));
     btnInstagram?.addEventListener('click', () => switchPlatform('instagram'));
-    btnCalculate?.addEventListener('click', calculate);
+    document.getElementById('svc-btn-calculate')?.addEventListener('click', calculate);
   }
 
   document.addEventListener('astro:page-load', init);
@@ -259,18 +309,18 @@ const ICON_INFO = `<svg viewBox="0 0 24 24" fill="currentColor" width="16" heigh
     --nav-bg: rgba(255, 255, 255, 0.3);
     --nav-border: rgba(0, 0, 0, 0.05);
     --toggle-bg: rgba(0, 0, 0, 0.04);
-    --slider-bg: #ffffff;
+    --slider-bg: #fff;
     --slider-shadow: rgba(0, 0, 0, 0.1);
     --btn-active-color: #0f172a;
     --btn-color: #64748b;
     --sidebar-bg: rgba(0, 0, 0, 0.015);
     --sidebar-border: rgba(0, 0, 0, 0.05);
     --label-color: #475569;
-    --input-bg: #ffffff;
+    --input-bg: #fff;
     --input-border: rgba(0, 0, 0, 0.1);
     --input-text: #0f172a;
     --tooltip-bg: #1e293b;
-    --card-bg: #ffffff;
+    --card-bg: #fff;
     --card-border: rgba(0, 0, 0, 0.05);
     --stat-value: #0f172a;
     --text-muted: #64748b;
@@ -291,18 +341,18 @@ const ICON_INFO = `<svg viewBox="0 0 24 24" fill="currentColor" width="16" heigh
     --toggle-bg: rgba(255, 255, 255, 0.05);
     --slider-bg: #1e293b;
     --slider-shadow: rgba(0, 0, 0, 0.3);
-    --btn-active-color: #ffffff;
+    --btn-active-color: #fff;
     --btn-color: #94a3b8;
     --sidebar-bg: rgba(0, 0, 0, 0.2);
     --sidebar-border: rgba(255, 255, 255, 0.05);
     --label-color: #94a3b8;
     --input-bg: #0f172a;
     --input-border: rgba(255, 255, 255, 0.1);
-    --input-text: #ffffff;
+    --input-text: #fff;
     --tooltip-bg: #0f172a;
     --card-bg: rgba(255, 255, 255, 0.03);
     --card-border: rgba(255, 255, 255, 0.05);
-    --stat-value: #ffffff;
+    --stat-value: #fff;
     --text-muted: #94a3b8;
     --insight-bg: rgba(255, 255, 255, 0.02);
     --progress-bg: rgba(255, 255, 255, 0.05);
@@ -369,7 +419,10 @@ const ICON_INFO = `<svg viewBox="0 0 24 24" fill="currentColor" width="16" heigh
 
   .svc-toggle.svc-switch .svc-slider { transform: translateX(100%); }
 
-  .svc-nav-icon { display: flex; align-items: center; }
+  .svc-nav-icon {
+    display: flex;
+    align-items: center;
+  }
 
   .svc-grid {
     display: grid;
@@ -416,8 +469,17 @@ const ICON_INFO = `<svg viewBox="0 0 24 24" fill="currentColor" width="16" heigh
     gap: 10px;
   }
 
-  .svc-input-icon { color: #6366f1; flex-shrink: 0; }
-  .svc-label-icon { display: flex; align-items: center; color: #6366f1; flex-shrink: 0; }
+  .svc-input-icon {
+    color: #6366f1;
+    flex-shrink: 0;
+  }
+
+  .svc-label-icon {
+    display: flex;
+    align-items: center;
+    color: #6366f1;
+    flex-shrink: 0;
+  }
 
   .svc-info-trigger {
     position: relative;
@@ -510,7 +572,7 @@ const ICON_INFO = `<svg viewBox="0 0 24 24" fill="currentColor" width="16" heigh
     background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
     border: none;
     border-radius: 16px;
-    color: #ffffff;
+    color: #fff;
     font-weight: 800;
     font-size: 1.1rem;
     cursor: pointer;
@@ -556,8 +618,16 @@ const ICON_INFO = `<svg viewBox="0 0 24 24" fill="currentColor" width="16" heigh
     border-radius: 100px;
   }
 
-  .svc-c1 { background: rgba(99, 102, 241, 0.05); animation: svc-pulse 3s infinite; }
-  .svc-c2 { background: rgba(99, 102, 241, 0.08); animation: svc-pulse 3s infinite 1.5s; transform: scale(0.8); }
+  .svc-c1 {
+    background: rgba(99, 102, 241, 0.05);
+    animation: svc-pulse 3s infinite;
+  }
+
+  .svc-c2 {
+    background: rgba(99, 102, 241, 0.08);
+    animation: svc-pulse 3s infinite 1.5s;
+    transform: scale(0.8);
+  }
 
   .svc-placeholder-icon {
     position: absolute;
@@ -574,7 +644,11 @@ const ICON_INFO = `<svg viewBox="0 0 24 24" fill="currentColor" width="16" heigh
     margin-bottom: 0.75rem;
   }
 
-  .svc-empty p { font-size: 1rem; color: var(--text-muted); line-height: 1.6; }
+  .svc-empty p {
+    font-size: 1rem;
+    color: var(--text-muted);
+    line-height: 1.6;
+  }
 
   .svc-results {
     width: 100%;
@@ -588,7 +662,7 @@ const ICON_INFO = `<svg viewBox="0 0 24 24" fill="currentColor" width="16" heigh
     background: linear-gradient(135deg, #0f172a 0%, #1e1b4b 100%);
     padding: 3rem;
     border-radius: 28px;
-    color: #ffffff;
+    color: #fff;
     box-shadow: 0 20px 40px -10px rgba(15, 23, 42, 0.4);
   }
 
@@ -608,7 +682,12 @@ const ICON_INFO = `<svg viewBox="0 0 24 24" fill="currentColor" width="16" heigh
     margin-bottom: 0.5rem;
   }
 
-  .svc-range { font-size: 1rem; color: #94a3b8; font-weight: 600; opacity: 0.8; }
+  .svc-range {
+    font-size: 1rem;
+    color: #94a3b8;
+    font-weight: 600;
+    opacity: 0.8;
+  }
 
   .svc-analytics {
     display: grid;
@@ -640,8 +719,18 @@ const ICON_INFO = `<svg viewBox="0 0 24 24" fill="currentColor" width="16" heigh
     text-transform: uppercase;
   }
 
-  .svc-stat-value { font-size: 2rem; font-weight: 900; color: var(--stat-value); }
-  .svc-stat-desc { font-size: 0.85rem; font-weight: 600; color: var(--text-muted); margin-bottom: 0.75rem; }
+  .svc-stat-value {
+    font-size: 2rem;
+    font-weight: 900;
+    color: var(--stat-value);
+  }
+
+  .svc-stat-desc {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--text-muted);
+    margin-bottom: 0.75rem;
+  }
 
   .svc-icon-warn { color: #f59e0b; }
   .svc-icon-ok { color: #10b981; }
@@ -673,30 +762,68 @@ const ICON_INFO = `<svg viewBox="0 0 24 24" fill="currentColor" width="16" heigh
     border-left: 4px solid #6366f1;
   }
 
-  .svc-insight-icon { color: #6366f1; flex-shrink: 0; margin-top: 2px; }
-  .svc-insight p { font-size: 0.85rem; color: var(--text-muted); margin: 0; line-height: 1.5; font-weight: 500; }
+  .svc-insight-icon {
+    color: #6366f1;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
 
-  .svc-hidden { display: none !important; }
+  .svc-insight p {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    margin: 0;
+    line-height: 1.5;
+    font-weight: 500;
+  }
+
+  .svc-hidden {
+    display: none;
+  }
 
   .svc-fadein { animation: svc-fadein 0.4s ease; }
 
   @keyframes svc-pulse {
-    0%, 100% { opacity: 1; transform: scale(1); }
-    50% { opacity: 0.6; transform: scale(1.1); }
+    0%, 100% {
+      opacity: 1;
+      transform: scale(1);
+    }
+
+    50% {
+      opacity: 0.6;
+      transform: scale(1.1);
+    }
   }
 
   @keyframes svc-fadein {
-    from { opacity: 0; transform: translateY(10px); }
-    to { opacity: 1; transform: translateY(0); }
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
   }
 
   @media (max-width: 900px) {
-    .svc-grid { grid-template-columns: 1fr; }
-    .svc-sidebar { border-right: none; border-bottom: 1px solid var(--sidebar-border); }
+    .svc-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .svc-sidebar {
+      border-right: none;
+      border-bottom: 1px solid var(--sidebar-border);
+    }
   }
 
   @media (max-width: 600px) {
-    .svc-analytics { grid-template-columns: 1fr; }
-    .svc-amount { font-size: 3rem; }
+    .svc-analytics {
+      grid-template-columns: 1fr;
+    }
+
+    .svc-amount {
+      font-size: 3rem;
+    }
   }
 </style>

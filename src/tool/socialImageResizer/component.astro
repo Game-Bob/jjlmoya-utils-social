@@ -106,76 +106,75 @@ const icons: Record<string, string> = {
 <script>
   import { SocialResizer } from './logic';
 
-  function init() {
-    const dropzone = document.getElementById('sri-dropzone');
-    const fileInput = document.getElementById('sri-file-input') as HTMLInputElement | null;
-    const editorView = document.getElementById('sri-editor-view');
-    const presetBtns = document.querySelectorAll('.sri-preset-btn');
-    const zoomRange = document.getElementById('sri-zoom-range') as HTMLInputElement | null;
-    const resetBtn = document.getElementById('sri-reset-btn');
-    const downloadBtn = document.getElementById('sri-download-btn');
+  let resizer: SocialResizer | null = null;
+  let dropzoneEl: HTMLElement | null = null;
+  let editorViewEl: HTMLElement | null = null;
 
-    if (!dropzone || !fileInput) return;
+  async function handleFile(file: File) {
+    if (!file.type.startsWith('image/') || !resizer || !dropzoneEl) return;
+    await resizer.loadImage(file);
+    dropzoneEl.style.display = 'none';
+    editorViewEl?.classList.add('active');
+  }
 
-    const resizer = new SocialResizer('sri-canvas');
-    resizer.zoomRangeEl = zoomRange;
-
+  function setupDropzone(dropzone: HTMLElement, fileInput: HTMLInputElement) {
     dropzone.addEventListener('click', () => fileInput.click());
-
     fileInput.addEventListener('change', async (e: Event) => {
       const file = (e.target as HTMLInputElement).files?.[0];
       if (file) await handleFile(file);
     });
-
     dropzone.addEventListener('dragover', (e) => {
       e.preventDefault();
       dropzone.classList.add('sri-hover');
     });
-
-    dropzone.addEventListener('dragleave', () => {
-      dropzone.classList.remove('sri-hover');
-    });
-
+    dropzone.addEventListener('dragleave', () => dropzone.classList.remove('sri-hover'));
     dropzone.addEventListener('drop', async (e: DragEvent) => {
       e.preventDefault();
       const file = e.dataTransfer?.files[0];
       if (file) await handleFile(file);
     });
+  }
 
+  function setupPresets(presetBtns: NodeListOf<Element>, zoomRange: HTMLInputElement | null) {
     presetBtns.forEach((btn) => {
       btn.addEventListener('click', () => {
         const preset = JSON.parse(btn.getAttribute('data-preset')!);
         presetBtns.forEach((b) => b.classList.remove('active'));
         btn.classList.add('active');
-        resizer.setPreset(preset);
+        resizer?.setPreset(preset);
         if (zoomRange) zoomRange.value = '100';
       });
     });
+  }
 
+  function setupControls(zoomRange: HTMLInputElement | null, resetBtn: HTMLElement | null, downloadBtn: HTMLElement | null) {
     zoomRange?.addEventListener('input', () => {
-      resizer.setScale(parseInt(zoomRange.value) / 100);
+      resizer?.setScale(parseInt(zoomRange.value) / 100);
     });
-
     resetBtn?.addEventListener('click', () => {
       const activeBtn = document.querySelector('.sri-preset-btn.active');
       if (activeBtn) {
-        const preset = JSON.parse(activeBtn.getAttribute('data-preset')!);
-        resizer.setPreset(preset);
+        resizer?.setPreset(JSON.parse(activeBtn.getAttribute('data-preset')!));
         if (zoomRange) zoomRange.value = '100';
       }
     });
+    downloadBtn?.addEventListener('click', () => resizer?.download());
+  }
 
-    downloadBtn?.addEventListener('click', () => resizer.download());
-
-    const firstPreset = JSON.parse(presetBtns[0].getAttribute('data-preset')!);
-    resizer.setPreset(firstPreset);
-
-    async function handleFile(file: File) {
-      if (!file.type.startsWith('image/')) return;
-      await resizer.loadImage(file);
-      dropzone!.style.display = 'none';
-      editorView?.classList.add('active');
-    }
+  function init() {
+    const dropzone = document.getElementById('sri-dropzone');
+    const fileInput = document.getElementById('sri-file-input') as HTMLInputElement | null;
+    if (!dropzone || !fileInput) return;
+    dropzoneEl = dropzone;
+    editorViewEl = document.getElementById('sri-editor-view');
+    const presetBtns = document.querySelectorAll('.sri-preset-btn');
+    const zoomRange = document.getElementById('sri-zoom-range') as HTMLInputElement | null;
+    resizer = new SocialResizer('sri-canvas');
+    resizer.zoomRangeEl = zoomRange;
+    setupDropzone(dropzone, fileInput);
+    setupPresets(presetBtns, zoomRange);
+    setupControls(zoomRange, document.getElementById('sri-reset-btn'), document.getElementById('sri-download-btn'));
+    resizer.setPreset(JSON.parse(presetBtns[0].getAttribute('data-preset')!));
   }
 
   document.addEventListener('astro:page-load', init);
@@ -184,15 +183,15 @@ const icons: Record<string, string> = {
 
 <style>
   .sri-container {
-    --bg: #ffffff;
+    --bg: #fff;
     --bg-sidebar: #f8fafc;
-    --bg-main: #ffffff;
+    --bg-main: #fff;
     --bg-upload: #f8fafc;
-    --bg-upload-icon: #ffffff;
+    --bg-upload-icon: #fff;
     --bg-canvas: #f1f5f9;
-    --bg-btn: #ffffff;
+    --bg-btn: #fff;
     --bg-btn-hover: #f8fafc;
-    --bg-zoom: #ffffff;
+    --bg-zoom: #fff;
     --bg-preset-icon: #f1f5f9;
     --bg-preset-hover: #f5f3ff;
     --border: #e2e8f0;
@@ -269,7 +268,7 @@ const icons: Record<string, string> = {
   .sri-preset-btn.active {
     background: #8b5cf6;
     border-color: #7c3aed;
-    color: #ffffff;
+    color: #fff;
     box-shadow: 0 10px 20px rgba(139, 92, 246, 0.2);
   }
 
@@ -288,7 +287,7 @@ const icons: Record<string, string> = {
 
   .sri-preset-btn.active .sri-preset-icon {
     background: rgba(255, 255, 255, 0.2);
-    color: #ffffff;
+    color: #fff;
   }
 
   .sri-preset-info {
@@ -429,7 +428,7 @@ const icons: Record<string, string> = {
   .sri-action-btn.sri-primary {
     background: #8b5cf6;
     border-color: #7c3aed;
-    color: #ffffff;
+    color: #fff;
   }
 
   .sri-action-btn.sri-primary:hover {
@@ -477,9 +476,23 @@ const icons: Record<string, string> = {
   }
 
   @media (max-width: 900px) {
-    .sri-container { grid-template-columns: 1fr; }
-    .sri-sidebar { border-right: none; border-bottom: 1px solid var(--border); }
-    .sri-editor-actions { flex-direction: column; gap: 1rem; align-items: stretch; }
-    .sri-btn-group { justify-content: center; }
+    .sri-container {
+      grid-template-columns: 1fr;
+    }
+
+    .sri-sidebar {
+      border-right: none;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .sri-editor-actions {
+      flex-direction: column;
+      gap: 1rem;
+      align-items: stretch;
+    }
+
+    .sri-btn-group {
+      justify-content: center;
+    }
   }
 </style>

@@ -15,7 +15,6 @@ export interface SafeZonesUI extends Record<string, string> {
   nameTiktok: string;
   nameReels: string;
   nameShorts: string;
-  // TikTok UI strings
   ttFollowing: string;
   ttForYou: string;
   ttDescription: string;
@@ -24,11 +23,9 @@ export interface SafeZonesUI extends Record<string, string> {
   ttNavFriends: string;
   ttNavInbox: string;
   ttNavProfile: string;
-  // Reels UI strings
   reelsFollow: string;
   reelsDescription: string;
   reelsAudio: string;
-  // Shorts UI strings
   shortsSubscribe: string;
   shortsDislike: string;
   shortsShare: string;

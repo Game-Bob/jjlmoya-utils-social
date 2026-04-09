@@ -1,15 +1,26 @@
-declare const faceapi: any;
-
-export interface AnalysisAlert {
-  type: 'success' | 'warning' | 'error';
-  text: string;
+interface FaceLandmark { x: number; y: number; }
+interface FaceLandmarks { getLeftEye(): FaceLandmark[]; getRightEye(): FaceLandmark[]; positions: FaceLandmark[]; }
+interface FaceExpressions { happy: number; angry: number; }
+interface FaceBox { x: number; y: number; width: number; height: number; }
+interface FaceNet { loadFromUri(url: string): Promise<void>; }
+interface FaceApiGlobal {
+  nets: { tinyFaceDetector: FaceNet; faceLandmark68Net: FaceNet; faceExpressionNet: FaceNet };
+  TinyFaceDetectorOptions: new () => unknown;
+  detectSingleFace(img: HTMLImageElement, opts: unknown): { withFaceLandmarks(): { withFaceExpressions(): Promise<FaceDetectionResult | undefined> } };
 }
+declare const faceapi: FaceApiGlobal;
+
+export interface FaceDetectionResult { detection: { box: FaceBox; score: number }; landmarks: FaceLandmarks | null; expressions: FaceExpressions | null; }
+export interface AnalysisAlert { type: 'success' | 'warning' | 'error'; text: string; }
+type AnalysisCtx = { alerts: AnalysisAlert[]; metrics: Record<string, string> };
+type ImgGeo = { x: number; y: number; w: number; h: number; canvasW: number; canvasH: number; r: number };
+type FaceGeo = { fx: number; fy: number; fw: number; fh: number; faceHeightRatio: number };
 
 export class TinderOptimizerEngine {
   private canvas: HTMLCanvasElement;
   private ctx: CanvasRenderingContext2D;
   public image: HTMLImageElement | null = null;
-  public faceDetection: any = null;
+  public faceDetection: FaceDetectionResult | null = null;
   public zoom = 1;
   public offset = { x: 0, y: 0 };
   public brightness = 100;
@@ -37,208 +48,152 @@ export class TinderOptimizerEngine {
       .detectSingleFace(image, new faceapi.TinyFaceDetectorOptions())
       .withFaceLandmarks()
       .withFaceExpressions();
-    this.faceDetection = detections;
+    this.faceDetection = detections ?? null;
     return detections;
   }
 
   setManualFace(rect: { x: number; y: number; w: number; h: number }) {
     if (!this.image) return;
-    const iw = this.image.width;
-    const ih = this.image.height;
-    const r = Math.max(this.canvas.width / iw, this.canvas.height / ih);
-    const w = iw * r * this.zoom;
-    const h = ih * r * this.zoom;
+    const r = Math.max(this.canvas.width / this.image.width, this.canvas.height / this.image.height);
+    const w = this.image.width * r * this.zoom;
+    const h = this.image.height * r * this.zoom;
     const imgX = (this.canvas.width - w) / 2 + this.offset.x;
     const imgY = (this.canvas.height - h) / 2 + this.offset.y;
     this.faceDetection = {
-      detection: {
-        box: {
-          x: (rect.x - imgX) / (r * this.zoom),
-          y: (rect.y - imgY) / (r * this.zoom),
-          width: rect.w / (r * this.zoom),
-          height: rect.h / (r * this.zoom),
-        },
-      },
-      landmarks: null,
-      expressions: null,
+      detection: { box: { x: (rect.x - imgX) / (r * this.zoom), y: (rect.y - imgY) / (r * this.zoom), width: rect.w / (r * this.zoom), height: rect.h / (r * this.zoom) }, score: 1 },
+      landmarks: null, expressions: null,
     };
   }
 
   updateState(zoom: number, offset: { x: number; y: number }, brightness: number) {
-    this.zoom = zoom;
-    this.offset = offset;
-    this.brightness = brightness;
+    this.zoom = zoom; this.offset = offset; this.brightness = brightness;
+  }
+
+  private computeImgGeo(): ImgGeo {
+    const iw = this.image!.width, ih = this.image!.height;
+    const canvasW = this.canvas.width, canvasH = this.canvas.height;
+    const r = Math.max(canvasW / iw, canvasH / ih);
+    const w = iw * r * this.zoom, h = ih * r * this.zoom;
+    return { x: (canvasW - w) / 2 + this.offset.x, y: (canvasH - h) / 2 + this.offset.y, w, h, canvasW, canvasH, r };
+  }
+
+  private checkCoverage(ctx: AnalysisCtx, geo: ImgGeo) {
+    const { x, y, w, h, canvasW, canvasH } = geo;
+    const ok = !(x > 0 || y > 0 || x + w < canvasW || y + h < canvasH);
+    ctx.metrics.coverage = ok ? '100%' : 'INCORRECTA';
+    if (!ok) ctx.alerts.push({ type: 'error', text: 'ESPACIOS VACÍOS: La imagen no cubre todo el encuadre. Ajusta el zoom o la posición.' });
+  }
+
+  private getFaceGeo(box: FaceBox, geo: ImgGeo): FaceGeo {
+    const { x, y, r } = geo;
+    const fx = x + box.x * r * this.zoom, fy = y + box.y * r * this.zoom;
+    const fw = box.width * r * this.zoom, fh = box.height * r * this.zoom;
+    return { fx, fy, fw, fh, faceHeightRatio: fh / geo.canvasH };
+  }
+
+  private analyzeFaceSize(ctx: AnalysisCtx, ratio: number) {
+    ctx.metrics.faceSize = `${(ratio * 100).toFixed(1)}%`;
+    if (ratio < 0.2) ctx.alerts.push({ type: 'error', text: 'CASI INVISIBLE: Estás muy lejos. Haz zoom hasta que tu cara ocupe al menos un tercio de la pantalla.' });
+    else if (ratio > 0.6) ctx.alerts.push({ type: 'warning', text: 'DEMASIADO CERCA: Los primeros planos extremos pueden resultar agresivos.' });
+    else if (ratio >= 0.3 && ratio <= 0.5) ctx.alerts.push({ type: 'success', text: 'TAMAÑO PERFECTO: Tu rostro tiene el ratio ideal para transmitir confianza.' });
+  }
+
+  private analyzeEyeLine(ctx: AnalysisCtx, landmarks: FaceLandmarks, geo: ImgGeo) {
+    const avgY = (landmarks.getLeftEye()[0].y + landmarks.getRightEye()[0].y) / 2;
+    const eyeDiff = (geo.y + avgY * geo.r * this.zoom) - 640;
+    if (Math.abs(eyeDiff) < 150) {
+      ctx.metrics.eyeLine = 'ÓPTIMA';
+      ctx.alerts.push({ type: 'success', text: 'MIRADA IMPACTANTE: Tus ojos están en la línea de atención máxima.' });
+    } else {
+      ctx.metrics.eyeLine = eyeDiff > 0 ? 'BAJA' : 'ALTA';
+      ctx.alerts.push({ type: 'warning', text: `LÍNEA DE OJOS: Para un encuadre profesional, ${eyeDiff > 0 ? 'sube' : 'baja'} un poco el rostro hasta la línea superior.` });
+    }
+    if (Math.abs(this.estimateRoll(landmarks)) > 15) ctx.alerts.push({ type: 'warning', text: 'CABEZA INCLINADA: Una postura demasiado torcida puede transmitir inestabilidad.' });
+  }
+
+  private analyzeMood(ctx: AnalysisCtx, expr: FaceExpressions) {
+    const happy = expr.happy || 0;
+    ctx.metrics.mood = happy > 0.7 ? 'POSITIVO' : 'NEUTRAL';
+    if (happy > 0.7) ctx.alerts.push({ type: 'success', text: 'SONRISA DETECTADA: Las sonrisas aumentan la tasa de match significativamente.' });
+    else if (expr.angry > 0.4) ctx.alerts.push({ type: 'warning', text: 'EXPRESIÓN SEVERA: Intenta usar una foto con un gesto más amable.' });
+  }
+
+  private checkFaceObstruction(ctx: AnalysisCtx, fy: number, fh: number) {
+    if (fy < 300) ctx.alerts.push({ type: 'error', text: 'OBSTRUIDO: La barra de progreso tapa tu rostro.' });
+    else if (fy + fh > 1400) ctx.alerts.push({ type: 'error', text: 'OBSTRUIDO: El bloque de información tapa tu cara.' });
+  }
+
+  private checkFaceOut(ctx: AnalysisCtx, fg: FaceGeo, canvasW: number, canvasH: number) {
+    const { fx, fy, fw, fh } = fg;
+    const confidence = this.faceDetection!.detection.score;
+    ctx.metrics.quality = confidence > 0.8 ? 'ALTA' : 'MEDIA';
+    if (confidence < 0.6) ctx.alerts.push({ type: 'warning', text: 'ILUMINACIÓN DEFICIENTE: La IA tiene dificultades para verte. Busca una foto con mejor luz.' });
+    if (fx < 0 || fx + fw > canvasW || fy < 0 || fy + fh > canvasH) ctx.alerts.push({ type: 'error', text: 'CORTADO: El rostro se sale del encuadre vertical.' });
+    this.checkFaceObstruction(ctx, fy, fh);
   }
 
   getAnalysis() {
     const alerts: AnalysisAlert[] = [];
-    const metrics: Record<string, string> = {
-      faceSize: '0%',
-      eyeLine: '--',
-      coverage: '0%',
-      mood: '--',
-      quality: '--',
-    };
-
+    const metrics: Record<string, string> = { faceSize: '0%', eyeLine: '--', coverage: '0%', mood: '--', quality: '--' };
     if (!this.image) return { alerts, metrics };
-
-    const iw = this.image.width;
-    const ih = this.image.height;
-    const canvasW = this.canvas.width;
-    const canvasH = this.canvas.height;
-    const r = Math.max(canvasW / iw, canvasH / ih);
-    const w = iw * r * this.zoom;
-    const h = ih * r * this.zoom;
-    const x = (canvasW - w) / 2 + this.offset.x;
-    const y = (canvasH - h) / 2 + this.offset.y;
-
-    const isCovering = !(x > 0 || y > 0 || x + w < canvasW || y + h < canvasH);
-    metrics.coverage = isCovering ? '100%' : 'INCORRECTA';
-    if (!isCovering) {
-      alerts.push({ type: 'error', text: 'ESPACIOS VACÍOS: La imagen no cubre todo el encuadre. Ajusta el zoom o la posición.' });
-    }
-
+    const ctx: AnalysisCtx = { alerts, metrics };
+    const geo = this.computeImgGeo();
+    this.checkCoverage(ctx, geo);
     if (this.faceDetection) {
-      const box = this.faceDetection.detection.box;
-      const faceCanvasY = y + box.y * r * this.zoom;
-      const faceCanvasH = box.height * r * this.zoom;
-      const faceCanvasX = x + box.x * r * this.zoom;
-      const faceCanvasW = box.width * r * this.zoom;
-      const faceHeightRatio = faceCanvasH / canvasH;
-
-      metrics.faceSize = `${(faceHeightRatio * 100).toFixed(1)}%`;
-
-      if (faceHeightRatio < 0.2) {
-        alerts.push({ type: 'error', text: 'CASI INVISIBLE: Estás muy lejos. Haz zoom hasta que tu cara ocupe al menos un tercio de la pantalla.' });
-      } else if (faceHeightRatio > 0.6) {
-        alerts.push({ type: 'warning', text: 'DEMASIADO CERCA: Los primeros planos extremos pueden resultar agresivos.' });
-      } else if (faceHeightRatio >= 0.3 && faceHeightRatio <= 0.5) {
-        alerts.push({ type: 'success', text: 'TAMAÑO PERFECTO: Tu rostro tiene el ratio ideal para transmitir confianza.' });
-      }
-
-      const landmarks = this.faceDetection.landmarks;
-      if (landmarks) {
-        const leftEye = landmarks.getLeftEye();
-        const rightEye = landmarks.getRightEye();
-        const avgEyeY_orig = (leftEye[0].y + rightEye[0].y) / 2;
-        const eyeLineCanvasY = y + avgEyeY_orig * r * this.zoom;
-        const eyeDiff = eyeLineCanvasY - 640;
-
-        if (Math.abs(eyeDiff) < 150) {
-          metrics.eyeLine = 'ÓPTIMA';
-          alerts.push({ type: 'success', text: 'MIRADA IMPACTANTE: Tus ojos están en la línea de atención máxima.' });
-        } else {
-          metrics.eyeLine = eyeDiff > 0 ? 'BAJA' : 'ALTA';
-          const direction = eyeDiff > 0 ? 'sube' : 'baja';
-          alerts.push({ type: 'warning', text: `LÍNEA DE OJOS: Para un encuadre profesional, ${direction} un poco el rostro hasta la línea superior.` });
-        }
-
-        const roll = this.estimateRoll(landmarks);
-        if (Math.abs(roll) > 15) {
-          alerts.push({ type: 'warning', text: 'CABEZA INCLINADA: Una postura demasiado torcida puede transmitir inestabilidad.' });
-        }
-      }
-
-      const expressions = this.faceDetection.expressions;
-      if (expressions) {
-        const happy = expressions.happy || 0;
-        metrics.mood = happy > 0.7 ? 'POSITIVO' : 'NEUTRAL';
-        if (happy > 0.7) {
-          alerts.push({ type: 'success', text: 'SONRISA DETECTADA: Las sonrisas aumentan la tasa de match significativamente.' });
-        } else if (expressions.angry > 0.4) {
-          alerts.push({ type: 'warning', text: 'EXPRESIÓN SEVERA: Intenta usar una foto con un gesto más amable.' });
-        }
-      }
-
-      const confidence = this.faceDetection.detection.score;
-      metrics.quality = confidence > 0.8 ? 'ALTA' : 'MEDIA';
-      if (confidence < 0.6) {
-        alerts.push({ type: 'warning', text: 'ILUMINACIÓN DEFICIENTE: La IA tiene dificultades para verte. Busca una foto con mejor luz.' });
-      }
-
-      if (faceCanvasX < 0 || faceCanvasX + faceCanvasW > canvasW || faceCanvasY < 0 || faceCanvasY + faceCanvasH > canvasH) {
-        alerts.push({ type: 'error', text: 'CORTADO: El rostro se sale del encuadre vertical.' });
-      }
-
-      if (faceCanvasY < 300) {
-        alerts.push({ type: 'error', text: 'OBSTRUIDO: La barra de progreso tapa tu rostro.' });
-      } else if (faceCanvasY + faceCanvasH > 1400) {
-        alerts.push({ type: 'error', text: 'OBSTRUIDO: El bloque de información tapa tu cara.' });
-      }
+      const fg = this.getFaceGeo(this.faceDetection.detection.box, geo);
+      this.analyzeFaceSize(ctx, fg.faceHeightRatio);
+      if (this.faceDetection.landmarks) this.analyzeEyeLine(ctx, this.faceDetection.landmarks, geo);
+      if (this.faceDetection.expressions) this.analyzeMood(ctx, this.faceDetection.expressions);
+      this.checkFaceOut(ctx, fg, geo.canvasW, geo.canvasH);
     }
-
-    if (this.zoom < 1.15) {
-      alerts.push({ type: 'warning', text: 'CONSEJO PRO: Si es una selfie, usa el Zoom (1.2x) para evitar distorsiones de lente.' });
-    }
-
+    if (this.zoom < 1.15) alerts.push({ type: 'warning', text: 'CONSEJO PRO: Si es una selfie, usa el Zoom (1.2x) para evitar distorsiones de lente.' });
     return { alerts, metrics };
   }
 
-  private estimateRoll(landmarks: any) {
-    const leftEye = landmarks.getLeftEye();
-    const rightEye = landmarks.getRightEye();
-    const dy = rightEye[0].y - leftEye[0].y;
-    const dx = rightEye[0].x - leftEye[0].x;
-    return Math.atan2(dy, dx) * (180 / Math.PI);
+  private estimateRoll(landmarks: FaceLandmarks): number {
+    const l = landmarks.getLeftEye()[0], r = landmarks.getRightEye()[0];
+    return Math.atan2(r.y - l.y, r.x - l.x) * (180 / Math.PI);
   }
 
   getOptimalTransform() {
     if (!this.image || !this.faceDetection) return null;
     const box = this.faceDetection.detection.box;
-    const iw = this.image.width;
-    const ih = this.image.height;
-    const r = Math.max(this.canvas.width / iw, this.canvas.height / ih);
-    const targetFaceH = this.canvas.height * 0.25;
-    const optimalZoom = Math.min(Math.max(targetFaceH / (box.height * r), 1), 3);
-    const faceCenterY_orig = box.y + box.height / 2;
-    const faceCenterX_orig = box.x + box.width / 2;
-    const w = iw * r * optimalZoom;
-    const h = ih * r * optimalZoom;
-    const offsetY = 800 - (this.canvas.height - h) / 2 - faceCenterY_orig * r * optimalZoom;
-    const offsetX = 540 - (this.canvas.width - w) / 2 - faceCenterX_orig * r * optimalZoom;
-    return { zoom: optimalZoom, x: offsetX, y: offsetY };
+    const r = Math.max(this.canvas.width / this.image.width, this.canvas.height / this.image.height);
+    const optimalZoom = Math.min(Math.max((this.canvas.height * 0.25) / (box.height * r), 1), 3);
+    const faceCX = box.x + box.width / 2, faceCY = box.y + box.height / 2;
+    const w = this.image.width * r * optimalZoom, h = this.image.height * r * optimalZoom;
+    return { zoom: optimalZoom, x: 540 - (this.canvas.width - w) / 2 - faceCX * r * optimalZoom, y: 800 - (this.canvas.height - h) / 2 - faceCY * r * optimalZoom };
+  }
+
+  private drawFaceBox(x: number, y: number, r: number) {
+    const box = this.faceDetection!.detection.box;
+    const fx = x + box.x * r * this.zoom, fy = y + box.y * r * this.zoom;
+    const fw = box.width * r * this.zoom, fh = box.height * r * this.zoom;
+    this.ctx.strokeStyle = '#00ff00'; this.ctx.lineWidth = 6;
+    this.ctx.strokeRect(fx, fy, fw, fh);
+    this.ctx.fillStyle = '#00ff00'; this.ctx.font = 'bold 40px Arial';
+    this.ctx.fillText('Cara detectada', fx, fy - 10);
+    const landmarks = this.faceDetection!.landmarks;
+    if (landmarks) {
+      this.ctx.fillStyle = 'rgba(0, 255, 0, 0.5)';
+      landmarks.positions.forEach((p: FaceLandmark) => {
+        this.ctx.beginPath();
+        this.ctx.arc(x + p.x * r * this.zoom, y + p.y * r * this.zoom, 2, 0, 2 * Math.PI);
+        this.ctx.fill();
+      });
+    }
   }
 
   draw(showFaceBox: boolean) {
     if (!this.image) return;
     this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
     this.ctx.filter = `brightness(${this.brightness}%)`;
-
-    const iw = this.image.width;
-    const ih = this.image.height;
+    const iw = this.image.width, ih = this.image.height;
     const r = Math.max(this.canvas.width / iw, this.canvas.height / ih);
-    const w = iw * r * this.zoom;
-    const h = ih * r * this.zoom;
+    const w = iw * r * this.zoom, h = ih * r * this.zoom;
     const x = (this.canvas.width - w) / 2 + this.offset.x;
     const y = (this.canvas.height - h) / 2 + this.offset.y;
-
     this.ctx.drawImage(this.image, x, y, w, h);
-
-    if (showFaceBox && this.faceDetection) {
-      const box = this.faceDetection.detection.box;
-      const fx = x + box.x * r * this.zoom;
-      const fy = y + box.y * r * this.zoom;
-      const fw = box.width * r * this.zoom;
-      const fh = box.height * r * this.zoom;
-
-      this.ctx.strokeStyle = '#00ff00';
-      this.ctx.lineWidth = 6;
-      this.ctx.strokeRect(fx, fy, fw, fh);
-      this.ctx.fillStyle = '#00ff00';
-      this.ctx.font = 'bold 40px Arial';
-      this.ctx.fillText('Cara detectada', fx, fy - 10);
-
-      const landmarks = this.faceDetection.landmarks;
-      if (landmarks) {
-        this.ctx.fillStyle = 'rgba(0, 255, 0, 0.5)';
-        landmarks.positions.forEach((p: any) => {
-          const px = x + p.x * r * this.zoom;
-          const py = y + p.y * r * this.zoom;
-          this.ctx.beginPath();
-          this.ctx.arc(px, py, 2, 0, 2 * Math.PI);
-          this.ctx.fill();
-        });
-      }
-    }
+    if (showFaceBox && this.faceDetection) this.drawFaceBox(x, y, r);
   }
 }

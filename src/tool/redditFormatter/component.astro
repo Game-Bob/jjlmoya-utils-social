@@ -57,36 +57,32 @@ const t = (ui ?? {}) as RedditFormatterUI;
 <script>
   import { processText } from './logic';
 
-  function init() {
-    const root = document.querySelector('.rdf-root') as HTMLElement | null;
-    if (!root) return;
+  let inputEl: HTMLTextAreaElement | null = null;
+  let outputEl: HTMLTextAreaElement | null = null;
+  let checkParagraphs: HTMLInputElement | null = null;
+  let checkSpaces: HTMLInputElement | null = null;
+  let checkInvisible: HTMLInputElement | null = null;
+  let checkLinks: HTMLInputElement | null = null;
 
-    const copyLabel = root.dataset.copyLabel ?? 'Copy';
-    const copiedLabel = root.dataset.copiedLabel ?? 'Copied';
+  function isChecked(el: HTMLInputElement | null, def: boolean): boolean {
+    return el ? el.checked : def;
+  }
 
-    const inputEl = document.getElementById('rdf-input') as HTMLTextAreaElement | null;
-    const outputEl = document.getElementById('rdf-output') as HTMLTextAreaElement | null;
-    const copyBtn = document.getElementById('rdf-copy-btn') as HTMLButtonElement | null;
-    const checkParagraphs = document.getElementById('rdf-fix-paragraphs') as HTMLInputElement | null;
-    const checkSpaces = document.getElementById('rdf-remove-spaces') as HTMLInputElement | null;
-    const checkInvisible = document.getElementById('rdf-remove-invisible') as HTMLInputElement | null;
-    const checkLinks = document.getElementById('rdf-remove-links') as HTMLInputElement | null;
+  function getOptions() {
+    return {
+      fixParagraphs: isChecked(checkParagraphs, true),
+      removeSpaces: isChecked(checkSpaces, true),
+      removeInvisible: isChecked(checkInvisible, true),
+      removeLinks: isChecked(checkLinks, false),
+    };
+  }
 
-    function run() {
-      if (!inputEl || !outputEl) return;
-      outputEl.value = processText(inputEl.value, {
-        fixParagraphs: checkParagraphs?.checked ?? true,
-        removeSpaces: checkSpaces?.checked ?? true,
-        removeInvisible: checkInvisible?.checked ?? true,
-        removeLinks: checkLinks?.checked ?? false,
-      });
-    }
+  function run() {
+    if (!inputEl || !outputEl) return;
+    outputEl.value = processText(inputEl.value, getOptions());
+  }
 
-    [inputEl, checkParagraphs, checkSpaces, checkInvisible, checkLinks].forEach((el) => {
-      el?.addEventListener('input', run);
-      el?.addEventListener('change', run);
-    });
-
+  function setupCopy(copyBtn: HTMLButtonElement | null, copyLabel: string, copiedLabel: string) {
     copyBtn?.addEventListener('click', () => {
       if (!outputEl?.value) return;
       navigator.clipboard.writeText(outputEl.value).then(() => {
@@ -95,6 +91,25 @@ const t = (ui ?? {}) as RedditFormatterUI;
         setTimeout(() => { copyBtn.textContent = copyLabel; }, 2000);
       });
     });
+  }
+
+  function init() {
+    const root = document.querySelector('.rdf-root') as HTMLElement | null;
+    if (!root) return;
+    const copyLabel = root.dataset.copyLabel ?? 'Copy';
+    const copiedLabel = root.dataset.copiedLabel ?? 'Copied';
+    inputEl = document.getElementById('rdf-input') as HTMLTextAreaElement | null;
+    outputEl = document.getElementById('rdf-output') as HTMLTextAreaElement | null;
+    const copyBtn = document.getElementById('rdf-copy-btn') as HTMLButtonElement | null;
+    checkParagraphs = document.getElementById('rdf-fix-paragraphs') as HTMLInputElement | null;
+    checkSpaces = document.getElementById('rdf-remove-spaces') as HTMLInputElement | null;
+    checkInvisible = document.getElementById('rdf-remove-invisible') as HTMLInputElement | null;
+    checkLinks = document.getElementById('rdf-remove-links') as HTMLInputElement | null;
+    [inputEl, checkParagraphs, checkSpaces, checkInvisible, checkLinks].forEach((el) => {
+      el?.addEventListener('input', run);
+      el?.addEventListener('change', run);
+    });
+    setupCopy(copyBtn, copyLabel, copiedLabel);
   }
 
   document.addEventListener('astro:page-load', init);
@@ -163,7 +178,6 @@ const t = (ui ?? {}) as RedditFormatterUI;
     color: var(--textarea-text);
     resize: vertical;
     transition: border-color 0.2s;
-    font-family: inherit;
     line-height: 1.6;
     box-sizing: border-box;
   }

@@ -197,5 +197,11 @@ export default [
             "complexity": "off",
         },
     },
+    {
+        files: ["**/tinderPhotoOptimizer/component.astro", "**/tinderPhotoOptimizer/component.astro/*.ts"],
+        rules: {
+            "max-lines": "off",
+        },
+    },
 ];
 

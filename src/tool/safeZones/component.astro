@@ -43,7 +43,6 @@ const YOUTUBE_SVG = `<svg viewBox="0 0 24 24" fill="currentColor" width="24" hei
 >
   <div class="szl-grid">
 
-    <!-- LEFT PANEL -->
     <div class="szl-panel-left">
       <div class="szl-card">
         <h2 class="szl-card-title">
@@ -78,7 +77,7 @@ const YOUTUBE_SVG = `<svg viewBox="0 0 24 24" fill="currentColor" width="24" hei
               <svg viewBox="0 0 24 24" fill="currentColor" width="40" height="40" class="szl-upload-icon"><path d="M14 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V8l-6-6zm4 18H6V4h7v5h5v11zM8 15.01l1.41 1.41L11 14.84V19h2v-4.16l1.59 1.59L16 15.01 12.01 11z"/></svg>
               <p class="szl-upload-text">{t.uploadPrompt}</p>
             </div>
-            <input type="file" class="szl-file-hidden" data-szl-file accept="image/*,video/*" />
+            <input type="file" class="szl-file-hidden" data-szl-file accept=".jpg,.jpeg,.png,.webp,.gif,.mp4,.mov,.webm,.avi" />
           </label>
         </div>
 
@@ -108,12 +107,10 @@ const YOUTUBE_SVG = `<svg viewBox="0 0 24 24" fill="currentColor" width="24" hei
       </button>
     </div>
 
-    <!-- RIGHT PANEL (Phone Mockup) -->
     <div class="szl-preview-area">
       <div class="szl-radial-bg"></div>
       <div class="szl-phone" data-szl-phone>
 
-        <!-- Status bar -->
         <div class="szl-statusbar">
           <span data-szl-clock>11:51</span>
           <div class="szl-notch"></div>
@@ -124,7 +121,6 @@ const YOUTUBE_SVG = `<svg viewBox="0 0 24 24" fill="currentColor" width="24" hei
           </div>
         </div>
 
-        <!-- Media display -->
         <div class="szl-media-wrapper" data-szl-media-wrapper>
           <div class="szl-empty-state" data-szl-empty>
             <iconify-icon icon="mdi:camera-plus-outline" style="font-size:72px;display:block;margin-bottom:16px"></iconify-icon>
@@ -134,10 +130,8 @@ const YOUTUBE_SVG = `<svg viewBox="0 0 24 24" fill="currentColor" width="24" hei
           <div class="szl-media" data-szl-media></div>
         </div>
 
-        <!-- Safe zone overlay -->
         <div class="szl-overlay" data-szl-overlay></div>
 
-        <!-- Mask overlay (hidden by default) -->
         <div class="szl-mask szl-mask-hidden" data-szl-mask-overlay>
           <div class="szl-mask-top"></div>
           <div class="szl-mask-flex"></div>
@@ -145,7 +139,6 @@ const YOUTUBE_SVG = `<svg viewBox="0 0 24 24" fill="currentColor" width="24" hei
           <div class="szl-mask-right"></div>
         </div>
 
-        <!-- Grid overlay (hidden by default) -->
         <div class="szl-grid-overlay szl-grid-hidden" data-szl-grid-overlay>
           <div class="szl-grid-inner">
             <div class="szl-grid-h szl-grid-h1"></div>
@@ -169,25 +162,47 @@ const YOUTUBE_SVG = `<svg viewBox="0 0 24 24" fill="currentColor" width="24" hei
 
   let clockInterval: number | null = null;
 
-  function getPlatformStrings(container: HTMLElement): PlatformStrings {
-    const d = container.dataset;
+  function ds(val: string | undefined): string {
+    return val !== undefined ? val : '';
+  }
+
+  function getTikTokStrings(d: DOMStringMap) {
     return {
-      ttFollowing: d.ttFollowing ?? '',
-      ttForYou: d.ttForYou ?? '',
-      ttDescription: d.ttDescription ?? '',
-      ttAudio: d.ttAudio ?? '',
-      ttNavHome: d.ttNavHome ?? '',
-      ttNavFriends: d.ttNavFriends ?? '',
-      ttNavInbox: d.ttNavInbox ?? '',
-      ttNavProfile: d.ttNavProfile ?? '',
+      ttFollowing: ds(d.ttFollowing),
+      ttForYou: ds(d.ttForYou),
+      ttDescription: ds(d.ttDescription),
+      ttAudio: ds(d.ttAudio),
+      ttNavHome: ds(d.ttNavHome),
+      ttNavFriends: ds(d.ttNavFriends),
+      ttNavInbox: ds(d.ttNavInbox),
+      ttNavProfile: ds(d.ttNavProfile),
+    };
+  }
+
+  function getReelsStrings(d: DOMStringMap) {
+    return {
       reelsFollow: d.reelsFollow ?? '',
       reelsDescription: d.reelsDescription ?? '',
       reelsAudio: d.reelsAudio ?? '',
+    };
+  }
+
+  function getShortsStrings(d: DOMStringMap) {
+    return {
       shortsSubscribe: d.shortsSubscribe ?? '',
       shortsDislike: d.shortsDislike ?? '',
       shortsShare: d.shortsShare ?? '',
       shortsRemix: d.shortsRemix ?? '',
       shortsDescription: d.shortsDescription ?? '',
+    };
+  }
+
+  function getPlatformStrings(container: HTMLElement): PlatformStrings {
+    const d = container.dataset;
+    return {
+      ...getTikTokStrings(d),
+      ...getReelsStrings(d),
+      ...getShortsStrings(d),
     };
   }
 
@@ -346,7 +361,6 @@ const YOUTUBE_SVG = `<svg viewBox="0 0 24 24" fill="currentColor" width="24" hei
     }
   }
 
-  /* Left panel */
   .szl-panel-left {
     display: flex;
     flex-direction: column;
@@ -406,7 +420,6 @@ const YOUTUBE_SVG = `<svg viewBox="0 0 24 24" fill="currentColor" width="24" hei
     display: block;
   }
 
-  /* Platform buttons */
   .szl-platform-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -451,7 +464,6 @@ const YOUTUBE_SVG = `<svg viewBox="0 0 24 24" fill="currentColor" width="24" hei
     letter-spacing: 0.05em;
   }
 
-  /* Upload zone */
   .szl-upload-zone {
     display: flex;
     flex-direction: column;
@@ -502,7 +514,6 @@ const YOUTUBE_SVG = `<svg viewBox="0 0 24 24" fill="currentColor" width="24" hei
     display: none;
   }
 
-  /* Opacity slider */
   .szl-opacity-header {
     display: flex;
     justify-content: space-between;
@@ -537,7 +548,6 @@ const YOUTUBE_SVG = `<svg viewBox="0 0 24 24" fill="currentColor" width="24" hei
     box-shadow: 0 0 10px rgba(99, 102, 241, 0.4);
   }
 
-  /* Toggles */
   .szl-toggles {
     display: flex;
     flex-direction: column;
@@ -580,7 +590,6 @@ const YOUTUBE_SVG = `<svg viewBox="0 0 24 24" fill="currentColor" width="24" hei
     color: #6366f1;
   }
 
-  /* Reset button */
   .szl-reset-btn {
     width: 100%;
     padding: 1rem;
@@ -605,7 +614,6 @@ const YOUTUBE_SVG = `<svg viewBox="0 0 24 24" fill="currentColor" width="24" hei
     border-color: rgba(244, 63, 94, 0.3);
   }
 
-  /* Right panel */
   .szl-preview-area {
     display: flex;
     flex-direction: column;
@@ -628,7 +636,6 @@ const YOUTUBE_SVG = `<svg viewBox="0 0 24 24" fill="currentColor" width="24" hei
     pointer-events: none;
   }
 
-  /* Phone mockup */
   .szl-phone {
     position: relative;
     background: black;
@@ -642,7 +649,6 @@ const YOUTUBE_SVG = `<svg viewBox="0 0 24 24" fill="currentColor" width="24" hei
     outline: 1px solid rgba(255, 255, 255, 0.05);
   }
 
-  /* Status bar */
   .szl-statusbar {
     position: absolute;
     top: 0;
@@ -679,7 +685,6 @@ const YOUTUBE_SVG = `<svg viewBox="0 0 24 24" fill="currentColor" width="24" hei
     align-items: center;
   }
 
-  /* Media wrapper */
   .szl-media-wrapper {
     position: absolute;
     inset: 0;
@@ -735,7 +740,6 @@ const YOUTUBE_SVG = `<svg viewBox="0 0 24 24" fill="currentColor" width="24" hei
     display: none;
   }
 
-  /* Safe zone overlay */
   .szl-overlay {
     position: absolute;
     inset: 0;
@@ -745,7 +749,6 @@ const YOUTUBE_SVG = `<svg viewBox="0 0 24 24" fill="currentColor" width="24" hei
     filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.5));
   }
 
-  /* Mask overlay */
   .szl-mask {
     position: absolute;
     inset: 0;
@@ -790,7 +793,6 @@ const YOUTUBE_SVG = `<svg viewBox="0 0 24 24" fill="currentColor" width="24" hei
     pointer-events: none;
   }
 
-  /* Grid overlay */
   .szl-grid-overlay {
     position: absolute;
     inset: 0;
@@ -834,7 +836,6 @@ const YOUTUBE_SVG = `<svg viewBox="0 0 24 24" fill="currentColor" width="24" hei
   .szl-grid-v1 { left: 33.33%; }
   .szl-grid-v2 { left: 66.66%; }
 
-  /* Platform banner */
   .szl-banner {
     margin-top: 2rem;
     padding: 0.5rem 1.5rem;

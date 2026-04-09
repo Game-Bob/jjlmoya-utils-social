@@ -77,97 +77,73 @@ const t = (ui ?? {}) as YoutubeThumbnailUI;
 <script>
   import { extractVideoId } from './logic';
 
+  let currentVideoId = '';
+  let errorInvalid = 'Invalid YouTube URL.';
+  let urlInput: HTMLInputElement | null = null;
+  let resultsPanel: HTMLDivElement | null = null;
+  let errorPanel: HTMLDivElement | null = null;
+  let errorMsg: HTMLSpanElement | null = null;
+  let mainImg: HTMLImageElement | null = null;
+
+  function updateThumbnails(videoId: string) {
+    currentVideoId = videoId;
+    resultsPanel?.classList.remove('ytx-hidden');
+    errorPanel?.classList.add('ytx-hidden');
+    const base = `https://img.youtube.com/vi/${videoId}`;
+    const hqUrl = `${base}/hqdefault.jpg`;
+    if (mainImg) {
+      mainImg.src = `${base}/maxresdefault.jpg`;
+      mainImg.onload = () => { if (mainImg!.naturalWidth < 200) mainImg!.src = hqUrl; };
+    }
+    const set = (id: string, attr: 'src' | 'href', val: string) => { const el = document.getElementById(id); if (el) (el as HTMLElement & Record<string, string>)[attr] = val; };
+    set('ytx-mq-img', 'src', `${base}/mqdefault.jpg`);
+    set('ytx-sd-img', 'src', `${base}/sddefault.jpg`);
+    set('ytx-hq-img', 'src', hqUrl);
+    set('ytx-mq-link', 'href', `${base}/mqdefault.jpg`);
+    set('ytx-sd-link', 'href', `${base}/sddefault.jpg`);
+    set('ytx-hq-link', 'href', hqUrl);
+  }
+
+  function handleInput(url: string) {
+    if (!url) { resultsPanel?.classList.add('ytx-hidden'); errorPanel?.classList.add('ytx-hidden'); return; }
+    const videoId = extractVideoId(url);
+    if (videoId) { updateThumbnails(videoId); return; }
+    resultsPanel?.classList.add('ytx-hidden');
+    errorPanel?.classList.remove('ytx-hidden');
+    if (errorMsg) errorMsg.textContent = errorInvalid;
+  }
+
+  async function handlePaste() {
+    try {
+      const text = await navigator.clipboard.readText();
+      if (urlInput) { urlInput.value = text; urlInput.dispatchEvent(new Event('input')); }
+    } catch { void 0; }
+  }
+
+  async function handleDownload() {
+    if (!mainImg?.src || !currentVideoId) return;
+    try {
+      const blob = await (await fetch(mainImg.src)).blob();
+      const blobUrl = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = blobUrl; a.download = `youtube-thumbnail-${currentVideoId}.jpg`;
+      document.body.appendChild(a); a.click();
+      document.body.removeChild(a); URL.revokeObjectURL(blobUrl);
+    } catch { window.open(mainImg.src, '_blank'); }
+  }
+
   function init() {
     const root = document.querySelector('.ytx-root') as HTMLElement | null;
     if (!root) return;
-
-    const errorInvalid = root.dataset.errorInvalid ?? 'Invalid YouTube URL.';
-
-    const urlInput = document.getElementById('ytx-url-input') as HTMLInputElement | null;
-    const pasteBtn = document.getElementById('ytx-paste-btn') as HTMLButtonElement | null;
-    const resultsPanel = document.getElementById('ytx-results') as HTMLDivElement | null;
-    const errorPanel = document.getElementById('ytx-error') as HTMLDivElement | null;
-    const errorMsg = document.getElementById('ytx-error-msg') as HTMLSpanElement | null;
-    const mainImg = document.getElementById('ytx-main-img') as HTMLImageElement | null;
-    const downloadBtn = document.getElementById('ytx-download-btn') as HTMLButtonElement | null;
-    const mqImg = document.getElementById('ytx-mq-img') as HTMLImageElement | null;
-    const sdImg = document.getElementById('ytx-sd-img') as HTMLImageElement | null;
-    const hqImg = document.getElementById('ytx-hq-img') as HTMLImageElement | null;
-    const mqLink = document.getElementById('ytx-mq-link') as HTMLAnchorElement | null;
-    const sdLink = document.getElementById('ytx-sd-link') as HTMLAnchorElement | null;
-    const hqLink = document.getElementById('ytx-hq-link') as HTMLAnchorElement | null;
-
-    if (!urlInput || !pasteBtn || !resultsPanel || !errorPanel || !errorMsg || !mainImg || !downloadBtn) return;
-
-    let currentVideoId = '';
-
-    function updateThumbnails(videoId: string) {
-      currentVideoId = videoId;
-      resultsPanel!.classList.remove('ytx-hidden');
-      errorPanel!.classList.add('ytx-hidden');
-
-      const maxresUrl = `https://img.youtube.com/vi/${videoId}/maxresdefault.jpg`;
-      const hqUrl = `https://img.youtube.com/vi/${videoId}/hqdefault.jpg`;
-      const mqUrl = `https://img.youtube.com/vi/${videoId}/mqdefault.jpg`;
-      const sdUrl = `https://img.youtube.com/vi/${videoId}/sddefault.jpg`;
-
-      mainImg!.src = maxresUrl;
-      mainImg!.onload = () => {
-        if (mainImg!.naturalWidth < 200) mainImg!.src = hqUrl;
-      };
-
-      if (mqImg) { mqImg.src = mqUrl; }
-      if (sdImg) { sdImg.src = sdUrl; }
-      if (hqImg) { hqImg.src = hqUrl; }
-      if (mqLink) { mqLink.href = mqUrl; }
-      if (sdLink) { sdLink.href = sdUrl; }
-      if (hqLink) { hqLink.href = hqUrl; }
-    }
-
-    urlInput.addEventListener('input', (e) => {
-      const url = (e.target as HTMLInputElement).value.trim();
-      if (!url) {
-        resultsPanel!.classList.add('ytx-hidden');
-        errorPanel!.classList.add('ytx-hidden');
-        return;
-      }
-      const videoId = extractVideoId(url);
-      if (videoId) {
-        updateThumbnails(videoId);
-      } else {
-        resultsPanel!.classList.add('ytx-hidden');
-        errorPanel!.classList.remove('ytx-hidden');
-        errorMsg!.textContent = errorInvalid;
-      }
-    });
-
-    pasteBtn.addEventListener('click', async () => {
-      try {
-        const text = await navigator.clipboard.readText();
-        urlInput.value = text;
-        urlInput.dispatchEvent(new Event('input'));
-      } catch {
-        // clipboard access denied
-      }
-    });
-
-    downloadBtn.addEventListener('click', async () => {
-      if (!mainImg.src || !currentVideoId) return;
-      try {
-        const response = await fetch(mainImg.src);
-        const blob = await response.blob();
-        const blobUrl = URL.createObjectURL(blob);
-        const a = document.createElement('a');
-        a.href = blobUrl;
-        a.download = `youtube-thumbnail-${currentVideoId}.jpg`;
-        document.body.appendChild(a);
-        a.click();
-        document.body.removeChild(a);
-        URL.revokeObjectURL(blobUrl);
-      } catch {
-        window.open(mainImg.src, '_blank');
-      }
-    });
+    errorInvalid = root.dataset.errorInvalid || 'Invalid YouTube URL.';
+    urlInput = document.getElementById('ytx-url-input') as HTMLInputElement | null;
+    resultsPanel = document.getElementById('ytx-results') as HTMLDivElement | null;
+    errorPanel = document.getElementById('ytx-error') as HTMLDivElement | null;
+    errorMsg = document.getElementById('ytx-error-msg') as HTMLSpanElement | null;
+    mainImg = document.getElementById('ytx-main-img') as HTMLImageElement | null;
+    urlInput?.addEventListener('input', (e) => handleInput((e.target as HTMLInputElement).value.trim()));
+    document.getElementById('ytx-paste-btn')?.addEventListener('click', handlePaste);
+    document.getElementById('ytx-download-btn')?.addEventListener('click', handleDownload);
   }
 
   document.addEventListener('astro:page-load', init);
@@ -176,7 +152,7 @@ const t = (ui ?? {}) as YoutubeThumbnailUI;
 
 <style>
   .ytx-root {
-    --bg: #ffffff;
+    --bg: #fff;
     --bg-muted: #f8fafc;
     --bg-img: #f1f5f9;
     --text: #1e293b;
@@ -307,7 +283,9 @@ const t = (ui ?? {}) as YoutubeThumbnailUI;
     transition: opacity 0.4s;
   }
 
-  .ytx-hidden { display: none !important; }
+  .ytx-hidden {
+    display: none;
+  }
 
   .ytx-main-card {
     position: relative;

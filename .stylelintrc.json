@@ -15,7 +15,11 @@
                 "declaration-block-no-redundant-longhand-properties": null,
                 "rule-empty-line-before": null,
                 "import-notation": null,
-                "block-no-empty": null
+                "block-no-empty": null,
+                "selector-class-pattern": [
+                    "^([a-z][a-z0-9]*)(-[a-z0-9]+)*(__[a-z][a-z0-9]*(-[a-z0-9]+)*)?(--[a-z][a-z0-9]*(-[a-z0-9]+)*)?$",
+                    { "message": "Expected BEM class name" }
+                ]
             }
         }
     ],

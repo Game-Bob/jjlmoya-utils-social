@@ -13,7 +13,7 @@ const t = (ui ?? {}) as TinderPhotoOptimizerUI;
 
 <div class="tfo-root">
   <div class="tfo-container" id="tfo-optimizer">
-    <input type="file" id="image-input" accept="image/*" style="display: none;" />
+    <input type="file" id="image-input" accept=".jpg,.jpeg,.png,.webp,.gif" style="display: none;" />
 
     <section class="tfo-editor">
       <div class="tfo-simulator-wrapper" id="preview-container">
@@ -24,7 +24,6 @@ const t = (ui ?? {}) as TinderPhotoOptimizerUI;
           </div>
         </div>
 
-        <!-- Tinder Device Simulator -->
         <div class="tfo-device">
           <div class="tfo-status-bar">
             <span class="tfo-time">9:41</span>
@@ -138,10 +137,8 @@ const t = (ui ?? {}) as TinderPhotoOptimizerUI;
             <div class="tfo-nav-item"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div>
           </div>
         </div>
-        <!-- End Device -->
       </div>
 
-      <!-- Analysis Board -->
       <div class="tfo-analysis-board">
         <div class="tfo-analysis-col tfo-analysis-col--success" id="group-success">
           <div class="tfo-col-header">
@@ -174,7 +171,6 @@ const t = (ui ?? {}) as TinderPhotoOptimizerUI;
     </section>
 
     <aside class="tfo-sidebar">
-      <!-- Toolbox -->
       <div class="tfo-panel">
         <h3>{t.panelManual}</h3>
         <div class="tfo-control-group">
@@ -223,7 +219,6 @@ const t = (ui ?? {}) as TinderPhotoOptimizerUI;
         </div>
       </div>
 
-      <!-- Metrics -->
       <div class="tfo-panel">
         <h3>{t.panelMetrics}</h3>
         <div class="tfo-metrics-grid">
@@ -250,7 +245,6 @@ const t = (ui ?? {}) as TinderPhotoOptimizerUI;
         </div>
       </div>
 
-      <!-- Actions -->
       <div class="tfo-panel tfo-actions-panel">
         <div class="tfo-action-grid">
           <button class="tfo-action-btn" id="relaunch-ai">
@@ -274,7 +268,6 @@ const t = (ui ?? {}) as TinderPhotoOptimizerUI;
         </div>
       </div>
 
-      <!-- Export -->
       <div class="tfo-panel">
         <h3>{t.panelExport}</h3>
         <p class="tfo-export-desc">{t.panelExportDesc}</p>
@@ -336,53 +329,55 @@ const t = (ui ?? {}) as TinderPhotoOptimizerUI;
       this.init();
     }
 
-    private init() {
+    private setupDropZone() {
       this.dropZone.addEventListener('click', () => {
         if (!this.engine.image) this.input.click();
       });
       this.input.addEventListener('change', (e) => this.handleImage(e));
       this.dropZone.addEventListener('dragover', (e) => { e.preventDefault(); });
       this.dropZone.addEventListener('drop', (e) => { e.preventDefault(); this.loadFile((e as DragEvent).dataTransfer?.files[0]); });
+    }
 
+    private setupSliders() {
       this.zoomSlider.addEventListener('input', () => {
         const val = parseFloat(this.zoomSlider.value);
         this.updateState();
         const span = this.zoomSlider.parentElement?.querySelector('span');
         if (span) span.textContent = `${val.toFixed(1)}x`;
       });
-
       this.brightnessSlider.addEventListener('input', () => {
         const val = parseInt(this.brightnessSlider.value);
         this.updateState();
         const span = this.brightnessSlider.parentElement?.querySelector('span');
         if (span) span.textContent = `${val}%`;
       });
+    }
 
+    private setupToggles() {
       this.toggleGridSwitch.addEventListener('change', () => {
         const grid = document.getElementById('grid-overlay');
         if (grid) grid.style.display = this.toggleGridSwitch.checked ? 'grid' : 'none';
       });
-
       this.toggleDeadzonesSwitch.addEventListener('change', () => {
         const dead = document.getElementById('deadzones-overlay');
         if (dead) dead.style.display = this.toggleDeadzonesSwitch.checked ? 'block' : 'none';
       });
-
       this.toggleFaceBoxSwitch.addEventListener('change', () => this.draw());
+    }
+
+    private setupButtons() {
       this.relaunchAiBtn.addEventListener('click', () => this.runDetection());
       this.autofocusBtn.addEventListener('click', () => this.applyAutoFocus());
       this.manualFaceBtn.addEventListener('click', () => {
         this.isSelecting = !this.isSelecting;
         this.manualFaceBtn.classList.toggle('is-active', this.isSelecting);
       });
-
       this.canvas.addEventListener('mousedown', (e) => this.onStart(e));
       window.addEventListener('mousemove', (e) => this.onMove(e));
       window.addEventListener('mouseup', () => this.onEnd());
       this.canvas.addEventListener('touchstart', (e) => this.onStart(e), { passive: false });
       window.addEventListener('touchmove', (e) => this.onMove(e), { passive: false });
       window.addEventListener('touchend', () => this.onEnd());
-
       this.exportBtn.addEventListener('click', () => {
         this.draw(false);
         const link = document.createElement('a');
@@ -391,8 +386,14 @@ const t = (ui ?? {}) as TinderPhotoOptimizerUI;
         link.click();
         this.draw();
       });
-
       this.resetBtn.addEventListener('click', () => this.reset());
+    }
+
+    private init() {
+      this.setupDropZone();
+      this.setupSliders();
+      this.setupToggles();
+      this.setupButtons();
     }
 
     private reset() {
@@ -408,8 +409,9 @@ const t = (ui ?? {}) as TinderPhotoOptimizerUI;
       this.updateAnalysis();
     }
 
-    private handleImage(e: any) {
-      if (e.target.files?.[0]) this.loadFile(e.target.files[0]);
+    private handleImage(e: Event) {
+      const input = e.target as HTMLInputElement;
+      if (input.files?.[0]) this.loadFile(input.files[0]);
     }
 
     private async loadFile(file?: File) {
@@ -462,25 +464,41 @@ const t = (ui ?? {}) as TinderPhotoOptimizerUI;
       }
     }
 
+    private getClientPos(e: MouseEvent | TouchEvent) {
+      const src = e instanceof MouseEvent ? e : e.touches[0];
+      return { x: src.clientX, y: src.clientY };
+    }
+
+    private handleSelectionMove(clientX: number, clientY: number) {
+      const rect = this.canvas.getBoundingClientRect();
+      this.selectionRect.w = (clientX - rect.left) * (this.canvas.width / rect.width) - this.selectionRect.x;
+      this.selectionRect.h = (clientY - rect.top) * (this.canvas.height / rect.height) - this.selectionRect.y;
+      this.draw();
+    }
+
+    private handleDragMove(clientX: number, clientY: number) {
+      const dx = (clientX - this.lastPos.x) * (this.canvas.width / this.canvas.clientWidth);
+      const dy = (clientY - this.lastPos.y) * (this.canvas.height / this.canvas.clientHeight);
+      const offset = this.engine.offset;
+      this.engine.updateState(parseFloat(this.zoomSlider.value), { x: offset.x + dx, y: offset.y + dy }, parseInt(this.brightnessSlider.value));
+      this.lastPos = { x: clientX, y: clientY };
+      this.draw();
+      this.updateAnalysis();
+    }
+
+    private isActivePress(e: MouseEvent | TouchEvent) {
+      return e instanceof MouseEvent ? e.buttons === 1 : e.touches.length > 0;
+    }
+
     private onMove(e: MouseEvent | TouchEvent) {
       if (this.isDragging || this.isSelecting) {
         if (e instanceof TouchEvent) e.preventDefault();
       }
-      const clientX = e instanceof MouseEvent ? e.clientX : e.touches[0].clientX;
-      const clientY = e instanceof MouseEvent ? e.clientY : e.touches[0].clientY;
-      if (this.isSelecting && (this.selectionRect.w !== 0 || (e instanceof MouseEvent ? e.buttons === 1 : e.touches.length > 0))) {
-        const rect = this.canvas.getBoundingClientRect();
-        this.selectionRect.w = (clientX - rect.left) * (this.canvas.width / rect.width) - this.selectionRect.x;
-        this.selectionRect.h = (clientY - rect.top) * (this.canvas.height / rect.height) - this.selectionRect.y;
-        this.draw();
+      const { x: clientX, y: clientY } = this.getClientPos(e);
+      if (this.isSelecting && (this.selectionRect.w !== 0 || this.isActivePress(e))) {
+        this.handleSelectionMove(clientX, clientY);
       } else if (this.isDragging) {
-        const dx = (clientX - this.lastPos.x) * (this.canvas.width / this.canvas.clientWidth);
-        const dy = (clientY - this.lastPos.y) * (this.canvas.height / this.canvas.clientHeight);
-        const offset = this.engine.offset;
-        this.engine.updateState(parseFloat(this.zoomSlider.value), { x: offset.x + dx, y: offset.y + dy }, parseInt(this.brightnessSlider.value));
-        this.lastPos = { x: clientX, y: clientY };
-        this.draw();
-        this.updateAnalysis();
+        this.handleDragMove(clientX, clientY);
       }
     }
 
@@ -517,34 +535,27 @@ const t = (ui ?? {}) as TinderPhotoOptimizerUI;
       }
     }
 
-    private updateAnalysis() {
-      const { alerts, metrics } = this.engine.getAnalysis();
-
+    private updateMetrics() {
+      const { metrics } = this.engine.getAnalysis();
       const mFace = document.getElementById('metric-face-size');
       const mEye = document.getElementById('metric-eye-line');
       const mCoverage = document.getElementById('metric-coverage');
       const mMood = document.getElementById('metric-mood');
       const mQuality = document.getElementById('metric-quality');
-
       if (mFace) mFace.textContent = metrics.faceSize;
       if (mEye) mEye.textContent = metrics.eyeLine;
       if (mCoverage) mCoverage.textContent = metrics.coverage;
       if (mMood) mMood.textContent = metrics.mood;
       if (mQuality) mQuality.textContent = metrics.quality;
+    }
 
-      const stacks = {
-        success: document.getElementById('stack-success'),
-        warning: document.getElementById('stack-warning'),
-        error: document.getElementById('stack-error'),
-      };
-
+    private renderAlerts(alerts: { type: string; text: string }[], stacks: Record<string, HTMLElement | null>) {
       Object.values(stacks).forEach((s) => { if (s) s.innerHTML = ''; });
-
       if (alerts.length === 0) {
         if (stacks.success) stacks.success.innerHTML = '<div class="tfo-alert tfo-alert--success">Composición técnica excelente.</div>';
       } else {
         alerts.forEach((a) => {
-          const stack = (stacks as any)[a.type];
+          const stack = stacks[a.type];
           if (stack) {
             const div = document.createElement('div');
             div.className = `tfo-alert tfo-alert--${a.type}`;
@@ -553,12 +564,22 @@ const t = (ui ?? {}) as TinderPhotoOptimizerUI;
           }
         });
       }
-
       ['success', 'warning', 'error'].forEach((type) => {
         const group = document.getElementById(`group-${type}`);
-        const stack = (stacks as any)[type];
+        const stack = stacks[type];
         if (group && stack) group.style.display = stack.children.length > 0 ? 'flex' : 'none';
       });
+    }
+
+    private updateAnalysis() {
+      const { alerts } = this.engine.getAnalysis();
+      this.updateMetrics();
+      const stacks: Record<string, HTMLElement | null> = {
+        success: document.getElementById('stack-success'),
+        warning: document.getElementById('stack-warning'),
+        error: document.getElementById('stack-error'),
+      };
+      this.renderAlerts(alerts, stacks);
     }
 
     draw(forceShowFaceBox?: boolean) {
@@ -603,12 +624,12 @@ const t = (ui ?? {}) as TinderPhotoOptimizerUI;
     --tfo-panel-border: rgba(255, 255, 255, 0.3);
     --tfo-metric-bg: #f8fafc;
     --tfo-metric-border: #f1f5f9;
-    --tfo-action-bg: #ffffff;
+    --tfo-action-bg: #fff;
     --tfo-action-border: #f1f5f9;
     --tfo-action-color: #475569;
     --tfo-btn-icon-bg: #f8fafc;
     --tfo-btn-icon-color: #64748b;
-    --tfo-analysis-bg: #ffffff;
+    --tfo-analysis-bg: #fff;
     --tfo-alert-color: #1a1a1a;
     --tfo-switch-off: #e2e8f0;
   }
@@ -681,7 +702,10 @@ const t = (ui ?? {}) as TinderPhotoOptimizerUI;
       gap: 1.5rem;
       border-radius: 1.5rem;
     }
-    .tfo-panel { padding: 1.25rem; border-radius: 20px; }
+    .tfo-panel {
+      padding: 1.25rem;
+      border-radius: 20px;
+    }
     .tfo-analysis-board { margin-top: 1.5rem; }
     .tfo-alert { font-size: 0.9rem; }
   }
@@ -700,7 +724,6 @@ const t = (ui ?? {}) as TinderPhotoOptimizerUI;
     margin: 0 auto;
   }
 
-  /* Sidebar */
   .tfo-sidebar {
     display: flex;
     flex-direction: column;
@@ -752,7 +775,6 @@ const t = (ui ?? {}) as TinderPhotoOptimizerUI;
     accent-color: var(--tfo-pink);
   }
 
-  /* Toggles */
   .tfo-toggles-grid {
     display: flex;
     flex-direction: column;
@@ -826,7 +848,6 @@ const t = (ui ?? {}) as TinderPhotoOptimizerUI;
   input:checked + .tfo-track { background: var(--tfo-gradient); }
   input:checked + .tfo-track::before { transform: translateX(20px); }
 
-  /* Metrics */
   .tfo-metrics-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -877,7 +898,6 @@ const t = (ui ?? {}) as TinderPhotoOptimizerUI;
     font-weight: 600;
   }
 
-  /* Action buttons */
   .tfo-actions-panel { padding: 1.2rem; }
 
   .tfo-action-grid {
@@ -948,7 +968,6 @@ const t = (ui ?? {}) as TinderPhotoOptimizerUI;
     color: white;
   }
 
-  /* Export */
   .tfo-export-desc {
     font-size: 11px;
     margin-bottom: 1rem;
@@ -975,7 +994,6 @@ const t = (ui ?? {}) as TinderPhotoOptimizerUI;
     filter: brightness(1.05);
   }
 
-  /* Analysis board */
   .tfo-analysis-board {
     display: flex;
     flex-direction: column;
@@ -1039,7 +1057,7 @@ const t = (ui ?? {}) as TinderPhotoOptimizerUI;
     color: var(--tfo-alert-color);
     border-bottom: 1px solid rgba(0, 0, 0, 0.03);
     line-height: 1.4;
-    word-break: break-word;
+    overflow-wrap: break-word;
   }
 
   :global(.theme-dark) .tfo-alert {
@@ -1057,11 +1075,21 @@ const t = (ui ?? {}) as TinderPhotoOptimizerUI;
     flex-shrink: 0;
   }
 
-  .tfo-alert--success::before { background: #10b981; box-shadow: 0 0 10px rgba(16, 185, 129, 0.4); }
-  .tfo-alert--warning::before { background: #f59e0b; box-shadow: 0 0 10px rgba(245, 158, 11, 0.4); }
-  .tfo-alert--error::before { background: #ef4444; box-shadow: 0 0 10px rgba(239, 68, 68, 0.4); }
+  .tfo-alert--success::before {
+    background: #10b981;
+    box-shadow: 0 0 10px rgba(16, 185, 129, 0.4);
+  }
 
-  /* AI Loader */
+  .tfo-alert--warning::before {
+    background: #f59e0b;
+    box-shadow: 0 0 10px rgba(245, 158, 11, 0.4);
+  }
+
+  .tfo-alert--error::before {
+    background: #ef4444;
+    box-shadow: 0 0 10px rgba(239, 68, 68, 0.4);
+  }
+
   .tfo-ai-loader {
     position: absolute;
     inset: 0;
@@ -1104,9 +1132,10 @@ const t = (ui ?? {}) as TinderPhotoOptimizerUI;
     100% { top: 10%; }
   }
 
-  .tfo-hidden { display: none !important; }
+  .tfo-hidden {
+    display: none;
+  }
 
-  /* ---- TINDER DEVICE ---- */
   .tfo-device {
     width: 100%;
     aspect-ratio: 9/19;
@@ -1122,14 +1151,41 @@ const t = (ui ?? {}) as TinderPhotoOptimizerUI;
   }
 
   @media (max-width: 640px) {
-    .tfo-device { border-width: 8px; border-radius: 36px; }
-    .tfo-status-bar { height: 34px; padding: 0 15px; }
-    .tfo-dynamic-island { width: 80px; height: 20px; }
-    .tfo-app-header { height: 44px; padding: 0 15px; }
-    .tfo-card-info { padding-bottom: 15px; }
-    .tfo-name { font-size: 22px; }
-    .tfo-job { font-size: 14px; }
-    .tfo-tags { font-size: 10px; }
+    .tfo-device {
+      border-width: 8px;
+      border-radius: 36px;
+    }
+
+    .tfo-status-bar {
+      height: 34px;
+      padding: 0 15px;
+    }
+
+    .tfo-dynamic-island {
+      width: 80px;
+      height: 20px;
+    }
+
+    .tfo-app-header {
+      height: 44px;
+      padding: 0 15px;
+    }
+
+    .tfo-card-info {
+      padding-bottom: 15px;
+    }
+
+    .tfo-name {
+      font-size: 22px;
+    }
+
+    .tfo-job {
+      font-size: 14px;
+    }
+
+    .tfo-tags {
+      font-size: 10px;
+    }
   }
 
   .tfo-status-bar {
@@ -1315,7 +1371,10 @@ const t = (ui ?? {}) as TinderPhotoOptimizerUI;
   }
 
   .tfo-btn-circular:active { transform: scale(0.92); }
-  .tfo-btn-circular:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15); }
+  .tfo-btn-circular:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  }
 
   .tfo-nav-bar {
     height: 60px;
@@ -1365,8 +1424,15 @@ const t = (ui ?? {}) as TinderPhotoOptimizerUI;
     text-transform: uppercase;
   }
 
-  .tfo-deadzone--top { top: 0; height: 15%; }
-  .tfo-deadzone--bottom { bottom: 0; height: 28%; }
+  .tfo-deadzone--top {
+    top: 0;
+    height: 15%;
+  }
+
+  .tfo-deadzone--bottom {
+    bottom: 0;
+    height: 28%;
+  }
 
   .tfo-deadzone span {
     background: #ff4458;
