@@ -283,10 +283,6 @@ const t = (ui ?? {}) as YoutubeThumbnailUI;
     transition: opacity 0.4s;
   }
 
-  .ytx-hidden {
-    display: none;
-  }
-
   .ytx-main-card {
     position: relative;
     background: var(--bg);
@@ -415,5 +411,9 @@ const t = (ui ?? {}) as YoutubeThumbnailUI;
     padding: 1.5rem;
     border-radius: 12px;
     font-weight: 500;
+  }
+
+  .ytx-hidden {
+    display: none !important;
   }
 </style>
