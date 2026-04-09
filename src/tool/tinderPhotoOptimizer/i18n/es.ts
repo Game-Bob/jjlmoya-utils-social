@@ -1,4 +1,4 @@
-import type { WithContext, FAQPage, HowToThing, SoftwareApplication } from 'schema-dts';
+import type { WithContext, FAQPage, HowTo, SoftwareApplication } from 'schema-dts';
 import type { ToolLocaleContent } from '../../../types';
 import type { TinderPhotoOptimizerUI } from '../ui';
 
@@ -59,7 +59,7 @@ const faqSchema: WithContext<FAQPage> = {
   })),
 };
 
-const howToSchema: WithContext<HowToThing> = {
+const howToSchema: WithContext<HowTo> = {
   '@context': 'https://schema.org',
   '@type': 'HowTo',
   name: title,
@@ -244,5 +244,32 @@ export const content: ToolLocaleContent<TinderPhotoOptimizerUI> = {
     simulatorJob: 'Tu Profesión',
     simulatorCity: 'Vive en España',
     simulatorDistance: 'A 5 km de ti',
+
+    statusOptimal: 'ÓPTIMA',
+    statusIncorrect: 'INCORRECTA',
+    statusHigh: 'ALTA',
+    statusMedium: 'MEDIA',
+    statusLow: 'BAJA',
+    statusPositive: 'POSITIVO',
+    statusNeutral: 'NEUTRAL',
+
+    alertExcellent: 'Composición técnica excelente.',
+    alertEmptySpaces: 'ESPACIOS VACÍOS: La imagen no cubre todo el encuadre. Ajusta el zoom o la posición.',
+    alertAlmostInvisible: 'CASI INVISIBLE: Estás muy lejos. Haz zoom hasta que tu cara ocupe al menos un tercio de la pantalla.',
+    alertTooClose: 'DEMASIADO CERCA: Los primeros planos extremos pueden resultar agresivos.',
+    alertPerfectSize: 'TAMAÑO PERFECTO: Tu rostro tiene el ratio ideal para transmitir confianza.',
+    alertImpactfulLook: 'MIRADA IMPACTANTE: Tus ojos están en la línea de atención máxima.',
+    alertEyeLineMoveUp: 'LÍNEA DE OJOS: Para un encuadre profesional, sube un poco el rostro hasta la línea superior.',
+    alertEyeLineMoveDown: 'LÍNEA DE OJOS: Para un encuadre profesional, baja un poco el rostro hasta la línea superior.',
+    alertTiltedHead: 'CABEZA INCLINADA: Una postura demasiado torcida puede transmitir inestabilidad.',
+    alertSmileDetected: 'SONRISA DETECTADA: Las sonrisas aumentan la tasa de match significativamente.',
+    alertSevereExpression: 'EXPRESIÓN SEVERA: Intenta usar una foto con un gesto más amable.',
+    alertObstructedTop: 'OBSTRUIDO: La barra de progreso tapa tu rostro.',
+    alertObstructedBottom: 'OBSTRUIDO: El bloque de información tapa tu cara.',
+    alertLowLight: 'ILUMINACIÓN DEFICIENTE: La IA tiene dificultades para verte. Busca una foto con mejor luz.',
+    alertCutOff: 'CORTADO: El rostro se sale del encuadre vertical.',
+    alertProTip: 'CONSEJO PRO: Si es una selfie, usa el Zoom (1.2x) para evitar distorsiones de lente.',
+
+    canvasFaceDetected: 'Cara detectada',
   },
 };

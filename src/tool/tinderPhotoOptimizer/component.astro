@@ -11,7 +11,35 @@ const { ui } = Astro.props;
 const t = (ui ?? {}) as TinderPhotoOptimizerUI;
 ---
 
-<div class="tfo-root">
+<div
+  class="tfo-root"
+  data-status-optimal={t.statusOptimal}
+  data-status-incorrect={t.statusIncorrect}
+  data-status-high={t.statusHigh}
+  data-status-medium={t.statusMedium}
+  data-status-low={t.statusLow}
+  data-status-positive={t.statusPositive}
+  data-status-neutral={t.statusNeutral}
+  data-alert-excellent={t.alertExcellent}
+  data-alert-empty-spaces={t.alertEmptySpaces}
+  data-alert-almost-invisible={t.alertAlmostInvisible}
+  data-alert-too-close={t.alertTooClose}
+  data-alert-perfect-size={t.alertPerfectSize}
+  data-alert-impactful-look={t.alertImpactfulLook}
+  data-alert-eye-line-move-up={t.alertEyeLineMoveUp}
+  data-alert-eye-line-move-down={t.alertEyeLineMoveDown}
+  data-alert-tilted-head={t.alertTiltedHead}
+  data-alert-smile-detected={t.alertSmileDetected}
+  data-alert-severe-expression={t.alertSevereExpression}
+  data-alert-obstructed-top={t.alertObstructedTop}
+  data-alert-obstructed-bottom={t.alertObstructedBottom}
+  data-alert-low-light={t.alertLowLight}
+  data-alert-cut-off={t.alertCutOff}
+  data-alert-pro-tip={t.alertProTip}
+  data-canvas-face-detected={t.canvasFaceDetected}
+  data-loader-models={t.loaderModels}
+  data-loader-analyzing={t.loaderAnalyzing}
+>
   <div class="tfo-container" id="tfo-optimizer">
     <input type="file" id="image-input" accept=".jpg,.jpeg,.png,.webp,.gif" style="display: none;" />
 
@@ -20,7 +48,7 @@ const t = (ui ?? {}) as TinderPhotoOptimizerUI;
         <div id="ai-loader" class="tfo-ai-loader tfo-hidden">
           <div class="tfo-loader-content">
             <div class="tfo-scanner-bar"></div>
-            <p id="ai-loader-text">{t.loaderAnalyzing}</p>
+            <p id="ai-loader-text">{t.loaderModels}</p>
           </div>
         </div>
 
@@ -436,9 +464,9 @@ const t = (ui ?? {}) as TinderPhotoOptimizerUI;
       const targetImg = img || this.engine.image;
       if (!targetImg) return;
       this.aiLoader.classList.remove('tfo-hidden');
-      this.aiLoaderText.textContent = 'Cargando modelos de visión...';
+      this.aiLoaderText.textContent = this.getTranslation('loaderModels') || 'Loading models...';
       await this.engine.loadModels();
-      this.aiLoaderText.textContent = 'Analizando composición...';
+      this.aiLoaderText.textContent = this.getTranslation('loaderAnalyzing') || 'Analyzing...';
       const face = await this.engine.detect(targetImg);
       if (face) {
         this.autofocusBtn.style.display = 'flex';
@@ -451,21 +479,26 @@ const t = (ui ?? {}) as TinderPhotoOptimizerUI;
 
     private onStart(e: MouseEvent | TouchEvent) {
       if (e instanceof TouchEvent) e.preventDefault();
-      const clientX = e instanceof MouseEvent ? e.clientX : e.touches[0].clientX;
-      const clientY = e instanceof MouseEvent ? e.clientY : e.touches[0].clientY;
+      const { x: cx, y: cy } = this.getClientPos(e);
       const rect = this.canvas.getBoundingClientRect();
-      const x = (clientX - rect.left) * (this.canvas.width / rect.width);
-      const y = (clientY - rect.top) * (this.canvas.height / rect.height);
+      const x = (cx - rect.left) * (this.canvas.width / rect.width);
+      const y = (cy - rect.top) * (this.canvas.height / rect.height);
+      this.initInteraction(x, y, cx, cy);
+    }
+
+    private initInteraction(x: number, y: number, cx: number, cy: number) {
       if (this.isSelecting) {
         this.selectionRect = { x, y, w: 0, h: 0 };
       } else {
         this.isDragging = true;
-        this.lastPos = { x: clientX, y: clientY };
+        this.lastPos = { x: cx, y: cy };
       }
     }
 
     private getClientPos(e: MouseEvent | TouchEvent) {
-      const src = e instanceof MouseEvent ? e : e.touches[0];
+      const touch = e instanceof TouchEvent ? e.touches[0] : null;
+      const src = e instanceof MouseEvent ? e : touch;
+      if (!src) return { x: 0, y: 0 };
       return { x: src.clientX, y: src.clientY };
     }
 
@@ -535,31 +568,46 @@ const t = (ui ?? {}) as TinderPhotoOptimizerUI;
       }
     }
 
-    private updateMetrics() {
-      const { metrics } = this.engine.getAnalysis();
-      const mFace = document.getElementById('metric-face-size');
-      const mEye = document.getElementById('metric-eye-line');
-      const mCoverage = document.getElementById('metric-coverage');
-      const mMood = document.getElementById('metric-mood');
-      const mQuality = document.getElementById('metric-quality');
-      if (mFace) mFace.textContent = metrics.faceSize;
-      if (mEye) mEye.textContent = metrics.eyeLine;
-      if (mCoverage) mCoverage.textContent = metrics.coverage;
-      if (mMood) mMood.textContent = metrics.mood;
-      if (mQuality) mQuality.textContent = metrics.quality;
+    private getTranslation(key: string): string {
+      const root = this.canvas.closest('.tfo-root') as HTMLElement | null;
+      const dataset = root?.dataset as Record<string, string | undefined>;
+      return dataset?.[key] || key;
     }
 
-    private renderAlerts(alerts: { type: string; text: string }[], stacks: Record<string, HTMLElement | null>) {
+    private updateMetrics() {
+      const { metrics } = this.engine.getAnalysis();
+      const fields = [
+        { k: 'faceSize', id: 'metric-face-size' },
+        { k: 'eyeLine', id: 'metric-eye-line' },
+        { k: 'coverage', id: 'metric-coverage' },
+        { k: 'mood', id: 'metric-mood' },
+        { k: 'quality', id: 'metric-quality' }
+      ];
+      fields.forEach(f => {
+        const el = document.getElementById(f.id);
+        if (!el) return;
+        const v = metrics[f.k] as string;
+        if (f.k === 'faceSize' || (f.k === 'coverage' && v !== 'statusIncorrect')) el.textContent = v;
+        else el.textContent = this.getTranslation(v || '');
+      });
+    }
+
+    private renderAlerts(alerts: { type: string; textKey: string }[], stacks: Record<string, HTMLElement | null>) {
       Object.values(stacks).forEach((s) => { if (s) s.innerHTML = ''; });
       if (alerts.length === 0) {
-        if (stacks.success) stacks.success.innerHTML = '<div class="tfo-alert tfo-alert--success">Composición técnica excelente.</div>';
+        if (stacks.success) {
+          const div = document.createElement('div');
+          div.className = 'tfo-alert tfo-alert--success';
+          div.textContent = this.getTranslation('alertExcellent');
+          stacks.success.appendChild(div);
+        }
       } else {
         alerts.forEach((a) => {
           const stack = stacks[a.type];
           if (stack) {
             const div = document.createElement('div');
             div.className = `tfo-alert tfo-alert--${a.type}`;
-            div.textContent = a.text;
+            div.textContent = this.getTranslation(a.textKey as string);
             stack.appendChild(div);
           }
         });
@@ -579,12 +627,12 @@ const t = (ui ?? {}) as TinderPhotoOptimizerUI;
         warning: document.getElementById('stack-warning'),
         error: document.getElementById('stack-error'),
       };
-      this.renderAlerts(alerts, stacks);
+      this.renderAlerts(alerts as { type: string; textKey: string }[], stacks);
     }
 
     draw(forceShowFaceBox?: boolean) {
       const showFaceBox = forceShowFaceBox !== undefined ? forceShowFaceBox : this.toggleFaceBoxSwitch.checked;
-      this.engine.draw(showFaceBox);
+      this.engine.draw(showFaceBox, this.getTranslation('canvasFaceDetected'));
       if (this.isSelecting && this.selectionRect.w !== 0) {
         const ctx = this.canvas.getContext('2d')!;
         ctx.strokeStyle = '#FD297B';

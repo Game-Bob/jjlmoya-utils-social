@@ -1,4 +1,4 @@
-import type { WithContext, FAQPage, HowToThing, SoftwareApplication } from 'schema-dts';
+import type { WithContext, FAQPage, HowTo, SoftwareApplication } from 'schema-dts';
 import type { ToolLocaleContent } from '../../../types';
 import type { TinderPhotoOptimizerUI } from '../ui';
 
@@ -59,7 +59,7 @@ const faqSchema: WithContext<FAQPage> = {
   })),
 };
 
-const howToSchema: WithContext<HowToThing> = {
+const howToSchema: WithContext<HowTo> = {
   '@context': 'https://schema.org',
   '@type': 'HowTo',
   name: title,
@@ -244,5 +244,32 @@ export const content: ToolLocaleContent<TinderPhotoOptimizerUI> = {
     simulatorJob: 'Your Profession',
     simulatorCity: 'Lives in New York',
     simulatorDistance: '5 km away',
+
+    statusOptimal: 'OPTIMAL',
+    statusIncorrect: 'INCORRECT',
+    statusHigh: 'HIGH',
+    statusMedium: 'MEDIUM',
+    statusLow: 'LOW',
+    statusPositive: 'POSITIVE',
+    statusNeutral: 'NEUTRAL',
+
+    alertExcellent: 'Excellent technical composition.',
+    alertEmptySpaces: 'EMPTY SPACES: The image does not cover the entire frame. Adjust zoom or position.',
+    alertAlmostInvisible: 'ALMOST INVISIBLE: You are too far away. Zoom in until your face occupies at least a third of the screen.',
+    alertTooClose: 'TOO CLOSE: Extreme close-ups can appear aggressive.',
+    alertPerfectSize: 'PERFECT SIZE: Your face has the ideal ratio to convey confidence.',
+    alertImpactfulLook: 'IMPACTFUL LOOK: Your eyes are on the maximum attention line.',
+    alertEyeLineMoveUp: 'EYE LINE: For a professional frame, move your face up slightly to the top line.',
+    alertEyeLineMoveDown: 'EYE LINE: For a professional frame, move your face down slightly to the top line.',
+    alertTiltedHead: 'TILTED HEAD: A posture that is too tilted can convey instability.',
+    alertSmileDetected: 'SMILE DETECTED: Smiles significantly increase the match rate.',
+    alertSevereExpression: 'SEVERE EXPRESSION: Try using a photo with a friendlier gesture.',
+    alertObstructedTop: 'OBSTRUCTED: The progress bar covers your face.',
+    alertObstructedBottom: 'OBSTRUCTED: The information block covers your face.',
+    alertLowLight: 'POOR LIGHTING: The AI has difficulty seeing you. Look for a photo with better light.',
+    alertCutOff: 'CUT OFF: The face goes outside the vertical frame.',
+    alertProTip: 'PRO TIP: If it is a selfie, use Zoom (1.2x) to avoid lens distortions.',
+
+    canvasFaceDetected: 'Face detected',
   },
 };

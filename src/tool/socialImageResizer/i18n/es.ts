@@ -115,31 +115,35 @@ export const content: ToolLocaleContent<SocialImageResizerUI> = {
     {
       type: 'grid',
       columns: [
-        { title: 'Instagram — Post Cuadrado', body: '1080 × 1080 px · Ratio 1:1' },
-        { title: 'Instagram — Post Vertical', body: '1080 × 1350 px · Ratio 4:5' },
-        { title: 'TikTok / Reels — Vertical', body: '1080 × 1920 px · Ratio 9:16' },
-        { title: 'YouTube — Miniatura', body: '1280 × 720 px · Ratio 16:9' },
-        { title: 'YouTube — Banner de Canal', body: '2560 × 1440 px · Ratio 16:9' },
-        { title: 'X (Twitter) — Post Estándar', body: '1200 × 675 px · Ratio 16:9' },
-        { title: 'LinkedIn — Portada de Perfil', body: '1584 × 396 px · Ratio 4:1' },
+        { type: 'card', title: 'Instagram — Post Cuadrado', body: '1080 × 1080 px · Ratio 1:1' },
+        { type: 'card', title: 'Instagram — Post Vertical', body: '1080 × 1350 px · Ratio 4:5' },
+        { type: 'card', title: 'TikTok / Reels — Vertical', body: '1080 × 1920 px · Ratio 9:16' },
+        { type: 'card', title: 'YouTube — Miniatura', body: '1280 × 720 px · Ratio 16:9' },
+        { type: 'card', title: 'YouTube — Banner de Canal', body: '2560 × 1440 px · Ratio 16:9' },
+        { type: 'card', title: 'X (Twitter) — Post Estándar', body: '1200 × 675 px · Ratio 16:9' },
+        { type: 'card', title: 'LinkedIn — Portada de Perfil', body: '1584 × 396 px · Ratio 4:1' },
       ],
     },
     {
       type: 'grid',
       columns: [
         {
+          type: 'card',
           title: 'Instagram',
           body: 'El formato 1:1 sigue siendo un clásico, pero el 4:5 (Vertical) ocupa más espacio en pantalla y genera hasta un 30% más de interacción en el feed de noticias.',
         },
         {
+          type: 'card',
           title: 'Short Form Content',
           body: 'Para TikTok y Reels, el estándar es 9:16. Este formato inmersivo requiere que el centro de atención esté perfectamente alineado para evitar ser tapado por la UI.',
         },
         {
+          type: 'card',
           title: 'Visual Engagement',
           body: 'Desde miniaturas hasta banners, cada asset tiene un peso específico en el clic. El recorte preciso garantiza que los textos y elementos clave sean siempre legibles.',
         },
         {
+          type: 'card',
           title: 'Branding Profesional',
           body: 'En redes profesionales como LinkedIn, la nitidez es autoridad. Los encabezados requieren ratios específicos para no aparecer pixelados en pantallas de alta densidad.',
         },

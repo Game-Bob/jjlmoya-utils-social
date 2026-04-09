@@ -34,4 +34,31 @@ export interface TinderPhotoOptimizerUI extends Record<string, string> {
   simulatorJob: string;
   simulatorCity: string;
   simulatorDistance: string;
+
+  statusOptimal: string;
+  statusIncorrect: string;
+  statusHigh: string;
+  statusMedium: string;
+  statusLow: string;
+  statusPositive: string;
+  statusNeutral: string;
+
+  alertExcellent: string;
+  alertEmptySpaces: string;
+  alertAlmostInvisible: string;
+  alertTooClose: string;
+  alertPerfectSize: string;
+  alertImpactfulLook: string;
+  alertEyeLineMoveUp: string;
+  alertEyeLineMoveDown: string;
+  alertTiltedHead: string;
+  alertSmileDetected: string;
+  alertSevereExpression: string;
+  alertObstructedTop: string;
+  alertObstructedBottom: string;
+  alertLowLight: string;
+  alertCutOff: string;
+  alertProTip: string;
+
+  canvasFaceDetected: string;
 }

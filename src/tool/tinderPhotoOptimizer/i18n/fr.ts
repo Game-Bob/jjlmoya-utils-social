@@ -1,4 +1,4 @@
-import type { WithContext, FAQPage, HowToThing, SoftwareApplication } from 'schema-dts';
+import type { WithContext, FAQPage, HowTo, SoftwareApplication } from 'schema-dts';
 import type { ToolLocaleContent } from '../../../types';
 import type { TinderPhotoOptimizerUI } from '../ui';
 
@@ -59,7 +59,7 @@ const faqSchema: WithContext<FAQPage> = {
   })),
 };
 
-const howToSchema: WithContext<HowToThing> = {
+const howToSchema: WithContext<HowTo> = {
   '@context': 'https://schema.org',
   '@type': 'HowTo',
   name: title,
@@ -244,5 +244,32 @@ export const content: ToolLocaleContent<TinderPhotoOptimizerUI> = {
     simulatorJob: 'Votre Profession',
     simulatorCity: 'Vit à Paris',
     simulatorDistance: 'À 5 km de vous',
+
+    statusOptimal: 'OPTIMALE',
+    statusIncorrect: 'INCORRECTE',
+    statusHigh: 'HAUTE',
+    statusMedium: 'MOYENNE',
+    statusLow: 'BASSE',
+    statusPositive: 'POSITIF',
+    statusNeutral: 'NEUTRE',
+
+    alertExcellent: 'Excellente composition technique.',
+    alertEmptySpaces: 'ESPACES VIDES : L\'image ne couvre pas tout le cadre. Ajustez le zoom ou la position.',
+    alertAlmostInvisible: 'PRESQUE INVISIBLE : Vous êtes trop loin. Zoomez jusqu\'à ce que votre visage occupe au moins un tiers de l\'écran.',
+    alertTooClose: 'TROP PRÈS : Les gros plans extrêmes peuvent paraître agressifs.',
+    alertPerfectSize: 'TAILLE PARFAITE : Votre visage a le ratio idéal pour transmettre la confiance.',
+    alertImpactfulLook: 'REGARD IMPACTANT : Vos yeux sont sur la ligne d\'attention maximale.',
+    alertEyeLineMoveUp: 'LIGNE DES YEUX : Pour un cadrage professionnel, remontez légèrement le visage jusqu\'à la ligne supérieure.',
+    alertEyeLineMoveDown: 'LIGNE DES YEUX : Pour un cadrage professionnel, baissez légèrement le visage jusqu\'à la ligne supérieure.',
+    alertTiltedHead: 'TÊTE INCLINÉE : Une posture trop inclinée peut transmettre de l\'instabilité.',
+    alertSmileDetected: 'SOURIRE DÉTECTÉ : Les sourires augmentent considérablement le taux de match.',
+    alertSevereExpression: 'EXPRESSION SÉVÈRE : Essayez d\'utiliser une photo avec un geste plus amical.',
+    alertObstructedTop: 'OBSTRUÉ : La barre de progression cache votre visage.',
+    alertObstructedBottom: 'OBSTRUÉ : Le bloc d\'information cache votre visage.',
+    alertLowLight: 'ÉCLAIRAGE DÉFICIENT : L\'IA a des difficultés à vous voir. Cherchez une photo avec une meilleure lumière.',
+    alertCutOff: 'COUPÉ : Le visage sort du cadre vertical.',
+    alertProTip: 'CONSEIL PRO : S\'il s\'agit d\'un selfie, utilisez le Zoom (1.2x) pour éviter les distorsions de l\'objectif.',
+
+    canvasFaceDetected: 'Visage détecté',
   },
 };
