@@ -4,8 +4,8 @@ import { socialCategory } from '../data';
 
 describe('Tool Validation Suite', () => {
   describe('Library Registration', () => {
-    it('should have 0 tools in ALL_TOOLS (replace with actual count after adding tools)', () => {
-      expect(ALL_TOOLS.length).toBe(0);
+    it('should have 7 tools in ALL_TOOLS', () => {
+      expect(ALL_TOOLS.length).toBe(7);
     });
 
     it('socialCategory should be defined', () => {

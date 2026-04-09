@@ -1,0 +1,635 @@
+---
+import type { KnownLocale } from '../../types';
+import type { YoutubeThumbnailPreviewerUI } from './ui';
+
+interface Props {
+  locale?: KnownLocale;
+  ui?: Record<string, unknown>;
+}
+
+const { ui } = Astro.props;
+const t = (ui ?? {}) as YoutubeThumbnailPreviewerUI;
+---
+
+<div class="ytt-root">
+  <div class="premium-card">
+    <div class="main-layout">
+
+      <aside class="sidebar">
+        <div class="upload-group">
+          <div id="ytt-dropThumb" class="drop-zone" role="button" aria-label={t.dropFeedTitle}>
+            <div class="drop-icon">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <rect x="2" y="2" width="8" height="8" rx="1"/><rect x="14" y="2" width="8" height="8" rx="1"/>
+                <rect x="2" y="14" width="8" height="8" rx="1"/><path d="M14 18h8M18 14v8"/>
+              </svg>
+            </div>
+            <div class="drop-text">
+              <h3>{t.dropFeedTitle}</h3>
+              <p>{t.dropFeedSub}</p>
+            </div>
+            <input type="file" id="ytt-thumbInput" accept="image/*" multiple style="display:none;" />
+          </div>
+
+          <div id="ytt-dropAvatar" class="drop-zone" role="button" aria-label={t.dropAvatarTitle}>
+            <div class="drop-icon">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/>
+              </svg>
+            </div>
+            <div class="drop-text">
+              <h3>{t.dropAvatarTitle}</h3>
+              <p>{t.dropAvatarSub}</p>
+            </div>
+            <input type="file" id="ytt-avatarInput" accept="image/*" style="display:none;" />
+          </div>
+        </div>
+
+        <div id="ytt-galleryPreview" class="gallery-preview"></div>
+
+        <div class="custom-settings">
+          <div class="settings-group">
+            <label for="ytt-mockupTitle">{t.labelTitle}</label>
+            <input type="text" id="ytt-mockupTitle" value={t.defaultTitle} placeholder={t.defaultTitle} />
+          </div>
+          <div class="settings-group">
+            <label for="ytt-mockupChannel">{t.labelChannel}</label>
+            <input type="text" id="ytt-mockupChannel" value={t.defaultChannel} placeholder={t.defaultChannel} />
+          </div>
+        </div>
+
+        <div class="tester-controls">
+          <button id="ytt-btnDesktop" class="control-btn active" data-view="desktop">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/>
+            </svg>
+            <span>{t.btnDesktop}</span>
+          </button>
+          <button id="ytt-btnMobile" class="control-btn" data-view="mobile">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="5" y="2" width="14" height="20" rx="2"/><circle cx="12" cy="17" r="1"/>
+            </svg>
+            <span>{t.btnMobile}</span>
+          </button>
+          <button id="ytt-btnReset" class="control-btn control-btn--reset">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M3 6h18M8 6V4h8v2M19 6l-1 14H6L5 6"/>
+            </svg>
+            <span>{t.btnClear}</span>
+          </button>
+        </div>
+      </aside>
+
+      <main class="preview-area">
+        <div class="comparison-container mockup-desktop" id="ytt-comparisonContainer">
+          <div class="comparison-side yt-mockup light">
+            <span class="comparison-label">{t.labelLight}</span>
+            <div id="ytt-comparisonLight" class="mockup-grid"></div>
+          </div>
+          <div class="comparison-side yt-mockup dark">
+            <span class="comparison-label">{t.labelDark}</span>
+            <div id="ytt-comparisonDark" class="mockup-grid"></div>
+          </div>
+        </div>
+      </main>
+
+    </div>
+  </div>
+</div>
+
+<script>
+  const VIEWS = [
+    '1.2M de visualizaciones • hace 1 hora',
+    'Hace 45 minutos',
+    '250.000 visualizaciones • hace 1 día',
+    '3.1M de visualizaciones • hace 1 semana',
+  ];
+
+  let thumbnailsList: string[] = [];
+  let currentAvatar: string | null = null;
+  let currentView = 'desktop';
+  let galleryEl: HTMLElement | null = null;
+  let lightEl: HTMLElement | null = null;
+  let darkEl: HTMLElement | null = null;
+  let containerEl: HTMLElement | null = null;
+  let titleEl: HTMLInputElement | null = null;
+  let channelEl: HTMLInputElement | null = null;
+
+  function avatarHtml(): string {
+    return currentAvatar
+      ? `<img src="${currentAvatar}" alt="Avatar" />`
+      : `<svg viewBox="0 0 24 24" fill="currentColor" width="100%" height="100%"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>`;
+  }
+
+  function createVideoMock(thumb: string, i: number): string {
+    const title = titleEl?.value || 'Título del vídeo';
+    const channel = channelEl?.value || 'Canal';
+    return `<div class="yt-card">
+      <div class="yt-thumbnail-wrapper">
+        <img src="${thumb}" alt="Thumbnail" />
+        <div class="yt-duration">10:45</div>
+      </div>
+      <div class="yt-info-row">
+        <div class="yt-avatar">${avatarHtml()}</div>
+        <div class="yt-text-meta">
+          <h4 class="yt-title" title="${title}">${title}</h4>
+          <p class="yt-channel">${channel}</p>
+          <p class="yt-views">${VIEWS[i % 4]}</p>
+        </div>
+      </div>
+    </div>`;
+  }
+
+  function renderGallery(): void {
+    if (!galleryEl) return;
+    galleryEl.innerHTML = thumbnailsList.map((t, i) =>
+      `<div class="gallery-item"><img src="${t}" alt="Miniatura" /><button class="btn-remove-thumb" data-idx="${i}">&times;</button></div>`
+    ).join('');
+    galleryEl.querySelectorAll('.btn-remove-thumb').forEach((btn) => {
+      btn.addEventListener('click', (e) => {
+        const idx = parseInt((e.target as HTMLElement).dataset.idx || '0');
+        thumbnailsList.splice(idx, 1);
+        renderFeed();
+      });
+    });
+  }
+
+  function renderFeed(): void {
+    renderGallery();
+    if (containerEl) containerEl.className = `comparison-container mockup-${currentView}`;
+    const html = thumbnailsList.map((t, i) => createVideoMock(t, i)).join('');
+    if (lightEl) lightEl.innerHTML = html;
+    if (darkEl) darkEl.innerHTML = html;
+  }
+
+  function setupDropzone(el: HTMLElement | null, input: HTMLInputElement | null, handler: (files: FileList) => void): void {
+    if (!el || !input) return;
+    el.addEventListener('click', () => input.click());
+    el.addEventListener('dragover', (e) => { e.preventDefault(); el.classList.add('hover'); });
+    el.addEventListener('dragleave', () => el.classList.remove('hover'));
+    el.addEventListener('drop', (e) => {
+      e.preventDefault();
+      el.classList.remove('hover');
+      const files = (e as DragEvent).dataTransfer?.files;
+      if (files) handler(files);
+    });
+    input.addEventListener('change', (e) => {
+      const files = (e.target as HTMLInputElement).files;
+      if (files) handler(files);
+    });
+  }
+
+  function setupUploads(): void {
+    const thumbInput = document.getElementById('ytt-thumbInput') as HTMLInputElement | null;
+    const avatarInput = document.getElementById('ytt-avatarInput') as HTMLInputElement | null;
+    const dropThumb = document.getElementById('ytt-dropThumb') as HTMLElement | null;
+    const dropAvatar = document.getElementById('ytt-dropAvatar') as HTMLElement | null;
+    setupDropzone(dropThumb, thumbInput, (files) => {
+      for (const file of Array.from(files)) {
+        if (file.type.startsWith('image/')) thumbnailsList.push(URL.createObjectURL(file));
+      }
+      renderFeed();
+    });
+    setupDropzone(dropAvatar, avatarInput, (files) => {
+      const file = files[0];
+      if (file && file.type.startsWith('image/')) { currentAvatar = URL.createObjectURL(file); renderFeed(); }
+    });
+  }
+
+  function setupControls(): void {
+    const btnDesktop = document.getElementById('ytt-btnDesktop') as HTMLButtonElement | null;
+    const btnMobile = document.getElementById('ytt-btnMobile') as HTMLButtonElement | null;
+    const btnReset = document.getElementById('ytt-btnReset') as HTMLButtonElement | null;
+    btnDesktop?.addEventListener('click', () => {
+      currentView = 'desktop'; btnDesktop.classList.add('active'); btnMobile?.classList.remove('active'); renderFeed();
+    });
+    btnMobile?.addEventListener('click', () => {
+      currentView = 'mobile'; btnMobile.classList.add('active'); btnDesktop?.classList.remove('active'); renderFeed();
+    });
+    btnReset?.addEventListener('click', () => { thumbnailsList = []; renderFeed(); });
+    [titleEl, channelEl].forEach((inp) => inp?.addEventListener('input', renderFeed));
+  }
+
+  function init(): void {
+    if (!document.querySelector('.ytt-root')) return;
+    thumbnailsList = [];
+    currentAvatar = null;
+    currentView = 'desktop';
+    galleryEl = document.getElementById('ytt-galleryPreview');
+    lightEl = document.getElementById('ytt-comparisonLight');
+    darkEl = document.getElementById('ytt-comparisonDark');
+    containerEl = document.getElementById('ytt-comparisonContainer');
+    titleEl = document.getElementById('ytt-mockupTitle') as HTMLInputElement | null;
+    channelEl = document.getElementById('ytt-mockupChannel') as HTMLInputElement | null;
+    setupUploads();
+    setupControls();
+    renderFeed();
+  }
+
+  document.addEventListener('astro:page-load', init);
+  init();
+</script>
+
+<style>
+  .ytt-root {
+    --yt-red: #ff0000;
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+
+  .premium-card {
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    border-radius: 32px;
+    padding: 2rem;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.05);
+  }
+
+  @media (max-width: 768px) {
+    .premium-card { padding: 1rem; border-radius: 20px; }
+  }
+
+  :global(.theme-dark) .ytt-root .premium-card {
+    background: rgba(15, 23, 42, 0.7);
+    border-color: rgba(255, 255, 255, 0.05);
+  }
+
+  .main-layout {
+    display: grid;
+    grid-template-columns: 320px 1fr;
+    gap: 2rem;
+    align-items: start;
+  }
+
+  @media (max-width: 1100px) { .main-layout { grid-template-columns: 1fr; } }
+  @media (max-width: 768px) { .main-layout { gap: 1rem; } }
+
+  .sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    position: sticky;
+    top: 2rem;
+  }
+
+  @media (max-width: 1100px) { .sidebar { position: static; } }
+  @media (max-width: 768px) { .sidebar { gap: 1rem; } }
+
+  .upload-group {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.75rem;
+  }
+
+  @media (max-width: 768px) { .upload-group { grid-template-columns: 1fr; gap: 0.5rem; } }
+
+  .drop-zone {
+    width: 100%;
+    height: 100px;
+    border: 2px dashed rgba(239, 68, 68, 0.15);
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.4rem;
+    cursor: pointer;
+    background: rgba(239, 68, 68, 0.02);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    text-align: center;
+    padding: 0.5rem;
+    color: inherit;
+  }
+
+  @media (max-width: 768px) { .drop-zone { height: 80px; border-radius: 16px; } }
+
+  .drop-zone:hover, .drop-zone.hover {
+    border-color: var(--yt-red);
+    background: rgba(239, 68, 68, 0.06);
+    transform: translateY(-2px);
+  }
+
+  .drop-icon { font-size: 1.6rem; color: var(--yt-red); }
+
+  .drop-text h3 { margin: 0; font-size: 0.8rem; font-weight: 800; }
+  .drop-text p { margin: 0; font-size: 0.6rem; color: #94a3b8; }
+
+  @media (max-width: 768px) {
+    .drop-text h3 { font-size: 0.7rem; }
+    .drop-text p { font-size: 0.55rem; }
+    .drop-icon { font-size: 1.2rem; }
+  }
+
+  .gallery-preview {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    padding: 12px;
+    background: rgba(0, 0, 0, 0.03);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    border-radius: 16px;
+    min-height: 50px;
+  }
+
+  @media (max-width: 768px) { .gallery-preview { gap: 6px; padding: 8px; border-radius: 12px; } }
+
+  :global(.theme-dark) .ytt-root .gallery-preview {
+    background: rgba(255, 255, 255, 0.03);
+    border-color: rgba(255, 255, 255, 0.06);
+  }
+
+  .custom-settings {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 1.25rem;
+    background: rgba(0, 0, 0, 0.03);
+    border-radius: 20px;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+  }
+
+  @media (max-width: 768px) { .custom-settings { padding: 1rem; gap: 0.75rem; border-radius: 16px; } }
+
+  :global(.theme-dark) .ytt-root .custom-settings {
+    background: rgba(255, 255, 255, 0.03);
+    border-color: rgba(255, 255, 255, 0.06);
+  }
+
+  .settings-group label {
+    display: block;
+    font-size: 0.7rem;
+    font-weight: 800;
+    color: #94a3b8;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 0.3rem;
+  }
+
+  .settings-group input {
+    width: 100%;
+    padding: 0.8rem;
+    border-radius: 12px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    font-size: 0.9rem;
+    background: white;
+    color: #1e293b;
+    outline: none;
+    transition: all 0.2s;
+    box-sizing: border-box;
+  }
+
+  @media (max-width: 768px) {
+    .settings-group label { font-size: 0.65rem; }
+    .settings-group input { padding: 0.7rem; font-size: 0.85rem; border-radius: 10px; }
+  }
+
+  :global(.theme-dark) .ytt-root .settings-group input {
+    background: rgba(15, 23, 42, 0.5);
+    border-color: rgba(255, 255, 255, 0.1);
+    color: #f1f5f9;
+  }
+
+  .settings-group input:focus {
+    border-color: var(--yt-red);
+    box-shadow: 0 0 0 4px rgba(255, 0, 0, 0.05);
+  }
+
+  .tester-controls {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.75rem;
+  }
+
+  @media (max-width: 768px) { .tester-controls { grid-template-columns: 1fr; gap: 0.5rem; } }
+
+  .control-btn {
+    border: none;
+    background: rgba(0, 0, 0, 0.05);
+    padding: 1rem;
+    border-radius: 14px;
+    cursor: pointer;
+    font-weight: 700;
+    font-size: 0.8rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    color: #64748b;
+    transition: all 0.2s;
+  }
+
+  @media (max-width: 768px) { .control-btn { padding: 0.8rem; font-size: 0.75rem; border-radius: 12px; } }
+
+  .control-btn:hover { background: rgba(0, 0, 0, 0.08); color: #1e293b; }
+
+  :global(.theme-dark) .ytt-root .control-btn {
+    background: rgba(255, 255, 255, 0.05);
+    color: #94a3b8;
+  }
+  :global(.theme-dark) .ytt-root .control-btn:hover { color: #f1f5f9; }
+
+  .control-btn.active {
+    background: var(--yt-red);
+    color: white;
+    box-shadow: 0 8px 20px rgba(255, 0, 0, 0.15);
+  }
+
+  .control-btn--reset {
+    grid-column: span 2;
+    color: #ef4444;
+    border: 1px solid rgba(239, 68, 68, 0.2);
+  }
+
+  @media (max-width: 768px) { .control-btn--reset { grid-column: span 1; } }
+
+  .preview-area { min-width: 0; }
+</style>
+
+<style>
+  :global(.comparison-container) {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4px;
+    background: #e2e8f0;
+    border-radius: 32px;
+    overflow: hidden;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.05);
+  }
+
+  :global(.theme-dark) :global(.comparison-container) {
+    background: rgba(255, 255, 255, 0.05);
+  }
+
+  @media (max-width: 768px) {
+    :global(.comparison-container) { grid-template-columns: 1fr; border-radius: 20px; gap: 8px; }
+  }
+
+  :global(.comparison-side) {
+    position: relative;
+    padding: 3rem 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 600px;
+    transition: background 0.3s ease;
+  }
+
+  @media (max-width: 768px) { :global(.comparison-side) { padding: 2rem 1rem; min-height: auto; } }
+
+  :global(.comparison-label) {
+    position: absolute;
+    top: 1.25rem;
+    left: 1.25rem;
+    background: rgba(0, 0, 0, 0.6);
+    color: white;
+    padding: 6px 12px;
+    border-radius: 8px;
+    font-size: 11px;
+    font-weight: 900;
+    z-index: 20;
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  @media (max-width: 768px) {
+    :global(.comparison-label) { font-size: 10px; padding: 4px 8px; top: 0.75rem; left: 0.75rem; }
+  }
+
+  :global(.mockup-grid) { display: grid; gap: 3rem; width: 100%; }
+  :global(.mockup-desktop .mockup-grid) { max-width: 520px; }
+  :global(.mockup-mobile .mockup-grid) { max-width: 320px; }
+
+  @media (max-width: 768px) {
+    :global(.mockup-grid) { gap: 2rem; }
+    :global(.mockup-desktop .mockup-grid),
+    :global(.mockup-mobile .mockup-grid) { max-width: 100%; }
+  }
+
+  :global(.yt-card) {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    animation: ytt-slide-up 0.4s ease-out backwards;
+  }
+
+  @media (max-width: 768px) { :global(.yt-card) { gap: 0.75rem; } }
+
+  @keyframes ytt-slide-up {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  :global(.yt-thumbnail-wrapper) {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    border-radius: 16px;
+    overflow: hidden;
+    background: #e2e8f0;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  }
+
+  :global(.yt-thumbnail-wrapper img) { width: 100%; height: 100%; object-fit: cover; }
+
+  :global(.yt-duration) {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    background: rgba(0, 0, 0, 0.9);
+    color: white;
+    padding: 3px 6px;
+    border-radius: 5px;
+    font-size: 12px;
+    font-weight: 600;
+  }
+
+  @media (max-width: 768px) { :global(.yt-duration) { font-size: 10px; padding: 2px 4px; bottom: 6px; right: 6px; } }
+
+  :global(.yt-info-row) { display: flex; gap: 14px; }
+  @media (max-width: 768px) { :global(.yt-info-row) { gap: 10px; } }
+
+  :global(.yt-avatar) {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    flex-shrink: 0;
+    overflow: hidden;
+    background: #e5e7eb;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #94a3b8;
+  }
+
+  :global(.mockup-mobile .yt-avatar) { width: 36px; height: 36px; }
+  :global(.yt-avatar img) { width: 100%; height: 100%; object-fit: cover; }
+  :global(.yt-avatar svg) { width: 60%; height: 60%; }
+
+  :global(.yt-text-meta) { display: flex; flex-direction: column; gap: 4px; min-width: 0; }
+
+  :global(.yt-title) {
+    font-weight: 700;
+    margin: 0;
+    line-height: 1.4;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    color: inherit;
+  }
+
+  :global(.mockup-desktop .yt-title) { font-size: 1.1rem; }
+  :global(.mockup-mobile .yt-title) { font-size: 0.9rem; }
+
+  :global(.yt-channel), :global(.yt-views) { font-size: 0.85rem; margin: 0; font-weight: 500; }
+  :global(.mockup-mobile .yt-channel), :global(.mockup-mobile .yt-views) { font-size: 0.75rem; }
+
+  @media (max-width: 768px) {
+    :global(.yt-channel), :global(.yt-views) { font-size: 0.75rem; }
+    :global(.mockup-mobile .yt-channel), :global(.mockup-mobile .yt-views) { font-size: 0.65rem; }
+  }
+
+  :global(.light .yt-channel), :global(.light .yt-views) { color: #606060; }
+  :global(.dark .yt-channel), :global(.dark .yt-views) { color: #aaaaaa; }
+
+  :global(.yt-mockup.light) { background: #f9f9f9; color: #030303; }
+  :global(.yt-mockup.dark) { background: #0f0f0f; color: #f1f1f1; }
+
+  :global(.gallery-item) {
+    width: 60px;
+    aspect-ratio: 16/9;
+    border-radius: 6px;
+    overflow: hidden;
+    position: relative;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  }
+
+  :global(.gallery-item img) { width: 100%; height: 100%; object-fit: cover; }
+
+  :global(.btn-remove-thumb) {
+    position: absolute;
+    top: -4px;
+    right: -4px;
+    background: #ef4444;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 18px;
+    height: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 11px;
+    cursor: pointer;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    opacity: 0;
+    transition: opacity 0.2s;
+  }
+
+  :global(.gallery-item:hover .btn-remove-thumb) { opacity: 1; }
+</style>

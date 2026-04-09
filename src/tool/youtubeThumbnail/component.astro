@@ -1,0 +1,441 @@
+---
+import type { KnownLocale } from '../../types';
+import type { YoutubeThumbnailUI } from './ui';
+
+interface Props {
+  locale?: KnownLocale;
+  ui?: Record<string, unknown>;
+}
+
+const { ui } = Astro.props;
+const t = (ui ?? {}) as YoutubeThumbnailUI;
+---
+
+<div class="ytx-root" data-error-invalid={t.errorInvalid}>
+  <div class="ytx-input-panel">
+    <div class="ytx-url-container">
+      <svg class="ytx-search-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M10 20C4.47715 20 0 15.5228 0 10C0 4.47715 4.47715 0 10 0C15.5228 0 20 4.47715 20 10C20 12.3533 19.1869 14.5168 17.8209 16.2307L23.7335 22.1432C24.124 22.5338 24.1241 23.1669 23.7335 23.5574C23.3429 23.948 22.7098 23.948 22.3193 23.5574L16.4068 17.6449C14.693 19.0108 12.5295 19.824 10.1762 19.824L10 20ZM10 18C14.4183 18 18 14.4183 18 10C18 5.58172 14.4183 2 10 2C5.58172 2 2 5.58172 2 10C2 14.4183 5.58172 18 10 18Z"/>
+      </svg>
+      <input
+        type="url"
+        id="ytx-url-input"
+        placeholder={t.urlPlaceholder}
+        autocomplete="off"
+        spellcheck="false"
+      />
+      <button id="ytx-paste-btn" type="button" class="ytx-paste-btn" aria-label={t.pasteAriaLabel}>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="20" height="20">
+          <path d="M14 2H6C4.89543 2 4 2.89543 4 4V20C4 21.1046 4.89543 22 6 22H18C19.1046 22 20 21.1046 20 20V8L14 2ZM13 18H7V16H13V18ZM17 14H7V12H17V14ZM11 10H7V8H11V10ZM13 9V3.5L18.5 9H13Z"/>
+        </svg>
+      </button>
+    </div>
+    <p class="ytx-helper-text">{t.helperText}</p>
+  </div>
+
+  <div id="ytx-results" class="ytx-results-panel ytx-hidden">
+    <div class="ytx-main-card">
+      <div class="ytx-ribbon">{t.ribbonLabel}</div>
+      <img id="ytx-main-img" src="" alt={t.imgAlt} />
+      <div class="ytx-card-actions">
+        <button id="ytx-download-btn" class="ytx-download-btn">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="currentColor">
+            <path d="M12 16L7 11L8.4 9.55L11 12.15V4H13V12.15L15.6 9.55L17 11L12 16ZM6 20C5.45 20 4.97917 19.8042 4.5875 19.4125C4.19583 19.0208 4 18.55 4 18V15H6V18H18V15H20V18C20 18.55 19.8042 19.0208 19.4125 19.4125C19.0208 19.8042 18.55 20 18 20H6Z"/>
+          </svg>
+          {t.downloadBtn}
+        </button>
+      </div>
+    </div>
+
+    <div class="ytx-resolutions-grid">
+      <div class="ytx-res-card">
+        <p class="ytx-res-label">{t.qualityMedium}</p>
+        <img id="ytx-mq-img" src="" alt="Medium Quality" />
+        <a id="ytx-mq-link" href="#" target="_blank" rel="noopener noreferrer">{t.viewImage}</a>
+      </div>
+      <div class="ytx-res-card">
+        <p class="ytx-res-label">{t.qualityStandard}</p>
+        <img id="ytx-sd-img" src="" alt="Standard Quality" />
+        <a id="ytx-sd-link" href="#" target="_blank" rel="noopener noreferrer">{t.viewImage}</a>
+      </div>
+      <div class="ytx-res-card">
+        <p class="ytx-res-label">{t.qualityLow}</p>
+        <img id="ytx-hq-img" src="" alt="Low Quality" />
+        <a id="ytx-hq-link" href="#" target="_blank" rel="noopener noreferrer">{t.viewImage}</a>
+      </div>
+    </div>
+  </div>
+
+  <div id="ytx-error" class="ytx-error-panel ytx-hidden">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="32" height="32">
+      <path d="M12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2ZM13 17H11V15H13V17ZM13 13H11V7H13V13Z"/>
+    </svg>
+    <span id="ytx-error-msg"></span>
+  </div>
+</div>
+
+<script>
+  import { extractVideoId } from './logic';
+
+  function init() {
+    const root = document.querySelector('.ytx-root') as HTMLElement | null;
+    if (!root) return;
+
+    const errorInvalid = root.dataset.errorInvalid ?? 'Invalid YouTube URL.';
+
+    const urlInput = document.getElementById('ytx-url-input') as HTMLInputElement | null;
+    const pasteBtn = document.getElementById('ytx-paste-btn') as HTMLButtonElement | null;
+    const resultsPanel = document.getElementById('ytx-results') as HTMLDivElement | null;
+    const errorPanel = document.getElementById('ytx-error') as HTMLDivElement | null;
+    const errorMsg = document.getElementById('ytx-error-msg') as HTMLSpanElement | null;
+    const mainImg = document.getElementById('ytx-main-img') as HTMLImageElement | null;
+    const downloadBtn = document.getElementById('ytx-download-btn') as HTMLButtonElement | null;
+    const mqImg = document.getElementById('ytx-mq-img') as HTMLImageElement | null;
+    const sdImg = document.getElementById('ytx-sd-img') as HTMLImageElement | null;
+    const hqImg = document.getElementById('ytx-hq-img') as HTMLImageElement | null;
+    const mqLink = document.getElementById('ytx-mq-link') as HTMLAnchorElement | null;
+    const sdLink = document.getElementById('ytx-sd-link') as HTMLAnchorElement | null;
+    const hqLink = document.getElementById('ytx-hq-link') as HTMLAnchorElement | null;
+
+    if (!urlInput || !pasteBtn || !resultsPanel || !errorPanel || !errorMsg || !mainImg || !downloadBtn) return;
+
+    let currentVideoId = '';
+
+    function updateThumbnails(videoId: string) {
+      currentVideoId = videoId;
+      resultsPanel!.classList.remove('ytx-hidden');
+      errorPanel!.classList.add('ytx-hidden');
+
+      const maxresUrl = `https://img.youtube.com/vi/${videoId}/maxresdefault.jpg`;
+      const hqUrl = `https://img.youtube.com/vi/${videoId}/hqdefault.jpg`;
+      const mqUrl = `https://img.youtube.com/vi/${videoId}/mqdefault.jpg`;
+      const sdUrl = `https://img.youtube.com/vi/${videoId}/sddefault.jpg`;
+
+      mainImg!.src = maxresUrl;
+      mainImg!.onload = () => {
+        if (mainImg!.naturalWidth < 200) mainImg!.src = hqUrl;
+      };
+
+      if (mqImg) { mqImg.src = mqUrl; }
+      if (sdImg) { sdImg.src = sdUrl; }
+      if (hqImg) { hqImg.src = hqUrl; }
+      if (mqLink) { mqLink.href = mqUrl; }
+      if (sdLink) { sdLink.href = sdUrl; }
+      if (hqLink) { hqLink.href = hqUrl; }
+    }
+
+    urlInput.addEventListener('input', (e) => {
+      const url = (e.target as HTMLInputElement).value.trim();
+      if (!url) {
+        resultsPanel!.classList.add('ytx-hidden');
+        errorPanel!.classList.add('ytx-hidden');
+        return;
+      }
+      const videoId = extractVideoId(url);
+      if (videoId) {
+        updateThumbnails(videoId);
+      } else {
+        resultsPanel!.classList.add('ytx-hidden');
+        errorPanel!.classList.remove('ytx-hidden');
+        errorMsg!.textContent = errorInvalid;
+      }
+    });
+
+    pasteBtn.addEventListener('click', async () => {
+      try {
+        const text = await navigator.clipboard.readText();
+        urlInput.value = text;
+        urlInput.dispatchEvent(new Event('input'));
+      } catch {
+        // clipboard access denied
+      }
+    });
+
+    downloadBtn.addEventListener('click', async () => {
+      if (!mainImg.src || !currentVideoId) return;
+      try {
+        const response = await fetch(mainImg.src);
+        const blob = await response.blob();
+        const blobUrl = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = blobUrl;
+        a.download = `youtube-thumbnail-${currentVideoId}.jpg`;
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+        URL.revokeObjectURL(blobUrl);
+      } catch {
+        window.open(mainImg.src, '_blank');
+      }
+    });
+  }
+
+  document.addEventListener('astro:page-load', init);
+  init();
+</script>
+
+<style>
+  .ytx-root {
+    --bg: #ffffff;
+    --bg-muted: #f8fafc;
+    --bg-img: #f1f5f9;
+    --text: #1e293b;
+    --text-label: #334155;
+    --text-muted: #64748b;
+    --text-placeholder: #cbd5e1;
+    --border: #e2e8f0;
+    --paste-bg: #f1f5f9;
+    --paste-hover: #e2e8f0;
+    --paste-color: #64748b;
+    --paste-hover-color: #0f172a;
+    --error-bg: #fef2f2;
+    --error-text: #b91c1c;
+    --shadow: rgba(0, 0, 0, 0.08);
+
+    max-width: 900px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  :global(.theme-dark) .ytx-root {
+    --bg: #0f172a;
+    --bg-muted: #020617;
+    --bg-img: #1e293b;
+    --text: #f1f5f9;
+    --text-label: #cbd5e1;
+    --text-muted: #94a3b8;
+    --text-placeholder: #475569;
+    --border: #1e293b;
+    --paste-bg: #1e293b;
+    --paste-hover: #334155;
+    --paste-color: #94a3b8;
+    --paste-hover-color: #f1f5f9;
+    --error-bg: rgba(239, 68, 68, 0.1);
+    --error-text: #fca5a5;
+    --shadow: rgba(0, 0, 0, 0.3);
+  }
+
+  .ytx-input-panel {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    align-items: center;
+  }
+
+  .ytx-url-container {
+    position: relative;
+    width: 100%;
+    max-width: 700px;
+    display: flex;
+    align-items: center;
+    background: var(--bg);
+    border: 2px solid transparent;
+    border-radius: 50px;
+    box-shadow: 0 10px 40px var(--shadow);
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  }
+
+  .ytx-url-container:focus-within {
+    border-color: #ef4444;
+    box-shadow: 0 10px 40px rgba(239, 68, 68, 0.2);
+    transform: translateY(-2px);
+  }
+
+  .ytx-search-icon {
+    position: absolute;
+    left: 1.5rem;
+    width: 24px;
+    height: 24px;
+    color: var(--text-muted);
+    flex-shrink: 0;
+  }
+
+  #ytx-url-input {
+    width: 100%;
+    padding: 1.25rem 3.5rem;
+    padding-right: 4.5rem;
+    font-size: 1.1rem;
+    border: none;
+    border-radius: 50px;
+    background: transparent;
+    color: var(--text);
+    outline: none;
+    font-weight: 500;
+  }
+
+  #ytx-url-input::placeholder {
+    color: var(--text-placeholder);
+    font-weight: 400;
+  }
+
+  .ytx-paste-btn {
+    position: absolute;
+    right: 0.5rem;
+    width: 44px;
+    height: 44px;
+    border: none;
+    border-radius: 50%;
+    background: var(--paste-bg);
+    color: var(--paste-color);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s;
+  }
+
+  .ytx-paste-btn:hover {
+    background: var(--paste-hover);
+    color: var(--paste-hover-color);
+    transform: scale(1.05);
+  }
+
+  .ytx-paste-btn:active { transform: scale(0.95); }
+
+  .ytx-helper-text {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    font-weight: 500;
+  }
+
+  .ytx-results-panel {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    transition: opacity 0.4s;
+  }
+
+  .ytx-hidden { display: none !important; }
+
+  .ytx-main-card {
+    position: relative;
+    background: var(--bg);
+    border-radius: 20px;
+    padding: 1rem;
+    box-shadow: 0 10px 30px var(--shadow);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+    overflow: hidden;
+  }
+
+  .ytx-ribbon {
+    position: absolute;
+    top: 2rem;
+    left: -2.5rem;
+    background: #ef4444;
+    color: white;
+    padding: 0.5rem 3rem;
+    font-weight: 800;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    transform: rotate(-45deg);
+    box-shadow: 0 4px 10px rgba(239, 68, 68, 0.3);
+    z-index: 10;
+  }
+
+  #ytx-main-img {
+    width: 100%;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px var(--shadow);
+    display: block;
+    background: var(--bg-muted);
+    min-height: 300px;
+    object-fit: cover;
+  }
+
+  .ytx-card-actions {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
+  .ytx-download-btn {
+    background: #ef4444;
+    color: white;
+    padding: 1rem 2rem;
+    border-radius: 50px;
+    border: none;
+    font-size: 1.1rem;
+    font-weight: 700;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    transition: all 0.2s;
+    box-shadow: 0 8px 25px rgba(239, 68, 68, 0.3);
+  }
+
+  .ytx-download-btn:hover {
+    background: #dc2626;
+    transform: translateY(-2px);
+    box-shadow: 0 12px 30px rgba(239, 68, 68, 0.4);
+  }
+
+  .ytx-download-btn:active { transform: translateY(1px); }
+
+  .ytx-resolutions-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+  }
+
+  @media (max-width: 650px) {
+    .ytx-resolutions-grid { grid-template-columns: 1fr; }
+  }
+
+  .ytx-res-card {
+    background: var(--bg);
+    border-radius: 16px;
+    padding: 1rem;
+    box-shadow: 0 4px 15px var(--shadow);
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    align-items: center;
+    text-align: center;
+  }
+
+  .ytx-res-card img {
+    width: 100%;
+    border-radius: 8px;
+    aspect-ratio: 16/9;
+    object-fit: cover;
+    background: var(--bg-img);
+  }
+
+  .ytx-res-label {
+    margin: 0;
+    font-weight: 700;
+    color: var(--text-label);
+    font-size: 0.95rem;
+  }
+
+  .ytx-res-card a {
+    color: #3b82f6;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.9rem;
+    transition: color 0.2s;
+  }
+
+  .ytx-res-card a:hover {
+    color: #2563eb;
+    text-decoration: underline;
+  }
+
+  .ytx-error-panel {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    background: var(--error-bg);
+    border-left: 4px solid #ef4444;
+    color: var(--error-text);
+    padding: 1.5rem;
+    border-radius: 12px;
+    font-weight: 500;
+  }
+</style>

@@ -1,0 +1,856 @@
+---
+import type { KnownLocale } from '../../types';
+import type { SafeZonesUI } from './ui';
+
+interface Props {
+  locale?: KnownLocale;
+  ui?: Record<string, unknown>;
+}
+
+const { ui } = Astro.props;
+const t = (ui ?? {}) as SafeZonesUI;
+
+const TIKTOK_SVG = `<svg viewBox="0 0 24 24" fill="currentColor" width="24" height="24"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.34 6.34 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V9.22a8.22 8.22 0 0 0 4.83 1.56V7.33a4.85 4.85 0 0 1-1.06-.64z"/></svg>`;
+const INSTAGRAM_SVG = `<svg viewBox="0 0 24 24" fill="currentColor" width="24" height="24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg>`;
+const YOUTUBE_SVG = `<svg viewBox="0 0 24 24" fill="currentColor" width="24" height="24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>`;
+---
+
+<script src="https://code.iconify.design/iconify-icon/2.1.0/iconify-icon.min.js" is:inline></script>
+
+<div
+  class="szl-root"
+  data-banner-tiktok={t.bannerTiktok}
+  data-banner-reels={t.bannerReels}
+  data-banner-shorts={t.bannerShorts}
+  data-load-content={t.loadContent}
+  data-upload-link={t.uploadLink}
+  data-tt-following={t.ttFollowing}
+  data-tt-for-you={t.ttForYou}
+  data-tt-description={t.ttDescription}
+  data-tt-audio={t.ttAudio}
+  data-tt-nav-home={t.ttNavHome}
+  data-tt-nav-friends={t.ttNavFriends}
+  data-tt-nav-inbox={t.ttNavInbox}
+  data-tt-nav-profile={t.ttNavProfile}
+  data-reels-follow={t.reelsFollow}
+  data-reels-description={t.reelsDescription}
+  data-reels-audio={t.reelsAudio}
+  data-shorts-subscribe={t.shortsSubscribe}
+  data-shorts-dislike={t.shortsDislike}
+  data-shorts-share={t.shortsShare}
+  data-shorts-remix={t.shortsRemix}
+  data-shorts-description={t.shortsDescription}
+>
+  <div class="szl-grid">
+
+    <!-- LEFT PANEL -->
+    <div class="szl-panel-left">
+      <div class="szl-card">
+        <h2 class="szl-card-title">
+          <div class="szl-card-icon">
+            <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M12 15.5A3.5 3.5 0 0 1 8.5 12 3.5 3.5 0 0 1 12 8.5a3.5 3.5 0 0 1 3.5 3.5 3.5 3.5 0 0 1-3.5 3.5m7.43-2.92c.04-.34.07-.69.07-1.08 0-.39-.03-.74-.07-1.08l2.32-1.81c.21-.16.27-.45.14-.69l-2.2-3.81c-.13-.24-.42-.32-.65-.24l-2.73 1.1c-.57-.44-1.17-.81-1.84-1.08L14 2.42C13.96 2.18 13.74 2 13.5 2h-3c-.24 0-.46.18-.49.42l-.41 2.47c-.67.27-1.27.64-1.84 1.08l-2.73-1.1c-.23-.08-.52 0-.65.24L2.18 9.11c-.13.24-.07.53.14.69l2.32 1.81C4.6 11.96 4.5 12.32 4.5 12.5c0 .18.1.54.14.9l-2.32 1.81c-.21.16-.27.45-.14.69l2.2 3.81c.13.24.42.32.65.24l2.73-1.1c.57.44 1.17.81 1.84 1.08l.41 2.47c.03.24.25.42.49.42h3c.24 0 .46-.18.49-.42l.41-2.47c.67-.27 1.27-.64 1.84-1.08l2.73 1.1c.23.08.52 0 .65-.24l2.2-3.81c.13-.24.07-.53-.14-.69l-2.32-1.81z"/></svg>
+          </div>
+          {t.labelConfig}
+        </h2>
+
+        <div class="szl-section">
+          <span class="szl-section-label">{t.labelPlatform}</span>
+          <div class="szl-platform-grid">
+            <button class="szl-platform-btn" data-szl-platform-btn data-platform="tiktok">
+              <span class="szl-platform-icon" set:html={TIKTOK_SVG} />
+              <span class="szl-platform-name">{t.nameTiktok}</span>
+            </button>
+            <button class="szl-platform-btn" data-szl-platform-btn data-platform="reels">
+              <span class="szl-platform-icon" set:html={INSTAGRAM_SVG} />
+              <span class="szl-platform-name">{t.nameReels}</span>
+            </button>
+            <button class="szl-platform-btn" data-szl-platform-btn data-platform="shorts">
+              <span class="szl-platform-icon" set:html={YOUTUBE_SVG} />
+              <span class="szl-platform-name">{t.nameShorts}</span>
+            </button>
+          </div>
+        </div>
+
+        <div class="szl-section">
+          <span class="szl-section-label">{t.labelUpload}</span>
+          <label class="szl-upload-zone" data-szl-upload-zone>
+            <div class="szl-upload-inner">
+              <svg viewBox="0 0 24 24" fill="currentColor" width="40" height="40" class="szl-upload-icon"><path d="M14 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V8l-6-6zm4 18H6V4h7v5h5v11zM8 15.01l1.41 1.41L11 14.84V19h2v-4.16l1.59 1.59L16 15.01 12.01 11z"/></svg>
+              <p class="szl-upload-text">{t.uploadPrompt}</p>
+            </div>
+            <input type="file" class="szl-file-hidden" data-szl-file accept="image/*,video/*" />
+          </label>
+        </div>
+
+        <div class="szl-section szl-section-border">
+          <div class="szl-opacity-header">
+            <span class="szl-section-label">{t.labelOpacity}</span>
+            <span class="szl-opacity-val" data-szl-opacity-val>85%</span>
+          </div>
+          <input type="range" class="szl-slider" data-szl-slider min="0" max="100" value="85" />
+        </div>
+
+        <div class="szl-toggles">
+          <label class="szl-toggle-item">
+            <input type="checkbox" class="szl-checkbox" data-szl-mask />
+            <span class="szl-toggle-label">{t.labelMask}</span>
+          </label>
+          <label class="szl-toggle-item">
+            <input type="checkbox" class="szl-checkbox" data-szl-grid />
+            <span class="szl-toggle-label">{t.labelGrid}</span>
+          </label>
+        </div>
+      </div>
+
+      <button class="szl-reset-btn" data-szl-reset>
+        <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M17.65 6.35C16.2 4.9 14.21 4 12 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08c-.82 2.33-3.04 4-5.65 4-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z"/></svg>
+        {t.btnReset}
+      </button>
+    </div>
+
+    <!-- RIGHT PANEL (Phone Mockup) -->
+    <div class="szl-preview-area">
+      <div class="szl-radial-bg"></div>
+      <div class="szl-phone" data-szl-phone>
+
+        <!-- Status bar -->
+        <div class="szl-statusbar">
+          <span data-szl-clock>11:51</span>
+          <div class="szl-notch"></div>
+          <div class="szl-statusbar-icons">
+            <iconify-icon icon="mdi:signal" style="font-size:12px"></iconify-icon>
+            <iconify-icon icon="mdi:wifi" style="font-size:12px"></iconify-icon>
+            <iconify-icon icon="mdi:battery-90" style="font-size:12px"></iconify-icon>
+          </div>
+        </div>
+
+        <!-- Media display -->
+        <div class="szl-media-wrapper" data-szl-media-wrapper>
+          <div class="szl-empty-state" data-szl-empty>
+            <iconify-icon icon="mdi:camera-plus-outline" style="font-size:72px;display:block;margin-bottom:16px"></iconify-icon>
+            <p class="szl-empty-text">{t.loadContent}</p>
+            <p class="szl-empty-link" data-szl-upload-link>{t.uploadLink}</p>
+          </div>
+          <div class="szl-media" data-szl-media></div>
+        </div>
+
+        <!-- Safe zone overlay -->
+        <div class="szl-overlay" data-szl-overlay></div>
+
+        <!-- Mask overlay (hidden by default) -->
+        <div class="szl-mask szl-mask-hidden" data-szl-mask-overlay>
+          <div class="szl-mask-top"></div>
+          <div class="szl-mask-flex"></div>
+          <div class="szl-mask-bottom"></div>
+          <div class="szl-mask-right"></div>
+        </div>
+
+        <!-- Grid overlay (hidden by default) -->
+        <div class="szl-grid-overlay szl-grid-hidden" data-szl-grid-overlay>
+          <div class="szl-grid-inner">
+            <div class="szl-grid-h szl-grid-h1"></div>
+            <div class="szl-grid-h szl-grid-h2"></div>
+            <div class="szl-grid-v szl-grid-v1"></div>
+            <div class="szl-grid-v szl-grid-v2"></div>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="szl-banner" data-szl-banner>{t.bannerTiktok}</div>
+    </div>
+
+  </div>
+</div>
+
+<script>
+  import { buildPlatformUIs } from './logic';
+  import type { PlatformStrings } from './logic';
+
+  let clockInterval: number | null = null;
+
+  function getPlatformStrings(container: HTMLElement): PlatformStrings {
+    const d = container.dataset;
+    return {
+      ttFollowing: d.ttFollowing ?? '',
+      ttForYou: d.ttForYou ?? '',
+      ttDescription: d.ttDescription ?? '',
+      ttAudio: d.ttAudio ?? '',
+      ttNavHome: d.ttNavHome ?? '',
+      ttNavFriends: d.ttNavFriends ?? '',
+      ttNavInbox: d.ttNavInbox ?? '',
+      ttNavProfile: d.ttNavProfile ?? '',
+      reelsFollow: d.reelsFollow ?? '',
+      reelsDescription: d.reelsDescription ?? '',
+      reelsAudio: d.reelsAudio ?? '',
+      shortsSubscribe: d.shortsSubscribe ?? '',
+      shortsDislike: d.shortsDislike ?? '',
+      shortsShare: d.shortsShare ?? '',
+      shortsRemix: d.shortsRemix ?? '',
+      shortsDescription: d.shortsDescription ?? '',
+    };
+  }
+
+  function updateClock(clockEl: HTMLElement) {
+    clockEl.textContent = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+  }
+
+  function updateBanner(container: HTMLElement, platform: string) {
+    const banner = container.querySelector<HTMLElement>('[data-szl-banner]');
+    if (!banner) return;
+    const key = `banner${platform.charAt(0).toUpperCase()}${platform.slice(1)}` as keyof typeof container.dataset;
+    banner.textContent = container.dataset[key] ?? platform;
+  }
+
+  function updateOverlay(container: HTMLElement) {
+    const overlay = container.querySelector<HTMLElement>('[data-szl-overlay]');
+    if (!overlay) return;
+    const platform = container.dataset.platform ?? 'tiktok';
+    const slider = container.querySelector<HTMLInputElement>('[data-szl-slider]');
+    const opacity = slider ? parseInt(slider.value) / 100 : 0.85;
+    const uis = buildPlatformUIs(getPlatformStrings(container));
+    overlay.innerHTML = uis[platform] ?? uis['tiktok'];
+    overlay.style.opacity = String(opacity);
+  }
+
+  function activatePlatformBtns(container: HTMLElement, platform: string) {
+    container.querySelectorAll('[data-szl-platform-btn]').forEach((btn) => {
+      btn.classList.toggle('szl-btn-active', btn.getAttribute('data-platform') === platform);
+    });
+  }
+
+  function handlePlatformClick(container: HTMLElement, btn: Element) {
+    const platform = btn.getAttribute('data-platform') ?? 'tiktok';
+    container.dataset.platform = platform;
+    activatePlatformBtns(container, platform);
+    updateOverlay(container);
+    updateBanner(container, platform);
+  }
+
+  function renderMedia(display: HTMLElement, emptyState: HTMLElement, file: File) {
+    const reader = new FileReader();
+    reader.onload = (e) => {
+      const src = e.target?.result as string;
+      display.innerHTML = file.type.startsWith('video/')
+        ? `<video src="${src}" autoplay loop muted style="width:100%;height:100%;object-fit:cover"></video>`
+        : `<img src="${src}" style="width:100%;height:100%;object-fit:cover" alt="" />`;
+      emptyState.classList.add('szl-hidden');
+      display.classList.remove('szl-hidden');
+    };
+    reader.readAsDataURL(file);
+  }
+
+  function resetMedia(container: HTMLElement) {
+    const display = container.querySelector<HTMLElement>('[data-szl-media]');
+    const emptyState = container.querySelector<HTMLElement>('[data-szl-empty]');
+    const fileInput = container.querySelector<HTMLInputElement>('[data-szl-file]');
+    if (display) { display.innerHTML = ''; display.classList.add('szl-hidden'); }
+    emptyState?.classList.remove('szl-hidden');
+    if (fileInput) fileInput.value = '';
+  }
+
+  function attachPlatformListeners(container: HTMLElement) {
+    container.querySelectorAll('[data-szl-platform-btn]').forEach((btn) => {
+      btn.addEventListener('click', () => handlePlatformClick(container, btn));
+    });
+  }
+
+  function attachFileListener(container: HTMLElement) {
+    const fileInput = container.querySelector<HTMLInputElement>('[data-szl-file]');
+    const display = container.querySelector<HTMLElement>('[data-szl-media]');
+    const emptyState = container.querySelector<HTMLElement>('[data-szl-empty]');
+    fileInput?.addEventListener('change', (e) => {
+      const file = (e.target as HTMLInputElement).files?.[0];
+      if (!file || !display || !emptyState) return;
+      renderMedia(display, emptyState, file);
+    });
+    container.querySelector('[data-szl-upload-link]')?.addEventListener('click', () => {
+      fileInput?.click();
+    });
+  }
+
+  function attachSliderListener(container: HTMLElement) {
+    const slider = container.querySelector<HTMLInputElement>('[data-szl-slider]');
+    const valEl = container.querySelector<HTMLElement>('[data-szl-opacity-val]');
+    slider?.addEventListener('input', () => {
+      if (valEl) valEl.textContent = `${slider.value}%`;
+      updateOverlay(container);
+    });
+  }
+
+  function attachToggleListeners(container: HTMLElement) {
+    const maskToggle = container.querySelector<HTMLInputElement>('[data-szl-mask]');
+    const gridToggle = container.querySelector<HTMLInputElement>('[data-szl-grid]');
+    const maskOverlay = container.querySelector<HTMLElement>('[data-szl-mask-overlay]');
+    const gridOverlay = container.querySelector<HTMLElement>('[data-szl-grid-overlay]');
+    maskToggle?.addEventListener('change', () => {
+      maskOverlay?.classList.toggle('szl-mask-hidden', !maskToggle.checked);
+    });
+    gridToggle?.addEventListener('change', () => {
+      gridOverlay?.classList.toggle('szl-grid-hidden', !gridToggle.checked);
+    });
+  }
+
+  function attachResetListener(container: HTMLElement) {
+    container.querySelector('[data-szl-reset]')?.addEventListener('click', () => resetMedia(container));
+  }
+
+  function attachListeners(container: HTMLElement) {
+    container.dataset.platform = 'tiktok';
+    const clockEl = container.querySelector<HTMLElement>('[data-szl-clock]');
+    if (clockEl) {
+      if (clockInterval) clearInterval(clockInterval);
+      updateClock(clockEl);
+      clockInterval = window.setInterval(() => updateClock(clockEl), 1000);
+    }
+    attachPlatformListeners(container);
+    attachFileListener(container);
+    attachSliderListener(container);
+    attachToggleListeners(container);
+    attachResetListener(container);
+    const display = container.querySelector<HTMLElement>('[data-szl-media]');
+    display?.classList.add('szl-hidden');
+    activatePlatformBtns(container, 'tiktok');
+    updateOverlay(container);
+    updateBanner(container, 'tiktok');
+  }
+
+  function init() {
+    document.querySelectorAll<HTMLElement>('.szl-root').forEach((c) => attachListeners(c));
+  }
+
+  document.addEventListener('astro:before-swap', () => {
+    if (clockInterval) { clearInterval(clockInterval); clockInterval = null; }
+  });
+  document.addEventListener('astro:page-load', init);
+  init();
+</script>
+
+<style>
+  .szl-root {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+  }
+
+  .szl-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+    align-items: start;
+  }
+
+  @media (min-width: 1024px) {
+    .szl-grid {
+      grid-template-columns: 340px 1fr;
+    }
+  }
+
+  /* Left panel */
+  .szl-panel-left {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .szl-card {
+    background: var(--bg-surface);
+    border: 1px solid var(--border-color);
+    border-radius: 2.5rem;
+    padding: 2rem;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .szl-card-title {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--text-main);
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin: 0;
+  }
+
+  .szl-card-icon {
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 0.75rem;
+    background: rgba(99, 102, 241, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #6366f1;
+    flex-shrink: 0;
+  }
+
+  .szl-section {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .szl-section-border {
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--border-color);
+  }
+
+  .szl-section-label {
+    font-size: 0.625rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--text-muted);
+    display: block;
+  }
+
+  /* Platform buttons */
+  .szl-platform-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.75rem;
+  }
+
+  .szl-platform-btn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem;
+    border-radius: 1rem;
+    border: 1px solid var(--border-color);
+    background: var(--bg-page);
+    cursor: pointer;
+    transition: all 0.2s ease;
+    color: var(--text-muted);
+  }
+
+  .szl-platform-btn:hover {
+    border-color: rgba(99, 102, 241, 0.5);
+    color: var(--text-main);
+  }
+
+  .szl-platform-btn.szl-btn-active {
+    border-color: #6366f1;
+    background: rgba(99, 102, 241, 0.1);
+    color: #6366f1;
+  }
+
+  .szl-platform-icon {
+    display: flex;
+    width: 24px;
+    height: 24px;
+  }
+
+  .szl-platform-name {
+    font-size: 0.5625rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  /* Upload zone */
+  .szl-upload-zone {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 10rem;
+    border: 2px dashed var(--border-color);
+    border-radius: 2.5rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    overflow: hidden;
+  }
+
+  .szl-upload-zone:hover {
+    background: var(--bg-page);
+    border-color: rgba(99, 102, 241, 0.4);
+  }
+
+  .szl-upload-inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .szl-upload-icon {
+    color: var(--text-muted);
+    opacity: 0.5;
+    transition: all 0.2s ease;
+  }
+
+  .szl-upload-zone:hover .szl-upload-icon {
+    opacity: 1;
+    color: #6366f1;
+    transform: scale(1.1);
+  }
+
+  .szl-upload-text {
+    font-size: 0.625rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin: 0;
+  }
+
+  .szl-file-hidden {
+    display: none;
+  }
+
+  /* Opacity slider */
+  .szl-opacity-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .szl-opacity-val {
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: #6366f1;
+  }
+
+  .szl-slider {
+    width: 100%;
+    height: 6px;
+    border-radius: 999px;
+    appearance: none;
+    background: var(--border-color);
+    cursor: pointer;
+    accent-color: #6366f1;
+    outline: none;
+  }
+
+  .szl-slider::-webkit-slider-thumb {
+    appearance: none;
+    width: 18px;
+    height: 18px;
+    background: #6366f1;
+    border-radius: 50%;
+    cursor: pointer;
+    border: 3px solid var(--bg-surface);
+    box-shadow: 0 0 10px rgba(99, 102, 241, 0.4);
+  }
+
+  /* Toggles */
+  .szl-toggles {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .szl-toggle-item {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.75rem;
+    border-radius: 1rem;
+    background: var(--bg-page);
+    border: 1px solid var(--border-color);
+    cursor: pointer;
+    transition: border-color 0.2s ease;
+  }
+
+  .szl-toggle-item:hover {
+    border-color: rgba(99, 102, 241, 0.3);
+  }
+
+  .szl-checkbox {
+    width: 16px;
+    height: 16px;
+    border-radius: 4px;
+    accent-color: #6366f1;
+    cursor: pointer;
+  }
+
+  .szl-toggle-label {
+    font-size: 0.625rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--text-muted);
+  }
+
+  .szl-toggle-item:hover .szl-toggle-label {
+    color: #6366f1;
+  }
+
+  /* Reset button */
+  .szl-reset-btn {
+    width: 100%;
+    padding: 1rem;
+    border-radius: 2rem;
+    background: var(--bg-page);
+    border: 1px solid var(--border-color);
+    color: var(--text-muted);
+    font-size: 0.6875rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    transition: all 0.2s ease;
+  }
+
+  .szl-reset-btn:hover {
+    color: #f43f5e;
+    border-color: rgba(244, 63, 94, 0.3);
+  }
+
+  /* Right panel */
+  .szl-preview-area {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 700px;
+    background: var(--bg-page);
+    border-radius: 4rem;
+    padding: 2.5rem;
+    border: 1px solid var(--border-color);
+    overflow: hidden;
+    position: relative;
+    box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.05);
+  }
+
+  .szl-radial-bg {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at center, rgba(99, 102, 241, 0.06) 0%, transparent 60%);
+    pointer-events: none;
+  }
+
+  /* Phone mockup */
+  .szl-phone {
+    position: relative;
+    background: black;
+    border-radius: 3.5rem;
+    box-shadow: 0 0 100px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+    aspect-ratio: 9 / 16;
+    height: 78vh;
+    max-height: 850px;
+    border: 12px solid #0f172a;
+    outline: 1px solid rgba(255, 255, 255, 0.05);
+  }
+
+  /* Status bar */
+  .szl-statusbar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 2rem;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 2rem;
+    align-items: center;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.4), transparent);
+    z-index: 60;
+    pointer-events: none;
+    color: white;
+    font-size: 0.625rem;
+    font-weight: 500;
+    box-sizing: border-box;
+  }
+
+  .szl-notch {
+    width: 6rem;
+    height: 1.5rem;
+    background: black;
+    border-radius: 0 0 1.5rem 1.5rem;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .szl-statusbar-icons {
+    display: flex;
+    gap: 6px;
+    align-items: center;
+  }
+
+  /* Media wrapper */
+  .szl-media-wrapper {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    padding-top: 2.5rem;
+  }
+
+  .szl-empty-state {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: var(--text-muted);
+    text-align: center;
+    opacity: 0.4;
+    transition: opacity 0.2s ease;
+  }
+
+  .szl-phone:hover .szl-empty-state {
+    opacity: 1;
+  }
+
+  .szl-empty-text {
+    font-size: 0.625rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 0.3em;
+    margin: 0 0 0.5rem;
+  }
+
+  .szl-empty-link {
+    font-size: 0.5625rem;
+    margin: 0;
+    opacity: 0.5;
+    text-decoration: underline;
+    cursor: pointer;
+    transition: color 0.2s ease;
+  }
+
+  .szl-empty-link:hover {
+    color: #6366f1;
+    opacity: 1;
+  }
+
+  .szl-media {
+    position: absolute;
+    inset: 0;
+  }
+
+  .szl-hidden {
+    display: none;
+  }
+
+  /* Safe zone overlay */
+  .szl-overlay {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 50;
+    transition: opacity 0.3s ease;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.5));
+  }
+
+  /* Mask overlay */
+  .szl-mask {
+    position: absolute;
+    inset: 0;
+    z-index: 40;
+    pointer-events: none;
+    display: flex;
+    flex-direction: column;
+    transition: opacity 0.5s ease;
+  }
+
+  .szl-mask-top {
+    height: 15%;
+    background: rgba(0, 0, 0, 0.6);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(4px);
+  }
+
+  .szl-mask-flex {
+    flex: 1;
+  }
+
+  .szl-mask-bottom {
+    height: 25%;
+    background: rgba(0, 0, 0, 0.6);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(4px);
+  }
+
+  .szl-mask-right {
+    position: absolute;
+    right: 0;
+    top: 20%;
+    bottom: 20%;
+    width: 18%;
+    background: rgba(0, 0, 0, 0.6);
+    border-left: 1px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(4px);
+  }
+
+  .szl-mask-hidden {
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  /* Grid overlay */
+  .szl-grid-overlay {
+    position: absolute;
+    inset: 0;
+    z-index: 45;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+  }
+
+  .szl-grid-hidden {
+    opacity: 0;
+  }
+
+  .szl-grid-inner {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    border-left: 2px solid rgba(255, 255, 255, 0.1);
+    border-right: 2px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .szl-grid-h,
+  .szl-grid-v {
+    position: absolute;
+    background: rgba(255, 255, 255, 0.1);
+  }
+
+  .szl-grid-h {
+    left: 0;
+    width: 100%;
+    height: 2px;
+  }
+
+  .szl-grid-v {
+    top: 0;
+    height: 100%;
+    width: 2px;
+  }
+
+  .szl-grid-h1 { top: 33.33%; }
+  .szl-grid-h2 { top: 66.66%; }
+  .szl-grid-v1 { left: 33.33%; }
+  .szl-grid-v2 { left: 66.66%; }
+
+  /* Platform banner */
+  .szl-banner {
+    margin-top: 2rem;
+    padding: 0.5rem 1.5rem;
+    border-radius: 999px;
+    background: black;
+    color: white;
+    font-size: 0.625rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+    outline: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  @keyframes szl-spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }
+</style>

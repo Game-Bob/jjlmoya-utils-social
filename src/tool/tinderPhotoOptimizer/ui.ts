@@ -1,0 +1,37 @@
+export interface TinderPhotoOptimizerUI extends Record<string, string> {
+  uploadTitle: string;
+  uploadSubtitle: string;
+  btnDownload: string;
+  btnRescan: string;
+  btnAutoFocus: string;
+  btnMarkFace: string;
+  panelManual: string;
+  panelVisualization: string;
+  panelMetrics: string;
+  panelExport: string;
+  panelExportDesc: string;
+  labelZoom: string;
+  labelBrightness: string;
+  toggleGrid: string;
+  toggleGridDesc: string;
+  toggleDeadzones: string;
+  toggleDeadzonesDesc: string;
+  toggleFaceBox: string;
+  toggleFaceBoxDesc: string;
+  metricFaceSize: string;
+  metricEyeLine: string;
+  metricCoverage: string;
+  metricMood: string;
+  metricQuality: string;
+  analysisSuccess: string;
+  analysisWarning: string;
+  analysisError: string;
+  deadzoneTop: string;
+  deadzoneBottom: string;
+  loaderAnalyzing: string;
+  loaderModels: string;
+  simulatorName: string;
+  simulatorJob: string;
+  simulatorCity: string;
+  simulatorDistance: string;
+}
