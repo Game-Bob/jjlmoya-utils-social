@@ -3,7 +3,7 @@ import type { ToolLocaleContent } from '../../../types';
 import type { RedditFormatterUI } from '../ui';
 
 const slug = 'formateador-reddit';
-const title = 'Formateador Reddit - Limpiador y Adaptador de Texto';
+const title = 'Formateador Reddit: Limpiador y Adaptador de Texto';
 const description =
   'Limpiador avanzado de texto para publicar en Reddit. Arregla los saltos de línea perdidos, elimina espacios múltiples y caracteres ocultos que rompen el Markdown.';
 

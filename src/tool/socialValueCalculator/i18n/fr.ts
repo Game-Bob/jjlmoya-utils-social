@@ -3,7 +3,7 @@ import type { ToolLocaleContent } from '../../../types';
 import type { SocialValueCalculatorUI } from '../ui';
 
 const slug = 'calculateur-valeur-compte-reseaux-sociaux';
-const title = 'Calculateur de Valeur de Compte TikTok & Instagram | Tarifs';
+const title = 'Calculateur de Valeur de Compte TikTok & Instagram : Tarifs';
 const description =
   "Découvrez combien facturer pour vos publications sponsorisées. Notre calculateur analyse les abonnés, l'engagement et le créneau pour vous donner une valeur de marché juste.";
 

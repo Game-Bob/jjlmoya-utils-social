@@ -3,7 +3,7 @@ import type { ToolLocaleContent } from '../../../types';
 import type { YoutubeThumbnailPreviewerUI } from '../ui';
 
 const slug = 'youtube-thumbnail-previewer';
-const title = 'YouTube Thumbnail Previewer Online - Boost Your CTR for Free';
+const title = 'YouTube Thumbnail Previewer Online: Boost Your CTR for Free';
 const description =
   'Upload your thumbnail and see how it looks in the real YouTube feed on mobile and desktop. Dark and light mode simulator to optimize clicks instantly.';
 

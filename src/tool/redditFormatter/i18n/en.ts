@@ -3,7 +3,7 @@ import type { ToolLocaleContent } from '../../../types';
 import type { RedditFormatterUI } from '../ui';
 
 const slug = 'reddit-text-formatter';
-const title = 'Reddit Text Formatter - Cleaner and Markdown Fixer';
+const title = 'Reddit Text Formatter: Cleaner and Markdown Fixer';
 const description =
   'Advanced text cleaner for posting on Reddit. Fixes missing line breaks, removes multiple spaces and hidden characters that break Markdown.';
 

@@ -3,7 +3,7 @@ import type { ToolLocaleContent } from '../../../types';
 import type { YoutubeThumbnailPreviewerUI } from '../ui';
 
 const slug = 'apercu-miniatures-youtube';
-const title = 'Aperçu des Miniatures YouTube en Ligne - Améliorez votre CTR Gratuitement';
+const title = 'Aperçu des Miniatures YouTube en Ligne : Améliorez votre CTR Gratuitement';
 const description =
   'Téléchargez votre miniature et visualisez comment elle apparaît dans le vrai feed YouTube mobile et desktop. Simulateur mode sombre et clair pour optimiser les clics instantanément.';
 
@@ -231,7 +231,7 @@ export const content: ToolLocaleContent<YoutubeThumbnailPreviewerUI> = {
           body: 'Contexte instantané · Utilisez des polices Sans Serif grasses et des couleurs complémentaires.',
         },
         {
-          title: 'Arrière-plan Flou',
+          title: 'Fond Flou',
           body: 'Séparation des plans · Ajoute de la profondeur pour que le sujet principal "saute" de l\'écran.',
         },
         {

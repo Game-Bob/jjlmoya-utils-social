@@ -3,7 +3,7 @@ import type { ToolLocaleContent } from '../../../types';
 import type { SocialImageResizerUI } from '../ui';
 
 const slug = 'social-media-image-resizer';
-const title = 'Social Media Image Resizer - Crop & Resize for Every Platform';
+const title = 'Social Media Image Resizer: Crop & Resize for Every Platform';
 const description =
   'Resize and crop your photos for Instagram, TikTok, YouTube and more. Smart cropping with updated official dimensions for 2026.';
 

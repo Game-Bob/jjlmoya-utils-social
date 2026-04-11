@@ -25,3 +25,11 @@ export { SocialImageResizerComponent, SocialImageResizerSEO, SocialImageResizerB
 export { TinderPhotoOptimizerComponent, TinderPhotoOptimizerSEO, TinderPhotoOptimizerBibliography } from './tool/tinderPhotoOptimizer';
 export { YoutubeThumbnailPreviewerComponent, YoutubeThumbnailPreviewerSEO, YoutubeThumbnailPreviewerBibliography } from './tool/youtubeThumbnailPreviewer';
 
+export { SAFE_ZONES_TOOL } from './tool/safeZones/index';
+export { YOUTUBE_THUMBNAIL_TOOL } from './tool/youtubeThumbnail/index';
+export { SOCIAL_VALUE_CALCULATOR_TOOL } from './tool/socialValueCalculator/index';
+export { REDDIT_FORMATTER_TOOL } from './tool/redditFormatter/index';
+export { SOCIAL_IMAGE_RESIZER_TOOL } from './tool/socialImageResizer/index';
+export { TINDER_PHOTO_OPTIMIZER_TOOL } from './tool/tinderPhotoOptimizer/index';
+export { YOUTUBE_THUMBNAIL_PREVIEWER_TOOL } from './tool/youtubeThumbnailPreviewer/index';
+

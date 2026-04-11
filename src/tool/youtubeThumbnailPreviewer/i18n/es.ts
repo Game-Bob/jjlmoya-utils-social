@@ -3,7 +3,7 @@ import type { ToolLocaleContent } from '../../../types';
 import type { YoutubeThumbnailPreviewerUI } from '../ui';
 
 const slug = 'previsualizador-miniaturas-youtube';
-const title = 'Previsualizador de Miniaturas YouTube Online - Mejora tu CTR Gratis';
+const title = 'Previsualizador de Miniaturas YouTube Online: Mejora tu CTR Gratis';
 const description =
   'Sube tu miniatura y visualiza cómo queda en el feed real de YouTube móvil y desktop. Simulador de modo oscuro y claro para optimizar clics instantáneos.';
 
