@@ -1,3 +1,4 @@
+import { redditFormatter } from './entry';
 export * from './entry';
 export const REDDIT_FORMATTER_TOOL: ToolDefinition = {
   entry: redditFormatter,

@@ -1,3 +1,4 @@
+import { youtubeThumbnailPreviewer } from './entry';
 export * from './entry';
 export const YOUTUBE_THUMBNAIL_PREVIEWER_TOOL: ToolDefinition = {
   entry: youtubeThumbnailPreviewer,

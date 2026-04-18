@@ -1,3 +1,4 @@
+import { tinderPhotoOptimizer } from './entry';
 export * from './entry';
 export const TINDER_PHOTO_OPTIMIZER_TOOL: ToolDefinition = {
   entry: tinderPhotoOptimizer,

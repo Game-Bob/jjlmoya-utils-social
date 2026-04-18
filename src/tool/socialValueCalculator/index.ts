@@ -1,3 +1,4 @@
+import { socialValueCalculator } from './entry';
 export * from './entry';
 export const SOCIAL_VALUE_CALCULATOR_TOOL: ToolDefinition = {
   entry: socialValueCalculator,

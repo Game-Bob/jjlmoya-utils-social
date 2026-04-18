@@ -1,3 +1,4 @@
+import { youtubeThumbnail } from './entry';
 export * from './entry';
 export const YOUTUBE_THUMBNAIL_TOOL: ToolDefinition = {
   entry: youtubeThumbnail,
