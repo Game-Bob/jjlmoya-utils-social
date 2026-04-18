@@ -1,7 +1,4 @@
 import type { SocialToolEntry, ToolLocaleContent, ToolDefinition } from '../../types';
-import YoutubeThumbnailPreviewerComponent from './component.astro';
-import YoutubeThumbnailPreviewerSEO from './seo.astro';
-import YoutubeThumbnailPreviewerBibliography from './bibliography.astro';
 
 import type { YoutubeThumbnailPreviewerUI } from './ui';
 
@@ -48,11 +45,10 @@ export const youtubeThumbnailPreviewer: SocialToolEntry<YoutubeThumbnailPreviewe
   },
 };
 
-export { YoutubeThumbnailPreviewerComponent, YoutubeThumbnailPreviewerSEO, YoutubeThumbnailPreviewerBibliography };
 
 export const YOUTUBE_THUMBNAIL_PREVIEWER_TOOL: ToolDefinition = {
   entry: youtubeThumbnailPreviewer,
-  Component: YoutubeThumbnailPreviewerComponent,
-  SEOComponent: YoutubeThumbnailPreviewerSEO,
-  BibliographyComponent: YoutubeThumbnailPreviewerBibliography,
+  Component: () => import('./component.astro'),
+  SEOComponent: () => import('./seo.astro'),
+  BibliographyComponent: () => import('./bibliography.astro'),
 };

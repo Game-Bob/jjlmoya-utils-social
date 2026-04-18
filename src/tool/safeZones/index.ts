@@ -1,7 +1,4 @@
 import type { SocialToolEntry, ToolLocaleContent, ToolDefinition } from '../../types';
-import SafeZonesComponent from './component.astro';
-import SafeZonesSEO from './seo.astro';
-import SafeZonesBibliography from './bibliography.astro';
 
 import type { SafeZonesUI } from './ui';
 
@@ -32,11 +29,10 @@ export const safeZones: SocialToolEntry<SafeZonesUI> = {
   },
 };
 
-export { SafeZonesComponent, SafeZonesSEO, SafeZonesBibliography };
 
 export const SAFE_ZONES_TOOL: ToolDefinition = {
   entry: safeZones,
-  Component: SafeZonesComponent,
-  SEOComponent: SafeZonesSEO,
-  BibliographyComponent: SafeZonesBibliography,
+  Component: () => import('./component.astro'),
+  SEOComponent: () => import('./seo.astro'),
+  BibliographyComponent: () => import('./bibliography.astro'),
 };

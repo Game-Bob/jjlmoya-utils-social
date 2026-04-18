@@ -1,8 +1,5 @@
 import type { SocialToolEntry, ToolLocaleContent, ToolDefinition } from '../../types';
 
-import SocialImageResizerComponent from './component.astro';
-import SocialImageResizerSEO from './seo.astro';
-import SocialImageResizerBibliography from './bibliography.astro';
 
 import type { SocialImageResizerUI } from './ui';
 export type SocialImageResizerLocaleContent = ToolLocaleContent<SocialImageResizerUI>;
@@ -32,11 +29,10 @@ export const socialImageResizer: SocialToolEntry<SocialImageResizerUI> = {
   },
 };
 
-export { SocialImageResizerComponent, SocialImageResizerSEO, SocialImageResizerBibliography };
 
 export const SOCIAL_IMAGE_RESIZER_TOOL: ToolDefinition = {
   entry: socialImageResizer,
-  Component: SocialImageResizerComponent,
-  SEOComponent: SocialImageResizerSEO,
-  BibliographyComponent: SocialImageResizerBibliography,
+  Component: () => import('./component.astro'),
+  SEOComponent: () => import('./seo.astro'),
+  BibliographyComponent: () => import('./bibliography.astro'),
 };

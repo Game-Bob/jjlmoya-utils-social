@@ -1,8 +1,5 @@
 import type { SocialToolEntry, ToolLocaleContent, ToolDefinition } from '../../types';
 
-import RedditFormatterComponent from './component.astro';
-import RedditFormatterSEO from './seo.astro';
-import RedditFormatterBibliography from './bibliography.astro';
 
 import type { RedditFormatterUI } from './ui';
 export type RedditFormatterLocaleContent = ToolLocaleContent<RedditFormatterUI>;
@@ -32,11 +29,10 @@ export const redditFormatter: SocialToolEntry<RedditFormatterUI> = {
   },
 };
 
-export { RedditFormatterComponent, RedditFormatterSEO, RedditFormatterBibliography };
 
 export const REDDIT_FORMATTER_TOOL: ToolDefinition = {
   entry: redditFormatter,
-  Component: RedditFormatterComponent,
-  SEOComponent: RedditFormatterSEO,
-  BibliographyComponent: RedditFormatterBibliography,
+  Component: () => import('./component.astro'),
+  SEOComponent: () => import('./seo.astro'),
+  BibliographyComponent: () => import('./bibliography.astro'),
 };

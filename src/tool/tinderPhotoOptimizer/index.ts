@@ -1,7 +1,4 @@
 import type { SocialToolEntry, ToolLocaleContent, ToolDefinition } from '../../types';
-import TinderPhotoOptimizerComponent from './component.astro';
-import TinderPhotoOptimizerSEO from './seo.astro';
-import TinderPhotoOptimizerBibliography from './bibliography.astro';
 
 import type { TinderPhotoOptimizerUI } from './ui';
 
@@ -32,11 +29,10 @@ export const tinderPhotoOptimizer: SocialToolEntry<TinderPhotoOptimizerUI> = {
   },
 };
 
-export { TinderPhotoOptimizerComponent, TinderPhotoOptimizerSEO, TinderPhotoOptimizerBibliography };
 
 export const TINDER_PHOTO_OPTIMIZER_TOOL: ToolDefinition = {
   entry: tinderPhotoOptimizer,
-  Component: TinderPhotoOptimizerComponent,
-  SEOComponent: TinderPhotoOptimizerSEO,
-  BibliographyComponent: TinderPhotoOptimizerBibliography,
+  Component: () => import('./component.astro'),
+  SEOComponent: () => import('./seo.astro'),
+  BibliographyComponent: () => import('./bibliography.astro'),
 };

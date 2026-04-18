@@ -1,8 +1,5 @@
 import type { SocialToolEntry, ToolLocaleContent, ToolDefinition } from '../../types';
 
-import SocialValueCalculatorComponent from './component.astro';
-import SocialValueCalculatorSEO from './seo.astro';
-import SocialValueCalculatorBibliography from './bibliography.astro';
 
 import type { SocialValueCalculatorUI } from './ui';
 export type SocialValueCalculatorLocaleContent = ToolLocaleContent<SocialValueCalculatorUI>;
@@ -32,11 +29,10 @@ export const socialValueCalculator: SocialToolEntry<SocialValueCalculatorUI> = {
   },
 };
 
-export { SocialValueCalculatorComponent, SocialValueCalculatorSEO, SocialValueCalculatorBibliography };
 
 export const SOCIAL_VALUE_CALCULATOR_TOOL: ToolDefinition = {
   entry: socialValueCalculator,
-  Component: SocialValueCalculatorComponent,
-  SEOComponent: SocialValueCalculatorSEO,
-  BibliographyComponent: SocialValueCalculatorBibliography,
+  Component: () => import('./component.astro'),
+  SEOComponent: () => import('./seo.astro'),
+  BibliographyComponent: () => import('./bibliography.astro'),
 };

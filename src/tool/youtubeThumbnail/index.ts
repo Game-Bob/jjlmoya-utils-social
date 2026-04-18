@@ -1,8 +1,5 @@
 import type { SocialToolEntry, ToolLocaleContent, ToolDefinition } from '../../types';
 
-import YoutubeThumbnailComponent from './component.astro';
-import YoutubeThumbnailSEO from './seo.astro';
-import YoutubeThumbnailBibliography from './bibliography.astro';
 
 import type { YoutubeThumbnailUI } from './ui';
 export type YoutubeThumbnailLocaleContent = ToolLocaleContent<YoutubeThumbnailUI>;
@@ -32,11 +29,10 @@ export const youtubeThumbnail: SocialToolEntry<YoutubeThumbnailUI> = {
   },
 };
 
-export { YoutubeThumbnailComponent, YoutubeThumbnailSEO, YoutubeThumbnailBibliography };
 
 export const YOUTUBE_THUMBNAIL_TOOL: ToolDefinition = {
   entry: youtubeThumbnail,
-  Component: YoutubeThumbnailComponent,
-  SEOComponent: YoutubeThumbnailSEO,
-  BibliographyComponent: YoutubeThumbnailBibliography,
+  Component: () => import('./component.astro'),
+  SEOComponent: () => import('./seo.astro'),
+  BibliographyComponent: () => import('./bibliography.astro'),
 };
