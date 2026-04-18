@@ -1,3 +1,4 @@
+export { ALL_ENTRIES } from './entries';
 import type { ToolDefinition } from './types';
 import { SAFE_ZONES_TOOL } from './tool/safeZones/index';
 import { YOUTUBE_THUMBNAIL_TOOL } from './tool/youtubeThumbnail/index';
@@ -9,4 +10,3 @@ import { YOUTUBE_THUMBNAIL_PREVIEWER_TOOL } from './tool/youtubeThumbnailPreview
 
 export const ALL_TOOLS: ToolDefinition[] = [SAFE_ZONES_TOOL, YOUTUBE_THUMBNAIL_TOOL, SOCIAL_VALUE_CALCULATOR_TOOL, REDDIT_FORMATTER_TOOL, SOCIAL_IMAGE_RESIZER_TOOL, TINDER_PHOTO_OPTIMIZER_TOOL, YOUTUBE_THUMBNAIL_PREVIEWER_TOOL];
 
-export const ALL_ENTRIES = ALL_TOOLS.map(t => t.entry);
