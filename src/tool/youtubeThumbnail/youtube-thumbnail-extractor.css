@@ -22,7 +22,7 @@
     gap: 2rem;
   }
 
-  :global(.theme-dark) .ytx-root {
+  .theme-dark .ytx-root {
     --bg: #0f172a;
     --bg-muted: #020617;
     --bg-img: #1e293b;

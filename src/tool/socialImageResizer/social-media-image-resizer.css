@@ -269,7 +269,7 @@
     accent-color: #8b5cf6;
   }
 
-  :global(.theme-dark) .sri-container {
+  .theme-dark .sri-container {
     --bg: #1e1e21;
     --bg-sidebar: #161618;
     --bg-main: #1e1e21;

@@ -18,7 +18,7 @@
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.05);
   }
 
-  :global(.theme-dark) .rdf-root {
+  .theme-dark .rdf-root {
     --bg: rgba(15, 23, 42, 0.6);
     --border: rgba(255, 255, 255, 0.08);
     --label: #94a3b8;
