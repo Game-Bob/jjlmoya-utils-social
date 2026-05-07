@@ -1,3 +1,4 @@
+import { bibliography } from '../bibliography';
 import type { WithContext, FAQPage, HowToThing, SoftwareApplication } from 'schema-dts';
 import type { ToolLocaleContent } from '../../../types';
 import type { YoutubeThumbnailUI } from '../ui';
@@ -87,23 +88,8 @@ export const content: ToolLocaleContent<YoutubeThumbnailUI> = {
   slug,
   title,
   description,
-  faqTitle: 'Häufig gestellte Fragen',
-  faq: faqData,
-  bibliographyTitle: 'Dokumentation & Referenzen',
-  bibliography: [
-    {
-      name: 'YouTube-Hilfe: Ein benutzerdefiniertes Video-Thumbnail hinzufügen',
-      url: 'https://support.google.com/youtube/answer/72431',
-    },
-    {
-      name: 'YouTube Creator Academy: Großartige Thumbnails erstellen',
-      url: 'https://creatoracademy.youtube.com/',
-    },
-    {
-      name: 'Google Developers: YouTube Data API — Thumbnails',
-      url: 'https://developers.google.com/youtube/v3/docs/thumbnails',
-    },
-  ],
+    faq: faqData,
+      bibliography,
   howTo: howToData,
   schemas: [faqSchema, howToSchema, appSchema],
   seo: [

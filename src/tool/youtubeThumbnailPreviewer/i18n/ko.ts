@@ -1,3 +1,4 @@
+import { bibliography } from '../bibliography';
 import type { WithContext, FAQPage, HowToThing, SoftwareApplication } from 'schema-dts';
 import type { ToolLocaleContent } from '../../../types';
 import type { YoutubeThumbnailPreviewerUI } from '../ui';
@@ -92,23 +93,8 @@ export const content: ToolLocaleContent<YoutubeThumbnailPreviewerUI> = {
   slug,
   title,
   description,
-  faqTitle: '자주 묻는 질문',
-  faq: faqData,
-  bibliographyTitle: '참고 자료',
-  bibliography: [
-    {
-      name: '유튜브 고객센터: 맞춤 동영상 썸네일 만들기',
-      url: 'https://support.google.com/youtube/answer/141805',
-    },
-    {
-      name: 'Nielsen Norman Group: Visual Processing and UX Design',
-      url: 'https://www.nngroup.com/articles/visual-processing/',
-    },
-    {
-      name: 'Derral Eves: The YouTube Formula (Thumbnail Strategy)',
-      url: 'https://derraleves.com/the-youtube-formula/',
-    },
-  ],
+    faq: faqData,
+      bibliography,
   howTo: howToData,
   schemas: [faqSchema, howToSchema, appSchema],
   seo: [

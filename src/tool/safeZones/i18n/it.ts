@@ -1,3 +1,4 @@
+import { bibliography } from '../bibliography';
 import type { WithContext, FAQPage, HowToThing, SoftwareApplication } from 'schema-dts';
 import type { ToolLocaleContent } from '../../../types';
 import type { SafeZonesUI } from '../ui';
@@ -87,27 +88,8 @@ export const content: ToolLocaleContent<SafeZonesUI> = {
   slug,
   title,
   description,
-  faqTitle: 'Domande Frequenti',
-  faq: faqData,
-  bibliographyTitle: 'Documentazione Ufficiale delle Piattaforme',
-  bibliography: [
-    {
-      name: 'TikTok Creator Portal: Ottimizzazione video e zone sicure',
-      url: 'https://www.tiktok.com/creators/creator-portal/en-us/foundation/video-optimization/',
-    },
-    {
-      name: 'Instagram Business: Best practice per i Reels',
-      url: 'https://business.instagram.com/creators/reels-best-practices',
-    },
-    {
-      name: 'Guida di YouTube: Creare YouTube Shorts',
-      url: 'https://support.google.com/youtube/answer/10343433',
-    },
-    {
-      name: 'Meta for Creators: Zone sicure e rapporti d’aspetto per i video',
-      url: 'https://www.facebook.com/business/help/103816146375741',
-    },
-  ],
+    faq: faqData,
+      bibliography,
   howTo: howToData,
   schemas: [faqSchema, howToSchema, appSchema],
   seo: [

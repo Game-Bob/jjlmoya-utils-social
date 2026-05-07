@@ -1,3 +1,4 @@
+import { bibliography } from '../bibliography';
 import type { WithContext, FAQPage, HowToThing, SoftwareApplication } from 'schema-dts';
 import type { ToolLocaleContent } from '../../../types';
 import type { SafeZonesUI } from '../ui';
@@ -87,27 +88,8 @@ export const content: ToolLocaleContent<SafeZonesUI> = {
   slug,
   title,
   description,
-  faqTitle: '자주 묻는 질문',
-  faq: faqData,
-  bibliographyTitle: '공식 플랫폼 문서',
-  bibliography: [
-    {
-      name: '틱톡 크리에이터 포털: 동영상 최적화 및 세이프 존',
-      url: 'https://www.tiktok.com/creators/creator-portal/en-us/foundation/video-optimization/',
-    },
-    {
-      name: '인스타그램 비즈니스: 릴스를 위한 모범 사례',
-      url: 'https://business.instagram.com/creators/reels-best-practices',
-    },
-    {
-      name: '유튜브 고객센터: 유튜브 쇼츠 만들기',
-      url: 'https://support.google.com/youtube/answer/10343433',
-    },
-    {
-      name: '메타 크리에이터: 동영상의 세이프 존 및 화면비',
-      url: 'https://www.facebook.com/business/help/103816146375741',
-    },
-  ],
+    faq: faqData,
+      bibliography,
   howTo: howToData,
   schemas: [faqSchema, howToSchema, appSchema],
   seo: [

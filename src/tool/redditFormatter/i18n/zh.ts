@@ -1,3 +1,4 @@
+import { bibliography } from '../bibliography';
 import type { WithContext, FAQPage, HowToThing, SoftwareApplication } from 'schema-dts';
 import type { ToolLocaleContent } from '../../../types';
 import type { RedditFormatterUI } from '../ui';
@@ -87,19 +88,8 @@ export const content: ToolLocaleContent<RedditFormatterUI> = {
   slug,
   title,
   description,
-  faqTitle: '常见问题',
-  faq: faqData,
-  bibliographyTitle: '参考资料',
-  bibliography: [
-    {
-      name: 'Reddit 帮助：在帖子和评论中格式化文本',
-      url: 'https://support.reddithelp.com/hc/en-us/articles/360043033952-Formatting-text-in-posts-and-comments',
-    },
-    {
-      name: 'Reddit Markdown 指南',
-      url: 'https://www.reddit.com/wiki/markdown/',
-    },
-  ],
+    faq: faqData,
+      bibliography,
   howTo: howToData,
   schemas: [faqSchema, howToSchema, appSchema],
   seo: [

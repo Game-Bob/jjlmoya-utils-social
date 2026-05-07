@@ -1,3 +1,4 @@
+import { bibliography } from '../bibliography';
 import type { WithContext, FAQPage, HowToThing, SoftwareApplication } from 'schema-dts';
 import type { ToolLocaleContent } from '../../../types';
 import type { YoutubeThumbnailUI } from '../ui';
@@ -87,23 +88,8 @@ export const content: ToolLocaleContent<YoutubeThumbnailUI> = {
   slug,
   title,
   description,
-  faqTitle: 'Domande Frequenti',
-  faq: faqData,
-  bibliographyTitle: 'Documentazione e Riferimenti',
-  bibliography: [
-    {
-      name: 'Guida di YouTube: Aggiungere un\'immagine in miniatura personalizzata',
-      url: 'https://support.google.com/youtube/answer/72431',
-    },
-    {
-      name: 'YouTube Creator Academy: Come creare miniature efficaci',
-      url: 'https://creatoracademy.youtube.com/',
-    },
-    {
-      name: 'Google Developers: YouTube Data API — Thumbnails',
-      url: 'https://developers.google.com/youtube/v3/docs/thumbnails',
-    },
-  ],
+    faq: faqData,
+      bibliography,
   howTo: howToData,
   schemas: [faqSchema, howToSchema, appSchema],
   seo: [

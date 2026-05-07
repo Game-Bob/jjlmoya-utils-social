@@ -1,3 +1,4 @@
+import { bibliography } from '../bibliography';
 import type { WithContext, FAQPage, HowToThing, SoftwareApplication } from 'schema-dts';
 import type { ToolLocaleContent } from '../../../types';
 import type { RedditFormatterUI } from '../ui';
@@ -87,19 +88,8 @@ export const content: ToolLocaleContent<RedditFormatterUI> = {
   slug,
   title,
   description,
-  faqTitle: 'Często Zadawane Pytania',
-  faq: faqData,
-  bibliographyTitle: 'Referencje',
-  bibliography: [
-    {
-      name: 'Pomoc Reddit: Formatowanie tekstu w postach i komentarzach',
-      url: 'https://support.reddithelp.com/hc/en-us/articles/360043033952-Formatting-text-in-posts-and-comments',
-    },
-    {
-      name: 'Przewodnik po Markdown na Reddit',
-      url: 'https://www.reddit.com/wiki/markdown/',
-    },
-  ],
+    faq: faqData,
+      bibliography,
   howTo: howToData,
   schemas: [faqSchema, howToSchema, appSchema],
   seo: [

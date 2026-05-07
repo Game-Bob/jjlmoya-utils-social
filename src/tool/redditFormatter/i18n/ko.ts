@@ -1,3 +1,4 @@
+import { bibliography } from '../bibliography';
 import type { WithContext, FAQPage, HowToThing, SoftwareApplication } from 'schema-dts';
 import type { ToolLocaleContent } from '../../../types';
 import type { RedditFormatterUI } from '../ui';
@@ -87,19 +88,8 @@ export const content: ToolLocaleContent<RedditFormatterUI> = {
   slug,
   title,
   description,
-  faqTitle: '자주 묻는 질문',
-  faq: faqData,
-  bibliographyTitle: '참고 문헌',
-  bibliography: [
-    {
-      name: 'Reddit 도움말: 게시물 및 댓글의 텍스트 서식 지정',
-      url: 'https://support.reddithelp.com/hc/en-us/articles/360043033952-Formatting-text-in-posts-and-comments',
-    },
-    {
-      name: 'Reddit 마크다운 가이드',
-      url: 'https://www.reddit.com/wiki/markdown/',
-    },
-  ],
+    faq: faqData,
+      bibliography,
   howTo: howToData,
   schemas: [faqSchema, howToSchema, appSchema],
   seo: [

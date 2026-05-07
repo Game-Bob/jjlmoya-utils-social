@@ -1,3 +1,4 @@
+import { bibliography } from '../bibliography';
 import type { WithContext, FAQPage, HowTo, SoftwareApplication } from 'schema-dts';
 import type { ToolLocaleContent } from '../../../types';
 import type { TinderPhotoOptimizerUI } from '../ui';
@@ -87,19 +88,8 @@ export const content: ToolLocaleContent<TinderPhotoOptimizerUI> = {
   slug,
   title,
   description,
-  faqTitle: 'Часто задаваемые вопросы',
-  faq: faqData,
-  bibliographyTitle: 'Ссылки',
-  bibliography: [
-    {
-      name: 'face-api.js: JavaScript Face Recognition in the Browser',
-      url: 'https://github.com/justadudewhohacks/face-api.js',
-    },
-    {
-      name: 'MDN Web Docs: Canvas API',
-      url: 'https://developer.mozilla.org/ru/docs/Web/API/Canvas_API',
-    },
-  ],
+    faq: faqData,
+      bibliography,
   howTo: howToData,
   schemas: [faqSchema, howToSchema, appSchema],
   seo: [

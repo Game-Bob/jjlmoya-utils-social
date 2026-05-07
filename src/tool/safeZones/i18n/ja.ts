@@ -1,3 +1,4 @@
+import { bibliography } from '../bibliography';
 import type { WithContext, FAQPage, HowToThing, SoftwareApplication } from 'schema-dts';
 import type { ToolLocaleContent } from '../../../types';
 import type { SafeZonesUI } from '../ui';
@@ -87,27 +88,8 @@ export const content: ToolLocaleContent<SafeZonesUI> = {
   slug,
   title,
   description,
-  faqTitle: 'よくある質問',
-  faq: faqData,
-  bibliographyTitle: '公式プラットフォームドキュメント',
-  bibliography: [
-    {
-      name: 'TikTokクリエイターポータル：動画の最適化とセーフゾーン',
-      url: 'https://www.tiktok.com/creators/creator-portal/en-us/foundation/video-optimization/',
-    },
-    {
-      name: 'Instagram Business：リールのベストプラクティス',
-      url: 'https://business.instagram.com/creators/reels-best-practices',
-    },
-    {
-      name: 'YouTubeヘルプ：YouTube Shortsを作成する',
-      url: 'https://support.google.com/youtube/answer/10343433',
-    },
-    {
-      name: 'Meta for Creators：動画のセーフゾーンとアスペクト比',
-      url: 'https://www.facebook.com/business/help/103816146375741',
-    },
-  ],
+    faq: faqData,
+      bibliography,
   howTo: howToData,
   schemas: [faqSchema, howToSchema, appSchema],
   seo: [

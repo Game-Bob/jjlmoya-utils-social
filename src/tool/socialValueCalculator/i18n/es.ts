@@ -1,3 +1,4 @@
+import { bibliography } from '../bibliography';
 import type { WithContext, FAQPage, HowToThing, SoftwareApplication } from 'schema-dts';
 import type { ToolLocaleContent } from '../../../types';
 import type { SocialValueCalculatorUI } from '../ui';
@@ -87,23 +88,8 @@ export const content: ToolLocaleContent<SocialValueCalculatorUI> = {
   slug,
   title,
   description,
-  faqTitle: 'Preguntas Frecuentes',
-  faq: faqData,
-  bibliographyTitle: 'Fuentes y Estudios de Mercado',
-  bibliography: [
-    {
-      name: 'Influencer Marketing Hub: Influencer Rates 2026',
-      url: 'https://influencermarketinghub.com/influencer-rates/',
-    },
-    {
-      name: 'HypeAuditor: Reporte de Engagement en TikTok e Instagram',
-      url: 'https://hypeauditor.com/es/free-tools/tiktok-engagement-calculator/',
-    },
-    {
-      name: 'Social Blade: Estadísticas de Redes Sociales',
-      url: 'https://socialblade.com/',
-    },
-  ],
+    faq: faqData,
+      bibliography,
   howTo: howToData,
   schemas: [faqSchema, howToSchema, appSchema],
   seo: [

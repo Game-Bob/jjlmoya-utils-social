@@ -1,3 +1,4 @@
+import { bibliography } from '../bibliography';
 import type { WithContext, FAQPage, HowToThing, SoftwareApplication } from 'schema-dts';
 import type { ToolLocaleContent } from '../../../types';
 import type { SocialImageResizerUI } from '../ui';
@@ -78,19 +79,8 @@ export const content: ToolLocaleContent<SocialImageResizerUI> = {
   slug,
   title,
   description,
-  faqTitle: 'Preguntas Frecuentes',
-  faq: faqData,
-  bibliographyTitle: 'Referencias',
-  bibliography: [
-    {
-      name: 'MDN Web Docs: Canvas API',
-      url: 'https://developer.mozilla.org/es/docs/Web/API/Canvas_API',
-    },
-    {
-      name: 'Sprout Social: Social Media Image Sizes Guide 2026',
-      url: 'https://sproutsocial.com/insights/social-media-image-sizes-guide/',
-    },
-  ],
+    faq: faqData,
+      bibliography,
   howTo: howToData,
   schemas: [faqSchema, howToSchema, appSchema],
   seo: [

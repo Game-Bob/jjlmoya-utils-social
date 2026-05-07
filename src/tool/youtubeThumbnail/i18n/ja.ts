@@ -1,3 +1,4 @@
+import { bibliography } from '../bibliography';
 import type { WithContext, FAQPage, HowToThing, SoftwareApplication } from 'schema-dts';
 import type { ToolLocaleContent } from '../../../types';
 import type { YoutubeThumbnailUI } from '../ui';
@@ -87,23 +88,8 @@ export const content: ToolLocaleContent<YoutubeThumbnailUI> = {
   slug,
   title,
   description,
-  faqTitle: 'よくある質問',
-  faq: faqData,
-  bibliographyTitle: 'ドキュメントと参照先',
-  bibliography: [
-    {
-      name: 'YouTube ヘルプ: 動画のカスタム サムネイルを追加する',
-      url: 'https://support.google.com/youtube/answer/72431',
-    },
-    {
-      name: 'YouTube クリエイター アカデミー: 効果的なサムネイルの作成',
-      url: 'https://creatoracademy.youtube.com/',
-    },
-    {
-      name: 'Google Developers: YouTube Data API — Thumbnails',
-      url: 'https://developers.google.com/youtube/v3/docs/thumbnails',
-    },
-  ],
+    faq: faqData,
+      bibliography,
   howTo: howToData,
   schemas: [faqSchema, howToSchema, appSchema],
   seo: [

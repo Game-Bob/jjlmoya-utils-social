@@ -1,3 +1,4 @@
+import { bibliography } from '../bibliography';
 import type { WithContext, FAQPage, HowToThing, SoftwareApplication } from 'schema-dts';
 import type { ToolLocaleContent } from '../../../types';
 import type { YoutubeThumbnailUI } from '../ui';
@@ -87,23 +88,8 @@ export const content: ToolLocaleContent<YoutubeThumbnailUI> = {
   slug,
   title,
   description,
-  faqTitle: '常见问题',
-  faq: faqData,
-  bibliographyTitle: '文档与参考资料',
-  bibliography: [
-    {
-      name: 'YouTube 帮助：添加自定义视频缩略图',
-      url: 'https://support.google.com/youtube/answer/72431',
-    },
-    {
-      name: 'YouTube 创作者学院：如何制作高效的缩略图',
-      url: 'https://creatoracademy.youtube.com/',
-    },
-    {
-      name: 'Google Developers: YouTube Data API — Thumbnails',
-      url: 'https://developers.google.com/youtube/v3/docs/thumbnails',
-    },
-  ],
+    faq: faqData,
+      bibliography,
   howTo: howToData,
   schemas: [faqSchema, howToSchema, appSchema],
   seo: [

@@ -1,3 +1,4 @@
+import { bibliography } from '../bibliography';
 import type { WithContext, FAQPage, HowToThing, SoftwareApplication } from 'schema-dts';
 import type { ToolLocaleContent } from '../../../types';
 import type { YoutubeThumbnailPreviewerUI } from '../ui';
@@ -92,23 +93,8 @@ export const content: ToolLocaleContent<YoutubeThumbnailPreviewerUI> = {
   slug,
   title,
   description,
-  faqTitle: 'Häufig gestellte Fragen',
-  faq: faqData,
-  bibliographyTitle: 'Referenzen',
-  bibliography: [
-    {
-      name: 'YouTube-Hilfe: Eigene Video-Thumbnails erstellen',
-      url: 'https://support.google.com/youtube/answer/141805',
-    },
-    {
-      name: 'Nielsen Norman Group: Visuelle Verarbeitung und UX-Design',
-      url: 'https://www.nngroup.com/articles/visual-processing/',
-    },
-    {
-      name: 'Derral Eves: Die YouTube-Formel (Thumbnail-Strategie)',
-      url: 'https://derraleves.com/the-youtube-formula/',
-    },
-  ],
+    faq: faqData,
+      bibliography,
   howTo: howToData,
   schemas: [faqSchema, howToSchema, appSchema],
   seo: [
