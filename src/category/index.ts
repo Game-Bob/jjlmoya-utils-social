@@ -1,5 +1,5 @@
 import type { SocialCategoryEntry } from '../types';
-import { safeZones } from '../tool/safeZones/index';
+import { safeZones } from '../tool/safeZones/entry';
 
 export const socialCategory: SocialCategoryEntry = {
   icon: 'mdi:account-group',
