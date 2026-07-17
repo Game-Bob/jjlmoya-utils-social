@@ -73,7 +73,7 @@ const icons: Record<string, string> = {
         <h2>{t.uploadTitle}</h2>
         <p>{t.uploadSubtitle}</p>
       </div>
-      <input type="file" id="sri-file-input" accept="image/*" hidden />
+      <input type="file" id="sri-file-input" class="file-input" accept="image/*" hidden />
     </div>
 
     <div class="sri-editor-view" id="sri-editor-view">
@@ -84,7 +84,7 @@ const icons: Record<string, string> = {
       <div class="sri-editor-actions">
         <div class="sri-zoom-control">
           <span set:html={icons.zoomOut} />
-          <input type="range" id="sri-zoom-range" min="10" max="300" value="100" />
+          <input type="range" id="sri-zoom-range" min="10" max="300" value="100" aria-label="Zoom" />
           <span set:html={icons.zoomIn} />
         </div>
 

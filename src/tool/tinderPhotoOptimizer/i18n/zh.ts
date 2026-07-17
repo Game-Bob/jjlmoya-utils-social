@@ -173,12 +173,12 @@ export const content: ToolLocaleContent<TinderPhotoOptimizerUI> = {
     },
     {
       type: 'paragraph',
-      html: '您知道图片的“重量”也会影响算法吗？交友软件会优先考虑加载速度快的内容，以避免打断用户体验。',
+      html: '您知道图片的\"重量\"也会影响算法吗？交友软件会优先考虑加载速度快的内容，以避免打断用户体验。',
     },
     {
       type: 'list',
       items: [
-        '<strong>元数据剥离（隐私与 SEO）：</strong> 我们移除 EXIF 记录。一张干净的照片为平台算法提供了一块“新的画布”。',
+        '<strong>元数据剥离（隐私与 SEO）：</strong> 我们移除 EXIF 记录。一张干净的照片为平台算法提供了一块\"新的画布\"。',
         '<strong>智能无损压缩：</strong> 我们在保持 iOS 和 Android 原生 sRGB 色彩空间的同时减小 JPG 文件大小。即使在网络覆盖较差的情况下，您的照片也会看起来很鲜艳。',
         '<strong>沉浸式 9:16 格式：</strong> 通过精确交付 1080x1920 像素，我们防止了 Tinder 应用其自身会产生图像伪影的激进压缩算法。',
       ],

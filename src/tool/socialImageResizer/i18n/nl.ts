@@ -91,7 +91,7 @@ export const content: ToolLocaleContent<SocialImageResizerUI> = {
     },
     {
       type: 'paragraph',
-      html: 'In het huidige digitale ecosysteem zijn eerste indrukken visueel. Elk sociaal netwerk werkt met specifieke algoritmen die prioriteit geven aan content die specifiek is aangepast aan de bijbehorende verhoudingen. Onze social media image resizer is niet alleen een technische tool — het is uw bondgenoot om ervoor te zorgen dat uw boodschap overkomt zonder ongewenste uitsneden of kwaliteitsverlies.',
+      html: 'In het huidige digitale ecosysteem zijn eerste indrukken visueel. Elk sociaal netwerk werkt met specifieke algoritmen die prioriteit geven aan content die specifiek is aangepast aan de bijbehorende verhoudingen. Onze social media image resizer is niet alleen een technische tool - het is uw bondgenoot om ervoor te zorgen dat uw boodschap overkomt zonder ongewenste uitsneden of kwaliteitsverlies.',
     },
     {
       type: 'paragraph',
@@ -105,13 +105,13 @@ export const content: ToolLocaleContent<SocialImageResizerUI> = {
     {
       type: 'grid',
       columns: [
-        { title: 'Instagram — Vierkante Post', body: '1080 × 1080 px · Ratio 1:1' },
-        { title: 'Instagram — Verticale Post', body: '1080 × 1350 px · Ratio 4:5' },
-        { title: 'TikTok / Reels — Verticaal', body: '1080 × 1920 px · Ratio 9:16' },
-        { title: 'YouTube — Thumbnail', body: '1280 × 720 px · Ratio 16:9' },
-        { title: 'YouTube — Kanaalbanner', body: '2560 × 1440 px · Ratio 16:9' },
-        { title: 'X (Twitter) — Standaard Post', body: '1200 × 675 px · Ratio 16:9' },
-        { title: 'LinkedIn — Profielomslag', body: '1584 × 396 px · Ratio 4:1' },
+        { title: 'Instagram: Vierkante Post', body: '1080 × 1080 px · Ratio 1:1' },
+        { title: 'Instagram: Verticale Post', body: '1080 × 1350 px · Ratio 4:5' },
+        { title: 'TikTok / Reels: Verticaal', body: '1080 × 1920 px · Ratio 9:16' },
+        { title: 'YouTube: Thumbnail', body: '1280 × 720 px · Ratio 16:9' },
+        { title: 'YouTube: Kanaalbanner', body: '2560 × 1440 px · Ratio 16:9' },
+        { title: 'X (Twitter): Standaard Post', body: '1200 × 675 px · Ratio 16:9' },
+        { title: 'LinkedIn: Profielomslag', body: '1584 × 396 px · Ratio 4:1' },
       ],
     },
     {

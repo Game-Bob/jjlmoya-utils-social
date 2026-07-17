@@ -10,7 +10,7 @@ export const bibliography: BibliographyEntry[] = [
     url: 'https://creatoracademy.youtube.com/',
   },
   {
-    name: 'Google Developers: YouTube Data API — Thumbnails',
+    name: 'Google Developers: YouTube Data API - Thumbnails',
     url: 'https://developers.google.com/youtube/v3/docs/thumbnails',
   },
 ];

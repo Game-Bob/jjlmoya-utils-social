@@ -46,7 +46,7 @@ const howToData = [
   },
   {
     name: 'Skopiuj i opublikuj',
-    text: 'Kliknij „Kopiuj tekst” i wklej go bezpośrednio na Reddit lub dowolne forum.',
+    text: 'Kliknij \"Kopiuj tekst\" i wklej go bezpośrednio na Reddit lub dowolne forum.',
   },
 ];
 
@@ -113,7 +113,7 @@ export const content: ToolLocaleContent<RedditFormatterUI> = {
     },
     {
       type: 'paragraph',
-      html: 'Po drugie, narzędzie usuwa niewidoczne znaki i wielokrotne spacje. Podczas kopiowania tekstu ze stron internetowych często „przeciąga się” znaki o zerowej szerokości, które psują formatowanie lub powodują dziwne zachowanie na forach. Czyścik usuwa te intruzywne elementy i normalizuje powtarzające się spacje do pojedynczej, czystej spacji. Opcjonalnie możesz usunąć wszystkie surowe hiperłącza ze swojej treści, aby opublikować całkowicie neutralny tekst.',
+      html: 'Po drugie, narzędzie usuwa niewidoczne znaki i wielokrotne spacje. Podczas kopiowania tekstu ze stron internetowych często \"przeciąga się\" znaki o zerowej szerokości, które psują formatowanie lub powodują dziwne zachowanie na forach. Czyścik usuwa te intruzywne elementy i normalizuje powtarzające się spacje do pojedynczej, czystej spacji. Opcjonalnie możesz usunąć wszystkie surowe hiperłącza ze swojej treści, aby opublikować całkowicie neutralny tekst.',
     },
     {
       type: 'title',
@@ -136,7 +136,7 @@ export const content: ToolLocaleContent<RedditFormatterUI> = {
     },
     {
       type: 'paragraph',
-      html: 'Aplikacje takie jak Microsoft Word czy Google Docs dodają niewidoczną warstwę bogatego formatowania do tekstu. Gdy kopiujesz i wklejasz tę treść bezpośrednio do podstawowego edytora lub trybu Markdown na Reddit, bogate formatowanie znika, a to, co pozostaje, to często bezkształtna mieszanina. Reddit używa dość rygorystycznego wariantu Markdown. Jeśli nie znasz składni Reddit lub po prostu chcesz usprawnić proces przenoszenia esejów lub opowiadań na forum, wcześniejsze wyczyszczenie tekstu tutaj zapobiega otrzymywaniu przez Twój post „downvote’ów” tylko dlatego, że nie da się go wygodnie przeczytać.',
+      html: 'Aplikacje takie jak Microsoft Word czy Google Docs dodają niewidoczną warstwę bogatego formatowania do tekstu. Gdy kopiujesz i wklejasz tę treść bezpośrednio do podstawowego edytora lub trybu Markdown na Reddit, bogate formatowanie znika, a to, co pozostaje, to często bezkształtna mieszanina. Reddit używa dość rygorystycznego wariantu Markdown. Jeśli nie znasz składni Reddit lub po prostu chcesz usprawnić proces przenoszenia esejów lub opowiadań na forum, wcześniejsze wyczyszczenie tekstu tutaj zapobiega otrzymywaniu przez Twój post \"downvote\'ów\" tylko dlatego, że nie da się go wygodnie przeczytać.',
     },
     {
       type: 'title',
@@ -164,7 +164,7 @@ export const content: ToolLocaleContent<RedditFormatterUI> = {
     },
     {
       type: 'paragraph',
-      html: 'Znalezienie właściwych odpowiedzi na temat interakcji z zasadami redakcyjnymi Reddit nie zawsze jest oczywiste. Sprawdź sekcję FAQ, w której omawiamy główne pytania dotyczące poprawnych formatów i sposobów unikania kar za potężne „ściany tekstu”.',
+      html: 'Znalezienie właściwych odpowiedzi na temat interakcji z zasadami redakcyjnymi Reddit nie zawsze jest oczywiste. Sprawdź sekcję FAQ, w której omawiamy główne pytania dotyczące poprawnych formatów i sposobów unikania kar za potężne \"ściany tekstu\".',
     },
   ],
   ui: {

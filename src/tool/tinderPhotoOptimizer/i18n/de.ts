@@ -12,7 +12,7 @@ const faqData = [
   {
     question: 'Wie verbessert dieses Tool meine Tinder-Matches?',
     answer:
-      'Das Tool analysiert wichtige technische Faktoren: das Verhältnis der Gesichtsgröße (ideal 30–50 %), die Position der Augenlinie im Verhältnis zum oberen Drittel, die Abdeckung des Bildausschnitts und die Totzonen der Tinder-Benutzeroberfläche. Durch die Anpassung dieser Parameter projiziert Ihr Foto mehr Vertrauen und überwindet die visuellen Filter des Algorithmus.',
+      'Das Tool analysiert wichtige technische Faktoren: das Verhältnis der Gesichtsgröße (ideal 30-50 %), die Position der Augenlinie im Verhältnis zum oberen Drittel, die Abdeckung des Bildausschnitts und die Totzonen der Tinder-Benutzeroberfläche. Durch die Anpassung dieser Parameter projiziert Ihr Foto mehr Vertrauen und überwindet die visuellen Filter des Algorithmus.',
   },
   {
     question: 'Ist es sicher, meine Fotos hier hochzuladen?',
@@ -27,7 +27,7 @@ const faqData = [
   {
     question: 'Warum wird ein Zoom von 1,2x empfohlen?',
     answer:
-      'Frontkameras von Smartphones verwenden Weitwinkeloptiken (24 mm), die das Gesicht durch Tonnenverzerrung verzerren. Ein Zoom von 1,2x simuliert eine Brennweite von 50–85 mm, wodurch die Verzerrung eliminiert wird und natürlichere und attraktivere Gesichtsproportionen entstehen.',
+      'Frontkameras von Smartphones verwenden Weitwinkeloptiken (24 mm), die das Gesicht durch Tonnenverzerrung verzerren. Ein Zoom von 1,2x simuliert eine Brennweite von 50-85 mm, wodurch die Verzerrung eliminiert wird und natürlichere und attraktivere Gesichtsproportionen entstehen.',
   },
 ];
 
@@ -186,7 +186,7 @@ export const content: ToolLocaleContent<TinderPhotoOptimizerUI> = {
     {
       type: 'tip',
       title: 'Expertenrat',
-      html: '<p>Das erste Foto sollte IMMER ein klares Porträt ab den Schultern aufwärts sein. Heben Sie Ganzkörperfotos oder Aktivitätsfotos für die 3. oder 4. Position auf. Stellen Sie sicher, dass Ihr Blick beim ersten Eindruck frei von Hindernissen ist und Ihr Gesicht die optimale Größe (30–50 %) hat.</p>',
+      html: '<p>Das erste Foto sollte IMMER ein klares Porträt ab den Schultern aufwärts sein. Heben Sie Ganzkörperfotos oder Aktivitätsfotos für die 3. oder 4. Position auf. Stellen Sie sicher, dass Ihr Blick beim ersten Eindruck frei von Hindernissen ist und Ihr Gesicht die optimale Größe (30-50 %) hat.</p>',
     },
     {
       type: 'title',

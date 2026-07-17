@@ -131,7 +131,7 @@ export const content: ToolLocaleContent<SocialValueCalculatorUI> = {
         },
         {
           type: 'card',
-          title: 'Rp15rb–Rp50rb',
+          title: 'Rp15rb hingga Rp50rb',
           html: '<p>Rata-rata CPM di ceruk bernilai tinggi (per 1.000 tayangan)</p>',
         },
       ],

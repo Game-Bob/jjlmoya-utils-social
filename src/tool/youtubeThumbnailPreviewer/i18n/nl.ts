@@ -105,7 +105,7 @@ export const content: ToolLocaleContent<YoutubeThumbnailPreviewerUI> = {
     },
     {
       type: 'paragraph',
-      html: 'In het YouTube-ecosysteem is de thumbnail de toegangspoort tot je content. Je kunt de beste video ter wereld hebben — montage op Hollywood-niveau, een script dat een Oscar waard is — maar als niemand klikt, blijft je werk onzichtbaar voor het algoritme. Dit is waar <strong>CTR (Click-Through Rate)</strong> een rol speelt, en de thumbnail is de bepalende factor.',
+      html: 'In het YouTube-ecosysteem is de thumbnail de toegangspoort tot je content. Je kunt de beste video ter wereld hebben - montage op Hollywood-niveau, een script dat een Oscar waard is - maar als niemand klikt, blijft je werk onzichtbaar voor het algoritme. Dit is waar <strong>CTR (Click-Through Rate)</strong> een rol speelt, en de thumbnail is de bepalende factor.',
     },
     {
       type: 'title',
@@ -148,11 +148,11 @@ export const content: ToolLocaleContent<YoutubeThumbnailPreviewerUI> = {
     },
     {
       type: 'paragraph',
-      html: 'Het menselijk brein verwerkt beelden duizenden keren sneller dan tekst. Toch is de concurrentie op YouTube moordend. Je thumbnail moet niet alleen "mooi" zijn — hij moet <strong>leesbaar</strong> zijn en <strong>contrast</strong> hebben.',
+      html: 'Het menselijk brein verwerkt beelden duizenden keren sneller dan tekst. Toch is de concurrentie op YouTube moordend. Je thumbnail moet niet alleen "mooi" zijn - hij moet <strong>leesbaar</strong> zijn en <strong>contrast</strong> hebben.',
     },
     {
       type: 'paragraph',
-      html: 'Een veelgemaakte fout is het gebruik van kleuren die opgaan in de YouTube-achtergrond. Als je donkergrijze tinten gebruikt en je kijker staat in de donkere modus, verdwijnt je video simpelweg uit hun perifere zicht. Met deze tester kun je tussen thema’s schakelen en ervoor zorgen dat je ontwerp in elk scenario "popt" (opvalt).',
+      html: 'Een veelgemaakte fout is het gebruik van kleuren die opgaan in de YouTube-achtergrond. Als je donkergrijze tinten gebruikt en je kijker staat in de donkere modus, verdwijnt je video simpelweg uit hun perifere zicht. Met deze tester kun je tussen thema\'s schakelen en ervoor zorgen dat je ontwerp in elk scenario "popt" (opvalt).',
     },
     {
       type: 'title',
@@ -282,7 +282,7 @@ export const content: ToolLocaleContent<YoutubeThumbnailPreviewerUI> = {
     },
     {
       type: 'paragraph',
-      html: 'Begin nu met het optimaliseren van je kanaal en geef je video’s de click-through rate die ze verdienen!',
+      html: 'Begin nu met het optimaliseren van je kanaal en geef je video\'s de click-through rate die ze verdienen!',
     },
   ],
   ui: {

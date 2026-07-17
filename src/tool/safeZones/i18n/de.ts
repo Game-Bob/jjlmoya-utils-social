@@ -34,7 +34,7 @@ const faqData = [
 const howToData = [
   {
     name: 'Bild oder Video laden',
-    text: 'Laden Sie die Datei hoch, die Sie in der Vorschau sehen möchten. Die Verarbeitung erfolgt lokal und privat – es wird nichts ins Internet hochgeladen.',
+    text: 'Laden Sie die Datei hoch, die Sie in der Vorschau sehen möchten. Die Verarbeitung erfolgt lokal und privat - es wird nichts ins Internet hochgeladen.',
   },
   {
     name: 'Plattform auswählen',
@@ -177,7 +177,7 @@ export const content: ToolLocaleContent<SafeZonesUI> = {
     },
     {
       type: 'paragraph',
-      html: 'Design für soziale Medien ist nicht nur Ästhetik – es ist <strong>Benutzerfreundlichkeit</strong>. Wenn ein Benutzer kämpfen muss, um Text zu lesen, weil die Symbole der Plattform ihn verdecken, wischt er einfach zum nächsten Video weiter. Die Verweildauer (Watch Time) sinkt drastisch, wenn es visuelle Reibung gibt.',
+      html: 'Design für soziale Medien ist nicht nur Ästhetik - es ist <strong>Benutzerfreundlichkeit</strong>. Wenn ein Benutzer kämpfen muss, um Text zu lesen, weil die Symbole der Plattform ihn verdecken, wischt er einfach zum nächsten Video weiter. Die Verweildauer (Watch Time) sinkt drastisch, wenn es visuelle Reibung gibt.',
     },
     {
       type: 'paragraph',

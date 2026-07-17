@@ -47,11 +47,11 @@ const howToData = [
   },
   {
     name: '切换设备',
-    text: '在“桌面端”和“移动端”视图之间切换，验证在不同尺寸屏幕上的可读性。',
+    text: '在\"桌面端\"和\"移动端\"视图之间切换，验证在不同尺寸屏幕上的可读性。',
   },
   {
     name: '测试对比度',
-    text: '开启“暗黑”主题，查看颜色在 YouTube 黑色背景下是否依然醒目。',
+    text: '开启\"暗黑\"主题，查看颜色在 YouTube 黑色背景下是否依然醒目。',
   },
 ];
 
@@ -105,7 +105,7 @@ export const content: ToolLocaleContent<YoutubeThumbnailPreviewerUI> = {
     },
     {
       type: 'paragraph',
-      html: '在 YouTube 生态系统中，缩略图是进入您内容的门户。您可能有世界上最好的视频——好莱坞级别的剪辑、奥斯卡级别的剧本——但如果没有人点击，您的工作在算法眼中就是透明的。这就是 <strong>CTR（点击率）</strong> 发挥作用的地方，而缩略图是决定性因素。',
+      html: '在 YouTube 生态系统中，缩略图是进入您内容的门户。您可能有世界上最好的视频-好莱坞级别的剪辑、奥斯卡级别的剧本-但如果没有人点击，您的工作在算法眼中就是透明的。这就是 <strong>CTR（点击率）</strong> 发挥作用的地方，而缩略图是决定性因素。',
     },
     {
       type: 'title',
@@ -125,7 +125,7 @@ export const content: ToolLocaleContent<YoutubeThumbnailPreviewerUI> = {
     },
     {
       type: 'paragraph',
-      html: '许多创作者常犯的错误是在大显示器上进行缩略图设计，并在他们常用的编辑器中全屏查看。问题在于，终端用户很少这样看图片。大多数人是在手机上刷视频时，或者在暗黑模式下的显示器角落里看到它。我们的 <strong>YouTube 缩略图预览器</strong> 让您打破这种“设计师幻觉”，看到最真实的首页竞争环境。',
+      html: '许多创作者常犯的错误是在大显示器上进行缩略图设计，并在他们常用的编辑器中全屏查看。问题在于，终端用户很少这样看图片。大多数人是在手机上刷视频时，或者在暗黑模式下的显示器角落里看到它。我们的 <strong>YouTube 缩略图预览器</strong> 让您打破这种\"设计师幻觉\"，看到最真实的首页竞争环境。',
     },
     {
       type: 'title',
@@ -148,11 +148,11 @@ export const content: ToolLocaleContent<YoutubeThumbnailPreviewerUI> = {
     },
     {
       type: 'paragraph',
-      html: '人类大脑处理图片的速度比处理文字快数千倍。然而在 YouTube 上，竞争是残酷的。您的缩略图不仅要“好看”，还必须 <strong>易读</strong> 且具有 <strong>对比度</strong>。',
+      html: '人类大脑处理图片的速度比处理文字快数千倍。然而在 YouTube 上，竞争是残酷的。您的缩略图不仅要\"好看\"，还必须 <strong>易读</strong> 且具有 <strong>对比度</strong>。',
     },
     {
       type: 'paragraph',
-      html: '一个常见的错误是使用的颜色与 YouTube 背景融为一体。如果您大量使用深灰色，而您的观众处于暗黑模式，您的视频就会从他们的余光中消失。通过使用此预览工具，您可以切换主题，确保您的设计在任何场景下都能“跳”出来。',
+      html: '一个常见的错误是使用的颜色与 YouTube 背景融为一体。如果您大量使用深灰色，而您的观众处于暗黑模式，您的视频就会从他们的余光中消失。通过使用此预览工具，您可以切换主题，确保您的设计在任何场景下都能\"跳\"出来。',
     },
     {
       type: 'title',
@@ -161,7 +161,7 @@ export const content: ToolLocaleContent<YoutubeThumbnailPreviewerUI> = {
     },
     {
       type: 'paragraph',
-      html: '花 30 秒测试缩略图值得吗？答案是肯定的“值得”。一个优化过的缩略图可以在最初的 24 小时内让浏览量翻倍，从而向 YouTube AI 发出信号，表明您的内容具有“吸引力”。',
+      html: '花 30 秒测试缩略图值得吗？答案是肯定的\"值得\"。一个优化过的缩略图可以在最初的 24 小时内让浏览量翻倍，从而向 YouTube AI 发出信号，表明您的内容具有\"吸引力\"。',
     },
     {
       type: 'grid',
@@ -218,7 +218,7 @@ export const content: ToolLocaleContent<YoutubeThumbnailPreviewerUI> = {
         },
         {
           title: '虚化背景',
-          body: '画面分离感 · 增加深度，让主要主体从屏幕中“跃出”。',
+          body: '画面分离感 · 增加深度，让主要主体从屏幕中\"跃出\"。',
         },
         {
           title: '时长标签预留位',
@@ -228,7 +228,7 @@ export const content: ToolLocaleContent<YoutubeThumbnailPreviewerUI> = {
     },
     {
       type: 'tip',
-      title: '避开“死区”小技巧',
+      title: '避开\"死区\"小技巧',
       html: '<p>YouTube 总是在缩略图右下角放置一个黑色时长框。成千上万的创作者会在该位置放置关键元素，结果发现被 App 挡住了。我们的工具真实模拟了这个框，因此您永远不会挡住最好的镜头。</p>',
     },
     {
@@ -255,7 +255,7 @@ export const content: ToolLocaleContent<YoutubeThumbnailPreviewerUI> = {
     },
     {
       type: 'title',
-      text: '使用“分屏 (Split)”模式（直接对比）',
+      text: '使用\"分屏 (Split)\"模式（直接对比）',
       level: 3,
     },
     {

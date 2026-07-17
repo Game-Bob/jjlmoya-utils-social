@@ -22,7 +22,7 @@ const faqData = [
   {
     question: 'Is it legal to download YouTube thumbnails?',
     answer:
-      'Yes, downloading is completely legal for personal use, design, parodies and inspiration (Fair Use). Be careful if you plan to use copyright-protected thumbnails for purely commercial purposes — in those cases it is important to check the video licence.',
+      'Yes, downloading is completely legal for personal use, design, parodies and inspiration (Fair Use). Be careful if you plan to use copyright-protected thumbnails for purely commercial purposes - in those cases it is important to check the video licence.',
   },
   {
     question: 'Is there a daily usage limit?',

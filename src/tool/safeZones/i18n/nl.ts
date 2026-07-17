@@ -34,7 +34,7 @@ const faqData = [
 const howToData = [
   {
     name: 'Laad uw afbeelding of video',
-    text: 'Upload het bestand waarvan u een voorbeeld wilt zien. De verwerking is lokaal en privé — er wordt niets naar internet geüpload.',
+    text: 'Upload het bestand waarvan u een voorbeeld wilt zien. De verwerking is lokaal en privé - er wordt niets naar internet geüpload.',
   },
   {
     name: 'Selecteer het platform',
@@ -177,7 +177,7 @@ export const content: ToolLocaleContent<SafeZonesUI> = {
     },
     {
       type: 'paragraph',
-      html: 'Ontwerpen voor sociale media gaat niet alleen over esthetiek — het gaat over <strong>gebruiksvriendelijkheid</strong>. Als een gebruiker moeite moet doen om tekst te lezen omdat de iconen van het platform deze bedekken, zullen ze simpelweg naar de volgende video swipen. Retentie (kijkduur) daalt scherp als er visuele wrijving is.',
+      html: 'Ontwerpen voor sociale media gaat niet alleen over esthetiek - het gaat over <strong>gebruiksvriendelijkheid</strong>. Als een gebruiker moeite moet doen om tekst te lezen omdat de iconen van het platform deze bedekken, zullen ze simpelweg naar de volgende video swipen. Retentie (kijkduur) daalt scherp als er visuele wrijving is.',
     },
     {
       type: 'paragraph',

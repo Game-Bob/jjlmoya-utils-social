@@ -34,7 +34,7 @@ const faqData = [
 const howToData = [
   {
     name: 'Ladda upp din bild eller video',
-    text: 'Ladda upp filen du vill förhandsgranska. Bearbetningen sker lokalt och privat – inget laddas upp till internet.',
+    text: 'Ladda upp filen du vill förhandsgranska. Bearbetningen sker lokalt och privat - inget laddas upp till internet.',
   },
   {
     name: 'Välj plattform',
@@ -177,7 +177,7 @@ export const content: ToolLocaleContent<SafeZonesUI> = {
     },
     {
       type: 'paragraph',
-      html: 'Att designa för sociala medier handlar inte bara om estetik – det handlar om <strong>användbarhet</strong>. Om en användare måste kämpa för att läsa text för att plattformens ikoner täcker den, kommer de helt enkelt att svepa vidare till nästa video. Behållningen (Watch Time) sjunker kraftigt när det finns visuell friktion.',
+      html: 'Att designa för sociala medier handlar inte bara om estetik - det handlar om <strong>användbarhet</strong>. Om en användare måste kämpa för att läsa text för att plattformens ikoner täcker den, kommer de helt enkelt att svepa vidare till nästa video. Behållningen (Watch Time) sjunker kraftigt när det finns visuell friktion.',
     },
     {
       type: 'paragraph',

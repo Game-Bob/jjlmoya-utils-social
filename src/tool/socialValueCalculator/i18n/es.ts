@@ -4,7 +4,7 @@ import type { ToolLocaleContent } from '../../../types';
 import type { SocialValueCalculatorUI } from '../ui';
 
 const slug = 'calculadora-valor-cuenta-redes-sociales';
-const title = 'Calculadora de Valor de Cuenta TikTok & Instagram : Precios';
+const title = 'Calculadora de Valor de Cuenta TikTok & Instagram: Precios';
 const description =
   'Descubre cuánto cobrar por tus publicaciones patrocinadas. Nuestra calculadora analiza seguidores, engagement y nicho para darte un valor de mercado justo.';
 
@@ -131,7 +131,7 @@ export const content: ToolLocaleContent<SocialValueCalculatorUI> = {
         },
         {
           type: 'card',
-          title: '15 €–50 €',
+          title: '15 € a 50 €',
           html: '<p>CPM promedio en nichos de alto valor (estable)</p>',
         },
       ],

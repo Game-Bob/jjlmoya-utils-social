@@ -22,7 +22,7 @@ const faqData = [
   {
     question: "Est-il légal de télécharger des miniatures YouTube ?",
     answer:
-      "Oui, le téléchargement est tout à fait légal pour un usage personnel, la conception, les parodies et l'inspiration (Fair Use). Soyez prudent si vous prévoyez d'utiliser des miniatures protégées par le droit d'auteur à des fins purement commerciales — dans ces cas, il est important de vérifier la licence de la vidéo.",
+      "Oui, le téléchargement est tout à fait légal pour un usage personnel, la conception, les parodies et l'inspiration (Fair Use). Soyez prudent si vous prévoyez d'utiliser des miniatures protégées par le droit d'auteur à des fins purement commerciales - dans ces cas, il est important de vérifier la licence de la vidéo.",
   },
   {
     question: "Y a-t-il une limite d'utilisation quotidienne ?",
@@ -153,7 +153,7 @@ export const content: ToolLocaleContent<YoutubeThumbnailUI> = {
         {
           type: 'card',
           title: 'Créateurs de Contenu',
-          html: "<p>Analysez les miniatures de vidéos virales dans votre niche pour comprendre quels éléments visuels génèrent le plus de clics : typographie, couleurs dominantes, utilisation de visages ou de texte.</p><ul><li><strong>Benchmarking visuel :</strong> Comparez vos miniatures avec celles des leaders de votre secteur.</li><li><strong>Itération de design :</strong> Téléchargez des miniatures comme références dans Photoshop ou Canva.</li><li><strong>Archive d'inspiration :</strong> Constituez une bibliothèque de thumbnails à fort taux de conversion.</li></ul>",
+          html: "<p>Analysez les miniatures de vidéos virales dans votre niche pour comprendre quels éléments visuels génèrent le plus de clics: typographie, couleurs dominantes, utilisation de visages ou de texte.</p><ul><li><strong>Benchmarking visuel :</strong> Comparez vos miniatures avec celles des leaders de votre secteur.</li><li><strong>Itération de design :</strong> Téléchargez des miniatures comme références dans Photoshop ou Canva.</li><li><strong>Archive d'inspiration :</strong> Constituez une bibliothèque de thumbnails à fort taux de conversion.</li></ul>",
         },
         {
           type: 'card',
@@ -180,7 +180,7 @@ export const content: ToolLocaleContent<YoutubeThumbnailUI> = {
   ui: {
     urlPlaceholder: 'Collez le lien YouTube ici...',
     pasteAriaLabel: 'Coller depuis le presse-papiers',
-    helperText: 'Formats supportés : youtube.com, youtu.be, shorts.',
+    helperText: 'Formats supportés: youtube.com, youtu.be, shorts.',
     ribbonLabel: 'Qualité Maximale',
     downloadBtn: 'Télécharger en Résolution Maximale',
     qualityMedium: 'Qualité Moyenne',

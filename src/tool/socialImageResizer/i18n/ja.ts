@@ -105,13 +105,13 @@ export const content: ToolLocaleContent<SocialImageResizerUI> = {
     {
       type: 'grid',
       columns: [
-        { title: 'Instagram — 正方形投稿', body: '1080 × 1080 px · 比率 1:1' },
-        { title: 'Instagram — 縦長投稿', body: '1080 × 1350 px · 比率 4:5' },
-        { title: 'TikTok / リール — 縦長', body: '1080 × 1920 px · 比率 9:16' },
-        { title: 'YouTube — サムネイル', body: '1280 × 720 px · 比率 16:9' },
-        { title: 'YouTube — チャンネルバナー', body: '2560 × 1440 px · 比率 16:9' },
-        { title: 'X (Twitter) — 標準投稿', body: '1200 × 675 px · 比率 16:9' },
-        { title: 'LinkedIn — プロフィールカバー', body: '1584 × 396 px · 比率 4:1' },
+        { title: 'Instagram: 正方形投稿', body: '1080 × 1080 px · 比率 1:1' },
+        { title: 'Instagram: 縦長投稿', body: '1080 × 1350 px · 比率 4:5' },
+        { title: 'TikTok / リール: 縦長', body: '1080 × 1920 px · 比率 9:16' },
+        { title: 'YouTube: サムネイル', body: '1280 × 720 px · 比率 16:9' },
+        { title: 'YouTube: チャンネルバナー', body: '2560 × 1440 px · 比率 16:9' },
+        { title: 'X (Twitter): 標準投稿', body: '1200 × 675 px · 比率 16:9' },
+        { title: 'LinkedIn: プロフィールカバー', body: '1584 × 396 px · 比率 4:1' },
       ],
     },
     {

@@ -10,7 +10,7 @@ const description =
 
 const faqData = [
   {
-    question: '什么是社交媒体上的“安全区域”？',
+    question: '什么是社交媒体上的\"安全区域\"？',
     answer:
       '安全区域是指屏幕上内容可见且不会被界面元素（如用户名、描述、交互按钮（点赞、分享））或某些设备应用的自动裁剪所遮挡的区域。',
   },
@@ -104,7 +104,7 @@ export const content: ToolLocaleContent<SafeZonesUI> = {
     },
     {
       type: 'paragraph',
-      html: '此工具允许您加载媒体文件，并准确预览画面的哪些部分会被界面遮挡。这不仅仅关乎<strong>字幕</strong>；它还关乎确保视频中的脸部、产品或主要动作不会被嵌入“点赞”按钮或冗长的描述之下。',
+      html: '此工具允许您加载媒体文件，并准确预览画面的哪些部分会被界面遮挡。这不仅仅关乎<strong>字幕</strong>；它还关乎确保视频中的脸部、产品或主要动作不会被嵌入\"点赞\"按钮或冗长的描述之下。',
     },
     {
       type: 'grid',
@@ -112,7 +112,7 @@ export const content: ToolLocaleContent<SafeZonesUI> = {
         {
           type: 'card',
           title: 'TikTok：最具侵入性的界面',
-          html: '<p>TikTok 的界面最为密集。在右侧，有一列图标占据了约 15% 的宽度。在底部，描述可以扩展到 4 或 5 行，从下方遮挡了近三分之一的屏幕。</p><ul><li><strong>底部边距：</strong>保留最后 250px 的自由空间，以避开描述文字和用户名。</li><li><strong>右侧边距：</strong>避免在距离右边缘 100px 范围内放置文字。</li><li><strong>顶部：</strong>“关注”和“推荐”按钮占据了顶部中央条案。</li></ul>',
+          html: '<p>TikTok 的界面最为密集。在右侧，有一列图标占据了约 15% 的宽度。在底部，描述可以扩展到 4 或 5 行，从下方遮挡了近三分之一的屏幕。</p><ul><li><strong>底部边距：</strong>保留最后 250px 的自由空间，以避开描述文字和用户名。</li><li><strong>右侧边距：</strong>避免在距离右边缘 100px 范围内放置文字。</li><li><strong>顶部：</strong>\"关注\"和\"推荐\"按钮占据了顶部中央条案。</li></ul>',
         },
         {
           type: 'card',
@@ -150,7 +150,7 @@ export const content: ToolLocaleContent<SafeZonesUI> = {
     },
     {
       type: 'paragraph',
-      html: '主要动作的“黄金区域”是视频的中央三分之一。如果您正在拍摄人物，请确保他们的眼睛和嘴巴在这个区域内。重要的图形元素应从几何中心略微向上移动，以避开底部的描述。',
+      html: '主要动作的\"黄金区域\"是视频的中央三分之一。如果您正在拍摄人物，请确保他们的眼睛和嘴巴在这个区域内。重要的图形元素应从几何中心略微向上移动，以避开底部的描述。',
     },
     {
       type: 'title',

@@ -105,13 +105,13 @@ export const content: ToolLocaleContent<SocialImageResizerUI> = {
     {
       type: 'grid',
       columns: [
-        { title: 'Instagram — Post Carré', body: '1080 × 1080 px · Ratio 1:1' },
-        { title: 'Instagram — Post Vertical', body: '1080 × 1350 px · Ratio 4:5' },
-        { title: 'TikTok / Reels — Vertical', body: '1080 × 1920 px · Ratio 9:16' },
-        { title: 'YouTube — Miniature', body: '1280 × 720 px · Ratio 16:9' },
-        { title: 'YouTube — Bannière de Chaîne', body: '2560 × 1440 px · Ratio 16:9' },
-        { title: 'X (Twitter) — Post Standard', body: '1200 × 675 px · Ratio 16:9' },
-        { title: 'LinkedIn — Couverture de Profil', body: '1584 × 396 px · Ratio 4:1' },
+        { title: 'Instagram: Post Carré', body: '1080 × 1080 px · Ratio 1:1' },
+        { title: 'Instagram: Post Vertical', body: '1080 × 1350 px · Ratio 4:5' },
+        { title: 'TikTok / Reels: Vertical', body: '1080 × 1920 px · Ratio 9:16' },
+        { title: 'YouTube: Miniature', body: '1280 × 720 px · Ratio 16:9' },
+        { title: 'YouTube: Bannière de Chaîne', body: '2560 × 1440 px · Ratio 16:9' },
+        { title: 'X (Twitter): Post Standard', body: '1200 × 675 px · Ratio 16:9' },
+        { title: 'LinkedIn: Couverture de Profil', body: '1584 × 396 px · Ratio 4:1' },
       ],
     },
     {
@@ -166,10 +166,10 @@ export const content: ToolLocaleContent<SocialImageResizerUI> = {
     {
       type: 'list',
       items: [
-        "Sélectionnez votre format : Choisissez la plateforme et le type de publication dans le menu latéral.",
-        "Chargez l'image : Faites glisser votre fichier ou utilisez le sélecteur pour importer votre photo.",
-        "Ajustez le cadre : Faites glisser la photo dans la zone visible et utilisez le zoom pour plus de précision.",
-        "Export immédiat : Cliquez sur télécharger pour obtenir votre image prête à publier.",
+        "Sélectionnez votre format: Choisissez la plateforme et le type de publication dans le menu latéral.",
+        "Chargez l'image: Faites glisser votre fichier ou utilisez le sélecteur pour importer votre photo.",
+        "Ajustez le cadre: Faites glisser la photo dans la zone visible et utilisez le zoom pour plus de précision.",
+        "Export immédiat: Cliquez sur télécharger pour obtenir votre image prête à publier.",
       ],
     },
     {

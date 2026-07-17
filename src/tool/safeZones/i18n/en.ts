@@ -34,7 +34,7 @@ const faqData = [
 const howToData = [
   {
     name: 'Load your image or video',
-    text: 'Upload the file you want to preview. Processing is local and private — nothing is uploaded to the internet.',
+    text: 'Upload the file you want to preview. Processing is local and private - nothing is uploaded to the internet.',
   },
   {
     name: 'Select the platform',
@@ -177,7 +177,7 @@ export const content: ToolLocaleContent<SafeZonesUI> = {
     },
     {
       type: 'paragraph',
-      html: 'Designing for social media is not just aesthetics — it is <strong>usability</strong>. If a user has to struggle to read text because the platform\'s icons are covering it, they will simply swipe to the next video. Retention (Watch Time) drops sharply when there is visual friction.',
+      html: 'Designing for social media is not just aesthetics - it is <strong>usability</strong>. If a user has to struggle to read text because the platform\'s icons are covering it, they will simply swipe to the next video. Retention (Watch Time) drops sharply when there is visual friction.',
     },
     {
       type: 'paragraph',

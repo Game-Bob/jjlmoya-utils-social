@@ -105,13 +105,13 @@ export const content: ToolLocaleContent<SocialImageResizerUI> = {
     {
       type: 'grid',
       columns: [
-        { type: 'card', title: 'Instagram — Post Cuadrado', body: '1080 × 1080 px · Ratio 1:1' },
-        { type: 'card', title: 'Instagram — Post Vertical', body: '1080 × 1350 px · Ratio 4:5' },
-        { type: 'card', title: 'TikTok / Reels — Vertical', body: '1080 × 1920 px · Ratio 9:16' },
-        { type: 'card', title: 'YouTube — Miniatura', body: '1280 × 720 px · Ratio 16:9' },
-        { type: 'card', title: 'YouTube — Banner de Canal', body: '2560 × 1440 px · Ratio 16:9' },
-        { type: 'card', title: 'X (Twitter) — Post Estándar', body: '1200 × 675 px · Ratio 16:9' },
-        { type: 'card', title: 'LinkedIn — Portada de Perfil', body: '1584 × 396 px · Ratio 4:1' },
+        { type: 'card', title: 'Instagram: Post Cuadrado', body: '1080 × 1080 px · Ratio 1:1' },
+        { type: 'card', title: 'Instagram: Post Vertical', body: '1080 × 1350 px · Ratio 4:5' },
+        { type: 'card', title: 'TikTok / Reels: Vertical', body: '1080 × 1920 px · Ratio 9:16' },
+        { type: 'card', title: 'YouTube: Miniatura', body: '1280 × 720 px · Ratio 16:9' },
+        { type: 'card', title: 'YouTube: Banner de Canal', body: '2560 × 1440 px · Ratio 16:9' },
+        { type: 'card', title: 'X (Twitter): Post Estándar', body: '1200 × 675 px · Ratio 16:9' },
+        { type: 'card', title: 'LinkedIn: Portada de Perfil', body: '1584 × 396 px · Ratio 4:1' },
       ],
     },
     {

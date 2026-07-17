@@ -131,7 +131,7 @@ export const content: ToolLocaleContent<SocialValueCalculatorUI> = {
         },
         {
           type: 'card',
-          title: '15€–50€',
+          title: '15€ a 50€',
           html: '<p>CPM médio em nichos de alto valor (estável)</p>',
         },
       ],

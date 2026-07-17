@@ -131,7 +131,7 @@ export const content: ToolLocaleContent<SocialValueCalculatorUI> = {
         },
         {
           type: 'card',
-          title: '¥2,000–¥7,000',
+          title: '¥2,000 to ¥7,000',
           html: '<p>価値の高いジャンルにおける平均CPM（推定）</p>',
         },
       ],

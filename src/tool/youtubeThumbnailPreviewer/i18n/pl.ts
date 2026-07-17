@@ -105,7 +105,7 @@ export const content: ToolLocaleContent<YoutubeThumbnailPreviewerUI> = {
     },
     {
       type: 'paragraph',
-      html: 'W ekosystemie YouTube miniaturka to brama do Twoich treści. Możesz mieć najlepszy film na świecie — z hollywoodzkim montażem i scenariuszem godnym Oscara — ale jeśli nikt w niego nie kliknie, Twoja praca pozostanie niewidoczna dla algorytmu. To tutaj kluczową rolę odgrywa <strong>CTR (Click-Through Rate)</strong>, a miniaturka jest czynnikiem decydującym.',
+      html: 'W ekosystemie YouTube miniaturka to brama do Twoich treści. Możesz mieć najlepszy film na świecie - z hollywoodzkim montażem i scenariuszem godnym Oscara - ale jeśli nikt w niego nie kliknie, Twoja praca pozostanie niewidoczna dla algorytmu. To tutaj kluczową rolę odgrywa <strong>CTR (Click-Through Rate)</strong>, a miniaturka jest czynnikiem decydującym.',
     },
     {
       type: 'title',
@@ -125,7 +125,7 @@ export const content: ToolLocaleContent<YoutubeThumbnailPreviewerUI> = {
     },
     {
       type: 'paragraph',
-      html: 'Wielu twórców popełnia błąd, projektując miniaturki na dużych monitorach i oglądając je w trybie pełnoekranowym w swoich ulubionych edytorach. Problem polega na tym, że użytkownik końcowy rzadko widzi je w ten sposób. Większość osób przegląda treści na telefonie podczas przewijania lub w rogu monitora w trybie ciemnym. Nasz <strong>Podgląd Miniaturek YouTube</strong> pozwala przełamać tę „iluzję projektanta” i zobaczyć surową rzeczywistość kanału.',
+      html: 'Wielu twórców popełnia błąd, projektując miniaturki na dużych monitorach i oglądając je w trybie pełnoekranowym w swoich ulubionych edytorach. Problem polega na tym, że użytkownik końcowy rzadko widzi je w ten sposób. Większość osób przegląda treści na telefonie podczas przewijania lub w rogu monitora w trybie ciemnym. Nasz <strong>Podgląd Miniaturek YouTube</strong> pozwala przełamać tę \"iluzję projektanta\" i zobaczyć surową rzeczywistość kanału.',
     },
     {
       type: 'title',
@@ -148,11 +148,11 @@ export const content: ToolLocaleContent<YoutubeThumbnailPreviewerUI> = {
     },
     {
       type: 'paragraph',
-      html: 'Ludzki mózg przetwarza obrazy tysiące razy szybciej niż tekst. Jednak na YouTube konkurencja jest mordercza. Twoja miniaturka nie może być tylko „ładna” — musi być <strong>czytelna</strong> i mieć <strong>kontrast</strong>.',
+      html: 'Ludzki mózg przetwarza obrazy tysiące razy szybciej niż tekst. Jednak na YouTube konkurencja jest mordercza. Twoja miniaturka nie może być tylko \"ładna\" - musi być <strong>czytelna</strong> i mieć <strong>kontrast</strong>.',
     },
     {
       type: 'paragraph',
-      html: 'Częstym błędem jest używanie kolorów, które zlewają się z tłem YouTube. Jeśli użyjesz ciemnych szarości, a widz korzysta z trybu ciemnego, Twój film po prostu zniknie z jego pola widzenia. Korzystając z tego testera, możesz przełączać motywy i upewnić się, że Twój projekt „podbija” (wyróżnia się) w każdych warunkach.',
+      html: 'Częstym błędem jest używanie kolorów, które zlewają się z tłem YouTube. Jeśli użyjesz ciemnych szarości, a widz korzysta z trybu ciemnego, Twój film po prostu zniknie z jego pola widzenia. Korzystając z tego testera, możesz przełączać motywy i upewnić się, że Twój projekt \"podbija\" (wyróżnia się) w każdych warunkach.',
     },
     {
       type: 'title',
@@ -218,7 +218,7 @@ export const content: ToolLocaleContent<YoutubeThumbnailPreviewerUI> = {
         },
         {
           title: 'Rozmyte tło',
-          body: 'Separacja planów · Dodaje głębi, sprawiając, że główny motyw „wyskakuje” z ekranu.',
+          body: 'Separacja planów · Dodaje głębi, sprawiając, że główny motyw \"wyskakuje\" z ekranu.',
         },
         {
           title: 'Miejsce na czas trwania',
@@ -228,7 +228,7 @@ export const content: ToolLocaleContent<YoutubeThumbnailPreviewerUI> = {
     },
     {
       type: 'tip',
-      title: 'Trik z „martwą strefą”',
+      title: 'Trik z \"martwą strefą\"',
       html: '<p>YouTube zawsze umieszcza czarny prostokąt z czasem trwania filmu w prawym dolnym rogu miniaturki. Tysiące twórców umieszcza tam kluczowe elementy, po czym okazuje się, że aplikacja je zasłania. Nasze narzędzie symuluje ten prostokąt, abyś nigdy nie zasłaniał swojego najlepszego ujęcia.</p>',
     },
     {
@@ -255,7 +255,7 @@ export const content: ToolLocaleContent<YoutubeThumbnailPreviewerUI> = {
     },
     {
       type: 'title',
-      text: 'Korzystanie z trybu „Split” (bezpośrednie porównanie)',
+      text: 'Korzystanie z trybu \"Split\" (bezpośrednie porównanie)',
       level: 3,
     },
     {

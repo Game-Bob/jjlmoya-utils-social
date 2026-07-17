@@ -4,7 +4,7 @@ import type { ToolLocaleContent } from '../../../types';
 import type { SafeZonesUI } from '../ui';
 
 const slug = 'simulateur-reseaux';
-const title = 'Safe Zones Réseaux Sociaux : Simulateur Vidéo TikTok, Reels et Shorts';
+const title = 'Safe Zones Réseaux Sociaux: Simulateur Vidéo TikTok, Reels et Shorts';
 const description =
   'Prévisualisez vos images et vidéos avec la vraie interface des réseaux sociaux. Assurez-vous que votre contenu est toujours visible et évitez les recadrages accidentels.';
 
@@ -34,7 +34,7 @@ const faqData = [
 const howToData = [
   {
     name: 'Charger votre image ou vidéo',
-    text: "Téléchargez le fichier que vous souhaitez prévisualiser. Le traitement est local et privé — rien n'est envoyé sur internet.",
+    text: "Téléchargez le fichier que vous souhaitez prévisualiser. Le traitement est local et privé - rien n'est envoyé sur internet.",
   },
   {
     name: 'Sélectionner la plateforme',
@@ -95,7 +95,7 @@ export const content: ToolLocaleContent<SafeZonesUI> = {
   seo: [
     {
       type: 'title',
-      text: 'Guide Maître des Zones Sécurisées : Optimisez vos Reels, TikToks et Shorts',
+      text: 'Guide Maître des Zones Sécurisées: Optimisez vos Reels, TikToks et Shorts',
       level: 2,
     },
     {
@@ -111,19 +111,19 @@ export const content: ToolLocaleContent<SafeZonesUI> = {
       columns: [
         {
           type: 'card',
-          title: "TikTok : L'interface la plus invasive",
-          html: "<p>TikTok possède l'interface la plus dense. Sur la droite, une colonne d'icônes occupe environ 15% de la largeur. En bas, la description peut s'étendre sur 4 ou 5 lignes si elle est longue, couvrant presque un tiers de l'écran depuis le bas.</p><ul><li><strong>Marge inférieure :</strong> Laissez libres les 250 derniers pixels pour éviter le texte de la description et le nom d'utilisateur.</li><li><strong>Marge droite :</strong> Évitez de placer du texte à moins de 100px du bord droit.</li><li><strong>Haut :</strong> Les boutons « Abonnements » et « Pour toi » occupent la bande supérieure centrale.</li></ul>",
+          title: "TikTok: L'interface la plus invasive",
+          html: "<p>TikTok possède l'interface la plus dense. Sur la droite, une colonne d'icônes occupe environ 15% de la largeur. En bas, la description peut s'étendre sur 4 ou 5 lignes si elle est longue, couvrant presque un tiers de l'écran depuis le bas.</p><ul><li><strong>Marge inférieure :</strong> Laissez libres les 250 derniers pixels pour éviter le texte de la description et le nom d'utilisateur.</li><li><strong>Marge droite :</strong> Évitez de placer du texte à moins de 100px du bord droit.</li><li><strong>Haut :</strong> Les boutons \" Abonnements \" et \" Pour toi \" occupent la bande supérieure centrale.</li></ul>",
         },
         {
           type: 'card',
-          title: 'IG Reels : Le facteur du fil',
+          title: 'IG Reels: Le facteur du fil',
           html: "<p>Contrairement à TikTok, Instagram Reels recadre la vidéo au format 4:5 lorsqu'elle est visualisée depuis le fil principal (pas depuis l'onglet Reels). Cela signifie que si vous placez des informations vitales dans les 15% supérieurs ou inférieurs de votre vidéo 9:16, elles disparaîtront dans le fil.</p><ul><li><strong>La règle du 4:5 :</strong> Gardez les titres et éléments clés dans la zone centrale pour assurer la visibilité dans le fil.</li><li><strong>Interface :</strong> Les icônes de Reels sont plus subtiles que celles de TikTok, permettant un peu plus de marge latérale.</li><li><strong>Bouton audio :</strong> Situé en bas à droite, il couvre généralement bien moins que le disque tournant de TikTok.</li></ul>",
         },
       ],
     },
     {
       type: 'title',
-      text: 'YouTube Shorts : Attention à la droite',
+      text: 'YouTube Shorts: Attention à la droite',
       level: 3,
     },
     {
@@ -135,7 +135,7 @@ export const content: ToolLocaleContent<SafeZonesUI> = {
       items: [
         '<strong>Marge droite :</strong> Évitez de placer du texte ou des éléments importants dans les 20% inférieurs droits.',
         "<strong>Marge inférieure :</strong> Laissez libres les 150 derniers pixels pour éviter le texte de la description et le nom d'utilisateur.",
-        "<strong>Haut :</strong> Les boutons « S'abonner » et « Plus » occupent la bande supérieure centrale.",
+        "<strong>Haut :</strong> Les boutons \" S'abonner \" et \" Plus \" occupent la bande supérieure centrale.",
       ],
     },
     {
@@ -150,7 +150,7 @@ export const content: ToolLocaleContent<SafeZonesUI> = {
     },
     {
       type: 'paragraph',
-      html: 'La « Zone d\'Or » pour l\'action principale est le tiers central de la vidéo. Si vous filmez une personne, assurez-vous que ses yeux et sa bouche se trouvent dans cette zone. Les éléments graphiques importants doivent être légèrement décalés vers le haut par rapport au centre géométrique pour éviter la description inférieure.',
+      html: 'La \" Zone d\'Or \" pour l\'action principale est le tiers central de la vidéo. Si vous filmez une personne, assurez-vous que ses yeux et sa bouche se trouvent dans cette zone. Les éléments graphiques importants doivent être légèrement décalés vers le haut par rapport au centre géométrique pour éviter la description inférieure.',
     },
     {
       type: 'title',
@@ -168,7 +168,7 @@ export const content: ToolLocaleContent<SafeZonesUI> = {
     },
     {
       type: 'paragraph',
-      html: 'Rappelez-vous que les téléphones modernes ont des « encoches » ou des trous de caméra à l\'écran. Cet outil inclut une marge de sécurité supérieure pour que votre contenu n\'entre pas en conflit avec l\'horloge ou les icônes système (batterie, signal).',
+      html: 'Rappelez-vous que les téléphones modernes ont des \" encoches \" ou des trous de caméra à l\'écran. Cet outil inclut une marge de sécurité supérieure pour que votre contenu n\'entre pas en conflit avec l\'horloge ou les icônes système (batterie, signal).',
     },
     {
       type: 'title',
@@ -177,7 +177,7 @@ export const content: ToolLocaleContent<SafeZonesUI> = {
     },
     {
       type: 'paragraph',
-      html: "Concevoir pour les réseaux sociaux n'est pas seulement esthétique — c'est de l'<strong>utilisabilité</strong>. Si un utilisateur doit faire un effort pour lire un texte parce que les icônes de la plateforme le couvrent, il passera simplement à la vidéo suivante. La rétention (Watch Time) chute brutalement en cas de friction visuelle.",
+      html: "Concevoir pour les réseaux sociaux n'est pas seulement esthétique - c'est de l'<strong>utilisabilité</strong>. Si un utilisateur doit faire un effort pour lire un texte parce que les icônes de la plateforme le couvrent, il passera simplement à la vidéo suivante. La rétention (Watch Time) chute brutalement en cas de friction visuelle.",
     },
     {
       type: 'paragraph',

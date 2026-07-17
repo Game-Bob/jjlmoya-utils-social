@@ -46,7 +46,7 @@ const howToData = [
   },
   {
     name: '复制并发布',
-    text: '点击“复制文本”并直接粘贴到 Reddit 或任何论坛。',
+    text: '点击\"复制文本\"并直接粘贴到 Reddit 或任何论坛。',
   },
 ];
 

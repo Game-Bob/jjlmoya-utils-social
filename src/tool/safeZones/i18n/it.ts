@@ -25,7 +25,7 @@ const faqData = [
       "Sono molto simili ma non identiche. I pulsanti di YouTube Shorts sono posizionati diversamente rispetto a quelli di Reels. Il nostro strumento ti consente di passare da una piattaforma all'altra per verificare il tuo design su ognuna di esse.",
   },
   {
-    question: 'Cosa succede se metto del testo nell’angolo in basso a destra?',
+    question: 'Cosa succede se metto del testo nell\'angolo in basso a destra?',
     answer:
       "Probabilmente sarà invisibile o molto difficile da leggere, poiché è lì che si trovano le icone del profilo, del cuore e dei commenti. Idealmente, tieni testi e volti nell'area centrale superiore (Zona Sicura).",
   },
@@ -34,7 +34,7 @@ const faqData = [
 const howToData = [
   {
     name: 'Carica la tua immagine o il tuo video',
-    text: "Carica il file che desideri visualizzare in anteprima. L'elaborazione è locale e privata — nulla viene caricato su internet.",
+    text: "Carica il file che desideri visualizzare in anteprima. L'elaborazione è locale e privata - nulla viene caricato su internet.",
   },
   {
     name: 'Seleziona la piattaforma',
@@ -111,8 +111,8 @@ export const content: ToolLocaleContent<SafeZonesUI> = {
       columns: [
         {
           type: 'card',
-          title: 'TikTok: L’interfaccia più invasiva',
-          html: "<p>TikTok ha l'interfaccia più densa. Sul lato destro, c’è una colonna di icone che occupa circa il 15% della larghezza. In basso, la descrizione può estendersi su 4 o 5 righe, coprendo quasi un terzo dello schermo dal basso.</p><ul><li><strong>Margine inferiore:</strong> Lascia liberi gli ultimi 250px per evitare il testo della descrizione e il nome utente.</li><li><strong>Margine destro:</strong> Evita di posizionare il testo entro 100px dal bordo destro.</li><li><strong>In alto:</strong> I pulsanti \"Seguiti\" e \"Per te\" occupano la fascia centrale superiore.</li></ul>",
+          title: 'TikTok: L\'interfaccia più invasiva',
+          html: "<p>TikTok ha l'interfaccia più densa. Sul lato destro, c\'è una colonna di icone che occupa circa il 15% della larghezza. In basso, la descrizione può estendersi su 4 o 5 righe, coprendo quasi un terzo dello schermo dal basso.</p><ul><li><strong>Margine inferiore:</strong> Lascia liberi gli ultimi 250px per evitare il testo della descrizione e il nome utente.</li><li><strong>Margine destro:</strong> Evita di posizionare il testo entro 100px dal bordo destro.</li><li><strong>In alto:</strong> I pulsanti \"Seguiti\" e \"Per te\" occupano la fascia centrale superiore.</li></ul>",
         },
         {
           type: 'card',
@@ -128,7 +128,7 @@ export const content: ToolLocaleContent<SafeZonesUI> = {
     },
     {
       type: 'paragraph',
-      html: "YouTube Shorts ha un’interfaccia asimmetrica. Il pulsante iscriviti è molto visibile e di colore solido (solitamente nero o bianco), creando un importante punto cieco visivo in basso a destra.",
+      html: "YouTube Shorts ha un\'interfaccia asimmetrica. Il pulsante iscriviti è molto visibile e di colore solido (solitamente nero o bianco), creando un importante punto cieco visivo in basso a destra.",
     },
     {
       type: 'list',
@@ -177,7 +177,7 @@ export const content: ToolLocaleContent<SafeZonesUI> = {
     },
     {
       type: 'paragraph',
-      html: "Progettare per i social media non è solo estetica — è <strong>usabilità</strong>. Se un utente deve sforzarsi per leggere il testo perché le icone della piattaforma lo coprono, passerà semplicemente al video successivo. La ritenzione (Watch Time) cala drasticamente quando c'è un attrito visivo.",
+      html: "Progettare per i social media non è solo estetica - è <strong>usabilità</strong>. Se un utente deve sforzarsi per leggere il testo perché le icone della piattaforma lo coprono, passerà semplicemente al video successivo. La ritenzione (Watch Time) cala drasticamente quando c'è un attrito visivo.",
     },
     {
       type: 'paragraph',

@@ -91,7 +91,7 @@ export const content: ToolLocaleContent<SocialImageResizerUI> = {
     },
     {
       type: 'paragraph',
-      html: 'Dalam ekosistem digital saat ini, kesan pertama adalah visual. Setiap jejaring sosial beroperasi di bawah algoritma spesifik yang memprioritaskan konten yang diadaptasi secara asli ke proporsinya. Pengubah ukuran gambar media sosial kami bukan sekadar alat teknis — ini adalah sekutu Anda untuk memastikan pesan Anda sampai tanpa pemotongan yang tidak diinginkan atau kehilangan kualitas.',
+      html: 'Dalam ekosistem digital saat ini, kesan pertama adalah visual. Setiap jejaring sosial beroperasi di bawah algoritma spesifik yang memprioritaskan konten yang diadaptasi secara asli ke proporsinya. Pengubah ukuran gambar media sosial kami bukan sekadar alat teknis - ini adalah sekutu Anda untuk memastikan pesan Anda sampai tanpa pemotongan yang tidak diinginkan atau kehilangan kualitas.',
     },
     {
       type: 'paragraph',
@@ -105,13 +105,13 @@ export const content: ToolLocaleContent<SocialImageResizerUI> = {
     {
       type: 'grid',
       columns: [
-        { title: 'Instagram — Postingan Kotak', body: '1080 × 1080 px · Rasio 1:1' },
-        { title: 'Instagram — Postingan Vertikal', body: '1080 × 1350 px · Rasio 4:5' },
-        { title: 'TikTok / Reels — Vertikal', body: '1080 × 1920 px · Rasio 9:16' },
-        { title: 'YouTube — Thumbnail', body: '1280 × 720 px · Rasio 16:9' },
-        { title: 'YouTube — Banner Channel', body: '2560 × 1440 px · Rasio 16:9' },
-        { title: 'X (Twitter) — Postingan Standar', body: '1200 × 675 px · Rasio 16:9' },
-        { title: 'LinkedIn — Sampul Profil', body: '1584 × 396 px · Rasio 4:1' },
+        { title: 'Instagram: Postingan Kotak', body: '1080 × 1080 px · Rasio 1:1' },
+        { title: 'Instagram: Postingan Vertikal', body: '1080 × 1350 px · Rasio 4:5' },
+        { title: 'TikTok / Reels: Vertikal', body: '1080 × 1920 px · Rasio 9:16' },
+        { title: 'YouTube: Thumbnail', body: '1280 × 720 px · Rasio 16:9' },
+        { title: 'YouTube: Banner Channel', body: '2560 × 1440 px · Rasio 16:9' },
+        { title: 'X (Twitter): Postingan Standar', body: '1200 × 675 px · Rasio 16:9' },
+        { title: 'LinkedIn: Sampul Profil', body: '1584 × 396 px · Rasio 4:1' },
       ],
     },
     {

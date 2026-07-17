@@ -22,7 +22,7 @@ const faqData = [
   {
     question: '什么样的互动率可以收更高的费用？',
     answer:
-      '通常，3% 以上的互动率被认为是健康的。互动率超过 10% 的账号被视为“优质账号”，可以收取显著的溢价。',
+      '通常，3% 以上的互动率被认为是健康的。互动率超过 10% 的账号被视为\"优质账号\"，可以收取显著的溢价。',
   },
   {
     question: '领域（Niche）真的对价格影响那么大吗？',
@@ -131,7 +131,7 @@ export const content: ToolLocaleContent<SocialValueCalculatorUI> = {
         },
         {
           type: 'card',
-          title: '¥100–¥400',
+          title: '¥100至¥400',
           html: '<p>高价值领域的平均 CPM（预计）</p>',
         },
       ],
@@ -152,7 +152,7 @@ export const content: ToolLocaleContent<SocialValueCalculatorUI> = {
     },
     {
       type: 'paragraph',
-      html: '这是关键指标。它衡量您的社区中有多大比例的人在积极与您的内容互动。一个互动量高的小账号远比一个毫无反应的“僵尸”大号更有价值。',
+      html: '这是关键指标。它衡量您的社区中有多大比例的人在积极与您的内容互动。一个互动量高的小账号远比一个毫无反应的\"僵尸\"大号更有价值。',
     },
     {
       type: 'tip',
@@ -239,7 +239,7 @@ export const content: ToolLocaleContent<SocialValueCalculatorUI> = {
       items: [
         '<strong>鼓励互动：</strong> 回复每一条评论。',
         '<strong>提高质量：</strong> 音频占好视频成功因素的 50%。',
-        '<strong>专业化：</strong> 成为“专家”能让您收更多钱。',
+        '<strong>专业化：</strong> 成为\"专家\"能让您收更多钱。',
         '<strong>制作媒体手册 (Media Kit)：</strong> 用数据记录您的成功案例。',
       ],
     },

@@ -10,7 +10,7 @@ const description =
 
 const faqData = [
   {
-    question: "Czym są „strefy bezpieczne” (Safe Zones) w mediach społecznościowych?",
+    question: "Czym są \"strefy bezpieczne\" (Safe Zones) w mediach społecznościowych?",
     answer:
       "Są to obszary ekranu, w których treść jest widoczna bez ryzyka zasłonięcia przez elementy interfejsu, takie jak nazwa użytkownika, opis, przyciski interakcji (polubienie, udostępnienie) lub automatyczne przycięcia stosowane przez niektóre urządzenia.",
   },
@@ -34,7 +34,7 @@ const faqData = [
 const howToData = [
   {
     name: 'Wczytaj zdjęcie lub film',
-    text: "Prześlij plik, który chcesz podejrzeć. Przetwarzanie odbywa się lokalnie i prywatnie — nic nie jest wysyłane do Internetu.",
+    text: "Prześlij plik, który chcesz podejrzeć. Przetwarzanie odbywa się lokalnie i prywatnie - nic nie jest wysyłane do Internetu.",
   },
   {
     name: 'Wybierz platformę',
@@ -104,7 +104,7 @@ export const content: ToolLocaleContent<SafeZonesUI> = {
     },
     {
       type: 'paragraph',
-      html: "To narzędzie pozwala wczytać pliki multimedialne i podejrzeć dokładnie, które części kadru zostaną pochłonięte przez interfejs. Nie chodzi tylko o <strong>napisy</strong>; chodzi o upewnienie się, że twarze, produkty lub główne akcje w Twoim filmie nie zostaną pogrzebane pod przyciskiem „Lubię to” lub długim opisem.",
+      html: "To narzędzie pozwala wczytać pliki multimedialne i podejrzeć dokładnie, które części kadru zostaną pochłonięte przez interfejs. Nie chodzi tylko o <strong>napisy</strong>; chodzi o upewnienie się, że twarze, produkty lub główne akcje w Twoim filmie nie zostaną pogrzebane pod przyciskiem \"Lubię to\" lub długim opisem.",
     },
     {
       type: 'grid',
@@ -112,7 +112,7 @@ export const content: ToolLocaleContent<SafeZonesUI> = {
         {
           type: 'card',
           title: 'TikTok: Najbardziej inwazyjny interfejs',
-          html: "<p>TikTok posiada najbardziej zagęszczony interfejs. Po prawej stronie znajduje się kolumna ikon zajmująca około 15% szerokości. Na dole opis może rozciągać się na 4 lub 5 linii, zakrywając od dołu prawie jedną trzecią ekranu.</p><ul><li><strong>Dolny margines:</strong> Pozostaw ostatnie 250px wolne, aby uniknąć tekstu opisu i nazwy użytkownika.</li><li><strong>Prawy margines:</strong> Unikaj umieszczania tekstu w odległości mniejszej niż 100px od prawej krawędzi.</li><li><strong>Góra:</strong> Przyciski „Obserwujesz” i „Dla Ciebie” zajmują górny środkowy pas.</li></ul>",
+          html: "<p>TikTok posiada najbardziej zagęszczony interfejs. Po prawej stronie znajduje się kolumna ikon zajmująca około 15% szerokości. Na dole opis może rozciągać się na 4 lub 5 linii, zakrywając od dołu prawie jedną trzecią ekranu.</p><ul><li><strong>Dolny margines:</strong> Pozostaw ostatnie 250px wolne, aby uniknąć tekstu opisu i nazwy użytkownika.</li><li><strong>Prawy margines:</strong> Unikaj umieszczania tekstu w odległości mniejszej niż 100px od prawej krawędzi.</li><li><strong>Góra:</strong> Przyciski \"Obserwujesz\" i \"Dla Ciebie\" zajmują górny środkowy pas.</li></ul>",
         },
         {
           type: 'card',
@@ -135,7 +135,7 @@ export const content: ToolLocaleContent<SafeZonesUI> = {
       items: [
         '<strong>Prawy margines:</strong> Unikaj umieszczania tekstu lub ważnych elementów w prawym dolnym obszarze 20%.',
         '<strong>Dolny margines:</strong> Pozostaw ostatnie 150px wolne, aby uniknąć tekstu opisu i nazwy użytkownika.',
-        '<strong>Góra:</strong> Przyciski „Subskrybuj” i inne zajmują górny środkowy pas.',
+        '<strong>Góra:</strong> Przyciski \"Subskrybuj\" i inne zajmują górny środkowy pas.',
       ],
     },
     {
@@ -150,7 +150,7 @@ export const content: ToolLocaleContent<SafeZonesUI> = {
     },
     {
       type: 'paragraph',
-      html: '„Złota Strefa” dla głównej akcji to środkowa jedna trzecia filmu. Jeśli filmujesz osobę, upewnij się, że jej oczy i usta znajdują się w tej strefie. Ważne elementy graficzne powinny być nieco przesunięte w górę od geometrycznego środka, aby uniknąć dolnego opisu.',
+      html: '\"Złota Strefa\" dla głównej akcji to środkowa jedna trzecia filmu. Jeśli filmujesz osobę, upewnij się, że jej oczy i usta znajdują się w tej strefie. Ważne elementy graficzne powinny być nieco przesunięte w górę od geometrycznego środka, aby uniknąć dolnego opisu.',
     },
     {
       type: 'title',
@@ -177,7 +177,7 @@ export const content: ToolLocaleContent<SafeZonesUI> = {
     },
     {
       type: 'paragraph',
-      html: "Projektowanie dla mediów społecznościowych to nie tylko estetyka — to <strong>użyteczność</strong>. Jeśli użytkownik musi walczyć o przeczytanie tekstu, ponieważ ikony platformy go zasłaniają, po prostu przejdzie do następnego filmu. Retencja (Watch Time) gwałtownie spada, gdy pojawia się wizualne tarcie.",
+      html: "Projektowanie dla mediów społecznościowych to nie tylko estetyka - to <strong>użyteczność</strong>. Jeśli użytkownik musi walczyć o przeczytanie tekstu, ponieważ ikony platformy go zasłaniają, po prostu przejdzie do następnego filmu. Retencja (Watch Time) gwałtownie spada, gdy pojawia się wizualne tarcie.",
     },
     {
       type: 'paragraph',

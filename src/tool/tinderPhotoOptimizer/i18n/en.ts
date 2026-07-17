@@ -130,7 +130,7 @@ export const content: ToolLocaleContent<TinderPhotoOptimizerUI> = {
     },
     {
       type: 'paragraph',
-      html: '<strong>Barrel Aberration:</strong> At less than one meter distance, a 24mm lens (standard on phones) expands the center of the image. This makes noses look bigger and faces rounder than they really are. Our <strong>1.2x Zoom</strong> recommendation is corrective: by applying a slight digital crop, you simulate a 50mm to 85mm focal length — the golden focal length photographers use to slim the face and maintain real proportions.',
+      html: '<strong>Barrel Aberration:</strong> At less than one meter distance, a 24mm lens (standard on phones) expands the center of the image. This makes noses look bigger and faces rounder than they really are. Our <strong>1.2x Zoom</strong> recommendation is corrective: by applying a slight digital crop, you simulate a 50mm to 85mm focal length - the golden focal length photographers use to slim the face and maintain real proportions.',
     },
     {
       type: 'title',

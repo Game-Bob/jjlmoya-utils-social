@@ -105,7 +105,7 @@ export const content: ToolLocaleContent<YoutubeThumbnailPreviewerUI> = {
     },
     {
       type: 'paragraph',
-      html: 'I YouTubes ekosystem är miniatyrbilden (eller thumbnailen) ingången till ditt innehåll. Du kan ha världens bästa video — med redigering i Hollywood-klass och ett manus värdigt en Oscar — men om ingen klickar kommer ditt arbete att vara osynligt för algoritmen. Det är här <strong>CTR (Click-Through Rate)</strong> kommer in, och miniatyrbilden är den avgörande faktorn.',
+      html: 'I YouTubes ekosystem är miniatyrbilden (eller thumbnailen) ingången till ditt innehåll. Du kan ha världens bästa video - med redigering i Hollywood-klass och ett manus värdigt en Oscar - men om ingen klickar kommer ditt arbete att vara osynligt för algoritmen. Det är här <strong>CTR (Click-Through Rate)</strong> kommer in, och miniatyrbilden är den avgörande faktorn.',
     },
     {
       type: 'title',
@@ -148,7 +148,7 @@ export const content: ToolLocaleContent<YoutubeThumbnailPreviewerUI> = {
     },
     {
       type: 'paragraph',
-      html: 'Den mänskliga hjärnan bearbetar bilder tusentals gånger snabbare än text. Men på YouTube är konkurrensen brutal. Din miniatyrbild får inte bara vara "snygg" — den måste vara <strong>läsbar</strong> och ha <strong>kontrast</strong>.',
+      html: 'Den mänskliga hjärnan bearbetar bilder tusentals gånger snabbare än text. Men på YouTube är konkurrensen brutal. Din miniatyrbild får inte bara vara "snygg" - den måste vara <strong>läsbar</strong> och ha <strong>kontrast</strong>.',
     },
     {
       type: 'paragraph',

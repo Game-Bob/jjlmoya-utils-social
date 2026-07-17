@@ -131,7 +131,7 @@ export const content: ToolLocaleContent<SocialValueCalculatorUI> = {
         },
         {
           type: 'card',
-          title: '₩15,000–₩50,000',
+          title: '₩15,000 to ₩50,000',
           html: '<p>고부가가치 분야의 평균 CPM(추정치)</p>',
         },
       ],

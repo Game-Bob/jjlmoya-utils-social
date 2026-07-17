@@ -22,7 +22,7 @@ const faqData = [
   {
     question: 'Was ist eine gute Engagement-Rate, um mehr verlangen zu können?',
     answer:
-      'Im Allgemeinen gilt ein Engagement von über 3 % als gesund. Konten mit mehr als 10 % Engagement gelten als „Premium-Profile“ und können einen deutlichen Aufschlag verlangen.',
+      'Im Allgemeinen gilt ein Engagement von über 3 % als gesund. Konten mit mehr als 10 % Engagement gelten als \"Premium-Profile\" und können einen deutlichen Aufschlag verlangen.',
   },
   {
     question: 'Beeinflusst die Nische den Preis wirklich so stark?',
@@ -131,7 +131,7 @@ export const content: ToolLocaleContent<SocialValueCalculatorUI> = {
         },
         {
           type: 'card',
-          title: '15€–50€',
+          title: '15€ bis 50€',
           html: '<p>Durchschnittlicher CPM in wertvollen Nischen</p>',
         },
       ],

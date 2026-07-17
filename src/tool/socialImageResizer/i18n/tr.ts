@@ -105,13 +105,13 @@ export const content: ToolLocaleContent<SocialImageResizerUI> = {
     {
       type: 'grid',
       columns: [
-        { title: 'Instagram — Kare Gönderi', body: '1080 × 1080 px · Oran 1:1' },
-        { title: 'Instagram — Dikey Gönderi', body: '1080 × 1350 px · Oran 4:5' },
-        { title: 'TikTok / Reels — Dikey', body: '1080 × 1920 px · Oran 9:16' },
-        { title: 'YouTube — Küçük Resim', body: '1280 × 720 px · Oran 16:9' },
-        { title: 'YouTube — Kanal Banner\'ı', body: '2560 × 1440 px · Oran 16:9' },
-        { title: 'X (Twitter) — Standart Gönderi', body: '1200 × 675 px · Oran 16:9' },
-        { title: 'LinkedIn — Profil Kapağı', body: '1584 × 396 px · Oran 4:1' },
+        { title: 'Instagram: Kare Gönderi', body: '1080 × 1080 px · Oran 1:1' },
+        { title: 'Instagram: Dikey Gönderi', body: '1080 × 1350 px · Oran 4:5' },
+        { title: 'TikTok / Reels: Dikey', body: '1080 × 1920 px · Oran 9:16' },
+        { title: 'YouTube: Küçük Resim', body: '1280 × 720 px · Oran 16:9' },
+        { title: 'YouTube: Kanal Banner\'ı', body: '2560 × 1440 px · Oran 16:9' },
+        { title: 'X (Twitter): Standart Gönderi', body: '1200 × 675 px · Oran 16:9' },
+        { title: 'LinkedIn: Profil Kapağı', body: '1584 × 396 px · Oran 4:1' },
       ],
     },
     {

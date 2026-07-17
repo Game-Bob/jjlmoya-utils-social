@@ -91,7 +91,7 @@ export const content: ToolLocaleContent<SocialImageResizerUI> = {
     },
     {
       type: 'paragraph',
-      html: 'Im heutigen digitalen Ökosystem ist der erste Eindruck visuell. Jedes soziale Netzwerk arbeitet mit spezifischen Algorithmen, die Inhalte bevorzugen, die nativ an ihre Proportionen angepasst sind. Unser Social Media Image Resizer ist nicht nur ein technisches Werkzeug – er ist Ihr Partner, um sicherzustellen, dass Ihre Botschaft ohne unerwünschte Zuschnitte oder Qualitätsverluste ankommt.',
+      html: 'Im heutigen digitalen Ökosystem ist der erste Eindruck visuell. Jedes soziale Netzwerk arbeitet mit spezifischen Algorithmen, die Inhalte bevorzugen, die nativ an ihre Proportionen angepasst sind. Unser Social Media Image Resizer ist nicht nur ein technisches Werkzeug - er ist Ihr Partner, um sicherzustellen, dass Ihre Botschaft ohne unerwünschte Zuschnitte oder Qualitätsverluste ankommt.',
     },
     {
       type: 'paragraph',
@@ -105,10 +105,10 @@ export const content: ToolLocaleContent<SocialImageResizerUI> = {
     {
       type: 'grid',
       columns: [
-        { title: 'Instagram — Quadratischer Post', body: '1080 × 1080 px · Verhältnis 1:1' },
-        { title: 'Instagram — Vertikaler Post', body: '1080 × 1350 px · Verhältnis 4:5' },
-        { title: 'TikTok / Reels — Vertikal', body: '1080 × 1920 px · Verhältnis 9:16' },
-        { title: 'YouTube — Thumbnail', body: '1280 × 720 px · Verhältnis 16:9' },
+        { title: 'Instagram: Quadratischer Post', body: '1080 × 1080 px · Verhältnis 1:1' },
+        { title: 'Instagram: Vertikaler Post', body: '1080 × 1350 px · Verhältnis 4:5' },
+        { title: 'TikTok / Reels: Vertikal', body: '1080 × 1920 px · Verhältnis 9:16' },
+        { title: 'YouTube: Thumbnail', body: '1280 × 720 px · Verhältnis 16:9' },
         { title: 'YouTube Kanal Banner', body: '2560 × 1440 px · Verhältnis 16:9' },
         { title: 'X (Twitter) Standard Post', body: '1200 × 675 px · Verhältnis 16:9' },
         { title: 'LinkedIn Profil Header', body: '1584 × 396 px · Verhältnis 4:1' },

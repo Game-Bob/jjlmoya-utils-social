@@ -27,19 +27,19 @@ const faqData = [
   {
     question: 'In che modo questo strumento aiuta a migliorare il mio CTR?',
     answer:
-      'Il CTR (Click-Through Rate) è la percentuale di persone che cliccano quando vedono la miniatura. Simulando l’ambiente reale (sfondo nero vs bianco, mobile vs desktop), puoi correggere errori di contrasto e composizione prima della pubblicazione, aumentando i tuoi clic.',
+      'Il CTR (Click-Through Rate) è la percentuale di persone che cliccano quando vedono la miniatura. Simulando l\'ambiente reale (sfondo nero vs bianco, mobile vs desktop), puoi correggere errori di contrasto e composizione prima della pubblicazione, aumentando i tuoi clic.',
   },
   {
     question: 'Funziona con la Modalità Scura ufficiale di YouTube?',
     answer:
-      'Sì. Abbiamo incluso un selettore di temi (Chiaro e Scuro) che imita esattamente i colori esadecimali utilizzati dall’app ufficiale di YouTube in entrambe le modalità.',
+      'Sì. Abbiamo incluso un selettore di temi (Chiaro e Scuro) che imita esattamente i colori esadecimali utilizzati dall\'app ufficiale di YouTube in entrambe le modalità.',
   },
 ];
 
 const howToData = [
   {
     name: 'Carica il tuo design',
-    text: 'Fai clic sull’area di caricamento o trascina il tuo file immagine (PNG, JPG o WebP) direttamente nello strumento.',
+    text: 'Fai clic sull\'area di caricamento o trascina il tuo file immagine (PNG, JPG o WebP) direttamente nello strumento.',
   },
   {
     name: 'Imposta il contesto',
@@ -105,7 +105,7 @@ export const content: ToolLocaleContent<YoutubeThumbnailPreviewerUI> = {
     },
     {
       type: 'paragraph',
-      html: 'Nell’ecosistema di YouTube, la miniatura (o thumbnail) è la porta d’ingresso ai tuoi contenuti. Puoi avere il miglior video del mondo — montaggio da Hollywood, sceneggiatura da Oscar — ma se nessuno clicca, il tuo lavoro sarà invisibile per l’algoritmo. È qui che entra in gioco il <strong>CTR (Click-Through Rate)</strong>, e la miniatura è il fattore determinante.',
+      html: 'Nell\'ecosistema di YouTube, la miniatura (o thumbnail) è la porta d\'ingresso ai tuoi contenuti. Puoi avere il miglior video del mondo - montaggio da Hollywood, sceneggiatura da Oscar - ma se nessuno clicca, il tuo lavoro sarà invisibile per l\'algoritmo. È qui che entra in gioco il <strong>CTR (Click-Through Rate)</strong>, e la miniatura è il fattore determinante.',
     },
     {
       type: 'title',
@@ -116,16 +116,16 @@ export const content: ToolLocaleContent<YoutubeThumbnailPreviewerUI> = {
       type: 'list',
       items: [
         '<strong>Anteprima Reale:</strong> Guarda la tua miniatura esattamente come apparirà nel feed di YouTube.',
-        '<strong>Modalità Scura e Chiara:</strong> Assicurati che i colori risaltino in qualsiasi configurazione dell’utente.',
+        '<strong>Modalità Scura e Chiara:</strong> Assicurati che i colori risaltino in qualsiasi configurazione dell\'utente.',
         '<strong>Simulatore di Dispositivi:</strong> Controlla la leggibilità del testo sia su monitor che su piccoli schermi mobile.',
-        '<strong>Ottimizzazione del CTR:</strong> Confronta il tuo design con l’interfaccia nativa per massimizzare i clic.',
-        '<strong>Nessuna Registrazione:</strong> Carica la tua immagine e provala all’istante senza creare account.',
+        '<strong>Ottimizzazione del CTR:</strong> Confronta il tuo design con l\'interfaccia nativa per massimizzare i clic.',
+        '<strong>Nessuna Registrazione:</strong> Carica la tua immagine e provala all\'istante senza creare account.',
         '<strong>Privacy Garantita:</strong> I tuoi design vengono elaborati localmente e mai caricati sui server.',
       ],
     },
     {
       type: 'paragraph',
-      html: 'Molti creator commettono l’errore di progettare le proprie miniature su grandi monitor, visualizzandole a schermo intero nei loro editor preferiti. Il problema è che l’utente finale la vede raramente così. La maggior parte le consuma su un dispositivo mobile mentre scorre il feed, o in un angolo del monitor in modalità scura. Il nostro <strong>Anteprima Miniature di YouTube</strong> ti permette di rompere questa "illusione del designer" e vedere la realtà chirurgica del feed.',
+      html: 'Molti creator commettono l\'errore di progettare le proprie miniature su grandi monitor, visualizzandole a schermo intero nei loro editor preferiti. Il problema è che l\'utente finale la vede raramente così. La maggior parte le consuma su un dispositivo mobile mentre scorre il feed, o in un angolo del monitor in modalità scura. Il nostro <strong>Anteprima Miniature di YouTube</strong> ti permette di rompere questa "illusione del designer" e vedere la realtà chirurgica del feed.',
     },
     {
       type: 'title',
@@ -148,7 +148,7 @@ export const content: ToolLocaleContent<YoutubeThumbnailPreviewerUI> = {
     },
     {
       type: 'paragraph',
-      html: 'Il cervello umano elabora le immagini migliaia di volte più velocemente del testo. Tuttavia, su YouTube, la concorrenza è brutale. La tua miniatura non deve solo essere "bella" — deve essere <strong>leggibile</strong> e avere <strong>contrasto</strong>.',
+      html: 'Il cervello umano elabora le immagini migliaia di volte più velocemente del testo. Tuttavia, su YouTube, la concorrenza è brutale. La tua miniatura non deve solo essere "bella" - deve essere <strong>leggibile</strong> e avere <strong>contrasto</strong>.',
     },
     {
       type: 'paragraph',
@@ -161,14 +161,14 @@ export const content: ToolLocaleContent<YoutubeThumbnailPreviewerUI> = {
     },
     {
       type: 'paragraph',
-      html: 'Vale la pena perdere 30 secondi per testare la miniatura? La risposta è un rotondo SÌ. Una miniatura ottimizzata può raddoppiare le tue visualizzazioni nelle prime 24 ore, indicando all’IA di YouTube che il tuo contenuto ha "presa".',
+      html: 'Vale la pena perdere 30 secondi per testare la miniatura? La risposta è un rotondo SÌ. Una miniatura ottimizzata può raddoppiare le tue visualizzazioni nelle prime 24 ore, indicando all\'IA di YouTube che il tuo contenuto ha "presa".',
     },
     {
       type: 'grid',
       columns: [
         {
           title: 'Design in Photoshop / Canva',
-          body: 'Falsa sensazione delle dimensioni reali · Ignora il contrasto con lo sfondo dell’app · Il testo sembra leggibile ma forse non lo è · Non vedi gli elementi della UI (durata, avatar)',
+          body: 'Falsa sensazione delle dimensioni reali · Ignora il contrasto con lo sfondo dell\'app · Il testo sembra leggibile ma forse non lo è · Non vedi gli elementi della UI (durata, avatar)',
         },
         {
           title: 'Anteprima Miniature YouTube',
@@ -189,11 +189,11 @@ export const content: ToolLocaleContent<YoutubeThumbnailPreviewerUI> = {
       type: 'list',
       items: [
         'Il testo è leggibile su uno schermo mobile piccolo?',
-        'C’è abbastanza contrasto tra lo sfondo e il soggetto principale?',
+        'C\'è abbastanza contrasto tra lo sfondo e il soggetto principale?',
         'La miniatura appare bene sullo sfondo nero della Modalità Scura?',
-        'Il titolo del video copre informazioni vitali dell’immagine?',
+        'Il titolo del video copre informazioni vitali dell\'immagine?',
         'Il badge della durata (il quadratino nero) nasconde qualcosa di importante?',
-        'Il volto o l’oggetto principale trasmettono l’emozione desiderata a dimensioni ridotte?',
+        'Il volto o l\'oggetto principale trasmettono l\'emozione desiderata a dimensioni ridotte?',
       ],
     },
     {
@@ -203,14 +203,14 @@ export const content: ToolLocaleContent<YoutubeThumbnailPreviewerUI> = {
     },
     {
       type: 'paragraph',
-      html: 'Basandoci sull’analisi dei canali più grandi al mondo, una miniatura vincente segue solitamente questo schema strutturale:',
+      html: 'Basandoci sull\'analisi dei canali più grandi al mondo, una miniatura vincente segue solitamente questo schema strutturale:',
     },
     {
       type: 'grid',
       columns: [
         {
           title: 'Soggetto Principale',
-          body: 'Fuoco dell’attenzione primaria · Usa ritagli nitidi con un leggero bordo o saturazione extra.',
+          body: 'Fuoco dell\'attenzione primaria · Usa ritagli nitidi con un leggero bordo o saturazione extra.',
         },
         {
           title: 'Testo (Max 3 parole)',
@@ -222,14 +222,14 @@ export const content: ToolLocaleContent<YoutubeThumbnailPreviewerUI> = {
         },
         {
           title: 'Spazio della Durata',
-          body: 'Evitare errori · Non mettere volti o testo nell’angolo in basso a destra.',
+          body: 'Evitare errori · Non mettere volti o testo nell\'angolo in basso a destra.',
         },
       ],
     },
     {
       type: 'tip',
       title: 'Il Trucco della Zona Morta',
-      html: '<p>YouTube posiziona sempre un riquadro nero con la durata del video nell’angolo in basso a destra della miniatura. Migliaia di creator mettono elementi vitali in quella zona, solo per scoprire che l’app li copre. Il nostro strumento simula questo riquadro in modo da non coprire mai la tua inquadratura migliore.</p>',
+      html: '<p>YouTube posiziona sempre un riquadro nero con la durata del video nell\'angolo in basso a destra della miniatura. Migliaia di creator mettono elementi vitali in quella zona, solo per scoprire che l\'app li copre. Il nostro strumento simula questo riquadro in modo da non coprire mai la tua inquadratura migliore.</p>',
     },
     {
       type: 'title',
@@ -241,10 +241,10 @@ export const content: ToolLocaleContent<YoutubeThumbnailPreviewerUI> = {
       columns: [
         {
           title: 'Interfaccia ultra rapida e reattiva',
-          body: 'Limitazione: Non permette l’editing dell’immagine (usare Canva/PS)',
+          body: 'Limitazione: Non permette l\'editing dell\'immagine (usare Canva/PS)',
         },
         {
-          title: 'Mockup esatti dell’App e del Web',
+          title: 'Mockup esatti dell\'App e del Web',
           body: 'Limitazione: Non simula gli annunci Pre-roll',
         },
         {
@@ -278,7 +278,7 @@ export const content: ToolLocaleContent<YoutubeThumbnailPreviewerUI> = {
     },
     {
       type: 'paragraph',
-      html: 'Smetti di tirare a indovinare e inizia a validare. L’<strong>Anteprima Miniature per YouTube</strong> di JJLMoya è lo strumento gratuito che separa i creator amatoriali dai professionisti dei contenuti. Un piccolo aggiustamento nella dimensione di un font o nella posizione del soggetto può fare la differenza tra un video che passa inosservato e un successo virale.',
+      html: 'Smetti di tirare a indovinare e inizia a validare. L\'<strong>Anteprima Miniature per YouTube</strong> di JJLMoya è lo strumento gratuito che separa i creator amatoriali dai professionisti dei contenuti. Un piccolo aggiustamento nella dimensione di un font o nella posizione del soggetto può fare la differenza tra un video che passa inosservato e un successo virale.',
     },
     {
       type: 'paragraph',

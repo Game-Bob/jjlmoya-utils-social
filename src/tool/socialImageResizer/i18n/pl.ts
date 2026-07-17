@@ -91,7 +91,7 @@ export const content: ToolLocaleContent<SocialImageResizerUI> = {
     },
     {
       type: 'paragraph',
-      html: 'W dzisiejszym cyfrowym ekosystemie pierwsze wrażenie budowane jest wizualnie. Każdy serwis społecznościowy działa w oparciu o specyficzne algorytmy, które faworyzują treści natywnie dopasowane do ich proporcji. Nasz resizer to nie tylko techniczne narzędzie — to Twój sojusznik, dzięki któremu Twój przekaz dotrze do odbiorców bez niechcianych ucięć czy straty jakości.',
+      html: 'W dzisiejszym cyfrowym ekosystemie pierwsze wrażenie budowane jest wizualnie. Każdy serwis społecznościowy działa w oparciu o specyficzne algorytmy, które faworyzują treści natywnie dopasowane do ich proporcji. Nasz resizer to nie tylko techniczne narzędzie - to Twój sojusznik, dzięki któremu Twój przekaz dotrze do odbiorców bez niechcianych ucięć czy straty jakości.',
     },
     {
       type: 'paragraph',
@@ -105,13 +105,13 @@ export const content: ToolLocaleContent<SocialImageResizerUI> = {
     {
       type: 'grid',
       columns: [
-        { title: 'Instagram — Post Kwadratowy', body: '1080 × 1080 px · Proporcja 1:1' },
-        { title: 'Instagram — Post Pionowy', body: '1080 × 1350 px · Proporcja 4:5' },
-        { title: 'TikTok / Reels — Pion', body: '1080 × 1920 px · Proporcja 9:16' },
-        { title: 'YouTube — Miniaturka', body: '1280 × 720 px · Proporcja 16:9' },
-        { title: 'YouTube — Baner Kanału', body: '2560 × 1440 px · Proporcja 16:9' },
-        { title: 'X (Twitter) — Standardowy Post', body: '1200 × 675 px · Proporcja 16:9' },
-        { title: 'LinkedIn — Tło Profilu', body: '1584 × 396 px · Proporcja 4:1' },
+        { title: 'Instagram: Post Kwadratowy', body: '1080 × 1080 px · Proporcja 1:1' },
+        { title: 'Instagram: Post Pionowy', body: '1080 × 1350 px · Proporcja 4:5' },
+        { title: 'TikTok / Reels: Pion', body: '1080 × 1920 px · Proporcja 9:16' },
+        { title: 'YouTube: Miniaturka', body: '1280 × 720 px · Proporcja 16:9' },
+        { title: 'YouTube: Baner Kanału', body: '2560 × 1440 px · Proporcja 16:9' },
+        { title: 'X (Twitter): Standardowy Post', body: '1200 × 675 px · Proporcja 16:9' },
+        { title: 'LinkedIn: Tło Profilu', body: '1584 × 396 px · Proporcja 4:1' },
       ],
     },
     {
@@ -127,7 +127,7 @@ export const content: ToolLocaleContent<SocialImageResizerUI> = {
         },
         {
           title: 'Wizualne Zaangażowanie',
-          body: 'Od miniaturek po banery — każdy element graficzny ma wpływ na klikalność (CTR). Precyzyjne kadrowanie gwarantuje, że teksty i kluczowe elementy będą zawsze czytelne.',
+          body: 'Od miniaturek po banery - każdy element graficzny ma wpływ na klikalność (CTR). Precyzyjne kadrowanie gwarantuje, że teksty i kluczowe elementy będą zawsze czytelne.',
         },
         {
           title: 'Profesjonalny Branding',

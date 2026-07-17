@@ -25,7 +25,7 @@ const faqData = [
       'Utiliza face-api.js para detectar 68 puntos de referencia facial, analizar la expresión (sonrisa, expresión seria), evaluar la posición de los ojos y medir la inclinación de la cabeza. Todo el análisis ocurre localmente en tu dispositivo.',
   },
   {
-    question: '¿Por qué recomienda el zoom al 1.2x?',
+    question: '¿Por qué recomienda el zoom al 1,2x?',
     answer:
       'Las cámaras frontales de smartphone usan ópticas gran angular (24mm) que distorsionan el rostro con la aberración de barril. Un zoom de 1.2x simula una focal de 50-85mm, eliminando la distorsión y proporcionando proporciones faciales más naturales y atractivas.',
   },
@@ -88,8 +88,8 @@ export const content: ToolLocaleContent<TinderPhotoOptimizerUI> = {
   slug,
   title,
   description,
-    faq: faqData,
-      bibliography,
+  faq: faqData,
+  bibliography,
   howTo: howToData,
   schemas: [faqSchema, howToSchema, appSchema],
   seo: [

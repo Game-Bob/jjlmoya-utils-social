@@ -4,7 +4,7 @@ import type { ToolLocaleContent } from '../../../types';
 import type { SocialValueCalculatorUI } from '../ui';
 
 const slug = 'calculateur-valeur-compte-reseaux-sociaux';
-const title = 'Calculateur de Valeur de Compte TikTok & Instagram : Tarifs';
+const title = 'Calculateur de Valeur de Compte TikTok & Instagram: Tarifs';
 const description =
   "Découvrez combien facturer pour vos publications sponsorisées. Notre calculateur analyse les abonnés, l'engagement et le créneau pour vous donner une valeur de marché juste.";
 
@@ -100,12 +100,12 @@ export const content: ToolLocaleContent<SocialValueCalculatorUI> = {
     },
     {
       type: 'title',
-      text: 'Calculateur de Valeur de Compte : Combien facturer une promotion sur TikTok ou Instagram ?',
+      text: 'Calculateur de Valeur de Compte: Combien facturer une promotion sur TikTok ou Instagram ?',
       level: 2,
     },
     {
       type: 'paragraph',
-      html: 'Si vous êtes créateur de contenu, influenceur ou simplement une communauté active sur les réseaux sociaux, vous vous êtes probablement demandé à un moment : <strong>combien vaut vraiment mon compte ?</strong> ou <strong>combien devrais-je demander pour une collaboration avec une marque ?</strong>.',
+      html: 'Si vous êtes créateur de contenu, influenceur ou simplement une communauté active sur les réseaux sociaux, vous vous êtes probablement demandé à un moment: <strong>combien vaut vraiment mon compte ?</strong> ou <strong>combien devrais-je demander pour une collaboration avec une marque ?</strong>.',
     },
     {
       type: 'title',
@@ -131,7 +131,7 @@ export const content: ToolLocaleContent<SocialValueCalculatorUI> = {
         },
         {
           type: 'card',
-          title: '15 €–50 €',
+          title: '15 € à 50 €',
           html: '<p>CPM moyen dans les créneaux de haute valeur (stable)</p>',
         },
       ],
@@ -193,7 +193,7 @@ export const content: ToolLocaleContent<SocialValueCalculatorUI> = {
     },
     {
       type: 'title',
-      text: "TikTok vs Instagram : Où est l'argent ?",
+      text: "TikTok vs Instagram: Où est l'argent ?",
       level: 2,
     },
     {
@@ -227,7 +227,7 @@ export const content: ToolLocaleContent<SocialValueCalculatorUI> = {
     {
       type: 'tip',
       title: 'Modèle de négociation',
-      html: "<p>Bonjour [Nom de la Marque], merci de m'avoir contacté. En me basant sur mes métriques actuelles de portée (moyenne de [X] vues) et mon taux d'engagement de [X]%, mon tarif pour une intégration dans un [Reel/TikTok] est de [Prix €]. Cela inclut : scénarisation et production vidéo, 1 lien en bio 24h, 2 Stories d'amplification, droits d'utilisation 30 jours.</p>",
+      html: "<p>Bonjour [Nom de la Marque], merci de m'avoir contacté. En me basant sur mes métriques actuelles de portée (moyenne de [X] vues) et mon taux d'engagement de [X]%, mon tarif pour une intégration dans un [Reel/TikTok] est de [Prix €]. Cela inclut: scénarisation et production vidéo, 1 lien en bio 24h, 2 Stories d'amplification, droits d'utilisation 30 jours.</p>",
     },
     {
       type: 'title',

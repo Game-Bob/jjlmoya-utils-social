@@ -10,7 +10,7 @@ const description =
 
 const faqData = [
   {
-    question: 'Il calcolatore del valore dell’account è gratuito?',
+    question: 'Il calcolatore del valore dell\'account è gratuito?',
     answer:
       'Sì, il nostro strumento è gratuito al 100% e non richiede registrazione né connessione ai tuoi account social. Devi solo inserire le tue metriche pubbliche.',
   },
@@ -96,7 +96,7 @@ export const content: ToolLocaleContent<SocialValueCalculatorUI> = {
     {
       type: 'tip',
       title: 'In questa guida imparerai',
-      html: '<ul><li>Il tuo <strong>reale valore di mercato</strong> basato sui dati 2026.</li><li>Come differenziare l’impatto di <strong>TikTok vs Instagram</strong>.</li><li>Come la tua <strong>nicchia</strong> influisce drasticamente sul tuo CPM.</li><li>Un modello professionale per <strong>negoziare con i brand</strong>.</li></ul>',
+      html: '<ul><li>Il tuo <strong>reale valore di mercato</strong> basato sui dati 2026.</li><li>Come differenziare l\'impatto di <strong>TikTok vs Instagram</strong>.</li><li>Come la tua <strong>nicchia</strong> influisce drasticamente sul tuo CPM.</li><li>Un modello professionale per <strong>negoziare con i brand</strong>.</li></ul>',
     },
     {
       type: 'title',
@@ -109,12 +109,12 @@ export const content: ToolLocaleContent<SocialValueCalculatorUI> = {
     },
     {
       type: 'title',
-      text: 'L’ascesa della creator economy',
+      text: 'L\'ascesa della creator economy',
       level: 3,
     },
     {
       type: 'paragraph',
-      html: 'L’influencer marketing è maturato e non si tratta più solo di numero di follower. I brand cercano risultati e connessione profonda. Il nostro strumento offre un punto di partenza solido basato su dati reali di mercato.',
+      html: 'L\'influencer marketing è maturato e non si tratta più solo di numero di follower. I brand cercano risultati e connessione profonda. Il nostro strumento offre un punto di partenza solido basato su dati reali di mercato.',
     },
     {
       type: 'grid',
@@ -131,7 +131,7 @@ export const content: ToolLocaleContent<SocialValueCalculatorUI> = {
         },
         {
           type: 'card',
-          title: '15€–50€',
+          title: '15€ a 50€',
           html: '<p>CPM medio in nicchie di alto valore (stabile)</p>',
         },
       ],
@@ -143,7 +143,7 @@ export const content: ToolLocaleContent<SocialValueCalculatorUI> = {
     },
     {
       type: 'paragraph',
-      html: 'A differenza di quanto si credesse anni fa, il numero di follower è solo la punta dell’iceberg. Ecco le componenti fondamentali:',
+      html: 'A differenza di quanto si credesse anni fa, il numero di follower è solo la punta dell\'iceberg. Ecco le componenti fondamentali:',
     },
     {
       type: 'title',
@@ -157,7 +157,7 @@ export const content: ToolLocaleContent<SocialValueCalculatorUI> = {
     {
       type: 'tip',
       title: 'Consiglio engagement',
-      html: '<p>Prova a rispondere ai commenti nelle prime ore dopo il post per inviare segnali positivi all’algoritmo.</p>',
+      html: '<p>Prova a rispondere ai commenti nelle prime ore dopo il post per inviare segnali positivi all\'algoritmo.</p>',
     },
     {
       type: 'title',
@@ -175,7 +175,7 @@ export const content: ToolLocaleContent<SocialValueCalculatorUI> = {
     },
     {
       type: 'paragraph',
-      html: 'Non tutte le audience valgono lo stesso. Un creatore tech o finance può chiedere tariffe molto più alte di un creatore di intrattenimento generale, a causa del maggior valore dell’utente finale.',
+      html: 'Non tutte le audience valgono lo stesso. Un creatore tech o finance può chiedere tariffe molto più alte di un creatore di intrattenimento generale, a causa del maggior valore dell\'utente finale.',
     },
     {
       type: 'title',
@@ -211,7 +211,7 @@ export const content: ToolLocaleContent<SocialValueCalculatorUI> = {
         {
           type: 'card',
           title: 'TikTok',
-          html: '<p>La terra della viralità estrema. L’algoritmo regna sui follower. ROI esplosivo a breve termine.</p><ul><li>Valuta portata massiccia</li><li>Potenziale virale assoluto</li><li>Bassi costi di produzione</li><li>Audience molto attiva</li></ul>',
+          html: '<p>La terra della viralità estrema. L\'algoritmo regna sui follower. ROI esplosivo a breve termine.</p><ul><li>Valuta portata massiccia</li><li>Potenziale virale assoluto</li><li>Bassi costi di produzione</li><li>Audience molto attiva</li></ul>',
         },
       ],
     },
@@ -222,12 +222,12 @@ export const content: ToolLocaleContent<SocialValueCalculatorUI> = {
     },
     {
       type: 'paragraph',
-      html: 'Ottieni l’intervallo di prezzo dal nostro strumento e usalo come guida. Presenta le tue metriche con sicurezza usando questo modello:',
+      html: 'Ottieni l\'intervallo di prezzo dal nostro strumento e usalo come guida. Presenta le tue metriche con sicurezza usando questo modello:',
     },
     {
       type: 'tip',
       title: 'Modello di negoziazione',
-      html: '<p>Ciao [Nome Brand], grazie per il contatto. In base alle mie attuali metriche di portata (media di [X] visualizzazioni) e al mio tasso di engagement del [X]%, la mia tariffa per un’integrazione in un [Reel/TikTok] è [Prezzo €]. Questo include: scripting e produzione video, 1 link in bio per 24h, 2 Stories di amplificazione, diritti d’uso per 30 giorni.</p>',
+      html: '<p>Ciao [Nome Brand], grazie per il contatto. In base alle mie attuali metriche di portata (media di [X] visualizzazioni) e al mio tasso di engagement del [X]%, la mia tariffa per un\'integrazione in un [Reel/TikTok] è [Prezzo €]. Questo include: scripting e produzione video, 1 link in bio per 24h, 2 Stories di amplificazione, diritti d\'uso per 30 giorni.</p>',
     },
     {
       type: 'title',
@@ -237,9 +237,9 @@ export const content: ToolLocaleContent<SocialValueCalculatorUI> = {
     {
       type: 'list',
       items: [
-        '<strong>Fomenta l’interazione:</strong> Rispondi a ogni commento.',
-        '<strong>Alza la qualità:</strong> L’audio è il 50% di un buon video.',
-        '<strong>Specializzati:</strong> Essere "l’esperto" ti permette di chiedere di più.',
+        '<strong>Fomenta l\'interazione:</strong> Rispondi a ogni commento.',
+        '<strong>Alza la qualità:</strong> L\'audio è il 50% di un buon video.',
+        '<strong>Specializzati:</strong> Essere "l\'esperto" ti permette di chiedere di più.',
         '<strong>Crea un Media Kit:</strong> Documenta i tuoi successi con i dati.',
       ],
     },

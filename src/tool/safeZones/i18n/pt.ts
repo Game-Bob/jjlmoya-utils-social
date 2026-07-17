@@ -34,7 +34,7 @@ const faqData = [
 const howToData = [
   {
     name: 'Carrega a tua imagem ou vídeo',
-    text: 'Faz o upload do ficheiro que desejas pré-visualizar. O processamento é local e privado — nada é carregado para a internet.',
+    text: 'Faz o upload do ficheiro que desejas pré-visualizar. O processamento é local e privado - nada é carregado para a internet.',
   },
   {
     name: 'Seleciona a plataforma',
@@ -177,7 +177,7 @@ export const content: ToolLocaleContent<SafeZonesUI> = {
     },
     {
       type: 'paragraph',
-      html: 'Desenhar para redes sociais não é apenas estética — é <strong>usabilidade</strong>. Se um utilizador tiver de lutar para ler texto porque os ícones da plataforma o cobrem, ele simplesmente passará para o vídeo seguinte. A retenção (Watch Time) cai drasticamente quando há fricção visual.',
+      html: 'Desenhar para redes sociais não é apenas estética - é <strong>usabilidade</strong>. Se um utilizador tiver de lutar para ler texto porque os ícones da plataforma o cobrem, ele simplesmente passará para o vídeo seguinte. A retenção (Watch Time) cai drasticamente quando há fricção visual.',
     },
     {
       type: 'paragraph',

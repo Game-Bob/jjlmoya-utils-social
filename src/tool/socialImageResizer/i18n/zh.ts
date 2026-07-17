@@ -105,13 +105,13 @@ export const content: ToolLocaleContent<SocialImageResizerUI> = {
     {
       type: 'grid',
       columns: [
-        { title: 'Instagram — 正方形帖子', body: '1080 × 1080 px · 比例 1:1' },
-        { title: 'Instagram — 垂直帖子', body: '1080 × 1350 px · 比例 4:5' },
-        { title: 'TikTok / Reels — 垂直', body: '1080 × 1920 px · 比例 9:16' },
-        { title: 'YouTube — 缩略图', body: '1280 × 720 px · 比例 16:9' },
-        { title: 'YouTube — 频道横幅', body: '2560 × 1440 px · 比例 16:9' },
-        { title: 'X (Twitter) — 标准帖子', body: '1200 × 675 px · 比例 16:9' },
-        { title: 'LinkedIn — 个人资料封面', body: '1584 × 396 px · 比例 4:1' },
+        { title: 'Instagram: 正方形帖子', body: '1080 × 1080 px · 比例 1:1' },
+        { title: 'Instagram: 垂直帖子', body: '1080 × 1350 px · 比例 4:5' },
+        { title: 'TikTok / Reels: 垂直', body: '1080 × 1920 px · 比例 9:16' },
+        { title: 'YouTube: 缩略图', body: '1280 × 720 px · 比例 16:9' },
+        { title: 'YouTube: 频道横幅', body: '2560 × 1440 px · 比例 16:9' },
+        { title: 'X (Twitter): 标准帖子', body: '1200 × 675 px · 比例 16:9' },
+        { title: 'LinkedIn: 个人资料封面', body: '1584 × 396 px · 比例 4:1' },
       ],
     },
     {

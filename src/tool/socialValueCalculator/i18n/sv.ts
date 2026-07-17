@@ -131,7 +131,7 @@ export const content: ToolLocaleContent<SocialValueCalculatorUI> = {
         },
         {
           type: 'card',
-          title: '150kr–500kr',
+          title: '150kr till 500kr',
           html: '<p>Genomsnittlig CPM i nischer med högt värde (stabilt)</p>',
         },
       ],

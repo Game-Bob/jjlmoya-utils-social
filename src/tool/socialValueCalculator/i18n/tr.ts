@@ -131,7 +131,7 @@ export const content: ToolLocaleContent<SocialValueCalculatorUI> = {
         },
         {
           type: 'card',
-          title: '300₺–1000₺',
+          title: '300₺ ile 1000₺',
           html: '<p>Yüksek değerli nişlerde ortalama CPM (tahmini)</p>',
         },
       ],

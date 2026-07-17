@@ -105,7 +105,7 @@ export const content: ToolLocaleContent<YoutubeThumbnailPreviewerUI> = {
     },
     {
       type: 'paragraph',
-      html: "In the YouTube ecosystem, the thumbnail is the gateway to your content. You could have the best video in the world — Hollywood-level editing, an Oscar-worthy script — but if no one clicks, your work will be invisible to the algorithm. This is where <strong>CTR (Click-Through Rate)</strong> comes in, and the thumbnail is the determining factor.",
+      html: "In the YouTube ecosystem, the thumbnail is the gateway to your content. You could have the best video in the world - Hollywood-level editing, an Oscar-worthy script - but if no one clicks, your work will be invisible to the algorithm. This is where <strong>CTR (Click-Through Rate)</strong> comes in, and the thumbnail is the determining factor.",
     },
     {
       type: 'title',
@@ -148,7 +148,7 @@ export const content: ToolLocaleContent<YoutubeThumbnailPreviewerUI> = {
     },
     {
       type: 'paragraph',
-      html: 'The human brain processes images thousands of times faster than text. Yet on YouTube, the competition is brutal. Your thumbnail must not only be "pretty" — it must be <strong>readable</strong> and have <strong>contrast</strong>.',
+      html: 'The human brain processes images thousands of times faster than text. Yet on YouTube, the competition is brutal. Your thumbnail must not only be "pretty" - it must be <strong>readable</strong> and have <strong>contrast</strong>.',
     },
     {
       type: 'paragraph',

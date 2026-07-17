@@ -6,7 +6,7 @@ import type { YoutubeThumbnailUI } from '../ui';
 const slug = 'youtube-thumbnail-herunterladen-hd';
 const title = 'YouTube Thumbnail Downloader (HD)';
 const description =
-  'Extrahieren und laden Sie das Original-Vorschaubild (Thumbnail) jedes YouTube-Videos in maximaler Auflösung und ohne Wasserzeichen herunter – einfach über die URL.';
+  'Extrahieren und laden Sie das Original-Vorschaubild (Thumbnail) jedes YouTube-Videos in maximaler Auflösung und ohne Wasserzeichen herunter - einfach über die URL.';
 
 const faqData = [
   {
@@ -22,7 +22,7 @@ const faqData = [
   {
     question: 'Ist das Herunterladen von YouTube-Thumbnails legal?',
     answer:
-      'Ja, das Herunterladen ist für den persönlichen Gebrauch, zu Designzwecken, für Parodien oder zur Inspiration (Fair Use) völlig legal. Seien Sie vorsichtig, wenn Sie urheberrechtlich geschützte Bilder für rein kommerzielle Zwecke verwenden möchten – in diesen Fällen ist es wichtig, die Lizenz des Videos zu prüfen.',
+      'Ja, das Herunterladen ist für den persönlichen Gebrauch, zu Designzwecken, für Parodien oder zur Inspiration (Fair Use) völlig legal. Seien Sie vorsichtig, wenn Sie urheberrechtlich geschützte Bilder für rein kommerzielle Zwecke verwenden möchten - in diesen Fällen ist es wichtig, die Lizenz des Videos zu prüfen.',
   },
   {
     question: 'Gibt es ein tägliches Nutzungslimit?',
@@ -105,7 +105,7 @@ export const content: ToolLocaleContent<YoutubeThumbnailUI> = {
     {
       type: 'tip',
       title: 'Cover Bilder ohne Software extrahieren',
-      html: '<p>Keine Installation nötig, keine Registrierung erforderlich. Einfach Link kopieren und das <strong>YouTube-Thumbnail speichern</strong> – direkt auf Ihrem PC oder Smartphone.</p>',
+      html: '<p>Keine Installation nötig, keine Registrierung erforderlich. Einfach Link kopieren und das <strong>YouTube-Thumbnail speichern</strong> - direkt auf Ihrem PC oder Smartphone.</p>',
     },
     {
       type: 'title',

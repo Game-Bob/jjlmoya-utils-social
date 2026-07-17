@@ -4,7 +4,7 @@ import type { ToolLocaleContent } from '../../../types';
 import type { TinderPhotoOptimizerUI } from '../ui';
 
 const slug = 'optimiseur-photos-tinder';
-const title = "Optimiseur de Photos pour Tinder : Analyse de Visage et Composition";
+const title = "Optimiseur de Photos pour Tinder: Analyse de Visage et Composition";
 const description =
   "Optimisez vos photos pour Tinder avec une analyse algorithmique du visage. Simule l'interface 2026, analyse le cadrage scientifique et la ligne des yeux, exporte des portraits 9:16 parfaits pour maximiser vos matchs.";
 
@@ -12,7 +12,7 @@ const faqData = [
   {
     question: "Comment cet outil améliore-t-il mes matchs sur Tinder ?",
     answer:
-      "L'outil analyse des facteurs techniques clés : le ratio de taille du visage (idéal 30-50%), la position de la ligne des yeux par rapport au tiers supérieur, la couverture du cadre et les zones mortes de l'interface Tinder. En ajustant ces paramètres, votre photo projette plus de confiance et passe les filtres visuels de l'algorithme.",
+      "L'outil analyse des facteurs techniques clés: le ratio de taille du visage (idéal 30-50%), la position de la ligne des yeux par rapport au tiers supérieur, la couverture du cadre et les zones mortes de l'interface Tinder. En ajustant ces paramètres, votre photo projette plus de confiance et passe les filtres visuels de l'algorithme.",
   },
   {
     question: "Est-il sûr de télécharger mes photos ici ?",
@@ -95,16 +95,16 @@ export const content: ToolLocaleContent<TinderPhotoOptimizerUI> = {
   seo: [
     {
       type: 'title',
-      text: "Optimiseur de Photos pour Tinder : Le Guide Scientifique et Technique Définitif (2026)",
+      text: "Optimiseur de Photos pour Tinder: Le Guide Scientifique et Technique Définitif (2026)",
       level: 2,
     },
     {
       type: 'paragraph',
-      html: "Dans l'écosystème des rencontres numériques, votre profil Tinder est traité par deux algorithmes simultanément : l'algorithme de vision avancée de la plateforme elle-même et le cerveau humain de l'utilisateur qui fait glisser. Notre outil intègre des principes de <strong>psychologie évolutive</strong>, de <strong>biométrie faciale</strong> et de <strong>traitement du signal numérique</strong> pour garantir que votre image projette une valeur sociale et un attrait technique maximum.",
+      html: "Dans l'écosystème des rencontres numériques, votre profil Tinder est traité par deux algorithmes simultanément: l'algorithme de vision avancée de la plateforme elle-même et le cerveau humain de l'utilisateur qui fait glisser. Notre outil intègre des principes de <strong>psychologie évolutive</strong>, de <strong>biométrie faciale</strong> et de <strong>traitement du signal numérique</strong> pour garantir que votre image projette une valeur sociale et un attrait technique maximum.",
     },
     {
       type: 'title',
-      text: "La Psychologie de la Première Impression : L'Effet des 1,2 Secondes",
+      text: "La Psychologie de la Première Impression: L'Effet des 1,2 Secondes",
       level: 3,
     },
     {
@@ -121,7 +121,7 @@ export const content: ToolLocaleContent<TinderPhotoOptimizerUI> = {
     },
     {
       type: 'title',
-      text: "Analyse Technique de l'Objectif : Le Problème du Grand Angle",
+      text: "Analyse Technique de l'Objectif: Le Problème du Grand Angle",
       level: 3,
     },
     {
@@ -130,11 +130,11 @@ export const content: ToolLocaleContent<TinderPhotoOptimizerUI> = {
     },
     {
       type: 'paragraph',
-      html: "<strong>L'Aberration en Barillet :</strong> À moins d'un mètre de distance, un objectif de 24mm (standard sur mobile) élargit le centre de l'image. Cela fait paraître les nez plus grands et le visage plus rond que dans la réalité. Notre recommandation de <strong>Zoom 1,2x</strong> est corrective : en appliquant un léger recadrage numérique, vous simulez une focale de 50mm à 85mm, la focale dorée que les photographes de mode utilisent pour affiner le visage et maintenir les proportions réelles.",
+      html: "<strong>L'Aberration en Barillet :</strong> À moins d'un mètre de distance, un objectif de 24mm (standard sur mobile) élargit le centre de l'image. Cela fait paraître les nez plus grands et le visage plus rond que dans la réalité. Notre recommandation de <strong>Zoom 1,2x</strong> est corrective: en appliquant un léger recadrage numérique, vous simulez une focale de 50mm à 85mm, la focale dorée que les photographes de mode utilisent pour affiner le visage et maintenir les proportions réelles.",
     },
     {
       type: 'title',
-      text: "L'Interface Tinder : La Science des Zones Mortes",
+      text: "L'Interface Tinder: La Science des Zones Mortes",
       level: 3,
     },
     {
@@ -151,7 +151,7 @@ export const content: ToolLocaleContent<TinderPhotoOptimizerUI> = {
     },
     {
       type: 'title',
-      text: "Analyse Visuelle en Temps Réel : Décoder l'Algorithme",
+      text: "Analyse Visuelle en Temps Réel: Décoder l'Algorithme",
       level: 3,
     },
     {
@@ -195,7 +195,7 @@ export const content: ToolLocaleContent<TinderPhotoOptimizerUI> = {
     },
     {
       type: 'paragraph',
-      html: "Nous comprenons que vos photos sont privées. Cet optimiseur utilise la <strong>technologie Client-Side</strong> : les images sont traitées via un moteur canvas dans votre navigateur local. Aucune donnée ne quitte votre appareil. C'est la façon la plus sûre et la plus rapide d'optimiser votre profil sans compromettre votre vie privée.",
+      html: "Nous comprenons que vos photos sont privées. Cet optimiseur utilise la <strong>technologie Client-Side</strong>: les images sont traitées via un moteur canvas dans votre navigateur local. Aucune donnée ne quitte votre appareil. C'est la façon la plus sûre et la plus rapide d'optimiser votre profil sans compromettre votre vie privée.",
     },
   ],
   ui: {
@@ -244,21 +244,21 @@ export const content: ToolLocaleContent<TinderPhotoOptimizerUI> = {
     statusNeutral: 'NEUTRE',
 
     alertExcellent: 'Excellente composition technique.',
-    alertEmptySpaces: 'ESPACES VIDES : L\'image ne couvre pas tout le cadre. Ajustez le zoom ou la position.',
-    alertAlmostInvisible: 'PRESQUE INVISIBLE : Vous êtes trop loin. Zoomez jusqu\'à ce que votre visage occupe au moins un tiers de l\'écran.',
-    alertTooClose: 'TROP PRÈS : Les gros plans extrêmes peuvent paraître agressifs.',
-    alertPerfectSize: 'TAILLE PARFAITE : Votre visage a le ratio idéal pour transmettre la confiance.',
-    alertImpactfulLook: 'REGARD IMPACTANT : Vos yeux sont sur la ligne d\'attention maximale.',
-    alertEyeLineMoveUp: 'LIGNE DES YEUX : Pour un cadrage professionnel, remontez légèrement le visage jusqu\'à la ligne supérieure.',
-    alertEyeLineMoveDown: 'LIGNE DES YEUX : Pour un cadrage professionnel, baissez légèrement le visage jusqu\'à la ligne supérieure.',
-    alertTiltedHead: 'TÊTE INCLINÉE : Une posture trop inclinée peut transmettre de l\'instabilité.',
-    alertSmileDetected: 'SOURIRE DÉTECTÉ : Les sourires augmentent considérablement le taux de match.',
-    alertSevereExpression: 'EXPRESSION SÉVÈRE : Essayez d\'utiliser une photo avec un geste plus amical.',
-    alertObstructedTop: 'OBSTRUÉ : La barre de progression cache votre visage.',
-    alertObstructedBottom: 'OBSTRUÉ : Le bloc d\'information cache votre visage.',
-    alertLowLight: 'ÉCLAIRAGE DÉFICIENT : L\'IA a des difficultés à vous voir. Cherchez une photo avec une meilleure lumière.',
-    alertCutOff: 'COUPÉ : Le visage sort du cadre vertical.',
-    alertProTip: 'CONSEIL PRO : S\'il s\'agit d\'un selfie, utilisez le Zoom (1.2x) pour éviter les distorsions de l\'objectif.',
+    alertEmptySpaces: 'ESPACES VIDES: L\'image ne couvre pas tout le cadre. Ajustez le zoom ou la position.',
+    alertAlmostInvisible: 'PRESQUE INVISIBLE: Vous êtes trop loin. Zoomez jusqu\'à ce que votre visage occupe au moins un tiers de l\'écran.',
+    alertTooClose: 'TROP PRÈS: Les gros plans extrêmes peuvent paraître agressifs.',
+    alertPerfectSize: 'TAILLE PARFAITE: Votre visage a le ratio idéal pour transmettre la confiance.',
+    alertImpactfulLook: 'REGARD IMPACTANT: Vos yeux sont sur la ligne d\'attention maximale.',
+    alertEyeLineMoveUp: 'LIGNE DES YEUX: Pour un cadrage professionnel, remontez légèrement le visage jusqu\'à la ligne supérieure.',
+    alertEyeLineMoveDown: 'LIGNE DES YEUX: Pour un cadrage professionnel, baissez légèrement le visage jusqu\'à la ligne supérieure.',
+    alertTiltedHead: 'TÊTE INCLINÉE: Une posture trop inclinée peut transmettre de l\'instabilité.',
+    alertSmileDetected: 'SOURIRE DÉTECTÉ: Les sourires augmentent considérablement le taux de match.',
+    alertSevereExpression: 'EXPRESSION SÉVÈRE: Essayez d\'utiliser une photo avec un geste plus amical.',
+    alertObstructedTop: 'OBSTRUÉ: La barre de progression cache votre visage.',
+    alertObstructedBottom: 'OBSTRUÉ: Le bloc d\'information cache votre visage.',
+    alertLowLight: 'ÉCLAIRAGE DÉFICIENT: L\'IA a des difficultés à vous voir. Cherchez une photo avec une meilleure lumière.',
+    alertCutOff: 'COUPÉ: Le visage sort du cadre vertical.',
+    alertProTip: 'CONSEIL PRO: S\'il s\'agit d\'un selfie, utilisez le Zoom (1.2x) pour éviter les distorsions de l\'objectif.',
 
     canvasFaceDetected: 'Visage détecté',
   },

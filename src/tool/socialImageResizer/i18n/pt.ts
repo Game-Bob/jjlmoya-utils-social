@@ -91,7 +91,7 @@ export const content: ToolLocaleContent<SocialImageResizerUI> = {
     },
     {
       type: 'paragraph',
-      html: 'No ecossistema digital de hoje, a primeira impressão é visual. Cada rede social funciona sob algoritmos específicos que privilegiam conteúdos nativamente adaptados às suas proporções. O nosso redimensionador não é apenas uma ferramenta técnica — é o teu aliado para garantir que a tua mensagem chega sem cortes indesejados ou perda de qualidade.',
+      html: 'No ecossistema digital de hoje, a primeira impressão é visual. Cada rede social funciona sob algoritmos específicos que privilegiam conteúdos nativamente adaptados às suas proporções. O nosso redimensionador não é apenas uma ferramenta técnica - é o teu aliado para garantir que a tua mensagem chega sem cortes indesejados ou perda de qualidade.',
     },
     {
       type: 'paragraph',
@@ -105,13 +105,13 @@ export const content: ToolLocaleContent<SocialImageResizerUI> = {
     {
       type: 'grid',
       columns: [
-        { title: 'Instagram — Post Quadrado', body: '1080 × 1080 px · Proporção 1:1' },
-        { title: 'Instagram — Post Vertical', body: '1080 × 1350 px · Proporção 4:5' },
-        { title: 'TikTok / Reels — Vertical', body: '1080 × 1920 px · Proporção 9:16' },
-        { title: 'YouTube — Miniatura', body: '1280 × 720 px · Proporção 16:9' },
-        { title: 'YouTube — Banner de Canal', body: '2560 × 1440 px · Proporção 16:9' },
-        { title: 'X (Twitter) — Post Padrão', body: '1200 × 675 px · Proporção 16:9' },
-        { title: 'LinkedIn — Capa de Perfil', body: '1584 × 396 px · Proporção 4:1' },
+        { title: 'Instagram: Post Quadrado', body: '1080 × 1080 px · Proporção 1:1' },
+        { title: 'Instagram: Post Vertical', body: '1080 × 1350 px · Proporção 4:5' },
+        { title: 'TikTok / Reels: Vertical', body: '1080 × 1920 px · Proporção 9:16' },
+        { title: 'YouTube: Miniatura', body: '1280 × 720 px · Proporção 16:9' },
+        { title: 'YouTube: Banner de Canal', body: '2560 × 1440 px · Proporção 16:9' },
+        { title: 'X (Twitter): Post Padrão', body: '1200 × 675 px · Proporção 16:9' },
+        { title: 'LinkedIn: Capa de Perfil', body: '1584 × 396 px · Proporção 4:1' },
       ],
     },
     {

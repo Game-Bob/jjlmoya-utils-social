@@ -4,7 +4,7 @@ import type { ToolLocaleContent } from '../../../types';
 import type { YoutubeThumbnailPreviewerUI } from '../ui';
 
 const slug = 'apercu-miniatures-youtube';
-const title = 'Aperçu des Miniatures YouTube en Ligne : Améliorez votre CTR Gratuitement';
+const title = 'Aperçu des Miniatures YouTube en Ligne: Améliorez votre CTR Gratuitement';
 const description =
   'Téléchargez votre miniature et visualisez comment elle apparaît dans le vrai feed YouTube mobile et desktop. Simulateur mode sombre et clair pour optimiser les clics instantanément.';
 
@@ -100,7 +100,7 @@ export const content: ToolLocaleContent<YoutubeThumbnailPreviewerUI> = {
   seo: [
     {
       type: 'title',
-      text: 'Aperçu des Miniatures YouTube : Maîtrisez le CTR de votre Chaîne',
+      text: 'Aperçu des Miniatures YouTube: Maîtrisez le CTR de votre Chaîne',
       level: 2,
     },
     {
@@ -143,7 +143,7 @@ export const content: ToolLocaleContent<YoutubeThumbnailPreviewerUI> = {
     },
     {
       type: 'title',
-      text: 'La Psychologie du Clic : Pourquoi les miniatures échouent-elles ?',
+      text: 'La Psychologie du Clic: Pourquoi les miniatures échouent-elles ?',
       level: 3,
     },
     {
@@ -156,7 +156,7 @@ export const content: ToolLocaleContent<YoutubeThumbnailPreviewerUI> = {
     },
     {
       type: 'title',
-      text: 'Comparaison Directe : Design vs. Réalité',
+      text: 'Comparaison Directe: Design vs. Réalité',
       level: 3,
     },
     {
@@ -241,15 +241,15 @@ export const content: ToolLocaleContent<YoutubeThumbnailPreviewerUI> = {
       columns: [
         {
           title: 'Interface ultra rapide et réactive',
-          body: "Limitation : Ne permet pas l'édition d'image (utiliser Canva/PS)",
+          body: "Limitation: Ne permet pas l'édition d'image (utiliser Canva/PS)",
         },
         {
           title: 'Maquettes exactes de l\'App et du Web',
-          body: 'Limitation : Ne simule pas les publicités Pre-roll',
+          body: 'Limitation: Ne simule pas les publicités Pre-roll',
         },
         {
           title: 'Gratuit et sans publicité intrusive',
-          body: 'Limitation : Prend uniquement en charge les fichiers locaux',
+          body: 'Limitation: Prend uniquement en charge les fichiers locaux',
         },
       ],
     },
@@ -264,7 +264,7 @@ export const content: ToolLocaleContent<YoutubeThumbnailPreviewerUI> = {
     },
     {
       type: 'title',
-      text: 'Confidentialité : Vos Designs ne sont pas Téléchargés dans le Cloud',
+      text: 'Confidentialité: Vos Designs ne sont pas Téléchargés dans le Cloud',
       level: 3,
     },
     {
@@ -273,7 +273,7 @@ export const content: ToolLocaleContent<YoutubeThumbnailPreviewerUI> = {
     },
     {
       type: 'title',
-      text: 'Conclusion : Le Pixel Parfait Garanti',
+      text: 'Conclusion: Le Pixel Parfait Garanti',
       level: 3,
     },
     {

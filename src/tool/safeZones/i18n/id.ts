@@ -34,7 +34,7 @@ const faqData = [
 const howToData = [
   {
     name: 'Muat gambar atau video Anda',
-    text: 'Unggah file yang ingin Anda pratinjau. Pemrosesan bersifat lokal dan pribadi — tidak ada yang diunggah ke internet.',
+    text: 'Unggah file yang ingin Anda pratinjau. Pemrosesan bersifat lokal dan pribadi - tidak ada yang diunggah ke internet.',
   },
   {
     name: 'Pilih platform',
@@ -177,7 +177,7 @@ export const content: ToolLocaleContent<SafeZonesUI> = {
     },
     {
       type: 'paragraph',
-      html: 'Mendesain untuk media sosial bukan hanya tentang estetika — ini tentang <strong>kegunaan</strong>. Jika pengguna harus berjuang untuk membaca teks karena ikon platform menutupinya, mereka akan langsung beralih ke video berikutnya. Retensi (Watch Time) turun tajam saat terjadi gesekan visual.',
+      html: 'Mendesain untuk media sosial bukan hanya tentang estetika - ini tentang <strong>kegunaan</strong>. Jika pengguna harus berjuang untuk membaca teks karena ikon platform menutupinya, mereka akan langsung beralih ke video berikutnya. Retensi (Watch Time) turun tajam saat terjadi gesekan visual.',
     },
     {
       type: 'paragraph',

@@ -131,7 +131,7 @@ export const content: ToolLocaleContent<SocialValueCalculatorUI> = {
         },
         {
           type: 'card',
-          title: '60zł–200zł',
+          title: '60zł do 200zł',
           html: '<p>Średni CPM w niszach o wysokiej wartości (stabilny)</p>',
         },
       ],

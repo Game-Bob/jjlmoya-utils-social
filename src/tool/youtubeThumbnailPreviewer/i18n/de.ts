@@ -105,7 +105,7 @@ export const content: ToolLocaleContent<YoutubeThumbnailPreviewerUI> = {
     },
     {
       type: 'paragraph',
-      html: 'Im YouTube-Ökosystem ist das Thumbnail das Tor zu Ihrem Inhalt. Sie können das beste Video der Welt haben – Schnitt auf Hollywood-Niveau, ein oscarreifes Skript –, aber wenn niemand klickt, bleibt Ihre Arbeit für den Algorithmus unsichtbar. Hier kommt die <strong>CTR (Click-Through-Rate)</strong> ins Spiel, und das Thumbnail ist der entscheidende Faktor.',
+      html: 'Im YouTube-Ökosystem ist das Thumbnail das Tor zu Ihrem Inhalt. Sie können das beste Video der Welt haben - Schnitt auf Hollywood-Niveau, ein oscarreifes Skript -, aber wenn niemand klickt, bleibt Ihre Arbeit für den Algorithmus unsichtbar. Hier kommt die <strong>CTR (Click-Through-Rate)</strong> ins Spiel, und das Thumbnail ist der entscheidende Faktor.',
     },
     {
       type: 'title',
@@ -125,7 +125,7 @@ export const content: ToolLocaleContent<YoutubeThumbnailPreviewerUI> = {
     },
     {
       type: 'paragraph',
-      html: 'Viele Creator machen den Fehler, Thumbnails auf großen Monitoren zu entwerfen und sie in ihren bevorzugten Editoren im Vollbildmodus zu betrachten. Das Problem ist, dass der Endnutzer sie selten so sieht. Die meisten konsumieren Inhalte auf einem mobilen Gerät beim endlosen Scrollen oder in einer Ecke des Monitors im Dark Mode. Unser <strong>YouTube Thumbnail Previewer</strong> ermöglicht es Ihnen, diese „Designer-Illusion“ zu durchbrechen und die chirurgische Realität des Feeds zu sehen.',
+      html: 'Viele Creator machen den Fehler, Thumbnails auf großen Monitoren zu entwerfen und sie in ihren bevorzugten Editoren im Vollbildmodus zu betrachten. Das Problem ist, dass der Endnutzer sie selten so sieht. Die meisten konsumieren Inhalte auf einem mobilen Gerät beim endlosen Scrollen oder in einer Ecke des Monitors im Dark Mode. Unser <strong>YouTube Thumbnail Previewer</strong> ermöglicht es Ihnen, diese \"Designer-Illusion\" zu durchbrechen und die chirurgische Realität des Feeds zu sehen.',
     },
     {
       type: 'title',
@@ -148,11 +148,11 @@ export const content: ToolLocaleContent<YoutubeThumbnailPreviewerUI> = {
     },
     {
       type: 'paragraph',
-      html: 'Das menschliche Gehirn verarbeitet Bilder tausendmal schneller als Text. Doch auf YouTube ist die Konkurrenz brutal. Ihr Thumbnail muss nicht nur „schön“ sein – es muss <strong>lesbar</strong> sein und <strong>Kontrast</strong> haben.',
+      html: 'Das menschliche Gehirn verarbeitet Bilder tausendmal schneller als Text. Doch auf YouTube ist die Konkurrenz brutal. Ihr Thumbnail muss nicht nur \"schön\" sein - es muss <strong>lesbar</strong> sein und <strong>Kontrast</strong> haben.',
     },
     {
       type: 'paragraph',
-      html: 'Ein häufiger Fehler ist die Verwendung von Farben, die mit dem YouTube-Hintergrund verschmelzen. Wenn Sie dunkle Grautöne verwenden und Ihr Zuschauer im Dark Mode ist, verschwindet Ihr Video einfach aus seiner peripheren Wahrnehmung. Mit diesem Tester können Sie zwischen den Themes wechseln und sicherstellen, dass Ihr Design in jedem Szenario „auffällt“.',
+      html: 'Ein häufiger Fehler ist die Verwendung von Farben, die mit dem YouTube-Hintergrund verschmelzen. Wenn Sie dunkle Grautöne verwenden und Ihr Zuschauer im Dark Mode ist, verschwindet Ihr Video einfach aus seiner peripheren Wahrnehmung. Mit diesem Tester können Sie zwischen den Themes wechseln und sicherstellen, dass Ihr Design in jedem Szenario \"auffällt\".',
     },
     {
       type: 'title',
@@ -161,7 +161,7 @@ export const content: ToolLocaleContent<YoutubeThumbnailPreviewerUI> = {
     },
     {
       type: 'paragraph',
-      html: 'Lohnt es sich, 30 Sekunden in das Testen des Thumbnails zu investieren? Die Antwort ist ein klares JA. Ein optimiertes Thumbnail kann Ihre Aufrufe in den ersten 24 Stunden verdoppeln und der YouTube-KI signalisieren, dass Ihr Inhalt einen „Hook“ hat.',
+      html: 'Lohnt es sich, 30 Sekunden in das Testen des Thumbnails zu investieren? Die Antwort ist ein klares JA. Ein optimiertes Thumbnail kann Ihre Aufrufe in den ersten 24 Stunden verdoppeln und der YouTube-KI signalisieren, dass Ihr Inhalt einen \"Hook\" hat.',
     },
     {
       type: 'grid',
@@ -218,7 +218,7 @@ export const content: ToolLocaleContent<YoutubeThumbnailPreviewerUI> = {
         },
         {
           title: 'Verschwommener Hintergrund',
-          body: 'Ebenentrennung · Fügt Tiefe hinzu, sodass das Hauptmotiv aus dem Bildschirm „springt“.',
+          body: 'Ebenentrennung · Fügt Tiefe hinzu, sodass das Hauptmotiv aus dem Bildschirm \"springt\".',
         },
         {
           title: 'Platz für die Dauer',
@@ -228,7 +228,7 @@ export const content: ToolLocaleContent<YoutubeThumbnailPreviewerUI> = {
     },
     {
       type: 'tip',
-      title: 'Der Trick mit der „toten Zone“',
+      title: 'Der Trick mit der \"toten Zone\"',
       html: '<p>YouTube platziert in der unteren rechten Ecke des Thumbnails immer einen schwarzen Kasten mit der Videodauer. Tausende Creator platzieren wichtige Elemente in dieser Zone, nur um festzustellen, dass die App sie verdeckt. Unser Tool simuliert diesen Kasten, damit Sie niemals Ihre beste Aufnahme verdecken.</p>',
     },
     {
@@ -255,7 +255,7 @@ export const content: ToolLocaleContent<YoutubeThumbnailPreviewerUI> = {
     },
     {
       type: 'title',
-      text: 'Nutzung des „Split“-Modus (Direkter Vergleich)',
+      text: 'Nutzung des \"Split\"-Modus (Direkter Vergleich)',
       level: 3,
     },
     {

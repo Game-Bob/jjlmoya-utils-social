@@ -91,7 +91,7 @@ export const content: ToolLocaleContent<SocialImageResizerUI> = {
     },
     {
       type: 'paragraph',
-      html: 'I dagens digitala ekosystem är det första intrycket visuellt. Varje socialt nätverk arbetar under specifika algoritmer som prioriterar innehåll som är inbyggt anpassat till dess proportioner. Vår bildstorleksändrare för sociala medier är inte bara ett tekniskt verktyg – det är din partner för att säkerställa att ditt budskap når fram utan oönskad beskärning eller kvalitetsförlust.',
+      html: 'I dagens digitala ekosystem är det första intrycket visuellt. Varje socialt nätverk arbetar under specifika algoritmer som prioriterar innehåll som är inbyggt anpassat till dess proportioner. Vår bildstorleksändrare för sociala medier är inte bara ett tekniskt verktyg - det är din partner för att säkerställa att ditt budskap når fram utan oönskad beskärning eller kvalitetsförlust.',
     },
     {
       type: 'paragraph',
@@ -105,13 +105,13 @@ export const content: ToolLocaleContent<SocialImageResizerUI> = {
     {
       type: 'grid',
       columns: [
-        { title: 'Instagram — Kvadratiskt inlägg', body: '1080 × 1080 px · Ratio 1:1' },
-        { title: 'Instagram — Vertikalt inlägg', body: '1080 × 1350 px · Ratio 4:5' },
-        { title: 'TikTok / Reels — Vertikalt', body: '1080 × 1920 px · Ratio 9:16' },
-        { title: 'YouTube — Miniatyrbild', body: '1280 × 720 px · Ratio 16:9' },
-        { title: 'YouTube — Kanalbanner', body: '2560 × 1440 px · Ratio 16:9' },
-        { title: 'X (Twitter) — Standardinlägg', body: '1200 × 675 px · Ratio 16:9' },
-        { title: 'LinkedIn — Profilomslag', body: '1584 × 396 px · Ratio 4:1' },
+        { title: 'Instagram: Kvadratiskt inlägg', body: '1080 × 1080 px · Ratio 1:1' },
+        { title: 'Instagram: Vertikalt inlägg', body: '1080 × 1350 px · Ratio 4:5' },
+        { title: 'TikTok / Reels: Vertikalt', body: '1080 × 1920 px · Ratio 9:16' },
+        { title: 'YouTube: Miniatyrbild', body: '1280 × 720 px · Ratio 16:9' },
+        { title: 'YouTube: Kanalbanner', body: '2560 × 1440 px · Ratio 16:9' },
+        { title: 'X (Twitter): Standardinlägg', body: '1200 × 675 px · Ratio 16:9' },
+        { title: 'LinkedIn: Profilomslag', body: '1584 × 396 px · Ratio 4:1' },
       ],
     },
     {

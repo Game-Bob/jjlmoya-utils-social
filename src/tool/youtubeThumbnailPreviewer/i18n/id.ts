@@ -105,7 +105,7 @@ export const content: ToolLocaleContent<YoutubeThumbnailPreviewerUI> = {
     },
     {
       type: 'paragraph',
-      html: 'Dalam ekosistem YouTube, thumbnail adalah pintu gerbang menuju konten Anda. Anda bisa memiliki video terbaik di dunia — pengeditan tingkat Hollywood, skrip layak Oscar — namun jika tidak ada yang mengklik, karya Anda tidak akan terlihat oleh algoritma. Di sinilah <strong>CTR (Click-Through Rate)</strong> berperan, dan thumbnail adalah faktor penentunya.',
+      html: 'Dalam ekosistem YouTube, thumbnail adalah pintu gerbang menuju konten Anda. Anda bisa memiliki video terbaik di dunia - pengeditan tingkat Hollywood, skrip layak Oscar - namun jika tidak ada yang mengklik, karya Anda tidak akan terlihat oleh algoritma. Di sinilah <strong>CTR (Click-Through Rate)</strong> berperan, dan thumbnail adalah faktor penentunya.',
     },
     {
       type: 'title',
@@ -148,7 +148,7 @@ export const content: ToolLocaleContent<YoutubeThumbnailPreviewerUI> = {
     },
     {
       type: 'paragraph',
-      html: 'Otak manusia memproses gambar ribuan kali lebih cepat daripada teks. Namun di YouTube, persaingannya sangat sengit. Thumbnail Anda tidak hanya harus "cantik" — ia harus <strong>terbaca</strong> dan memiliki <strong>kontras</strong>.',
+      html: 'Otak manusia memproses gambar ribuan kali lebih cepat daripada teks. Namun di YouTube, persaingannya sangat sengit. Thumbnail Anda tidak hanya harus "cantik" - ia harus <strong>terbaca</strong> dan memiliki <strong>kontras</strong>.',
     },
     {
       type: 'paragraph',

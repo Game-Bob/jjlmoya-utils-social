@@ -10,14 +10,14 @@ const description =
 
 const faqData = [
   {
-    question: 'La qualità dell’immagine andrà persa durante il ridimensionamento?',
+    question: 'La qualità dell\'immagine andrà persa durante il ridimensionamento?',
     answer:
-      'No, utilizziamo algoritmi di smoothing ad alta qualità. Si raccomanda di caricare un’immagine originale con una risoluzione pari o superiore al formato di destinazione.',
+      'No, utilizziamo algoritmi di smoothing ad alta qualità. Si raccomanda di caricare un\'immagine originale con una risoluzione pari o superiore al formato di destinazione.',
   },
   {
     question: 'È sicuro caricare le mie foto qui?',
     answer:
-      'Completamente. L’elaborazione avviene localmente nel tuo browser tramite le API Canvas. Le tue foto non vengono mai inviate ad alcun server.',
+      'Completamente. L\'elaborazione avviene localmente nel tuo browser tramite le API Canvas. Le tue foto non vengono mai inviate ad alcun server.',
   },
   {
     question: 'Quali formati sono supportati?',
@@ -95,7 +95,7 @@ export const content: ToolLocaleContent<SocialImageResizerUI> = {
     },
     {
       type: 'paragraph',
-      html: 'Sia che tu debba convertire una foto orizzontale in una d’impatto verticale per le Instagram Stories, o adattare un design per un complesso banner di YouTube, la nostra utility utilizza un sistema di ritaglio intelligente che ti permette di posizionare e scalare la tua immagine con precisione direttamente nel tuo browser.',
+      html: 'Sia che tu debba convertire una foto orizzontale in una d\'impatto verticale per le Instagram Stories, o adattare un design per un complesso banner di YouTube, la nostra utility utilizza un sistema di ritaglio intelligente che ti permette di posizionare e scalare la tua immagine con precisione direttamente nel tuo browser.',
     },
     {
       type: 'title',
@@ -105,13 +105,13 @@ export const content: ToolLocaleContent<SocialImageResizerUI> = {
     {
       type: 'grid',
       columns: [
-        { title: 'Instagram — Post Quadrato', body: '1080 × 1080 px · Rapporto 1:1' },
-        { title: 'Instagram — Post Verticale', body: '1080 × 1350 px · Rapporto 4:5' },
-        { title: 'TikTok / Reels — Verticale', body: '1080 × 1920 px · Rapporto 9:16' },
-        { title: 'YouTube — Thumbnail', body: '1280 × 720 px · Rapporto 16:9' },
-        { title: 'YouTube — Banner Canale', body: '2560 × 1440 px · Rapporto 16:9' },
-        { title: 'X (Twitter) — Post Standard', body: '1200 × 675 px · Rapporto 16:9' },
-        { title: 'LinkedIn — Copertina Profilo', body: '1584 × 396 px · Rapporto 4:1' },
+        { title: 'Instagram: Post Quadrato', body: '1080 × 1080 px · Rapporto 1:1' },
+        { title: 'Instagram: Post Verticale', body: '1080 × 1350 px · Rapporto 4:5' },
+        { title: 'TikTok / Reels: Verticale', body: '1080 × 1920 px · Rapporto 9:16' },
+        { title: 'YouTube: Thumbnail', body: '1280 × 720 px · Rapporto 16:9' },
+        { title: 'YouTube: Banner Canale', body: '2560 × 1440 px · Rapporto 16:9' },
+        { title: 'X (Twitter): Post Standard', body: '1200 × 675 px · Rapporto 16:9' },
+        { title: 'LinkedIn: Copertina Profilo', body: '1584 × 396 px · Rapporto 4:1' },
       ],
     },
     {
@@ -123,7 +123,7 @@ export const content: ToolLocaleContent<SocialImageResizerUI> = {
         },
         {
           title: 'Contenuti Short Form',
-          body: 'Per TikTok e Reels, lo standard è 9:16. Questo formato immersivo richiede che il punto focale sia perfettamente allineato per evitare di essere coperto dalla UI dell’app.',
+          body: 'Per TikTok e Reels, lo standard è 9:16. Questo formato immersivo richiede che il punto focale sia perfettamente allineato per evitare di essere coperto dalla UI dell\'app.',
         },
         {
           title: 'Engagement Visivo',
@@ -137,12 +137,12 @@ export const content: ToolLocaleContent<SocialImageResizerUI> = {
     },
     {
       type: 'title',
-      text: 'Perché il Rapporto d’Aspetto è Importante',
+      text: 'Perché il Rapporto d\'Aspetto è Importante',
       level: 3,
     },
     {
       type: 'paragraph',
-      html: 'Il rapporto d’aspetto è la relazione proporzionale tra la larghezza e l’altezza di un’immagine. Ignorarlo costringe le piattaforme a zoomare o aggiungere barre nere, il che penalizza l’estetica e la portata organica.',
+      html: 'Il rapporto d\'aspetto è la relazione proporzionale tra la larghezza e l\'altezza di un\'immagine. Ignorarlo costringe le piattaforme a zoomare o aggiungere barre nere, il che penalizza l\'estetica e la portata organica.',
     },
     {
       type: 'list',
@@ -167,8 +167,8 @@ export const content: ToolLocaleContent<SocialImageResizerUI> = {
       type: 'list',
       items: [
         'Seleziona il tuo formato: scegli la piattaforma e il tipo di pubblicazione dal menu laterale.',
-        'Carica l’immagine: trascina il file o usa il selettore per importare la tua foto.',
-        'Regola l’inquadratura: trascina la foto nell’area visibile e usa lo zoom per la precisione.',
+        'Carica l\'immagine: trascina il file o usa il selettore per importare la tua foto.',
+        'Regola l\'inquadratura: trascina la foto nell\'area visibile e usa lo zoom per la precisione.',
         'Esportazione istantanea: clicca su scarica per avere la tua immagine pronta da pubblicare.',
       ],
     },
