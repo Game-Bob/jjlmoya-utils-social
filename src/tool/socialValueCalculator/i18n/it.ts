@@ -257,6 +257,7 @@ export const content: ToolLocaleContent<SocialValueCalculatorUI> = {
       title: 'Nota per i Creatori',
       html: '<p>Questo strumento è una stima. Regola sempre il prezzo in base alla complessità dei contenuti richiesti dal brand.</p>',
     },
+    { type: 'paragraph', html: 'Il valore dell account è una stima, non un prezzo di vendita garantito. Confronta più scenari e considera pubblico, interazioni e ricavi aggiornati prima di decidere.' },
   ],
   ui: {
     sectionTag: 'Parametri Audit',

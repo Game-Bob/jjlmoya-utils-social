@@ -257,6 +257,7 @@ export const content: ToolLocaleContent<SocialValueCalculatorUI> = {
       title: 'Hinweis für Creator',
       html: '<p>Dieses Tool liefert Schätzwerte. Passen Sie den Preis immer an die Komplexität des angeforderten Inhalts an.</p>',
     },
+    { type: 'paragraph', html: 'Der berechnete Wert ist eine Orientierung, kein garantierter Verkaufspreis. Vergleiche mehrere Szenarien und ergänze aktuelle Zielgruppe, Engagement und Einnahmen, bevor du eine Geschäftsentscheidung triffst.' },
   ],
   ui: {
     sectionTag: 'Audit-Parameter',

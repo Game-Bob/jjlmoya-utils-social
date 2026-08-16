@@ -257,6 +257,7 @@ export const content: ToolLocaleContent<SocialValueCalculatorUI> = {
       title: 'Catatan untuk Kreator',
       html: '<p>Alat ini adalah perkiraan. Selalu sesuaikan harga berdasarkan kompleksitas konten yang diminta oleh merek.</p>',
     },
+    { type: 'paragraph', html: 'Nilai akun adalah perkiraan, bukan harga jual yang dijamin. Bandingkan beberapa skenario dan pertimbangkan audiens, engagement, serta pendapatan terbaru sebelum mengambil keputusan.' },
   ],
   ui: {
     sectionTag: 'Parameter Audit',

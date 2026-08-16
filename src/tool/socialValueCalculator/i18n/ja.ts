@@ -257,6 +257,7 @@ export const content: ToolLocaleContent<SocialValueCalculatorUI> = {
       title: 'クリエイターへの注意',
       html: '<p>このツールは推定値です。常にブランドから依頼されたコンテンツの複雑さに合わせて価格を調整してください。</p>',
     },
+    { type: 'paragraph', html: 'アカウント価値は売却価格を保証するものではなく、あくまで目安です。決定する前に複数のシナリオを比べ、フォロワー層、反応率、最新の収益も確認してください。' },
   ],
   ui: {
     sectionTag: '監査パラメータ',

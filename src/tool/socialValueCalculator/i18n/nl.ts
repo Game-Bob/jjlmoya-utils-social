@@ -257,6 +257,7 @@ export const content: ToolLocaleContent<SocialValueCalculatorUI> = {
       title: 'Opmerking voor Creators',
       html: '<p>Deze tool is een schatting. Pas de prijs altijd aan op basis van de complexiteit van de door het merk gevraagde content.</p>',
     },
+    { type: 'paragraph', html: 'De berekende accountwaarde is een indicatie en geen gegarandeerde verkoopprijs. Vergelijk scenario\'s en controleer doelgroep, betrokkenheid en recente inkomsten voordat je beslist.' },
   ],
   ui: {
     sectionTag: 'Audit Parameters',

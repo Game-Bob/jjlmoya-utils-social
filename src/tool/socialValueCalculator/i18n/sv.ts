@@ -257,6 +257,7 @@ export const content: ToolLocaleContent<SocialValueCalculatorUI> = {
       title: 'Notering för skapare',
       html: '<p>Detta verktyg är en uppskattning. Justera alltid priset baserat på komplexiteten i det innehåll som varumärket efterfrågat.</p>',
     },
+    { type: 'paragraph', html: 'Det beräknade kontovärdet är en uppskattning, inte ett garanterat försäljningspris. Jämför scenarier och kontrollera målgrupp, engagemang och aktuella intäkter innan du beslutar.' },
   ],
   ui: {
     sectionTag: 'Granskningsparametrar',

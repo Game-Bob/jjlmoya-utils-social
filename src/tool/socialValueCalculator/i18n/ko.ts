@@ -257,6 +257,7 @@ export const content: ToolLocaleContent<SocialValueCalculatorUI> = {
       title: '크리에이터를 위한 참고 사항',
       html: '<p>이 도구는 추정치입니다. 브랜드가 요청하는 콘텐츠의 복잡도에 따라 가격을 항상 조정하십시오.</p>',
     },
+    { type: 'paragraph', html: '계산된 계정 가치는 보장된 판매 가격이 아니라 참고용 추정치입니다. 결정을 내리기 전에 여러 시나리오를 비교하고 잠재고객, 참여도, 최신 수익을 함께 확인하세요.' },
   ],
   ui: {
     sectionTag: '검토 파라미터',

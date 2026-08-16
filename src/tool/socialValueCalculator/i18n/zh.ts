@@ -257,6 +257,7 @@ export const content: ToolLocaleContent<SocialValueCalculatorUI> = {
       title: '创作者注',
       html: '<p>此工具仅为估算值。请务必根据品牌方要求的内容复杂程度调整价格。</p>',
     },
+    { type: 'paragraph', html: '计算出的账号价值只是参考估算，并不保证实际售价。做决定前请比较不同情景，并结合受众、互动率和最新收入进行判断。' },
   ],
   ui: {
     sectionTag: '审计参数',

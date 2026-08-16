@@ -257,6 +257,7 @@ export const content: ToolLocaleContent<SocialValueCalculatorUI> = {
       title: 'Notka dla twórców',
       html: '<p>To narzędzie podaje szacunki. Zawsze dostosowuj cenę do poziomu trudności materiału, o który prosi marka.</p>',
     },
+    { type: 'paragraph', html: 'Wyliczona wartość konta jest wskazówką, a nie gwarantowaną ceną sprzedaży. Przed decyzją porównaj scenariusze oraz sprawdź odbiorców, zaangażowanie i aktualne przychody.' },
   ],
   ui: {
     sectionTag: 'Parametry audytu',

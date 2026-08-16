@@ -257,6 +257,7 @@ export const content: ToolLocaleContent<SocialValueCalculatorUI> = {
       title: 'Üreticiler için Not',
       html: '<p>Bu araç bir tahmindir. Fiyatı her zaman marka tarafından talep edilen içeriğin karmaşıklığına göre ayarlayın.</p>',
     },
+    { type: 'paragraph', html: 'Hesaplanan hesap değeri garanti edilmiş satış fiyatı değil, bir tahmindir. Karar vermeden önce senaryoları karşılaştırın ve kitleyi, etkileşimi ve güncel geliri değerlendirin.' },
   ],
   ui: {
     sectionTag: 'Denetim Parametreleri',

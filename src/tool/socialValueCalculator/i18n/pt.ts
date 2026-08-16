@@ -257,6 +257,7 @@ export const content: ToolLocaleContent<SocialValueCalculatorUI> = {
       title: 'Nota para Criadores',
       html: '<p>Esta ferramenta é uma estimativa. Ajuste sempre o preço com base na complexidade do conteúdo solicitado pela marca.</p>',
     },
+    { type: 'paragraph', html: 'O valor calculado da conta é uma orientação, não um preço de venda garantido. Compare vários cenários e confirme público, envolvimento e receitas recentes antes de decidir.' },
   ],
   ui: {
     sectionTag: 'Parâmetros de Auditoria',
