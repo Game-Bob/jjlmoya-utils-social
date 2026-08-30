@@ -13,7 +13,7 @@ export const content: CategoryLocaleContent = {
     },
     {
       type: 'paragraph',
-      html: 'El contenido vertical ha revolucionado el consumo digital. TikTok, Instagram Reels y YouTube Shorts compiten por los mismos segundos de atención y cada pixel cuenta. Esta colección de utilidades nace de la necesidad de optimizar y verificar el contenido antes de publicarlo, garantizando que cada creación se vea exactamente como fue diseñada.',
+      html: 'El contenido vertical ha revolucionado el consumo digital. TikTok, Instagram Reels y YouTube Shorts compiten por los mismos segundos de atención y cada píxel cuenta. Esta colección de utilidades nace para optimizar y revisar el contenido antes de publicarlo, comprobando cómo se verá en cada formato.',
     },
     {
       type: 'paragraph',
