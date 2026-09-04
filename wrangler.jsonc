@@ -7,179 +7,91 @@
     "preview_urls": true,
     "routes": [
         {
-            "pattern": "www.jjlmoya.es/utilidades/categorias/redes-sociales",
+            "pattern": "www.jjlmoya.es/utilidades/categorias/redes-sociales*",
             "zone_name": "jjlmoya.es"
         },
         {
-            "pattern": "www.jjlmoya.es/utilidades/categorias/redes-sociales/*",
+            "pattern": "www.jjlmoya.es/utilidades/formateador-reddit*",
             "zone_name": "jjlmoya.es"
         },
         {
-            "pattern": "www.jjlmoya.es/utilidades/formateador-reddit",
+            "pattern": "www.jjlmoya.es/utilidades/simulador-redes*",
             "zone_name": "jjlmoya.es"
         },
         {
-            "pattern": "www.jjlmoya.es/utilidades/formateador-reddit/*",
+            "pattern": "www.jjlmoya.es/utilidades/redimensionador-imagenes-rrss*",
             "zone_name": "jjlmoya.es"
         },
         {
-            "pattern": "www.jjlmoya.es/utilidades/simulador-redes",
+            "pattern": "www.jjlmoya.es/utilidades/calculadora-valor-cuenta-redes-sociales*",
             "zone_name": "jjlmoya.es"
         },
         {
-            "pattern": "www.jjlmoya.es/utilidades/simulador-redes/*",
+            "pattern": "www.jjlmoya.es/utilidades/optimizador-fotos-tinder*",
             "zone_name": "jjlmoya.es"
         },
         {
-            "pattern": "www.jjlmoya.es/utilidades/redimensionador-imagenes-rrss",
+            "pattern": "www.jjlmoya.es/utilidades/extractor-miniaturas-youtube*",
             "zone_name": "jjlmoya.es"
         },
         {
-            "pattern": "www.jjlmoya.es/utilidades/redimensionador-imagenes-rrss/*",
+            "pattern": "www.jjlmoya.es/utilidades/previsualizador-miniaturas-youtube*",
             "zone_name": "jjlmoya.es"
         },
         {
-            "pattern": "www.jjlmoya.es/utilidades/calculadora-valor-cuenta-redes-sociales",
-            "zone_name": "jjlmoya.es"
-        },
-        {
-            "pattern": "www.jjlmoya.es/utilidades/calculadora-valor-cuenta-redes-sociales/*",
-            "zone_name": "jjlmoya.es"
-        },
-        {
-            "pattern": "www.jjlmoya.es/utilidades/optimizador-fotos-tinder",
-            "zone_name": "jjlmoya.es"
-        },
-        {
-            "pattern": "www.jjlmoya.es/utilidades/optimizador-fotos-tinder/*",
-            "zone_name": "jjlmoya.es"
-        },
-        {
-            "pattern": "www.jjlmoya.es/utilidades/extractor-miniaturas-youtube",
-            "zone_name": "jjlmoya.es"
-        },
-        {
-            "pattern": "www.jjlmoya.es/utilidades/extractor-miniaturas-youtube/*",
-            "zone_name": "jjlmoya.es"
-        },
-        {
-            "pattern": "www.jjlmoya.es/utilidades/previsualizador-miniaturas-youtube",
-            "zone_name": "jjlmoya.es"
-        },
-        {
-            "pattern": "www.jjlmoya.es/utilidades/previsualizador-miniaturas-youtube/*",
-            "zone_name": "jjlmoya.es"
-        },
-        {
-            "pattern": "www.gamebob.dev/en/utilities/categories/social-media",
+            "pattern": "www.gamebob.dev/en/utilities/categories/social-media*",
             "zone_name": "gamebob.dev"
         },
         {
-            "pattern": "www.gamebob.dev/en/utilities/categories/social-media/*",
+            "pattern": "www.gamebob.dev/fr/utilitaires/categories/reseaux-sociaux*",
             "zone_name": "gamebob.dev"
         },
         {
-            "pattern": "www.gamebob.dev/fr/utilitaires/categories/reseaux-sociaux",
+            "pattern": "www.gamebob.dev/de/werkzeuge/kategorien/social-media*",
             "zone_name": "gamebob.dev"
         },
         {
-            "pattern": "www.gamebob.dev/fr/utilitaires/categories/reseaux-sociaux/*",
+            "pattern": "www.gamebob.dev/it/utilita/categorie/social-media*",
             "zone_name": "gamebob.dev"
         },
         {
-            "pattern": "www.gamebob.dev/de/werkzeuge/kategorien/social-media",
+            "pattern": "www.gamebob.dev/pt/utilidades/categorias/redes-sociais*",
             "zone_name": "gamebob.dev"
         },
         {
-            "pattern": "www.gamebob.dev/de/werkzeuge/kategorien/social-media/*",
+            "pattern": "www.gamebob.dev/nl/hulpmiddelen/categorieen/sociale-media*",
             "zone_name": "gamebob.dev"
         },
         {
-            "pattern": "www.gamebob.dev/it/utilita/categorie/social-media",
+            "pattern": "www.gamebob.dev/sv/verktyg/kategorier/sociala-medier*",
             "zone_name": "gamebob.dev"
         },
         {
-            "pattern": "www.gamebob.dev/it/utilita/categorie/social-media/*",
+            "pattern": "www.gamebob.dev/pl/narzedzia/kategorie/media-spolecznosciowe*",
             "zone_name": "gamebob.dev"
         },
         {
-            "pattern": "www.gamebob.dev/pt/utilidades/categorias/redes-sociais",
+            "pattern": "www.gamebob.dev/id/utilitas/kategori/media-sosial*",
             "zone_name": "gamebob.dev"
         },
         {
-            "pattern": "www.gamebob.dev/pt/utilidades/categorias/redes-sociais/*",
+            "pattern": "www.gamebob.dev/tr/araclar/kategoriler/sosyal-medya*",
             "zone_name": "gamebob.dev"
         },
         {
-            "pattern": "www.gamebob.dev/nl/hulpmiddelen/categorieen/sociale-media",
+            "pattern": "www.gamebob.dev/ru/instrumenty/kategorii/socialnyje-seti*",
             "zone_name": "gamebob.dev"
         },
         {
-            "pattern": "www.gamebob.dev/nl/hulpmiddelen/categorieen/sociale-media/*",
+            "pattern": "www.gamebob.dev/ja/utilities/categories/social-media*",
             "zone_name": "gamebob.dev"
         },
         {
-            "pattern": "www.gamebob.dev/sv/verktyg/kategorier/sociala-medier",
+            "pattern": "www.gamebob.dev/ko/utilities/categories/social-media*",
             "zone_name": "gamebob.dev"
         },
         {
-            "pattern": "www.gamebob.dev/sv/verktyg/kategorier/sociala-medier/*",
-            "zone_name": "gamebob.dev"
-        },
-        {
-            "pattern": "www.gamebob.dev/pl/narzedzia/kategorie/media-spolecznosciowe",
-            "zone_name": "gamebob.dev"
-        },
-        {
-            "pattern": "www.gamebob.dev/pl/narzedzia/kategorie/media-spolecznosciowe/*",
-            "zone_name": "gamebob.dev"
-        },
-        {
-            "pattern": "www.gamebob.dev/id/utilitas/kategori/media-sosial",
-            "zone_name": "gamebob.dev"
-        },
-        {
-            "pattern": "www.gamebob.dev/id/utilitas/kategori/media-sosial/*",
-            "zone_name": "gamebob.dev"
-        },
-        {
-            "pattern": "www.gamebob.dev/tr/araclar/kategoriler/sosyal-medya",
-            "zone_name": "gamebob.dev"
-        },
-        {
-            "pattern": "www.gamebob.dev/tr/araclar/kategoriler/sosyal-medya/*",
-            "zone_name": "gamebob.dev"
-        },
-        {
-            "pattern": "www.gamebob.dev/ru/instrumenty/kategorii/socialnyje-seti",
-            "zone_name": "gamebob.dev"
-        },
-        {
-            "pattern": "www.gamebob.dev/ru/instrumenty/kategorii/socialnyje-seti/*",
-            "zone_name": "gamebob.dev"
-        },
-        {
-            "pattern": "www.gamebob.dev/ja/utilities/categories/social-media",
-            "zone_name": "gamebob.dev"
-        },
-        {
-            "pattern": "www.gamebob.dev/ja/utilities/categories/social-media/*",
-            "zone_name": "gamebob.dev"
-        },
-        {
-            "pattern": "www.gamebob.dev/ko/utilities/categories/social-media",
-            "zone_name": "gamebob.dev"
-        },
-        {
-            "pattern": "www.gamebob.dev/ko/utilities/categories/social-media/*",
-            "zone_name": "gamebob.dev"
-        },
-        {
-            "pattern": "www.gamebob.dev/zh/utilities/categories/social-media",
-            "zone_name": "gamebob.dev"
-        },
-        {
-            "pattern": "www.gamebob.dev/zh/utilities/categories/social-media/*",
+            "pattern": "www.gamebob.dev/zh/utilities/categories/social-media*",
             "zone_name": "gamebob.dev"
         },
         {
