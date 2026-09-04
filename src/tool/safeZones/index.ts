@@ -1,3 +1,4 @@
+import type { ToolDefinition } from '../../types';
 import { safeZones } from './entry';
 export * from './entry';
 export const SAFE_ZONES_TOOL: ToolDefinition = {

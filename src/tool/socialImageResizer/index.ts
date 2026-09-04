@@ -1,3 +1,4 @@
+import type { ToolDefinition } from '../../types';
 import { socialImageResizer } from './entry';
 export * from './entry';
 export const SOCIAL_IMAGE_RESIZER_TOOL: ToolDefinition = {
