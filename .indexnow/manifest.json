@@ -1,0 +1,486 @@
+{
+  "version": 1,
+  "generatedAt": "2026-09-04T06:55:40.385Z",
+  "pages": {
+    "https://www.gamebob.dev/de/werkzeuge/kategorien/social-media/bildgroesse-social-media-anpassen/": {
+      "hash": "9e381de03d07c5cf8dced1026ccb7b48e94de72669b3c6b1feaa9adf082a3dc1",
+      "route": "/de/werkzeuge/kategorien/social-media/bildgroesse-social-media-anpassen/"
+    },
+    "https://www.gamebob.dev/de/werkzeuge/kategorien/social-media/": {
+      "hash": "95ea5f1929acc2abf97e4bf76fca452c9dfdb36d36e4876635aada5b7c1727aa",
+      "route": "/de/werkzeuge/kategorien/social-media/"
+    },
+    "https://www.gamebob.dev/de/werkzeuge/kategorien/social-media/reddit-text-formatierer/": {
+      "hash": "ce611dead8961fd5a0abf0716ecbe688d9d65a2d1b2a04deef18bf5ebd5c415f",
+      "route": "/de/werkzeuge/kategorien/social-media/reddit-text-formatierer/"
+    },
+    "https://www.gamebob.dev/de/werkzeuge/kategorien/social-media/soziale-sicherheitszonen/": {
+      "hash": "b050299b42dbb6f1e4ccbd5a95fdaf63d8fed6cc715d735868d59d41c5ed8268",
+      "route": "/de/werkzeuge/kategorien/social-media/soziale-sicherheitszonen/"
+    },
+    "https://www.gamebob.dev/de/werkzeuge/kategorien/social-media/tinder-foto-optimierer/": {
+      "hash": "056ce6943a74ce3f9d803f79b131435a1a38dd2e32c2d71a9ac66d35aef1e98f",
+      "route": "/de/werkzeuge/kategorien/social-media/tinder-foto-optimierer/"
+    },
+    "https://www.gamebob.dev/de/werkzeuge/kategorien/social-media/wertrechner-social-media-account/": {
+      "hash": "7ece792f432fadd6c06f6d98911912efcb6b402eae7730839ddae90761247b4f",
+      "route": "/de/werkzeuge/kategorien/social-media/wertrechner-social-media-account/"
+    },
+    "https://www.gamebob.dev/de/werkzeuge/kategorien/social-media/youtube-thumbnail-herunterladen-hd/": {
+      "hash": "bd0e84423c493b7164c301e601bd93d73b8395dc1c17d3376ab70714c728de68",
+      "route": "/de/werkzeuge/kategorien/social-media/youtube-thumbnail-herunterladen-hd/"
+    },
+    "https://www.gamebob.dev/de/werkzeuge/kategorien/social-media/youtube-thumbnail-vorschau/": {
+      "hash": "a95b2a8be645f3d0cf51915dfc02e1dc543a0a94c3c554db74c6f1b916059939",
+      "route": "/de/werkzeuge/kategorien/social-media/youtube-thumbnail-vorschau/"
+    },
+    "https://www.gamebob.dev/en/utilities/categories/social-media/": {
+      "hash": "d890c72444a928a568d56c99a9bc96bc08e338cb1224b3832c0c6067844e3c6e",
+      "route": "/en/utilities/categories/social-media/"
+    },
+    "https://www.gamebob.dev/en/utilities/categories/social-media/reddit-text-formatter/": {
+      "hash": "fd13d2de688444d5740abafe4414d2983b1fed2a9b80d6eb689ea3380280d379",
+      "route": "/en/utilities/categories/social-media/reddit-text-formatter/"
+    },
+    "https://www.gamebob.dev/en/utilities/categories/social-media/social-account-value-calculator/": {
+      "hash": "813f34e97bd49477e0b1cc452d1f69974d247e2952c679f1b94ce6d3faacc8ed",
+      "route": "/en/utilities/categories/social-media/social-account-value-calculator/"
+    },
+    "https://www.gamebob.dev/en/utilities/categories/social-media/social-media-image-resizer/": {
+      "hash": "3f2a97547383b2b59bbcb318a6fff15e1089dcac92474e1754901ec7cf3891c8",
+      "route": "/en/utilities/categories/social-media/social-media-image-resizer/"
+    },
+    "https://www.gamebob.dev/en/utilities/categories/social-media/social-safe-zones/": {
+      "hash": "fff08b7db87a9a172b4e9ce3628091cc26aebd961d427cc16cc45e0d0b7acb3e",
+      "route": "/en/utilities/categories/social-media/social-safe-zones/"
+    },
+    "https://www.gamebob.dev/en/utilities/categories/social-media/tinder-photo-optimizer/": {
+      "hash": "cedc1210308ace4607e02e9f7ed7333940ee35b329758b187d96d86c37c94cb9",
+      "route": "/en/utilities/categories/social-media/tinder-photo-optimizer/"
+    },
+    "https://www.gamebob.dev/en/utilities/categories/social-media/youtube-thumbnail-extractor/": {
+      "hash": "b55493d12f484cd73186188f69addb1ba396a280a7ce01ac96cd76bba18f1f16",
+      "route": "/en/utilities/categories/social-media/youtube-thumbnail-extractor/"
+    },
+    "https://www.gamebob.dev/en/utilities/categories/social-media/youtube-thumbnail-previewer/": {
+      "hash": "990a957fda38859903618276110c5c06486e16506cb4afd57993cace36f8dcfa",
+      "route": "/en/utilities/categories/social-media/youtube-thumbnail-previewer/"
+    },
+    "https://www.gamebob.dev/fr/utilitaires/categories/reseaux-sociaux/apercu-miniatures-youtube/": {
+      "hash": "af0afcde65442557b8a82212742a9b5407a3d346c1173afaf0861a3d55453a34",
+      "route": "/fr/utilitaires/categories/reseaux-sociaux/apercu-miniatures-youtube/"
+    },
+    "https://www.gamebob.dev/fr/utilitaires/categories/reseaux-sociaux/calculateur-valeur-compte-reseaux-sociaux/": {
+      "hash": "d4ef7a4011f7e34797aafac2b2d8d7468cf7101e39feb1874ccf81ac5c500b45",
+      "route": "/fr/utilitaires/categories/reseaux-sociaux/calculateur-valeur-compte-reseaux-sociaux/"
+    },
+    "https://www.gamebob.dev/fr/utilitaires/categories/reseaux-sociaux/extracteur-miniatures-youtube/": {
+      "hash": "113e730becdc042a197b6a77f51e06d8bbee7c7baf88fc596108e14af647d727",
+      "route": "/fr/utilitaires/categories/reseaux-sociaux/extracteur-miniatures-youtube/"
+    },
+    "https://www.gamebob.dev/fr/utilitaires/categories/reseaux-sociaux/formateur-reddit/": {
+      "hash": "40a6aef7063f16c98f31cf60f2569bab0bef5c64bd0f92b001e2133cd46fb591",
+      "route": "/fr/utilitaires/categories/reseaux-sociaux/formateur-reddit/"
+    },
+    "https://www.gamebob.dev/fr/utilitaires/categories/reseaux-sociaux/": {
+      "hash": "927a82e4322abaac31ff2aa8bfa6bcda4ac37f69a0a11bc0be456cc70bae18ca",
+      "route": "/fr/utilitaires/categories/reseaux-sociaux/"
+    },
+    "https://www.gamebob.dev/fr/utilitaires/categories/reseaux-sociaux/optimiseur-photos-tinder/": {
+      "hash": "7ef97a40fe278151625e737992d74ee12b99ebf8aecbaa406caa06506c711fc5",
+      "route": "/fr/utilitaires/categories/reseaux-sociaux/optimiseur-photos-tinder/"
+    },
+    "https://www.gamebob.dev/fr/utilitaires/categories/reseaux-sociaux/redimensionneur-images-reseaux-sociaux/": {
+      "hash": "84c21421145bab19f26e7d48be3936cd4cbc2f460c2418272a84d20e1b7ebc08",
+      "route": "/fr/utilitaires/categories/reseaux-sociaux/redimensionneur-images-reseaux-sociaux/"
+    },
+    "https://www.gamebob.dev/fr/utilitaires/categories/reseaux-sociaux/simulateur-reseaux/": {
+      "hash": "57ad6c9eb722c751bbeaba8fb2f470b445ccaffefbce9a9967854913eaa78563",
+      "route": "/fr/utilitaires/categories/reseaux-sociaux/simulateur-reseaux/"
+    },
+    "https://www.gamebob.dev/id/utilitas/kategori/media-sosial/": {
+      "hash": "ed1516f9a17c93a3c2ac0a682a4653268aa7446b199a1be448f73655d361b57a",
+      "route": "/id/utilitas/kategori/media-sosial/"
+    },
+    "https://www.gamebob.dev/id/utilitas/kategori/media-sosial/kalkulator-nilai-akun-sosial/": {
+      "hash": "a62291e39f046e828338a47e86c7c1d18b7c59eb03f4994ca206d91cafa0d0e8",
+      "route": "/id/utilitas/kategori/media-sosial/kalkulator-nilai-akun-sosial/"
+    },
+    "https://www.gamebob.dev/id/utilitas/kategori/media-sosial/pemformat-teks-reddit/": {
+      "hash": "209e46e374d5f0da64512cbef4bbe627c4c3251a1baa2639a43e87415f8f8c66",
+      "route": "/id/utilitas/kategori/media-sosial/pemformat-teks-reddit/"
+    },
+    "https://www.gamebob.dev/id/utilitas/kategori/media-sosial/pengoptimasi-foto-tinder/": {
+      "hash": "fc6e96ef1cc7c1b1ad9fc493a40face4c3c5551f6cdf8cd1fd52439d0e7bcc8f",
+      "route": "/id/utilitas/kategori/media-sosial/pengoptimasi-foto-tinder/"
+    },
+    "https://www.gamebob.dev/id/utilitas/kategori/media-sosial/pengubah-ukuran-gambar-media-sosial/": {
+      "hash": "b6b8692e88921fb8ac0a51214c30c77484fa9debf3b2f0ac07da7a3e8dfa8dc3",
+      "route": "/id/utilitas/kategori/media-sosial/pengubah-ukuran-gambar-media-sosial/"
+    },
+    "https://www.gamebob.dev/id/utilitas/kategori/media-sosial/pengunduh-thumbnail-youtube-hd/": {
+      "hash": "2c6ea98a6436b61e9c3a57d41a306bbe7841a54a6e000dcfe33239127d204d7c",
+      "route": "/id/utilitas/kategori/media-sosial/pengunduh-thumbnail-youtube-hd/"
+    },
+    "https://www.gamebob.dev/id/utilitas/kategori/media-sosial/previsualisasi-thumbnail-youtube/": {
+      "hash": "23819c6c0930f9b7da1428852867cc5a770538f163937fe564c9a5a072b44be8",
+      "route": "/id/utilitas/kategori/media-sosial/previsualisasi-thumbnail-youtube/"
+    },
+    "https://www.gamebob.dev/id/utilitas/kategori/media-sosial/zona-aman-sosial/": {
+      "hash": "df3386bda3ceb93529ea08c3e80825755c4c76bb2e6f4c019104439973e11992",
+      "route": "/id/utilitas/kategori/media-sosial/zona-aman-sosial/"
+    },
+    "https://www.gamebob.dev/it/utilita/categorie/social-media/anteprima-miniature-youtube/": {
+      "hash": "f6d607fe8a526c876cec5baf6f1055ffeda7b9947aa0b26d7ef5d528531874c9",
+      "route": "/it/utilita/categorie/social-media/anteprima-miniature-youtube/"
+    },
+    "https://www.gamebob.dev/it/utilita/categorie/social-media/calcolatore-valore-account-social/": {
+      "hash": "c55271dd741df46535ad1e61423f1b4629b2e466db395b8f276cae17b3ea1765",
+      "route": "/it/utilita/categorie/social-media/calcolatore-valore-account-social/"
+    },
+    "https://www.gamebob.dev/it/utilita/categorie/social-media/estrattore-miniature-youtube/": {
+      "hash": "034fd74a42d4eee5a57d839b2e12504dc4bc05471580b573983e4e20eb8ed94a",
+      "route": "/it/utilita/categorie/social-media/estrattore-miniature-youtube/"
+    },
+    "https://www.gamebob.dev/it/utilita/categorie/social-media/formattatore-testo-reddit/": {
+      "hash": "aa28caa56bca4aea52dd7ec36fd3b10bf30cf9381b58fcb85a04f1ed3ab07e03",
+      "route": "/it/utilita/categorie/social-media/formattatore-testo-reddit/"
+    },
+    "https://www.gamebob.dev/it/utilita/categorie/social-media/": {
+      "hash": "fc7a191d6bba6ef1c59b562a1a5ee18449b6ceae50104ddfb620c792601c4162",
+      "route": "/it/utilita/categorie/social-media/"
+    },
+    "https://www.gamebob.dev/it/utilita/categorie/social-media/ottimizzatore-foto-tinder/": {
+      "hash": "2569e4515a80e0fdf9c07a91e122680fd73eb06ca4f2616c8db92852e97367fb",
+      "route": "/it/utilita/categorie/social-media/ottimizzatore-foto-tinder/"
+    },
+    "https://www.gamebob.dev/it/utilita/categorie/social-media/ridimensiona-immagini-social-media/": {
+      "hash": "f26c66d48744bc11d5a3bd47b89124aba711862a32664ba306f9e58c402dde63",
+      "route": "/it/utilita/categorie/social-media/ridimensiona-immagini-social-media/"
+    },
+    "https://www.gamebob.dev/it/utilita/categorie/social-media/zone-sicure-social/": {
+      "hash": "712dfdc96f9c9d2e76def303ab4e49511beb35749970ac209f71dfd2c2610388",
+      "route": "/it/utilita/categorie/social-media/zone-sicure-social/"
+    },
+    "https://www.gamebob.dev/ja/utilities/categories/social-media/": {
+      "hash": "4300f348d68a89166c3aeda63a131a1d09e017aa53f2b6d173538e486c33f82a",
+      "route": "/ja/utilities/categories/social-media/"
+    },
+    "https://www.gamebob.dev/ja/utilities/categories/social-media/reddit-text-formatter/": {
+      "hash": "e4d3eba118e10c028b8d4e7023cc1e2c103063881ea88964868c849e7ce31ce7",
+      "route": "/ja/utilities/categories/social-media/reddit-text-formatter/"
+    },
+    "https://www.gamebob.dev/ja/utilities/categories/social-media/social-account-value-calculator/": {
+      "hash": "9ae288d991911942896d8d1dae7ce48f4c3f320564fb03d34935e1b14eccabb1",
+      "route": "/ja/utilities/categories/social-media/social-account-value-calculator/"
+    },
+    "https://www.gamebob.dev/ja/utilities/categories/social-media/social-media-image-resizer/": {
+      "hash": "40960c062041e8119599601de75aa80d7ac8a96bead706144f9af62b7998dbca",
+      "route": "/ja/utilities/categories/social-media/social-media-image-resizer/"
+    },
+    "https://www.gamebob.dev/ja/utilities/categories/social-media/social-safe-zones/": {
+      "hash": "dcd19aeaaa2393d5f853d150a0d53ea31e04f4318dacc270f31767574254c934",
+      "route": "/ja/utilities/categories/social-media/social-safe-zones/"
+    },
+    "https://www.gamebob.dev/ja/utilities/categories/social-media/tinder-photo-optimizer/": {
+      "hash": "fc3bd73f1a91f406d1dd6f13c416120ec54ff6b900dc0829efa8c01b7f820b77",
+      "route": "/ja/utilities/categories/social-media/tinder-photo-optimizer/"
+    },
+    "https://www.gamebob.dev/ja/utilities/categories/social-media/youtube-thumbnail-extractor/": {
+      "hash": "a3687119a769cd422c7ec9bd1916ddf3b52b394b50acae71bdc488a9a5fa2fe7",
+      "route": "/ja/utilities/categories/social-media/youtube-thumbnail-extractor/"
+    },
+    "https://www.gamebob.dev/ja/utilities/categories/social-media/youtube-thumbnail-previewer/": {
+      "hash": "ce1ad40cb6f4ac6d5f1c7f680122a45db6322a13cc8590fb4692958d33e1c572",
+      "route": "/ja/utilities/categories/social-media/youtube-thumbnail-previewer/"
+    },
+    "https://www.gamebob.dev/ko/utilities/categories/social-media/": {
+      "hash": "13f84a58cd98b275c1306b031a29ef09490b3e92e6194e3601cde2a392631081",
+      "route": "/ko/utilities/categories/social-media/"
+    },
+    "https://www.gamebob.dev/ko/utilities/categories/social-media/reddit-text-formatter/": {
+      "hash": "1dc881e8b11846416999c6be1077ac15d6edcbe0e0456bae31e3b7da65de531d",
+      "route": "/ko/utilities/categories/social-media/reddit-text-formatter/"
+    },
+    "https://www.gamebob.dev/ko/utilities/categories/social-media/social-account-value-calculator/": {
+      "hash": "5a3b006263fb7ea0818a07387293a0dbb1a34f2d148730c065607f4f5c9adbf0",
+      "route": "/ko/utilities/categories/social-media/social-account-value-calculator/"
+    },
+    "https://www.gamebob.dev/ko/utilities/categories/social-media/social-media-image-resizer/": {
+      "hash": "875d052281b8f01713a31b61c84ef2dab08edcf7846163622e9d1b6cd607a156",
+      "route": "/ko/utilities/categories/social-media/social-media-image-resizer/"
+    },
+    "https://www.gamebob.dev/ko/utilities/categories/social-media/social-safe-zones/": {
+      "hash": "9e783bc2ef0b45aceb778c5ae7173710a266944a865f6daed0ca2323761801d5",
+      "route": "/ko/utilities/categories/social-media/social-safe-zones/"
+    },
+    "https://www.gamebob.dev/ko/utilities/categories/social-media/tinder-photo-optimizer/": {
+      "hash": "2973ed36c082a57ec5cdfa427f3c07df72c8a76cf98a07d85dd5fd37b3b38d97",
+      "route": "/ko/utilities/categories/social-media/tinder-photo-optimizer/"
+    },
+    "https://www.gamebob.dev/ko/utilities/categories/social-media/youtube-thumbnail-extractor/": {
+      "hash": "736be4c0add3844b92ac83af07f8d1937cf7abab28d5d814b4336a80e3cfba80",
+      "route": "/ko/utilities/categories/social-media/youtube-thumbnail-extractor/"
+    },
+    "https://www.gamebob.dev/ko/utilities/categories/social-media/youtube-thumbnail-previewer/": {
+      "hash": "b849bcd486f9b6f76ce8373761d4a3c7f08c8703be662ce352e7158105529f4b",
+      "route": "/ko/utilities/categories/social-media/youtube-thumbnail-previewer/"
+    },
+    "https://www.gamebob.dev/nl/hulpmiddelen/categorieen/sociale-media/afbeelding-formaat-social-media-aanpassen/": {
+      "hash": "ddb402db1a1b611b6e7e638045e930c51f01126fc0403b65bbb00f6a0e84785d",
+      "route": "/nl/hulpmiddelen/categorieen/sociale-media/afbeelding-formaat-social-media-aanpassen/"
+    },
+    "https://www.gamebob.dev/nl/hulpmiddelen/categorieen/sociale-media/": {
+      "hash": "0e8bb1cb823505a7ac777485e285e80b27a3c175c2cc5d84fbcde505cdb8759a",
+      "route": "/nl/hulpmiddelen/categorieen/sociale-media/"
+    },
+    "https://www.gamebob.dev/nl/hulpmiddelen/categorieen/sociale-media/reddit-tekst-formateerder/": {
+      "hash": "424d039ca8e49c69133849210256725ca55eaf1ed9b391f1d6cdd6cc0b952388",
+      "route": "/nl/hulpmiddelen/categorieen/sociale-media/reddit-tekst-formateerder/"
+    },
+    "https://www.gamebob.dev/nl/hulpmiddelen/categorieen/sociale-media/social-media-account-waarde-calculator/": {
+      "hash": "633e85fbc5718515850c996ef710206e42b9ed2d5bcf0a48fb274c0156c27b15",
+      "route": "/nl/hulpmiddelen/categorieen/sociale-media/social-media-account-waarde-calculator/"
+    },
+    "https://www.gamebob.dev/nl/hulpmiddelen/categorieen/sociale-media/sociale-veilige-zones/": {
+      "hash": "739cd90778c014574012197a4757e5d505154ce12069ad89f1a44de8e2772705",
+      "route": "/nl/hulpmiddelen/categorieen/sociale-media/sociale-veilige-zones/"
+    },
+    "https://www.gamebob.dev/nl/hulpmiddelen/categorieen/sociale-media/tinder-foto-optimallisator/": {
+      "hash": "1597016481cf2bf6323d89a95a58746e9790975856316175dd3a08a0b61cec3f",
+      "route": "/nl/hulpmiddelen/categorieen/sociale-media/tinder-foto-optimallisator/"
+    },
+    "https://www.gamebob.dev/nl/hulpmiddelen/categorieen/sociale-media/youtube-thumbnail-ophalen-hd/": {
+      "hash": "5bca165593e186fba50a172ae3461b9a924c0e69d591dd32d33f0a6ab89b272e",
+      "route": "/nl/hulpmiddelen/categorieen/sociale-media/youtube-thumbnail-ophalen-hd/"
+    },
+    "https://www.gamebob.dev/nl/hulpmiddelen/categorieen/sociale-media/youtube-thumbnail-preview/": {
+      "hash": "25d764e471579df5b123cf1412c2e4b060d0a55796a07e454155e19a3cfb4128",
+      "route": "/nl/hulpmiddelen/categorieen/sociale-media/youtube-thumbnail-preview/"
+    },
+    "https://www.gamebob.dev/pl/narzedzia/kategorie/media-spolecznosciowe/formater-tekstu-reddit/": {
+      "hash": "118a3c6a10804e74467b48db95b79e0b1985f55f204b156785be421c6841993c",
+      "route": "/pl/narzedzia/kategorie/media-spolecznosciowe/formater-tekstu-reddit/"
+    },
+    "https://www.gamebob.dev/pl/narzedzia/kategorie/media-spolecznosciowe/": {
+      "hash": "edb4ed2dc6b854c80f14ce959dade8812873db81230e4c8c301eeca806ebe070",
+      "route": "/pl/narzedzia/kategorie/media-spolecznosciowe/"
+    },
+    "https://www.gamebob.dev/pl/narzedzia/kategorie/media-spolecznosciowe/kalkulator-wartosci-konta-social-media/": {
+      "hash": "4bba54a95819effa5959113a25a762876b75a09cbe5f1269304f85020e5227d6",
+      "route": "/pl/narzedzia/kategorie/media-spolecznosciowe/kalkulator-wartosci-konta-social-media/"
+    },
+    "https://www.gamebob.dev/pl/narzedzia/kategorie/media-spolecznosciowe/optymalizator-zdjec-tinder/": {
+      "hash": "d861fb4f24006a58a221a86cb99e3711e59712386962ac622048f7a3ee9af421",
+      "route": "/pl/narzedzia/kategorie/media-spolecznosciowe/optymalizator-zdjec-tinder/"
+    },
+    "https://www.gamebob.dev/pl/narzedzia/kategorie/media-spolecznosciowe/pobieranie-miniaturek-youtube-hd/": {
+      "hash": "3fb878d3f745a85c737d73aaaaadbad708c9d9496bde0b536fc99e237dbc5757",
+      "route": "/pl/narzedzia/kategorie/media-spolecznosciowe/pobieranie-miniaturek-youtube-hd/"
+    },
+    "https://www.gamebob.dev/pl/narzedzia/kategorie/media-spolecznosciowe/podglad-miniaturek-youtube/": {
+      "hash": "e63899a3660df8691595be33e6f39b707569d1e32c744b4a5773708da7f46f29",
+      "route": "/pl/narzedzia/kategorie/media-spolecznosciowe/podglad-miniaturek-youtube/"
+    },
+    "https://www.gamebob.dev/pl/narzedzia/kategorie/media-spolecznosciowe/strefy-bezpieczne-social/": {
+      "hash": "df4d7139a3e48a2d46ed335220c8bea39147b9595fb848db64c00c7a687d6b8b",
+      "route": "/pl/narzedzia/kategorie/media-spolecznosciowe/strefy-bezpieczne-social/"
+    },
+    "https://www.gamebob.dev/pl/narzedzia/kategorie/media-spolecznosciowe/zmiana-rozmiaru-zdjec-social-media/": {
+      "hash": "57f63ffb8bdddd9d96094e26d9d0c03f393b94f5653a9548ec3753549e6c744b",
+      "route": "/pl/narzedzia/kategorie/media-spolecznosciowe/zmiana-rozmiaru-zdjec-social-media/"
+    },
+    "https://www.gamebob.dev/pt/utilidades/categorias/redes-sociais/calculadora-valor-conta-social/": {
+      "hash": "269ff6e96d583d2b4925fa6c6cb3caf283b3a920c2764d2903b603f9d9b1712c",
+      "route": "/pt/utilidades/categorias/redes-sociais/calculadora-valor-conta-social/"
+    },
+    "https://www.gamebob.dev/pt/utilidades/categorias/redes-sociais/descarregar-miniaturas-youtube-hd/": {
+      "hash": "5e43d0137fae45d81cb45c07614bdef47ee85fae05ff68d139b403069905b2c2",
+      "route": "/pt/utilidades/categorias/redes-sociais/descarregar-miniaturas-youtube-hd/"
+    },
+    "https://www.gamebob.dev/pt/utilidades/categorias/redes-sociais/formatador-texto-reddit/": {
+      "hash": "d91e6e8fe1176aef10d064ec4ad47b82664bf6f0ec474dca24bc7090a49d39a4",
+      "route": "/pt/utilidades/categorias/redes-sociais/formatador-texto-reddit/"
+    },
+    "https://www.gamebob.dev/pt/utilidades/categorias/redes-sociais/": {
+      "hash": "ce248825502512c21215a5caeef9f19d93c79c52f9577c58c28c63e3f8bb305e",
+      "route": "/pt/utilidades/categorias/redes-sociais/"
+    },
+    "https://www.gamebob.dev/pt/utilidades/categorias/redes-sociais/otimizador-fotos-tinder/": {
+      "hash": "b8cd33f37156631ca97eb165e84ee8f9d2e5d2dbac49f3805307a63b43074c66",
+      "route": "/pt/utilidades/categorias/redes-sociais/otimizador-fotos-tinder/"
+    },
+    "https://www.gamebob.dev/pt/utilidades/categorias/redes-sociais/pre-visualizador-miniaturas-youtube/": {
+      "hash": "eb6bb3300da2623c00674c6596cfb5738976d8a1ac5e136bd37092125eb1adb0",
+      "route": "/pt/utilidades/categorias/redes-sociais/pre-visualizador-miniaturas-youtube/"
+    },
+    "https://www.gamebob.dev/pt/utilidades/categorias/redes-sociais/redimensionar-fotos-redes-sociais/": {
+      "hash": "ed2bccf975e2867532d36267918590531efb3e00066c347bd8d87d50c813fe43",
+      "route": "/pt/utilidades/categorias/redes-sociais/redimensionar-fotos-redes-sociais/"
+    },
+    "https://www.gamebob.dev/pt/utilidades/categorias/redes-sociais/zonas-seguras-sociais/": {
+      "hash": "363797237a0a57b82422d505207adcdd1982b0d96017f369584ad76bf000aa39",
+      "route": "/pt/utilidades/categorias/redes-sociais/zonas-seguras-sociais/"
+    },
+    "https://www.gamebob.dev/ru/instrumenty/kategorii/socialnyje-seti/bezopasnyje-zony-socialnyh-setej/": {
+      "hash": "42ca28636792965386b890453d1c19a04de7e1a671a401e1386267541bdada88",
+      "route": "/ru/instrumenty/kategorii/socialnyje-seti/bezopasnyje-zony-socialnyh-setej/"
+    },
+    "https://www.gamebob.dev/ru/instrumenty/kategorii/socialnyje-seti/formatirovaniye-teksta-reddit/": {
+      "hash": "314c80336855416fb02708e3fd7aa8f8d98d326baaa60be53a0177d452eca2f8",
+      "route": "/ru/instrumenty/kategorii/socialnyje-seti/formatirovaniye-teksta-reddit/"
+    },
+    "https://www.gamebob.dev/ru/instrumenty/kategorii/socialnyje-seti/": {
+      "hash": "6d956f8a996ef94517728e43158e473de409434f4a9e3a62302061df58508a22",
+      "route": "/ru/instrumenty/kategorii/socialnyje-seti/"
+    },
+    "https://www.gamebob.dev/ru/instrumenty/kategorii/socialnyje-seti/izmeneniye-razmera-izobrazhenij-socialnyh-setej/": {
+      "hash": "afc282b972425156ab66a46d18fd24e8472606cb4f3296f1d7e48f80686e6b56",
+      "route": "/ru/instrumenty/kategorii/socialnyje-seti/izmeneniye-razmera-izobrazhenij-socialnyh-setej/"
+    },
+    "https://www.gamebob.dev/ru/instrumenty/kategorii/socialnyje-seti/kalkulyator-stoimosti-akkaunta/": {
+      "hash": "2d745647091a520683dc94426beaf92a6683df82eadd3d7572d3dc1bbabd7187",
+      "route": "/ru/instrumenty/kategorii/socialnyje-seti/kalkulyator-stoimosti-akkaunta/"
+    },
+    "https://www.gamebob.dev/ru/instrumenty/kategorii/socialnyje-seti/optimizator-foto-tinder/": {
+      "hash": "b5997fdf2bc4921117e8393d69c082100b47158f1d90b7afbbcda43f3cd1dcb7",
+      "route": "/ru/instrumenty/kategorii/socialnyje-seti/optimizator-foto-tinder/"
+    },
+    "https://www.gamebob.dev/ru/instrumenty/kategorii/socialnyje-seti/predprosmotr-znachkov-youtube/": {
+      "hash": "60c7b4343bb0184e4e8682b0fc817ecaf88dfb92b9c3756abd46b7112cd05186",
+      "route": "/ru/instrumenty/kategorii/socialnyje-seti/predprosmotr-znachkov-youtube/"
+    },
+    "https://www.gamebob.dev/ru/instrumenty/kategorii/socialnyje-seti/skachat-znachki-youtube-hd/": {
+      "hash": "e36d0e744f445a29ba01c940534024cfc88ebe8235d4d02210f41c1783e5015d",
+      "route": "/ru/instrumenty/kategorii/socialnyje-seti/skachat-znachki-youtube-hd/"
+    },
+    "https://www.gamebob.dev/sv/verktyg/kategorier/sociala-medier/andra-storlek-bilder-sociala-medier/": {
+      "hash": "bc4ede9a1a3978b3289a8d7b8461e561cc4ed9712a56c8ea1d681aaeaf6a27bd",
+      "route": "/sv/verktyg/kategorier/sociala-medier/andra-storlek-bilder-sociala-medier/"
+    },
+    "https://www.gamebob.dev/sv/verktyg/kategorier/sociala-medier/forhandsvisning-youtube-miniatyrer/": {
+      "hash": "bdd15f593c7cf3b934830b004b478ef39a7a952899dbb251ad096a51e9c57546",
+      "route": "/sv/verktyg/kategorier/sociala-medier/forhandsvisning-youtube-miniatyrer/"
+    },
+    "https://www.gamebob.dev/sv/verktyg/kategorier/sociala-medier/": {
+      "hash": "5f4d07fd22704077ec7ddefc584bffea70bb691cf10c909516260e4bb5361f26",
+      "route": "/sv/verktyg/kategorier/sociala-medier/"
+    },
+    "https://www.gamebob.dev/sv/verktyg/kategorier/sociala-medier/kalkylator-varde-socialt-konto/": {
+      "hash": "0b27305578f623603a40d22700a7afc4b755d76d62458a13a9a937d8ce14d5d4",
+      "route": "/sv/verktyg/kategorier/sociala-medier/kalkylator-varde-socialt-konto/"
+    },
+    "https://www.gamebob.dev/sv/verktyg/kategorier/sociala-medier/ladda-ner-youtube-miniatyr-hd/": {
+      "hash": "8b1c70179856e619426c08761980cea3ad1e9c78d98fdb143a4ab5393c94ff15",
+      "route": "/sv/verktyg/kategorier/sociala-medier/ladda-ner-youtube-miniatyr-hd/"
+    },
+    "https://www.gamebob.dev/sv/verktyg/kategorier/sociala-medier/reddit-text-formatterare/": {
+      "hash": "6c139d826bbe818fba9bbb8dc3771c629f30429afa2f1238d4b1d0664f5aabbd",
+      "route": "/sv/verktyg/kategorier/sociala-medier/reddit-text-formatterare/"
+    },
+    "https://www.gamebob.dev/sv/verktyg/kategorier/sociala-medier/sociala-sakra-zoner/": {
+      "hash": "35b9f46fd9c2339e58e3239c3d06fb4359e15379c39f9c6f8a7d879538dd8f07",
+      "route": "/sv/verktyg/kategorier/sociala-medier/sociala-sakra-zoner/"
+    },
+    "https://www.gamebob.dev/sv/verktyg/kategorier/sociala-medier/tinder-foto-optimerare/": {
+      "hash": "c2800b642c2b11722d40cb23297b6578527b39bda71f4e2f0dd4a8560a7a27db",
+      "route": "/sv/verktyg/kategorier/sociala-medier/tinder-foto-optimerare/"
+    },
+    "https://www.gamebob.dev/tr/araclar/kategoriler/sosyal-medya/": {
+      "hash": "2f1f3f31175358ab4fc07cd839e1849c4c8b821af29be07c8737ac3d9ef04362",
+      "route": "/tr/araclar/kategoriler/sosyal-medya/"
+    },
+    "https://www.gamebob.dev/tr/araclar/kategoriler/sosyal-medya/reddit-metin-bicimlendirici/": {
+      "hash": "6e9af2d13821c5e706f42d5982ec2e10e37d51aea82a652396702a7ac79e507c",
+      "route": "/tr/araclar/kategoriler/sosyal-medya/reddit-metin-bicimlendirici/"
+    },
+    "https://www.gamebob.dev/tr/araclar/kategoriler/sosyal-medya/sosyal-guvenli-bolgeler/": {
+      "hash": "fdfb2dfefdd5ceacdef4be79e5f1dc9000de5240c5e80e45d3b5ab6ea7080054",
+      "route": "/tr/araclar/kategoriler/sosyal-medya/sosyal-guvenli-bolgeler/"
+    },
+    "https://www.gamebob.dev/tr/araclar/kategoriler/sosyal-medya/sosyal-medya-hesap-degeri-hesaplayici/": {
+      "hash": "418c182ee6b8b4b7931f4898995607b67a9ae1fad4b9664eb7d2b311be2c3855",
+      "route": "/tr/araclar/kategoriler/sosyal-medya/sosyal-medya-hesap-degeri-hesaplayici/"
+    },
+    "https://www.gamebob.dev/tr/araclar/kategoriler/sosyal-medya/sosyal-medya-resim-boyutlandirici/": {
+      "hash": "58859354ebfd1ec11dd53d4e8ce79d0faf73740da6543f4290752c5c09d92038",
+      "route": "/tr/araclar/kategoriler/sosyal-medya/sosyal-medya-resim-boyutlandirici/"
+    },
+    "https://www.gamebob.dev/tr/araclar/kategoriler/sosyal-medya/tinder-foto-iyilestirici/": {
+      "hash": "08202c2f98c61d7433758ff4cf34c4f2938459a8d74a83de2c107262788bc1b2",
+      "route": "/tr/araclar/kategoriler/sosyal-medya/tinder-foto-iyilestirici/"
+    },
+    "https://www.gamebob.dev/tr/araclar/kategoriler/sosyal-medya/youtube-kucuk-resim-indir-hd/": {
+      "hash": "ad31dd7997d5da63e6047b065349d2109494f8184b6e1ce65b78e5656edc6f34",
+      "route": "/tr/araclar/kategoriler/sosyal-medya/youtube-kucuk-resim-indir-hd/"
+    },
+    "https://www.gamebob.dev/tr/araclar/kategoriler/sosyal-medya/youtube-kucuk-resim-onizleme/": {
+      "hash": "0c9c9bad962bc5ef6d1f7f737763aed3362490d1b393b6963437e5835ebc0f09",
+      "route": "/tr/araclar/kategoriler/sosyal-medya/youtube-kucuk-resim-onizleme/"
+    },
+    "https://www.jjlmoya.es/utilidades/calculadora-valor-cuenta-redes-sociales/": {
+      "hash": "29cc0a65717156ce57b475e9ac8a227b4ffde86a0442202ad40da8da32cd87b9",
+      "route": "/utilidades/calculadora-valor-cuenta-redes-sociales/"
+    },
+    "https://www.jjlmoya.es/utilidades/categorias/redes-sociales/": {
+      "hash": "472d9bbc43863eff14cd2b7e7be14ceda6ad128612f8eea84f542442c48febfd",
+      "route": "/utilidades/categorias/redes-sociales/"
+    },
+    "https://www.jjlmoya.es/utilidades/extractor-miniaturas-youtube/": {
+      "hash": "c426f9d5031d92010a8fe9a55a9283f56814fe07c87ae0801eac80c96af35ba8",
+      "route": "/utilidades/extractor-miniaturas-youtube/"
+    },
+    "https://www.jjlmoya.es/utilidades/formateador-reddit/": {
+      "hash": "2f1629fe3637d8076db594c872cdb08432bead4eb71f3e18813799c55baec02d",
+      "route": "/utilidades/formateador-reddit/"
+    },
+    "https://www.jjlmoya.es/utilidades/optimizador-fotos-tinder/": {
+      "hash": "68dd2650eb223f3016602ac4b9253ecd839be2a1934aa93a26d9aba83edb92d2",
+      "route": "/utilidades/optimizador-fotos-tinder/"
+    },
+    "https://www.jjlmoya.es/utilidades/previsualizador-miniaturas-youtube/": {
+      "hash": "f862633bf06258b011f97a791bf28871b14827214e81594cfcdc0ad0af3e2b40",
+      "route": "/utilidades/previsualizador-miniaturas-youtube/"
+    },
+    "https://www.jjlmoya.es/utilidades/redimensionador-imagenes-rrss/": {
+      "hash": "9b220b3f3c8d6e95040cf33e853edf4a92500bfaa2e838cff22b9a66a0f4ba7f",
+      "route": "/utilidades/redimensionador-imagenes-rrss/"
+    },
+    "https://www.jjlmoya.es/utilidades/simulador-redes/": {
+      "hash": "ccd338951d3beb6ef62508d93ee44d722e610dada00dfd845ab467de1be7e96c",
+      "route": "/utilidades/simulador-redes/"
+    },
+    "https://www.gamebob.dev/zh/utilities/categories/social-media/": {
+      "hash": "5d890537d9dd0e6973478c74b6730f2167a52407ec4e906ad905c1e3b46923ca",
+      "route": "/zh/utilities/categories/social-media/"
+    },
+    "https://www.gamebob.dev/zh/utilities/categories/social-media/reddit-text-formatter/": {
+      "hash": "c3dc844ca546d5d763b3e48c0b6ba4f1eaeda4e92e1a15f424b7b16f8d5ea7e2",
+      "route": "/zh/utilities/categories/social-media/reddit-text-formatter/"
+    },
+    "https://www.gamebob.dev/zh/utilities/categories/social-media/social-account-value-calculator/": {
+      "hash": "19876fcf744ed47fd59cfdaba2662a1ca57b2578f964c5f320d8368afdc9e5e1",
+      "route": "/zh/utilities/categories/social-media/social-account-value-calculator/"
+    },
+    "https://www.gamebob.dev/zh/utilities/categories/social-media/social-media-image-resizer/": {
+      "hash": "2640b7ee88a8c43da12ed8db9f0ed210fdeb60e014b1134303e00b09b4e9ede9",
+      "route": "/zh/utilities/categories/social-media/social-media-image-resizer/"
+    },
+    "https://www.gamebob.dev/zh/utilities/categories/social-media/social-safe-zones/": {
+      "hash": "1a32c3cb7329727853b7e3768f88944ca75f97c2f987c25aeded6e79eeb31dff",
+      "route": "/zh/utilities/categories/social-media/social-safe-zones/"
+    },
+    "https://www.gamebob.dev/zh/utilities/categories/social-media/tinder-photo-optimizer/": {
+      "hash": "cbed2d3fba504ee7d4fabf50a9fca114b27e407cb152aefc64a5bb27eebbf8cf",
+      "route": "/zh/utilities/categories/social-media/tinder-photo-optimizer/"
+    },
+    "https://www.gamebob.dev/zh/utilities/categories/social-media/youtube-thumbnail-extractor/": {
+      "hash": "f63fcae0c4bffc72db9094d85e57ee93bd9490b6e462c8c48809be6d39b82511",
+      "route": "/zh/utilities/categories/social-media/youtube-thumbnail-extractor/"
+    },
+    "https://www.gamebob.dev/zh/utilities/categories/social-media/youtube-thumbnail-previewer/": {
+      "hash": "ea783c8700ca56e6a6d5126873a4f2fe57d49e4af7191710e12fd0b3a4f92457",
+      "route": "/zh/utilities/categories/social-media/youtube-thumbnail-previewer/"
+    }
+  }
+}
