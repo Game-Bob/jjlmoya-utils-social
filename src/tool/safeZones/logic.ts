@@ -23,7 +23,7 @@ const STAT = (icon: string, val: string) =>
 
 function buildTikTokNav(s: PlatformStrings): string {
   return `<div style="position:absolute;top:40px;left:0;width:100%;display:flex;justify-content:space-between;padding:0 24px;box-sizing:border-box;align-items:center">
-    <iconify-icon icon="mdi:live-tv" style="font-size:24px;color:white"></iconify-icon>
+    <iconify-icon icon="mdi:television-play" style="font-size:24px;color:white"></iconify-icon>
     <div style="display:flex;gap:16px;font-size:10px;font-weight:bold;text-transform:uppercase;letter-spacing:.1em">
       <span style="color:rgba(255,255,255,.5)">${s.ttFollowing}</span>
       <span style="color:white;border-bottom:2px solid white;padding-bottom:4px">${s.ttForYou}</span>
